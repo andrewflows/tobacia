@@ -3,31 +3,30 @@ layout: page
 title: "Contact"
 ---
 
-## Contact
+## Contact Me 📬
 
-Resume available upon request. Please use the form below to get in touch.
+For speaking engagements, recruitment opportunities, or to request my full resume, please use the form below or reach out via LinkedIn.
 
-<form action="https://formspree.io/f/xpwlrqpy" method="POST">
+<!-- Contact form -->
+<form
+  action="https://formspree.io/f/xpwlrqpy"
+  method="POST"
+>
   <label>
-    Name:
-    <input type="text" name="name" required>
+    Your email:
+    <input type="email" name="email" required>
   </label>
   <label>
-    Email:
-    <input type="email" name="_replyto" required>
-  </label>
-  <label>
-    Message:
+    Your message:
     <textarea name="message" required></textarea>
   </label>
-
-  <!-- Honeypot to catch spam bots -->
-  <input type="text" name="_gotcha" style="display:none">
-
-  <!-- Google reCAPTCHA v2 -->
-  <div class="g-recaptcha" data-sitekey="6LdILpErAAAAAC6binGsWsK2QVyP5rRbQxo-TiKn"></div>
-
   <button type="submit">Send</button>
 </form>
 
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+---
+
+### 📄 Download AI Resume Teasers
+[AI Resume Teaser (English)](Andres_Tobacia_AI_Resume_EN.pdf){: .btn }  
+[Resumen Ejecutivo IA (Español)](Andres_Tobacia_AI_Resume_ES.pdf){: .btn }
+
+<p>Full resume available upon request.</p>
