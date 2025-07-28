@@ -18,6 +18,9 @@ Founded and grew a supply chain solutions company with a focus on operational ef
 Directed international supplier networks and high-value contracts across aerospace and industrial sectors.
 
 ### STEM & AI Outreach
-Supports educational initiatives promoting AI, manufacturing, and space exploration careers.
+Volunteer and advocate for STEM education through initiatives connecting AI, manufacturing, and space exploration to future engineers.
+
+🎥 Featured content has reached **17,000+ views on YouTube**:  
+[Watch here](https://www.youtube.com/watch?v=4tuNPfHYMjE)
 
 _Resume available upon request._
