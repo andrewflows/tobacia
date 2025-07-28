@@ -12,11 +12,12 @@ title: "Home"
     Industrial Engineering & Supply Chain Executive | AI-Powered Manufacturing & Space Exploration
   </h2>
 
-  <div class="space-x-4">
-    [Contact Me](contact.html){: .btn }
+  <div class="flex flex-wrap justify-center gap-4 mt-4">
+    [Contact Me]({{ site.baseurl }}/contact.html){: .btn }
     [LinkedIn](https://www.linkedin.com/in/jatobacia/){: .btn }
-    [📄 AI Resume Teaser (English)](Andres_Tobacia_AI_Resume_EN.pdf){: .btn }
-    [📄 Resumen Ejecutivo IA (Español)](Andres_Tobacia_AI_Resume_ES.pdf){: .btn }
+    [📄 AI Resume Teaser (English)]({{ site.baseurl }}/Andres_Tobacia_AI_Resume_EN.pdf){: .btn }
+    [📄 Resumen Ejecutivo IA (Español)]({{ site.baseurl }}/Andres_Tobacia_AI_Resume_ES.pdf){: .btn }
+    [📅 Book Me to Speak](https://calendly.com/yotangoflow){: .btn }
   </div>
 </div>
 
@@ -72,3 +73,4 @@ document.querySelectorAll('.home-headshot img').forEach(img => {
   overflow: hidden;
 }
 </style>
+
