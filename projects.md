@@ -187,4 +187,3 @@ document.querySelectorAll('.gallery img').forEach(img => {
 });
 </script>
 
-
