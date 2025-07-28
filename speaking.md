@@ -3,13 +3,13 @@ layout: page
 title: "Speaking"
 ---
 
-## Speaking & Media 🎤
+## Speaking & Media
 
-Available for conferences, panels, and media engagements on:
+Available for conferences, panels, and leadership talks on:
 
-- AI-powered manufacturing and supply chain automation 🤖  
-- Space exploration operations and industrial innovation 🚀  
-- Startup scaling and operational leadership 📈  
+- AI-powered manufacturing and supply chain automation  
+- Space exploration operations and industrial innovation  
+- Scaling startups and operational leadership in deep tech  
 
-Resume available upon request 📄.  
+_Resume available upon request._  
 [Contact Me](contact.html){: .btn }
