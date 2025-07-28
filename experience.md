@@ -20,16 +20,16 @@ title: "Experience"
 - Contributed to the introduction of **40+ new astronauts** to space through reliable supply chain execution.
 
 ### Anything Flows – Houston, TX  
-**Founder & General Manager | 2014 – 2022**  
+**Founder & General Manager | 2018 – 2022**  
 - Founded and scaled a supply chain solutions company serving industrial and manufacturing clients.  
 - Oversaw operations, business development, and e-commerce platform launch.  
 - Managed multi-million dollar contracts for industrial automation and distribution projects.
 
-### Emerson, Cameron, Rotork – Houston, TX  
-**Engineering & Operations Roles | 2008 – 2014**  
+### Emerson, Cameron, Rotork, Lockwood, Weir – Houston, TX  
+**Engineering & Operations Roles | 2008 – 2018
 - Managed global supply chain and automation projects across North and Latin America.  
-- Directed multi-million dollar contracts and process improvements for large-scale manufacturing.  
-- Led technical sales, customer support, and business development across multiple regions.
+- Directed multi-million dollar contracts and process improvements for large-scale manufacturing in valves, valve actuators.  
+- Led technical sales, project management customer support, and business development across multiple regions.
 
 ---
 
