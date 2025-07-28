@@ -3,21 +3,21 @@ layout: page
 title: "Projects & Initiatives"
 ---
 
-## Projects & Initiatives 🚀
+## Projects & Initiatives
 
-### Space Manufacturing & Supply Chain Optimization 🛰️
-Led strategic procurement and logistics initiatives supporting crewed capsule subsystems and advanced manufacturing for spaceflight programs.
+### Space Manufacturing & Supply Chain Optimization
+Led supply chain strategies and manufacturing initiatives for spaceflight programs with advanced automation.
 
-### Space United – Sports in Space ⚽🌌
-Advisor for **Space United**, an initiative aiming to bring sports beyond Earth — starting with the beautiful game of soccer.
+### Space United – Sports in Space
+Advisor for **Space United**, supporting the mission to take sports beyond Earth, starting with soccer.
 
-### Scaling a Supply Chain Startup 📈
-Founded and grew a supply chain solutions company, developing operational strategies and launching innovative e-commerce platforms.
+### Scaling a Supply Chain Startup
+Founded and grew a supply chain solutions company with a focus on operational efficiency and innovation.
 
-### Global Operations Management 🌎
-Directed complex international contracts and supplier networks across aerospace, energy, and industrial automation sectors.
+### Global Operations & Contracts
+Directed international supplier networks and high-value contracts across aerospace and industrial sectors.
 
-### STEM & AI Outreach 🤖👩‍🎓
-Volunteer and advocate for STEM education through initiatives connecting AI, manufacturing, and space exploration to future engineers.
+### STEM & AI Outreach
+Supports educational initiatives promoting AI, manufacturing, and space exploration careers.
 
-Resume available upon request 📄.
+_Resume available upon request._
