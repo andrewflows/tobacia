@@ -3,23 +3,39 @@ layout: home
 title: "Home"
 ---
 
-<div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center; margin-bottom:30px;">
+<div class="flex flex-col items-center justify-center text-center space-y-6 mt-8">
   <div class="home-headshot">
-    <img src="{{ site.baseurl }}/Andres%20Tobacia%20Professional%20Headshot.jpg" alt="Andrés Tobacia" style="max-width:220px;border-radius:50%;box-shadow:0 0 18px rgba(0,255,255,0.4);cursor:pointer;">
+    <img src="{{ site.baseurl }}/Andres%20Tobacia%20Professional%20Headshot.jpg" alt="Andrés Tobacia" class="max-w-xs rounded-full shadow-lg cursor-pointer">
   </div>
-  <div>
-    # Andrés Tobacia  
-    **Industrial Engineering & Supply Chain Executive | AI-Powered Manufacturing & Space Exploration**
+  <h1 class="text-3xl font-bold text-blue-300">Andrés Tobacia</h1>
+  <h2 class="text-lg font-medium text-gray-200 typewriter">
+    Industrial Engineering & Supply Chain Executive | AI-Powered Manufacturing & Space Exploration
+  </h2>
+
+  <div class="space-x-4">
+    [Contact Me](contact.html){: .btn }
+    [LinkedIn](https://www.linkedin.com/in/jatobacia/){: .btn }
+    [📄 AI Resume Teaser (English)](Andres_Tobacia_AI_Resume_EN.pdf){: .btn }
+    [📄 Resumen Ejecutivo IA (Español)](Andres_Tobacia_AI_Resume_ES.pdf){: .btn }
   </div>
 </div>
 
-[Contact Me](contact.html){: .btn }  
-[LinkedIn](https://www.linkedin.com/in/jatobacia/){: .btn }  
-
-[📄 AI Resume Teaser (English)](Andres_Tobacia_AI_Resume_EN.pdf){: .btn }  
-[📄 Resumen Ejecutivo IA (Español)](Andres_Tobacia_AI_Resume_ES.pdf){: .btn }
-
 <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const el = document.querySelector('.typewriter');
+  const text = el.textContent;
+  el.textContent = '';
+  let i = 0;
+  const type = () => {
+    if (i < text.length) {
+      el.textContent += text.charAt(i);
+      i++;
+      setTimeout(type, 50); // typing speed
+    }
+  };
+  type();
+});
+
 document.querySelectorAll('.home-headshot img').forEach(img => {
   img.addEventListener('click', function() {
     const overlay = document.createElement('div');
@@ -48,3 +64,11 @@ document.querySelectorAll('.home-headshot img').forEach(img => {
   });
 });
 </script>
+
+<style>
+.typewriter {
+  border-right: 2px solid #38bdf8;
+  white-space: nowrap;
+  overflow: hidden;
+}
+</style>
