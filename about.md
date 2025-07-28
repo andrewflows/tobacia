@@ -13,6 +13,7 @@ Currently serving as **Global Supply Chain Project Manager III** at Blue Origin 
 - Founded and scaled a supply chain solutions startup with significant operational growth.  
 - Managed international contracts and multi-site operations across North and Latin America.  
 - Certified in Harvard Negotiation and Entrepreneurial Operations.
+- Branding & Strategic Naming (8+ registered trademarks)
 
 ### Beliefs & Vision
 - Building the road to space and changing humanity one astronaut at a time.  
