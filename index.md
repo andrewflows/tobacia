@@ -17,7 +17,7 @@ title: "Home"
 [LinkedIn](https://www.linkedin.com/in/jatobacia/){: .btn }  
 
 [📄 AI Resume Teaser (English)](assets/resume/Andres_Tobacia_AI_Resume_EN.pdf){: .btn }  
-[📄 Resumen Ejecutivo IA (Español)](assets/resume/Andres_Tobacia_AI_Resume_ES.pdf){: .btn }
+[📄 Resumen Ejecutivo IA (Español)](assets/resume/Andres_Tobacia_AI_Resume_Es.pdf){: .btn }
 
 <script>
 document.querySelectorAll('.home-headshot img').forEach(img => {
