@@ -6,7 +6,7 @@ title: "Projects & Initiatives"
 ## Projects & Initiatives
 
 ### Blue Origin – Space Manufacturing & Supply Chain Optimization
-<p>Supporting over <strong>12 successful suborbital flight missions</strong> and contributing to the introduction of <strong>40+ new astronauts</strong> to space. Driving supply chain excellence for crew capsule subsystems and critical mission components.</p>
+<p>Supporting over <strong>12 successful suborbital flight missions</strong>, <strong>1 orbital mission</strong>, and multiple payload missions. Contributed to the introduction of <strong>40+ new astronauts</strong> to space while driving supply chain excellence for critical mission components.</p>
 
 <div class="gallery">
   <div class="gallery-item">
@@ -94,7 +94,23 @@ title: "Projects & Initiatives"
 
 <p><strong>Over 17,000+ views on YouTube.</strong></p>
 
-_Resume available upon request._
+---
+
+### Humanitarian Initiatives 🌍
+
+<p>Beyond engineering and supply chain leadership, I actively support humanitarian initiatives that leverage open-source technology to create positive global change.</p>
+
+- **Open-Source Decentralized Tech:** Empowering communities through transparent systems and innovation.  
+- **Financial Inclusion:** Supporting technology that provides access to economic tools for underserved populations.  
+- **Borderless Aid:** Promoting digital solutions to deliver humanitarian relief across regions without barriers.  
+- **Sustainable Energy:** Advocating for responsible industrial transitions and renewable energy adoption.
+
+<div class="gallery">
+  <div class="gallery-item">
+    <img src="{{ site.baseurl }}/Tobacia%20Brothers.jpg" alt="Technology for Humanity">
+    <p><strong>Technology for Humanity</strong> – Using innovation to create a better future for all.</p>
+  </div>
+</div>
 
 ---
 
@@ -170,4 +186,5 @@ document.querySelectorAll('.gallery img').forEach(img => {
   });
 });
 </script>
+
 
