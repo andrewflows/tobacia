@@ -3,13 +3,13 @@ layout: page
 title: "Speaking"
 ---
 
-## Speaking & Media
+## Speaking & Media 🎤
 
-Andrés is available for conferences, panels, and media engagements on:
+Available for conferences, panels, and media engagements on:
 
-- AI-powered manufacturing and supply chain automation  
-- Space exploration operations and industrial innovation  
-- Scaling startups and operational leadership in deep tech  
+- AI-powered manufacturing and supply chain automation 🤖  
+- Space exploration operations and industrial innovation 🚀  
+- Startup scaling and operational leadership 📈  
 
-Resume available upon request.  
+Resume available upon request 📄.  
 [Contact Me](contact.html){: .btn }
