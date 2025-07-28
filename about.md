@@ -5,6 +5,10 @@ title: "About"
 
 ## About Andrés
 
+<div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+  <img src="{{ site.baseurl }}/Andres Tobacia Blue Origin.jpg" alt="Andrés Tobacia" style="max-width:250px;border-radius:8px;box-shadow:0 0 12px rgba(0,255,255,0.3);">
+  <div>
+
 Andrés Tobacia is an Industrial Engineering & Supply Chain Executive with 17+ years of experience optimizing manufacturing, logistics, and automation systems across aerospace, energy, and industrial sectors.
 
 Currently serving as **Global Supply Chain Project Manager III** at Blue Origin in Kent, WA, Andrés leads procurement and supply chain strategies for crew capsule subsystems in next-generation space exploration.
