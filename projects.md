@@ -44,17 +44,13 @@ title: "Projects & Initiatives"
 ### Space United – Sports in Space
 <p>Advisor for <a href="https://www.spaceunited.com" target="_blank"><strong>Space United</strong></a>, an initiative dedicated to taking sports beyond Earth, starting with the beautiful game of soccer.</p>
 
-<div class="gallery-large">
+<div class="gallery">
   <div class="gallery-item">
-    <a href="{{ site.baseurl }}/Space%20United%20team.png" target="_blank">
-      <img src="{{ site.baseurl }}/Space%20United%20team.png" alt="Space United Team">
-    </a>
+    <img src="{{ site.baseurl }}/Space%20United%20team.png" alt="Space United Team">
     <p>Space United Team</p>
   </div>
   <div class="gallery-item">
-    <a href="{{ site.baseurl }}/Space%20United%20with%20Atletico%20Nacional.png" target="_blank">
-      <img src="{{ site.baseurl }}/Space%20United%20with%20Atletico%20Nacional.png" alt="Space United with Atletico Nacional">
-    </a>
+    <img src="{{ site.baseurl }}/Space%20United%20with%20Atletico%20Nacional.png" alt="Space United with Atletico Nacional">
     <p>Outreach Collaboration with Atlético Nacional</p>
   </div>
 </div>
@@ -108,6 +104,7 @@ _Resume available upon request._
   flex-wrap: wrap;
   gap: 20px;
   margin: 20px 0;
+  justify-content: center;
 }
 .gallery-item {
   flex: 1 1 45%;
@@ -124,15 +121,6 @@ _Resume available upon request._
 .gallery-item img:hover {
   transform: scale(1.03);
   box-shadow: 0 0 20px rgba(255,0,255,0.6);
-}
-.gallery-large img {
-  width: 85%;
-  margin: auto;
-  display: block;
-  border-radius: 8px;
-  box-shadow: 0 0 20px rgba(0,255,255,0.3);
-  margin-bottom: 20px;
-  cursor: pointer;
 }
 .video-container {
   position: relative;
@@ -154,7 +142,7 @@ _Resume available upon request._
 </style>
 
 <script>
-document.querySelectorAll('.gallery img, .gallery-large img').forEach(img => {
+document.querySelectorAll('.gallery img').forEach(img => {
   img.addEventListener('click', function() {
     const overlay = document.createElement('div');
     overlay.style.position = 'fixed';
@@ -182,3 +170,4 @@ document.querySelectorAll('.gallery img, .gallery-large img').forEach(img => {
   });
 });
 </script>
+
