@@ -6,7 +6,9 @@ title: "About"
 ## About Andrés 🚀
 
 <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap; margin-bottom:20px;">
-  <img src="{{ site.baseurl }}/Andres Tobacia Blue Origin.jpg" alt="Andrés Tobacia" style="max-width:250px;border-radius:8px;box-shadow:0 0 12px rgba(0,255,255,0.3);">
+  <div class="about-image">
+    <img src="{{ site.baseurl }}/Andres%20Tobacia%20Blue%20Origin.jpg" alt="Andrés Tobacia" style="max-width:250px;border-radius:8px;box-shadow:0 0 12px rgba(0,255,255,0.3);cursor:pointer;">
+  </div>
   <div>
     <p><strong>Andrés Tobacia</strong> is an Industrial & Systems Engineer from <strong>Texas A&M University</strong> (Class of 2008) with over <strong>17 years of experience</strong> optimizing manufacturing, logistics, and automation systems across aerospace 🌌, energy ⚡, and industrial sectors 🏭.</p>
 
@@ -35,3 +37,41 @@ title: "About"
 - Proud member of a family of engineers 👨‍🔧 — four Aggie engineers contributing to space exploration 🚀 and renewable energy 🌱.
 
 _Resume available upon request 📄._
+
+<style>
+.about-image img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(255,0,255,0.6);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+</style>
+
+<script>
+document.querySelectorAll('.about-image img').forEach(img => {
+  img.addEventListener('click', function() {
+    const overlay = document.createElement('div');
+    overlay.style.position = 'fixed';
+    overlay.style.top = 0;
+    overlay.style.left = 0;
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.background = 'rgba(0,0,0,0.9)';
+    overlay.style.display = 'flex';
+    overlay.style.alignItems = 'center';
+    overlay.style.justifyContent = 'center';
+    overlay.style.zIndex = 9999;
+
+    const fullImg = document.createElement('img');
+    fullImg.src = this.src;
+    fullImg.style.maxWidth = '90%';
+    fullImg.style.maxHeight = '90%';
+    fullImg.style.borderRadius = '8px';
+    fullImg.style.boxShadow = '0 0 25px rgba(0,255,255,0.8)';
+
+    overlay.appendChild(fullImg);
+    overlay.addEventListener('click', () => document.body.removeChild(overlay));
+
+    document.body.appendChild(overlay);
+  });
+});
+</script>
