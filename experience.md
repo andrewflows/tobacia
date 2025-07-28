@@ -15,7 +15,7 @@ title: "Experience"
 **Supply Chain Program Manager III | July 2022 – July 2025**  
 - Directed supply chain excellence for **crew capsule subsystems** (Escape, Structures, Pneumatics, Separation, Parachute, Avionics).  
 - Delivered multi-million dollar cost savings through process optimization and automation.  
-- Led procurement of multi-million dollar contracts for next-gen vehicles utilizing Coupa, Costpoint, and Windchill tools.  
+- Led procurement of multi-million dollar contracts for next-gen vehicles utilizing several MRP/ERP tools
 - Supported **12+ successful suborbital missions**, **1 orbital mission**, and multiple payload missions.  
 - Contributed to the introduction of **40+ new astronauts** to space through reliable supply chain execution.
 
