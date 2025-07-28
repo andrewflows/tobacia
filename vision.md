@@ -3,15 +3,15 @@ layout: page
 title: "Vision & Goals"
 ---
 
-## Vision 🌟
+## Vision
 
-To lead transformative projects in AI-powered manufacturing 🤖 and deep tech industries 🔧 while contributing to the advancement of space exploration 🚀.
+To drive innovation in AI-powered manufacturing and deep tech while shaping the future of space exploration and industrial automation.
 
-### 🌌 Guiding Principles
-- Building the road to space and changing humanity one astronaut at a time 👩‍🚀.  
-- Promoting sustainability 🌱 and supporting the transition to electric vehicles 🚗⚡.  
-- Advocating for AI that serves humanity ethically ❤️ and focuses on the greater good.  
+### Guiding Principles
+- Building the road to space, changing humanity one astronaut at a time.  
+- Promoting sustainability and supporting the transition to electric vehicles.  
+- Ensuring AI is developed ethically, always focused on benefiting humanity.
 
-Focused on driving operational excellence 🏗️ and innovation in supply chain systems that shape the future of space and industrial technology 🌍.
+Focused on operational excellence and creating long-term value in advanced manufacturing and supply chain systems.
 
-Resume available upon request 📄.
+_Resume available upon request._
