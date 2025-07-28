@@ -22,6 +22,8 @@ Currently serving as **Global Supply Chain Project Manager III** at Blue Origin 
 
 ### Beyond Work
 - Advisor for **Space United**, an initiative bringing sports to space — starting with the beautiful game of soccer.  
-- Comes from a family of engineers with three brothers working in the space industry.
+- Holder of over 8 registered trademarks and experienced in naming companies and products with strategic branding.  
+- Built this personal website entirely using AI tools, investing only in the domain to demonstrate efficient tech adoption.  
+- Comes from a family of engineers — three brothers across the space exploration and renewable energy industries.
 
 _Resume available upon request._
