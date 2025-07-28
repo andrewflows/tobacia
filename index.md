@@ -48,4 +48,3 @@ document.querySelectorAll('.home-headshot img').forEach(img => {
   });
 });
 </script>
-
