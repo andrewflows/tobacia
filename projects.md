@@ -17,6 +17,9 @@ Founded and grew a supply chain solutions company with a focus on operational ef
 ### Global Operations & Contracts
 Directed international supplier networks and high-value contracts across aerospace and industrial sectors.
 
+### Branding & Trademarks
+Developed brand identities and product names for multiple ventures, holding over 8 registered trademarks that reflect strategic positioning and long-term vision.
+
 ### STEM & AI Outreach
 Volunteer and advocate for STEM education through initiatives connecting AI, manufacturing, and space exploration to future engineers.
 
