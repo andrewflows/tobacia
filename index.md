@@ -8,4 +8,4 @@ Industrial Engineering & Supply Chain Executive | Driving AI-Powered Manufacturi
 
 [Download Resume](assets/resume/Andres_Tobacia_Resume.pdf){: .btn }
 [Contact Me](contact.html){: .btn }
-[LinkedIn]([https://www.linkedin.com](https://www.linkedin.com/in/jatobacia/)){: .btn }
+[LinkedIn]([https://www.linkedin.com/in/jatobacia/]){: .btn }
