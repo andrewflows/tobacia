@@ -21,14 +21,14 @@ title: "Experience"
 
 ### Anything Flows – Houston, TX  
 **Founder & General Manager**  
-*2014 – 2022*  
+*2018 – 2022*  
 - Established and scaled a supply chain solutions startup in the valves & controls sector.  
 - Oversaw business development, operations, and strategic partnerships in North and Latin America.  
 - Developed trademarked branding and launched an industry-first e-commerce platform.
 
 ### Emerson, Cameron, Rotork – Houston, TX  
 **Various Engineering & Operations Roles**  
-*2008 – 2014*  
+*2008 – 2018*  
 - Managed global supply chain and manufacturing operations across industrial sectors.  
 - Directed high-value contracts and implemented process automation for large-scale projects.  
 - Led technical sales, customer support, and business development across multiple regions.
