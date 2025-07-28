@@ -46,14 +46,14 @@ title: "Projects & Initiatives"
 
 <div class="gallery-large">
   <div class="gallery-item">
-    <a href="https://www.spaceunited.com" target="_blank">
-      <img src="{{ site.baseurl }}/Space United team.png" alt="Space United Team">
+    <a href="{{ site.baseurl }}/Space%20United%20team.png" target="_blank">
+      <img src="{{ site.baseurl }}/Space%20United%20team.png" alt="Space United Team">
     </a>
     <p>Space United Team</p>
   </div>
   <div class="gallery-item">
-    <a href="https://www.spaceunited.com" target="_blank">
-      <img src="{{ site.baseurl }}/Space United with Atletico Nacional.png" alt="Space United with Atletico Nacional">
+    <a href="{{ site.baseurl }}/Space%20United%20with%20Atletico%20Nacional.png" target="_blank">
+      <img src="{{ site.baseurl }}/Space%20United%20with%20Atletico%20Nacional.png" alt="Space United with Atletico Nacional">
     </a>
     <p>Outreach Collaboration with Atlético Nacional</p>
   </div>
@@ -66,24 +66,20 @@ title: "Projects & Initiatives"
 
 <div class="gallery">
   <div class="gallery-item">
-    <img src="{{ site.baseurl }}/Anything Flows.jpg" alt="Anything Flows Logo">
+    <img src="{{ site.baseurl }}/Anything%20Flows.jpg" alt="Anything Flows Logo">
     <p>Anything Flows – Valve & Control Solutions Startup</p>
   </div>
   <div class="gallery-item">
-    <img src="{{ site.baseurl }}/Anything Flows Valve Actuators.jpg" alt="Valve Actuators">
+    <img src="{{ site.baseurl }}/Anything%20Flows%20Valve%20Actuators.jpg" alt="Valve Actuators">
     <p>Industrial Valve Actuators – Process Automation</p>
   </div>
   <div class="gallery-item">
-    <img src="{{ site.baseurl }}/Andres Tobacia with Ball Valves.jpg" alt="Ball Valves">
-    <p>Engineering Solutions with Ball Valves & Controls</p>
+    <img src="{{ site.baseurl }}/Andres%20Tobacia%20with%20Ball%20Valves.jpg" alt="Andres delivering Natural Gas Pipeline Valves">
+    <p>Andres Tobacia delivering Natural Gas Pipeline Valves – Engineering Solutions</p>
   </div>
   <div class="gallery-item">
-    <img src="{{ site.baseurl }}/Anything Flows Vincent Van Flow.jpg" alt="Vincent Van Flow Logo">
-    <p>Trademarked Creative Branding – Vincent Van Flow</p>
-  </div>
-  <div class="gallery-item">
-    <img src="{{ site.baseurl }}/Vincent Van Flow.jpg" alt="Vincent Van Flow Artwork">
-    <p>Vincent Van Flow – Merging Art and Industrial Design</p>
+    <img src="{{ site.baseurl }}/Vincent%20Van%20Flow.jpg" alt="Vincent Van Flow">
+    <p>Vincent Van Flow – Trademarked Creative Branding</p>
   </div>
 </div>
 
@@ -123,6 +119,7 @@ _Resume available upon request._
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0,255,255,0.3);
   transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
 }
 .gallery-item img:hover {
   transform: scale(1.03);
@@ -135,6 +132,7 @@ _Resume available upon request._
   border-radius: 8px;
   box-shadow: 0 0 20px rgba(0,255,255,0.3);
   margin-bottom: 20px;
+  cursor: pointer;
 }
 .video-container {
   position: relative;
@@ -155,3 +153,32 @@ _Resume available upon request._
 }
 </style>
 
+<script>
+document.querySelectorAll('.gallery img, .gallery-large img').forEach(img => {
+  img.addEventListener('click', function() {
+    const overlay = document.createElement('div');
+    overlay.style.position = 'fixed';
+    overlay.style.top = 0;
+    overlay.style.left = 0;
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.background = 'rgba(0,0,0,0.9)';
+    overlay.style.display = 'flex';
+    overlay.style.alignItems = 'center';
+    overlay.style.justifyContent = 'center';
+    overlay.style.zIndex = 9999;
+
+    const fullImg = document.createElement('img');
+    fullImg.src = this.src;
+    fullImg.style.maxWidth = '90%';
+    fullImg.style.maxHeight = '90%';
+    fullImg.style.borderRadius = '8px';
+    fullImg.style.boxShadow = '0 0 25px rgba(0,255,255,0.8)';
+
+    overlay.appendChild(fullImg);
+    overlay.addEventListener('click', () => document.body.removeChild(overlay));
+
+    document.body.appendChild(overlay);
+  });
+});
+</script>
