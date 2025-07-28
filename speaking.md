@@ -15,7 +15,7 @@ Available for conferences, panels, and leadership talks on:
 - Fertility strategies & population initiatives 👶🌎  
 - The future of humanity with AI and ethical innovation 🤖🌍  
 
-[📅 Book Me to Speak](https://calendly.com/your-link){: .btn }
+[📅 Book Me to Speak](https://calendly.com/yotangoflow){: .btn }
 
 ---
 
@@ -31,7 +31,7 @@ Disponibles para conferencias, paneles y charlas de liderazgo sobre:
 - Estrategias de fertilidad e iniciativas de población 👶🌎  
 - El futuro de la humanidad con IA e innovación ética 🤖🌍  
 
-[📅 Reservar Conferencia](https://calendly.com/your-link){: .btn }
+[📅 Reservar Conferencia](https://calendly.com/yotangoflow){: .btn }
 
 ---
 
