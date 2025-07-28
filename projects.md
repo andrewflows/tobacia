@@ -5,20 +5,40 @@ title: "Projects & Initiatives"
 
 ## Projects & Initiatives
 
-### Space Manufacturing & Supply Chain Optimization
+### Blue Origin – Space Manufacturing & Supply Chain Optimization
 <div class="gallery">
   <div class="gallery-item">
     <img src="{{ site.baseurl }}/8_NS22-Capsule-Descent-1.jpg" alt="NS22 Capsule Descent">
-    <p>NS-22 Crew Capsule Recovery and Supply Chain Integration</p>
+    <p>NS-22 Crew Capsule Recovery & Supply Chain Integration</p>
+  </div>
+  <div class="gallery-item">
+    <img src="{{ site.baseurl }}/NS22_EarthView (1).jpg" alt="Earth View NS22">
+    <p>NS-22 Earth View from Capsule Operations</p>
+  </div>
+  <div class="gallery-item">
+    <img src="{{ site.baseurl }}/ns25-egress-ed-dwight_gallery.jpg" alt="Ed Dwight NS25 Egress">
+    <p>NS-25 Mission Support – Historic Flight Logistics</p>
+  </div>
+  <div class="gallery-item">
+    <img src="{{ site.baseurl }}/ns26_capsule_touchdown_booster_background.jpg" alt="NS26 Capsule Touchdown">
+    <p>NS-26 Capsule & Booster Recovery Operations</p>
+  </div>
+  <div class="gallery-item">
+    <img src="{{ site.baseurl }}/ns-28-emily-calandrelli-(1).jpg" alt="Emily Calandrelli NS28">
+    <p>NS-28 Mission Logistics & Procurement Coordination</p>
+  </div>
+  <div class="gallery-item">
+    <img src="{{ site.baseurl }}/ns-31-katy-perry.jpg" alt="NS31 Katy Perry Mission">
+    <p>NS-31 Mission Support – Capsule Subsystems Supply Chain</p>
   </div>
   <div class="gallery-item">
     <img src="{{ site.baseurl }}/blue-origin-new-glenn-ng-1-liftoff-closeup-vertical.jpg" alt="New Glenn Rocket Launch">
-    <p>New Glenn Launch Vehicle – Supply Chain & Procurement Programs</p>
+    <p>New Glenn Launch Vehicle Supply Chain & Procurement</p>
   </div>
 </div>
 
 ### Space United – Sports in Space
-<div class="gallery">
+<div class="gallery-large">
   <div class="gallery-item">
     <img src="{{ site.baseurl }}/Space United team.png" alt="Space United Team">
     <p>Advisor for Space United – Taking the Beautiful Game to Space</p>
@@ -32,12 +52,12 @@ title: "Projects & Initiatives"
 ### Anything Flows – Startup & Branding
 <div class="gallery">
   <div class="gallery-item">
-    <img src="{{ site.baseurl }}/Andres Tobacia Blue Origin.jpg" alt="Anything Flows Branding">
-    <p>Founder of Anything Flows – Supply Chain & Valve Solutions Startup</p>
+    <img src="{{ site.baseurl }}/Tobacia brothers in media.png" alt="Anything Flows Branding">
+    <p>Founder of Anything Flows – Valve & Control Solutions Startup</p>
   </div>
   <div class="gallery-item">
-    <img src="{{ site.baseurl }}/Tobacia brothers in media.png" alt="Vincent Van Flow Artwork">
-    <p>Vincent Van Flow – Creative Branding and Trademark Portfolio</p>
+    <img src="{{ site.baseurl }}/Andres Tobacia Blue Origin.jpg" alt="Vincent Van Flow">
+    <p>Vincent Van Flow – Trademarked Creative Branding</p>
   </div>
 </div>
 
@@ -78,6 +98,14 @@ _Resume available upon request._
   transform: scale(1.03);
   box-shadow: 0 0 20px rgba(255,0,255,0.6);
 }
+.gallery-large img {
+  width: 80%;
+  margin: auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0,255,255,0.3);
+  margin-bottom: 20px;
+}
 .video-container {
   position: relative;
   padding-bottom: 56.25%;
@@ -96,3 +124,4 @@ _Resume available upon request._
   box-shadow: 0 0 15px rgba(0,255,255,0.3);
 }
 </style>
+
