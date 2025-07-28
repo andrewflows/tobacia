@@ -5,4 +5,8 @@ title: "Vision & Goals"
 
 ## Vision
 
-Seeking to join a deep tech or AI-powered manufacturing unicorn with equity upside, making smart bets with 3X–100X potential. Preparing for financial freedom and retirement by 55.
+To lead transformative projects in AI-driven manufacturing and deep tech industries, shaping the future of space exploration and industrial automation.
+
+Focused on driving operational excellence and innovation in supply chain systems, while contributing to disruptive technologies with long-term impact.
+
+Resume available upon request.
