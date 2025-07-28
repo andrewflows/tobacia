@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Speaking"
+title: "Speaking / Conferencias"
 ---
 
 ## Speaking & Media 🎤
@@ -10,14 +10,30 @@ Available for conferences, panels, and leadership talks on:
 - AI-powered manufacturing and supply chain automation 🤖  
 - Space exploration operations and industrial innovation 🚀  
 - Soccer in space and sports as a tool for inspiration ⚽🌌  
-- Renewable energy and sustainable industrial transitions ⚡🌱
-- Open‑Source Decentralized Tech: Empowering communities, enabling global aid, and driving a sustainable future. 🧡⚡
+- Renewable energy and sustainable transitions ⚡🌱  
+- Open-source tech for humanitarian impact 🌍  
+- Fertility strategies & population initiatives 👶🌎  
 - The future of humanity with AI and ethical innovation 🤖🌍  
-- Population growth initiatives 👶🌎  
-- Scaling startups and operational leadership in deep tech 📈  
 
-### 🌟 STEM & Motivation Engagements
-We are available upon request to support **STEM/STEAM** initiatives and **motivational speaking engagements**, inspiring the next generation of engineers and innovators.
+[📅 Book Me to Speak](https://calendly.com/your-link){: .btn }
+
+---
+
+## Conferencias y Medios 🎤
+
+Disponibles para conferencias, paneles y charlas de liderazgo sobre:
+
+- Manufactura impulsada por IA y automatización de cadenas de suministro 🤖  
+- Operaciones de exploración espacial e innovación industrial 🚀  
+- Fútbol en el espacio y deportes como herramienta de inspiración ⚽🌌  
+- Energía renovable y transiciones sostenibles ⚡🌱  
+- Tecnología open-source para impacto humanitario 🌍  
+- Estrategias de fertilidad e iniciativas de población 👶🌎  
+- El futuro de la humanidad con IA e innovación ética 🤖🌍  
+
+[📅 Reservar Conferencia](https://calendly.com/your-link){: .btn }
+
+---
 
 <div class="gallery-large">
   <div class="gallery-item">
@@ -35,10 +51,7 @@ We are available upon request to support **STEM/STEAM** initiatives and **motiva
   </iframe>
 </div>
 
-<p><strong>Over 17,000+ views on YouTube.</strong></p>
-
-_Resume available upon request 📄._  
-[Contact Me](contact.html){: .btn }
+<p><strong>Over 17,000+ views on YouTube / Más de 17,000 vistas en YouTube.</strong></p>
 
 <style>
 .gallery-large {
@@ -111,4 +124,5 @@ document.querySelectorAll('.gallery-large img').forEach(img => {
   });
 });
 </script>
+
 
