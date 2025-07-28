@@ -3,35 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }} - {{ site.title }}</title>
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+  <title>{{ page.title }} | {{ site.title }}</title>
+
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- Fade-in Animation -->
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 1s ease-in-out;
+    }
+    body {
+      background-color: #0a0f1c;
+      color: #f5f5f5;
+    }
+    a {
+      transition: color 0.3s;
+    }
+    a:hover {
+      color: #60a5fa;
+    }
+    header, footer {
+      background-color: #111827;
+    }
+    .neon-text {
+      color: #38bdf8;
+      text-shadow: 0 0 10px rgba(56, 189, 248, 0.7);
+    }
+  </style>
 </head>
-<body>
-  <header>
-    <h1><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
-    <nav>
-      <a href="{{ site.baseurl }}/">Home</a>
-      <a href="{{ site.baseurl }}/about.html">About</a>
-      <a href="{{ site.baseurl }}/experience.html">Experience</a>
-      <a href="{{ site.baseurl }}/projects.html">Projects</a>
-      <a href="{{ site.baseurl }}/speaking.html">Speaking</a>
-      <a href="{{ site.baseurl }}/vision.html">Vision</a>
-      <a href="{{ site.baseurl }}/contact.html">Contact</a>
+
+<body class="font-sans leading-relaxed">
+  <!-- Header -->
+  <header class="text-center p-4 shadow-md">
+    <h1 class="text-3xl font-bold neon-text">{{ site.title }}</h1>
+    <nav class="mt-2 space-x-4">
+      <a href="{{ site.baseurl }}/" class="hover:text-blue-400">Home</a>
+      <a href="{{ site.baseurl }}/about.html" class="hover:text-blue-400">About</a>
+      <a href="{{ site.baseurl }}/experience.html" class="hover:text-blue-400">Experience</a>
+      <a href="{{ site.baseurl }}/projects.html" class="hover:text-blue-400">Projects</a>
+      <a href="{{ site.baseurl }}/speaking.html" class="hover:text-blue-400">Speaking</a>
+      <a href="{{ site.baseurl }}/contact.html" class="hover:text-blue-400">Contact</a>
     </nav>
   </header>
-  <main>
+
+  <!-- Main Content -->
+  <main class="container mx-auto p-6 animate-fadeIn">
     {{ content }}
   </main>
-  <footer>
-    <p>© 2025 Andrés Tobacia. All rights reserved.</p>
-    <p>
-      <a href="mailto:andrestobacia@gmail.com">Email</a> |
-      <a href="https://www.linkedin.com/in/jatobacia/">LinkedIn</a> |
-      <a href="https://x.com/andrestobacia">X</a> |
-      <a href="https://www.instagram.com/andrestobacia/">Instagram</a>
-    </p>
-<footer>
-  <p>© 2025 Andrés Tobacia. Built with AI tools, invested only in the domain.</p>
-</footer>
+
+  <!-- Footer -->
+  <footer class="text-center p-4 mt-6 text-sm text-gray-400">
+    © 2025 Andrés Tobacia. Built by me with a little help from my AI friend 🤖.
+  </footer>
 </body>
 </html>
