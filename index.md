@@ -21,6 +21,16 @@ title: "Home"
   </div>
 </div>
 
+<!-- Blog Banner -->
+<div class="bg-gray-800 text-center p-4 mt-8 rounded-lg shadow-lg max-w-2xl mx-auto">
+  <p class="text-blue-300 font-semibold">
+    🧠 New Blog on Substack – Check out AI, Space, and Supply Chain insights!
+  </p>
+  <a href="{{ site.baseurl }}/blog.html" class="inline-block mt-2 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+    Visit Blog / Ir al Blog
+  </a>
+</div>
+
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const el = document.querySelector('.typewriter');
