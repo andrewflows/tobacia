@@ -17,5 +17,7 @@ Comparto artículos sobre IA, innovación en cadenas de suministro, exploración
 Stay updated on new posts and insights.  
 Mantente actualizado sobre nuevos artículos e ideas.
 
-<p class="mt-2">Click the button above to visit my Substack and subscribe directly.</p>
-<p class="mt-1">Haz clic en el botón de arriba para visitar mi Substack y suscribirte directamente.</p>
+👉 [Subscribe on Substack / Suscríbete en Substack](https://andrestobacia.substack.com/subscribe){: .btn target="_blank"}
+
+<p class="mt-2">Click above to visit my Substack and subscribe directly.  
+Haz clic arriba para visitar mi Substack y suscribirte directamente.</p>
