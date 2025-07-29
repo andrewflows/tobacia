@@ -10,10 +10,6 @@ Supporting over **12 successful suborbital missions**, **1 orbital mission**, an
 
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
   <div class="text-center">
-    <img src="{{ site.baseurl }}/AI_Supply_Chain_Infographic.png" alt="AI Supply Chain Infographic" class="rounded-lg shadow-lg cursor-pointer">
-    <p class="mt-2 text-gray-200">AI-Powered Supply Chain Optimizing Space Manufacturing</p>
-  </div>
-  <div class="text-center">
     <img src="{{ site.baseurl }}/8_NS22-Capsule-Descent-1.jpg" alt="NS22 Capsule Descent" class="rounded-lg shadow-lg cursor-pointer">
     <p class="mt-2 text-gray-200">NS-22 Crew Capsule Recovery & Supply Chain Integration</p>
   </div>
