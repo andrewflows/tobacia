@@ -6,7 +6,7 @@ title: "Projects & Initiatives"
 ## Projects & Initiatives
 
 ### Blue Origin – Space Manufacturing & Supply Chain Optimization
-<p>Supporting over <strong>12 successful suborbital flight missions</strong>, <strong>1 orbital mission</strong>, and multiple payload missions. Contributed to the introduction of <strong>40+ new astronauts</strong> to space while driving supply chain excellence for critical mission components.</p>
+Supporting over **12 successful suborbital missions**, **1 orbital mission**, and multiple payload missions. Contributed to the introduction of **40+ new astronauts** to space while driving supply chain excellence for critical mission components.
 
 <div class="gallery">
   <div class="gallery-item">
@@ -42,7 +42,7 @@ title: "Projects & Initiatives"
 ---
 
 ### Space United – Sports in Space
-<p>Advisor for <a href="https://www.spaceunited.com" target="_blank"><strong>Space United</strong></a>, an initiative dedicated to taking sports beyond Earth, starting with the beautiful game of soccer.</p>
+Advisor for <a href="https://www.spaceunited.com" target="_blank"><strong>Space United</strong></a>, an initiative dedicated to taking sports beyond Earth, starting with the beautiful game of soccer.
 
 <div class="gallery">
   <div class="gallery-item">
@@ -58,7 +58,7 @@ title: "Projects & Initiatives"
 ---
 
 ### Anything Flows – Startup & Branding
-<p>Founded and scaled <strong>Anything Flows</strong>, an industrial automation and valve solutions company, holding multiple trademarks including the creative <strong>Vincent Van Flow</strong> branding.</p>
+Founded and scaled **Anything Flows**, an industrial automation and valve solutions company, holding multiple trademarks including the creative **Vincent Van Flow** branding.
 
 <div class="gallery">
   <div class="gallery-item">
@@ -82,7 +82,7 @@ title: "Projects & Initiatives"
 ---
 
 ### STEM & AI Outreach
-<p>Educational outreach and content inspiring future engineers and space enthusiasts.</p>
+Educational outreach and content inspiring future engineers and space enthusiasts.
 
 <div class="video-container">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/4tuNPfHYMjE" 
@@ -98,7 +98,7 @@ title: "Projects & Initiatives"
 
 ### Humanitarian Initiatives 🌍
 
-<p>Beyond engineering and supply chain leadership, I actively support humanitarian initiatives that leverage open-source technology to create positive global change.</p>
+Beyond engineering and supply chain leadership, I actively support humanitarian initiatives that leverage open-source technology to create positive global change.
 
 - **Open-Source Decentralized Tech:** Empowering communities through transparent systems and innovation.  
 - **Financial Inclusion:** Supporting technology that provides access to economic tools for underserved populations.  
@@ -123,12 +123,13 @@ title: "Projects & Initiatives"
   justify-content: center;
 }
 .gallery-item {
-  flex: 1 1 45%;
+  flex: 1 1 300px;
+  max-width: 400px;
   text-align: center;
+  margin: 0 auto;
 }
 .gallery-item img {
   width: 100%;
-  max-width: 400px;
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0,255,255,0.3);
   transition: transform 0.3s, box-shadow 0.3s;
@@ -137,6 +138,12 @@ title: "Projects & Initiatives"
 .gallery-item img:hover {
   transform: scale(1.03);
   box-shadow: 0 0 20px rgba(255,0,255,0.6);
+}
+.gallery-item p {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: #e5e5e5;
+  line-height: 1.3;
 }
 .video-container {
   position: relative;
