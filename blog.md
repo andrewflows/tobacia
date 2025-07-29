@@ -9,7 +9,7 @@ permalink: /blog.html
 I share articles on AI, supply chain innovation, space exploration, and sustainability on my Substack.  
 Comparto artículos sobre IA, innovación en cadenas de suministro, exploración espacial y sostenibilidad en mi Substack.
 
-👉 [Visit My Substack Blog](https://substack.com/@andrestobacia?r=jj7yq&utm_medium=ios){: .btn target="_blank"}
+👉 [Visit My Substack Blog](https://andrestobacia.substack.com){: .btn target="_blank"}
 
 ---
 
