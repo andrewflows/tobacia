@@ -6,22 +6,51 @@ title: "Experience"
 ## Professional Experience / Experiencia Profesional
 
 ### Blue Origin – Kent, WA
-**Global Supply Chain Project Manager III**  
-*July 2022 – Present*
+**Supply Chain Project Manager (Level III) | Strategy & Operations**  
+*July 2025 – Present*
 
-- Lead procurement and supply chain strategies for all programs, supporting over **12 suborbital missions**, **1 orbital mission**, and **40+ astronauts**.  
-- Manage multimillion-dollar contracts and vendor relationships using Coupa, Costpoint, and Windchill.  
-- Drive forecasting, inventory, and process optimization across subsystems.  
+- Spearheading AI & automation initiatives in global supply chain transformation.  
+- Implementing machine learning for inventory forecasting and supplier risk analysis.  
+- Driving end-to-end digital transformation with predictive analytics and RPA.
+
+**Supply Chain Program Manager (Level III) | New Shepard**  
+*2022 – July 2025*
+
+- Led supply chain program for New Shepard crew capsule subsystems.  
+- Oversaw procurement, forecasting, and non-labor finance for composites, parachutes, avionics.  
+- Supported **12+ suborbital missions**, **1 orbital mission**, and **40+ astronauts**.
 
 ---
 
 ### Anything Flows LLC – Houston, TX
-**Founder & General Manager**  
-*May 2018 – 2022*
+**Advisor**  
+*2022 – Present*
 
-- Founded and scaled a valve & controls startup with 400% growth.  
-- Developed the industry’s first valve and controls e-commerce platform.  
-- Managed contracts ranging into multimillion-dollar scope for oil, gas, and mining clients.  
+**General Manager**  
+*2018 – 2022*
+
+- Founded and scaled valve & controls startup with 400% growth.  
+- Managed multimillion-dollar contracts for oil, gas, and mining clients.  
+- Developed industry-first e-commerce platform for valves and controls.
+
+---
+
+### Weir Minerals – Houston, TX
+**Sr. Sales Engineer**  
+*2016 – 2017*
+
+- Covered sales territories in NM, AZ, TX, and CA.  
+- Managed strategic accounts for oilfield and industrial clients.
+
+---
+
+### Lockwood International – Houston, TX
+**Outside Sales Account Manager**  
+*2015 – May 2016*
+
+- Managed key gas pipeline accounts (Kinder Morgan, Enbridge, Williams, TC Energy).  
+- Delivered actuator and ball valve solutions, achieving $8M+ in revenue.  
+- Specialized in pipeline systems and market trends.
 
 ---
 
@@ -29,38 +58,48 @@ title: "Experience"
 **Outside Sales Engineer, Latin America**  
 *Jan 2012 – Dec 2014*
 
-- Expanded Latin American sales by 200% and opened a new office in Chile.  
-- Led regional market studies and trained teams across 7 countries.  
+- Increased LATAM sales by 200% and opened new Chile office.  
+- Led market studies and trained teams across 7 countries.
 
 ---
 
-### Cameron by SLB – Houston, TX
-**Senior Inside Sales & Project Manager**  
-*Jan 2010 – Dec 2011*
+### SLB (Cameron Valves & Controls) – Houston, TX
+**Sr. Project Manager**  
+*2010 – 2012*
 
-- Increased automation center revenue by implementing process improvements.  
-- Developed Excel automation tools to speed up quotation delivery by 40%.  
+- Managed $8M inventory for valve controls and actuators.  
+- Created Excel sizing program improving quotation speed by 40%.  
+- Drove automation center revenue from $0.9M to $3M.
 
 ---
 
-### Emerson – Houston, TX
-**Inside Sales & Project Manager, Latin America**  
-*Jun 2008 – Dec 2009*
+### Emerson Process Management – Houston, TX
+**Applications Sales Engineer**  
+*2008 – 2010*
 
-- Boosted Latin American revenue by optimizing quotation processes.  
-- Secured large-scale contracts for natural gas and mining sectors.  
+- Boosted LATAM revenue from $10.8M to $17M through improved quotation workflows.  
+- Secured major contracts for Shafer actuators in natural gas and mining sectors.
+
+---
+
+### GE – Houston, TX
+**Gas Turbine Intern Engineer**  
+*2007*
+
+- Engineering co-op on GE 7FA Gas Turbine combustion hardware.  
+- Conducted technical reviews and inventory management.
 
 ---
 
 ## Education / Educación
 
-- **Texas A&M University** – B.S. Industrial & Systems Engineering (2008)  
-- **Harvard Business School** – Entrepreneurial Ops & Negotiation Mastery Certificates (2019)
+- **Texas A&M University** – B.S. Industrial & Systems Engineering (2003 – 2008)  
+- **Harvard Business School Online** – Entrepreneurship Essentials & Negotiation Mastery (2019)  
+- **International Baccalaureate Diploma** – John Tyler HS, Tyler, TX (1991 – 2003)
 
 ---
 
 <style>
-/* Tailwind handles most responsiveness. Additional tweaks if needed */
 @media (max-width: 640px) {
   h2, h3 {
     font-size: 1.1rem;
