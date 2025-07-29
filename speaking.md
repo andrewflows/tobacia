@@ -3,46 +3,39 @@ layout: page
 title: "Speaking / Conferencias"
 ---
 
-## Speaking & Media 🎤
+## Speaking & Media 🎤 / Conferencias y Medios 🎤
 
-Available for conferences, panels, and leadership talks on:
-
-- AI-powered manufacturing and supply chain automation 🤖  
-- Space exploration operations and industrial innovation 🚀  
-- Soccer in space and sports as a tool for inspiration ⚽🌌  
-- Renewable energy and sustainable transitions ⚡🌱  
-- Open-source tech for humanitarian impact 🌍  
-- Fertility strategies & population initiatives 👶🌎  
-- The future of humanity with AI and ethical innovation 🤖🌍  
-
-[📅 Book Me to Speak](https://calendly.com/yotangoflow){: .btn }
-
----
-
-## Conferencias y Medios 🎤
-
+Available for conferences, panels, and leadership talks on:  
 Disponibles para conferencias, paneles y charlas de liderazgo sobre:
 
-- Manufactura impulsada por IA y automatización de cadenas de suministro 🤖  
-- Operaciones de exploración espacial e innovación industrial 🚀  
-- Fútbol en el espacio y deportes como herramienta de inspiración ⚽🌌  
-- Energía renovable y transiciones sostenibles ⚡🌱  
-- Tecnología open-source para impacto humanitario 🌍  
-- Estrategias de fertilidad e iniciativas de población 👶🌎  
-- El futuro de la humanidad con IA e innovación ética 🤖🌍  
+- AI-powered manufacturing and supply chain automation 🤖 / Manufactura impulsada por IA y automatización de cadenas de suministro 🤖  
+- Space exploration operations and industrial innovation 🚀 / Operaciones de exploración espacial e innovación industrial 🚀  
+- Soccer in space and sports as a tool for inspiration ⚽🌌 / Fútbol en el espacio y deportes como herramienta de inspiración ⚽🌌  
+- Renewable energy and sustainable transitions ⚡🌱 / Energía renovable y transiciones sostenibles ⚡🌱  
+- Open-source tech for humanitarian impact 🌍 / Tecnología open-source para impacto humanitario 🌍  
+- Fertility strategies & population initiatives 👶🌎 / Estrategias de fertilidad e iniciativas de población 👶🌎  
+- The future of humanity with AI and ethical innovation 🤖🌍 / El futuro de la humanidad con IA e innovación ética 🤖🌍  
 
-[📅 Reservar Conferencia](https://calendly.com/yotangoflow){: .btn }
+<div class="flex justify-center mt-4">
+  <a href="https://calendly.com/yotangoflow" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+    📅 Book Me to Speak / Reservar Conferencia
+  </a>
+</div>
 
 ---
 
-<div class="gallery-large">
-  <div class="gallery-item">
-    <img src="{{ site.baseurl }}/Tobacia%20Brothers.jpg" alt="Tobacia Brothers">
-    <p><strong>The Tobacia Brothers</strong> – Engineering Leadership Across Space Exploration & Renewable Energy</p>
-  </div>
+### Tobacia Brothers – Engineering Leadership / Liderazgo en Ingeniería
+
+<div class="flex justify-center mt-4">
+  <img src="{{ site.baseurl }}/Tobacia%20Brothers.jpg" alt="Tobacia Brothers" class="w-72 sm:w-96 rounded-lg shadow-lg cursor-pointer">
 </div>
 
-### 🎥 Featured STEM Outreach
+<p class="text-center text-gray-200 mt-2">Engineering leadership across space exploration, renewable energy, and industrial systems. / Liderazgo en ingeniería en exploración espacial, energía renovable y sistemas industriales.</p>
+
+---
+
+### 🎥 Featured STEM Outreach / Divulgación STEM
+
 <div class="video-container">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/4tuNPfHYMjE" 
     title="YouTube video player" frameborder="0" 
@@ -51,31 +44,11 @@ Disponibles para conferencias, paneles y charlas de liderazgo sobre:
   </iframe>
 </div>
 
-<p><strong>Over 17,000+ views on YouTube / Más de 17,000 vistas en YouTube.</strong></p>
+<p class="text-center text-gray-200 mt-2"><strong>Over 17,000+ views on YouTube. / Más de 17,000 vistas en YouTube.</strong></p>
+
+---
 
 <style>
-.gallery-large {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  margin: 30px 0;
-}
-.gallery-large img {
-  width: 85%;
-  max-width: 500px;
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0,255,255,0.3);
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
-}
-.gallery-large img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 20px rgba(255,0,255,0.6);
-}
-.gallery-item {
-  text-align: center;
-}
 .video-container {
   position: relative;
   padding-bottom: 56.25%;
@@ -96,7 +69,7 @@ Disponibles para conferencias, paneles y charlas de liderazgo sobre:
 </style>
 
 <script>
-document.querySelectorAll('.gallery-large img').forEach(img => {
+document.querySelectorAll('img').forEach(img => {
   img.addEventListener('click', function() {
     const overlay = document.createElement('div');
     overlay.style.position = 'fixed';
