@@ -25,7 +25,7 @@ title: "About"
 
 ### 🌎 Background / Orígenes
 
-- Born in Bogotá, Colombia.  
+- Born in Bogotá, Colombia.
 - Childhood in Ecuador, Colombia, Texas, Louisiana, Alaska, and Washington.  
 - Became a U.S. citizen in 2013.  
 - Comes from a family of engineers: three younger brothers, all Texas A&M grads (Aerospace, Industrial, Maritime Systems).  
