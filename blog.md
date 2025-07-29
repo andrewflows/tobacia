@@ -4,7 +4,7 @@ title: "Blog / Insights"
 permalink: /blog.html
 ---
 
-## Blog & Insights 🧠
+## Blog & Insights 🧠 / Blog e Ideas 🧠
 
 I share articles on AI, supply chain innovation, space exploration, and sustainability on my Substack.  
 Comparto artículos sobre IA, innovación en cadenas de suministro, exploración espacial y sostenibilidad en mi Substack.
@@ -13,10 +13,9 @@ Comparto artículos sobre IA, innovación en cadenas de suministro, exploración
 
 ---
 
-### 📬 Subscribe
+### 📬 Subscribe / Suscríbete
 Stay updated on new posts and insights.  
 Mantente actualizado sobre nuevos artículos e ideas.
 
 <!-- Substack embed -->
 <iframe src="https://substack.com/embed" width="100%" height="320" style="border:1px solid #ccc;background:#fff;" frameborder="0" scrolling="no"></iframe>
-
