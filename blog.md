@@ -17,20 +17,5 @@ Comparto artículos sobre IA, innovación en cadenas de suministro, exploración
 Stay updated on new posts and insights.  
 Mantente actualizado sobre nuevos artículos e ideas.
 
-<div class="max-w-xl mx-auto bg-gray-800 p-4 rounded-lg shadow-lg mt-4">
-  <iframe 
-    src="https://substack.com/embed" 
-    width="100%" 
-    height="320" 
-    style="border:none;background:#0a0f1c;color:#f5f5f5;border-radius:8px;" 
-    frameborder="0" 
-    scrolling="no">
-  </iframe>
-</div>
-
-<style>
-/* Ensure iframe inherits dark theme */
-iframe {
-  filter: invert(1) hue-rotate(180deg);
-}
-</style>
+<p class="mt-2">Click the button above to visit my Substack and subscribe directly.</p>
+<p class="mt-1">Haz clic en el botón de arriba para visitar mi Substack y suscribirte directamente.</p>
