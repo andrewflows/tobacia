@@ -60,10 +60,12 @@ Para conferencias, oportunidades de reclutamiento o para solicitar mi hoja de vi
 <p class="mb-2">Available in English and Spanish for recruiters and event organizers.  
 Disponibles en Inglés y Español para reclutadores y organizadores de eventos.</p>
 
-[AI Resume Teaser (English)](Andres_Tobacia_AI_Resume_EN.pdf){: .btn }  
-[Resumen Ejecutivo IA (Español)](Andres_Tobacia_AI_Resume_ES.pdf){: .btn }
+<div class="flex flex-col sm:flex-row gap-3 justify-center mt-2">
+  <a href="{{ site.baseurl }}/Andres_Tobacia_AI_Resume_EN.pdf" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center">AI Resume Teaser (English)</a>
+  <a href="{{ site.baseurl }}/Andres_Tobacia_AI_Resume_ES.pdf" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center">Resumen Ejecutivo IA (Español)</a>
+</div>
 
-<p class="text-sm mt-2">Full resume available upon request. / Hoja de vida completa disponible a solicitud.</p>
+<p class="text-sm mt-2 text-center">Full resume available upon request. / Hoja de vida completa disponible a solicitud.</p>
 
 <!-- Include reCAPTCHA script -->
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -89,4 +91,5 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
   });
 });
 </script>
+
 
