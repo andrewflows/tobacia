@@ -3,75 +3,51 @@ layout: page
 title: "About"
 ---
 
-## About Andrés 🚀
+## About Andrés / Sobre Andrés
 
-<div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap; margin-bottom:20px;">
-  <div class="about-image">
-    <img src="{{ site.baseurl }}/Andres%20Tobacia%20Blue%20Origin.jpg" alt="Andrés Tobacia" style="max-width:250px;border-radius:8px;box-shadow:0 0 12px rgba(0,255,255,0.3);cursor:pointer;">
-  </div>
-  <div>
-    <p><strong>Andrés Tobacia</strong> is an Industrial & Systems Engineer from <strong>Texas A&M University</strong> (Class of 2008) with over <strong>17 years of experience</strong> optimizing manufacturing, logistics, and automation systems across aerospace 🌌, energy ⚡, and industrial sectors 🏭.</p>
+<div class="flex flex-col md:flex-row items-center md:items-start gap-6 mt-4 px-2">
+  <img src="{{ site.baseurl }}/Andres%20Tobacia%20Blue%20Origin.jpg" alt="Andrés Tobacia" class="w-40 sm:w-56 md:w-64 rounded-lg shadow-lg mx-auto md:mx-0">
 
-    <p>He currently serves as <strong>Global Supply Chain Project Manager III</strong> at Blue Origin in Kent, WA, where he leads procurement and supply chain strategies for crew capsule subsystems in next-generation space exploration 🛰️.</p>
+  <div class="text-center md:text-left">
+    Andrés Tobacia is an Industrial & Systems Engineer from Texas A&M (2008) with 17+ years optimizing manufacturing, logistics, and automation across aerospace, energy, and industrial sectors.  
+
+    Currently serving as **Global Supply Chain Project Manager III** at Blue Origin in Kent, WA, Andrés leads procurement and supply chain strategies for all programs, contributing to over **12 suborbital missions**, **1 orbital mission**, and **40+ astronauts** reaching space.  
+
+    - Directed large-scale supply chain and process optimization initiatives for advanced space programs.  
+    - Founded and scaled a supply chain solutions startup with significant operational growth.  
+    - Managed multimillion-dollar contracts and multi-site operations across North and Latin America.  
+    - Certified in Harvard Negotiation and Entrepreneurial Operations.  
+    - Branding & Strategic Naming (8+ registered trademarks).  
   </div>
 </div>
 
-- Born in Bogotá, Colombia 🇨🇴 and raised in Ecuador, Colombia, Texas, Louisiana, Alaska, and Washington 🌎.  
-- Became a proud U.S. citizen in 2013 🇺🇸.  
-- Comes from a Texas A&M Aggie family: three younger brothers who are Aerospace, Industrial, and Maritime Systems Engineers 🎓.  
-- Directed large-scale supply chain and process optimization initiatives for advanced space programs 🛠️.  
-- Founded and scaled a supply chain solutions startup with significant operational growth 📈.  
-- Managed international contracts and multi-site operations across North and Latin America 🌎.  
-- Certified in Harvard Negotiation and Entrepreneurial Operations 🎓.  
-- Branding & Strategic Naming with <strong>8+ registered trademarks</strong> 🏷️.  
+---
 
-### 🌍 Beliefs & Vision
-- **Building the road to space, changing humanity one astronaut at a time 👨‍🚀.**  
-- Advocate for sustainability 🌱 and the global transition to electric vehicles 🚗⚡.  
-- Firm believer that AI 🤖 can benefit humanity when developed ethically and focused on the greater good ❤️.  
+### 🌎 Background / Orígenes
 
-### 🌌 Beyond Work
-- Advisor for **Space United** ⚽ — an initiative bringing sports to space, starting with the beautiful game.  
-- Holder of over 8 registered trademarks and experienced in naming companies and products 🏷️.  
-- Built this personal website entirely using AI tools 🤖, investing only in the domain to demonstrate efficient tech adoption.  
-- Proud member of a family of engineers 👨‍🔧 — four Aggie engineers contributing to space exploration 🚀 and renewable energy 🌱.
+- Born in Bogotá, Colombia.  
+- Childhood in Ecuador, Colombia, Texas, Louisiana, Alaska, and Washington.  
+- Became a U.S. citizen in 2013.  
+- Comes from a family of engineers: three younger brothers, all Texas A&M grads (Aerospace, Industrial, Maritime Systems).  
 
-_Resume available upon request 📄._
+---
 
-<style>
-.about-image img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 20px rgba(255,0,255,0.6);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-</style>
+### 💡 Beliefs & Vision / Creencias y Visión
 
-<script>
-document.querySelectorAll('.about-image img').forEach(img => {
-  img.addEventListener('click', function() {
-    const overlay = document.createElement('div');
-    overlay.style.position = 'fixed';
-    overlay.style.top = 0;
-    overlay.style.left = 0;
-    overlay.style.width = '100%';
-    overlay.style.height = '100%';
-    overlay.style.background = 'rgba(0,0,0,0.9)';
-    overlay.style.display = 'flex';
-    overlay.style.alignItems = 'center';
-    overlay.style.justifyContent = 'center';
-    overlay.style.zIndex = 9999;
+- Building the road to space and changing humanity one astronaut at a time.  
+- Advocate for sustainability and the transition to electric vehicles.  
+- Firm believer that AI can benefit humanity when developed ethically and focused on the greater good.  
 
-    const fullImg = document.createElement('img');
-    fullImg.src = this.src;
-    fullImg.style.maxWidth = '90%';
-    fullImg.style.maxHeight = '90%';
-    fullImg.style.borderRadius = '8px';
-    fullImg.style.boxShadow = '0 0 25px rgba(0,255,255,0.8)';
+---
 
-    overlay.appendChild(fullImg);
-    overlay.addEventListener('click', () => document.body.removeChild(overlay));
+### 🌟 Beyond Work / Más Allá del Trabajo
 
-    document.body.appendChild(overlay);
-  });
-});
-</script>
+- Advisor for **Space United**, bringing soccer to space as a tool for inspiration.  
+- Holder of over 8 registered trademarks and experienced in strategic branding.  
+- Built this website using AI tools 🤖 and made it open-source to demonstrate efficient tech adoption.  
+- Comes from a family deeply involved in space exploration and renewable energy initiatives.  
+
+---
+
+<p class="text-sm mt-4 italic text-gray-400">Resume available upon request. / Hoja de vida disponible a solicitud.</p>
+
