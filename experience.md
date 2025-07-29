@@ -3,42 +3,71 @@ layout: page
 title: "Experience"
 ---
 
-## Experience
+## Professional Experience / Experiencia Profesional
 
-### Blue Origin – Kent, WA  
-**Global Supply Chain Project Manager III | July 2025 – Present**  
-- Leading procurement and supply chain strategies across **all programs**, supporting next-generation space exploration.  
-- Driving AI-powered supply chain optimization to support mission-critical components and advanced manufacturing.  
-- Engaged in multi-program integration for crewed flights, payload missions, and orbital vehicle development.
+### Blue Origin – Kent, WA
+**Global Supply Chain Project Manager III**  
+*July 2022 – Present*
 
-### Blue Origin – Kent, WA  
-**Supply Chain Program Manager III | July 2022 – July 2025**  
-- Directed supply chain excellence for **crew capsule subsystems** (Escape, Structures, Pneumatics, Separation, Parachute, Avionics).  
-- Delivered multi-million dollar cost savings through process optimization and automation.  
-- Led procurement of multi-million dollar contracts for next-gen vehicles utilizing several MRP/ERP tools
-- Supported **12+ successful suborbital missions**, **1 orbital mission**, and multiple payload missions.  
-- Contributed to the introduction of **40+ new astronauts** to space through reliable supply chain execution.
-
-### Anything Flows – Houston, TX  
-**Founder & General Manager | 2018 – 2022**  
-- Founded and scaled a supply chain solutions company serving industrial and manufacturing clients.  
-- Oversaw operations, business development, and e-commerce platform launch.  
-- Managed multi-million dollar contracts for industrial automation and distribution projects.
-
-### Emerson, Cameron, Rotork, Lockwood, Weir – Houston, TX  
-**Engineering & Operations Roles | 2008 – 2018
-- Managed global supply chain and automation projects across North and Latin America.  
-- Directed multi-million dollar contracts and process improvements for large-scale manufacturing in valves, valve actuators.  
-- Led technical sales, project management customer support, and business development across multiple regions.
+- Lead procurement and supply chain strategies for all programs, supporting over **12 suborbital missions**, **1 orbital mission**, and **40+ astronauts**.  
+- Manage multimillion-dollar contracts and vendor relationships using Coupa, Costpoint, and Windchill.  
+- Drive forecasting, inventory, and process optimization across subsystems.  
 
 ---
 
-## Education
+### Anything Flows LLC – Houston, TX
+**Founder & General Manager**  
+*May 2014 – 2022*
 
-- **Texas A&M University – College Station, TX**  
-  *Bachelor of Science in Industrial & Systems Engineering | Class of 2008*  
+- Founded and scaled a valve & controls startup with 400% growth.  
+- Developed the industry’s first valve and controls e-commerce platform.  
+- Managed contracts ranging into multimillion-dollar scope for oil, gas, and mining clients.  
 
-- **Harvard Business School – Online**  
-  *Certificates in Entrepreneurial Operations & Negotiation Mastery | 2019*
+---
 
-_Resume available upon request._
+### Rotork Inc – Houston, TX
+**Outside Sales Engineer, Latin America**  
+*Jan 2012 – Dec 2014*
+
+- Expanded Latin American sales by 200% and opened a new office in Chile.  
+- Led regional market studies and trained teams across 7 countries.  
+
+---
+
+### Cameron by SLB – Houston, TX
+**Senior Inside Sales & Project Manager**  
+*Jan 2010 – Dec 2011*
+
+- Increased automation center revenue by implementing process improvements.  
+- Developed Excel automation tools to speed up quotation delivery by 40%.  
+
+---
+
+### Emerson – Houston, TX
+**Inside Sales & Project Manager, Latin America**  
+*Jun 2008 – Dec 2009*
+
+- Boosted Latin American revenue by optimizing quotation processes.  
+- Secured large-scale contracts for natural gas and mining sectors.  
+
+---
+
+## Education / Educación
+
+- **Texas A&M University** – B.S. Industrial & Systems Engineering (2008)  
+- **Harvard Business School** – Entrepreneurial Ops & Negotiation Mastery Certificates (2019)
+
+---
+
+<style>
+/* Tailwind handles most responsiveness. Additional tweaks if needed */
+@media (max-width: 640px) {
+  h2, h3 {
+    font-size: 1.1rem;
+  }
+  p, li {
+    font-size: 0.95rem;
+  }
+}
+</style>
+
