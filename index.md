@@ -5,7 +5,8 @@ title: "Home"
 
 <div class="flex flex-col items-center justify-center text-center space-y-6 mt-8 px-4">
   <div class="home-headshot">
-    <img src="{{ site.baseurl }}/Andres%20Tobacia%20Professional%20Headshot.jpg" alt="Andrés Tobacia" class="w-40 sm:w-56 md:w-64 rounded-full shadow-lg cursor-pointer mx-auto">
+    <!-- Root-relative path so it loads under tobacia.space -->
+    <img src="/Andres%20Tobacia%20Professional%20Headshot.jpg" alt="Andrés Tobacia" class="w-40 sm:w-56 md:w-64 rounded-full shadow-lg cursor-pointer mx-auto">
   </div>
 
   <h1 class="text-2xl sm:text-3xl font-bold text-blue-300">Andrés Tobacia</h1>
@@ -14,10 +15,11 @@ title: "Home"
   </h2>
 
   <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 mt-4 w-full max-w-2xl px-2">
-    <a href="{{ site.baseurl }}/contact.html" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center">Contact Me</a>
+    <!-- All internal links now root-relative to avoid /tobacia/ prefix issues -->
+    <a href="/contact.html" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center">Contact Me</a>
     <a href="https://www.linkedin.com/in/jatobacia/" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center">LinkedIn</a>
-    <a href="{{ site.baseurl }}/Andres_Tobacia_AI_Resume_EN.pdf" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center">📄 AI Resume Teaser (English)</a>
-    <a href="{{ site.baseurl }}/Andres_Tobacia_AI_Resume_ES.pdf" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center">📄 Resumen Ejecutivo IA (Español)</a>
+    <a href="/Andres_Tobacia_AI_Resume_EN.pdf" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center">📄 AI Resume Teaser (English)</a>
+    <a href="/Andres_Tobacia_AI_Resume_ES.pdf" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center">📄 Resumen Ejecutivo IA (Español)</a>
     <a href="https://calendly.com/yotangoflow" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center">📅 Book Me to Speak</a>
   </div>
 </div>
@@ -27,7 +29,7 @@ title: "Home"
   <p class="text-blue-300 font-semibold">
     🧠 New Blog on Substack – Check out AI, Space, and Supply Chain insights!
   </p>
-  <a href="{{ site.baseurl }}/blog.html" class="inline-block mt-2 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+  <a href="/blog.html" class="inline-block mt-2 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
     Visit Blog / Ir al Blog
   </a>
 </div>
