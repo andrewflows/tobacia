@@ -6,7 +6,8 @@ title: "About"
 ## About Andrés / Sobre Andrés
 
 <div class="flex flex-col md:flex-row items-center md:items-start gap-6 mt-4 px-2">
-  <img src="{{ site.baseurl }}/Andres%20Tobacia%20Blue%20Origin.jpg" alt="Andrés Tobacia" class="w-40 sm:w-56 md:w-64 rounded-lg shadow-lg mx-auto md:mx-0">
+  <!-- Root-relative path so image loads correctly -->
+  <img src="/Andres%20Tobacia%20Blue%20Origin.jpg" alt="Andrés Tobacia" class="w-40 sm:w-56 md:w-64 rounded-lg shadow-lg mx-auto md:mx-0">
 
   <div class="text-center md:text-left">
     Andrés Tobacia is an Industrial & Systems Engineer from Texas A&M (2008) with 17+ years optimizing manufacturing, logistics, and automation across aerospace, energy, and industrial sectors.  
@@ -25,7 +26,7 @@ title: "About"
 
 ### 🌎 Background / Orígenes
 
-- Born in Bogotá, Colombia.
+- Born in Bogotá, Colombia.  
 - Childhood in Ecuador, Colombia, Texas, Louisiana, Alaska, and Washington.  
 - Became a U.S. citizen in 2013.  
 - Comes from a family of engineers: three younger brothers, all Texas A&M grads (Aerospace, Industrial, Maritime Systems).  
@@ -50,4 +51,5 @@ title: "About"
 ---
 
 <p class="text-sm mt-4 italic text-gray-400">Resume available upon request. / Hoja de vida disponible a solicitud.</p>
+
 
