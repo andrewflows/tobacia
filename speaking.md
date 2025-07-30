@@ -27,7 +27,7 @@ Disponibles para conferencias, paneles y charlas de liderazgo sobre:
 ### Tobacia Brothers – Engineering Leadership / Liderazgo en Ingeniería
 
 <div class="flex justify-center mt-4">
-  <img src="{{ site.baseurl }}/Tobacia%20Brothers.jpg" alt="Tobacia Brothers" class="w-72 sm:w-96 rounded-lg shadow-lg cursor-pointer">
+  <img src="/Tobacia%20Brothers.jpg" alt="Tobacia Brothers" class="w-72 sm:w-96 rounded-lg shadow-lg cursor-pointer">
 </div>
 
 <p class="text-center text-gray-200 mt-2">Engineering leadership across space exploration, renewable energy, and industrial systems. / Liderazgo en ingeniería en exploración espacial, energía renovable y sistemas industriales.</p>
