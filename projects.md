@@ -10,31 +10,31 @@ Supporting over **12 successful suborbital missions**, **1 orbital mission**, an
 
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
   <div class="text-center">
-    <img src="{{ site.baseurl }}/8_NS22-Capsule-Descent-1.jpg" alt="NS22 Capsule Descent" class="rounded-lg shadow-lg cursor-pointer">
+    <img src="/8_NS22-Capsule-Descent-1.jpg" alt="NS22 Capsule Descent" class="rounded-lg shadow-lg cursor-pointer">
     <p class="mt-2 text-gray-200">NS-22 Crew Capsule Recovery & Supply Chain Integration</p>
   </div>
   <div class="text-center">
-    <img src="{{ site.baseurl }}/NS22_EarthView (1).jpg" alt="Earth View NS22" class="rounded-lg shadow-lg cursor-pointer">
+    <img src="/NS22_EarthView (1).jpg" alt="Earth View NS22" class="rounded-lg shadow-lg cursor-pointer">
     <p class="mt-2 text-gray-200">NS-22 Earth View from Capsule Operations</p>
   </div>
   <div class="text-center">
-    <img src="{{ site.baseurl }}/ns25-egress-ed-dwight_gallery.jpg" alt="Ed Dwight NS25 Egress" class="rounded-lg shadow-lg cursor-pointer">
+    <img src="/ns25-egress-ed-dwight_gallery.jpg" alt="Ed Dwight NS25 Egress" class="rounded-lg shadow-lg cursor-pointer">
     <p class="mt-2 text-gray-200"><strong>NS-25 Historic Flight:</strong> Supported logistics for Ed Dwight, the first African American astronaut candidate, fulfilling a decades-long journey.</p>
   </div>
   <div class="text-center">
-    <img src="{{ site.baseurl }}/ns26_capsule_touchdown_booster_background.jpg" alt="NS26 Capsule Touchdown" class="rounded-lg shadow-lg cursor-pointer">
+    <img src="/ns26_capsule_touchdown_booster_background.jpg" alt="NS26 Capsule Touchdown" class="rounded-lg shadow-lg cursor-pointer">
     <p class="mt-2 text-gray-200">NS-26 Capsule & Booster Recovery Operations</p>
   </div>
   <div class="text-center">
-    <img src="{{ site.baseurl }}/ns-28-emily-calandrelli-(1).jpg" alt="Emily Calandrelli NS28" class="rounded-lg shadow-lg cursor-pointer">
+    <img src="/ns-28-emily-calandrelli-(1).jpg" alt="Emily Calandrelli NS28" class="rounded-lg shadow-lg cursor-pointer">
     <p class="mt-2 text-gray-200"><strong>NS-28:</strong> Mission logistics support for Emily Calandrelli (“The Space Gal”).</p>
   </div>
   <div class="text-center">
-    <img src="{{ site.baseurl }}/ns-31-katy-perry.jpg" alt="NS31 Katy Perry Mission" class="rounded-lg shadow-lg cursor-pointer">
+    <img src="/ns-31-katy-perry.jpg" alt="NS31 Katy Perry Mission" class="rounded-lg shadow-lg cursor-pointer">
     <p class="mt-2 text-gray-200"><strong>NS-31:</strong> Supported supply chain readiness for the mission carrying Katy Perry and advancing public engagement in commercial spaceflight.</p>
   </div>
   <div class="text-center">
-    <img src="{{ site.baseurl }}/blue-origin-new-glenn-ng-1-liftoff-closeup-vertical.jpg" alt="New Glenn Rocket Launch" class="rounded-lg shadow-lg cursor-pointer">
+    <img src="/blue-origin-new-glenn-ng-1-liftoff-closeup-vertical.jpg" alt="New Glenn Rocket Launch" class="rounded-lg shadow-lg cursor-pointer">
     <p class="mt-2 text-gray-200">New Glenn Launch Vehicle Supply Chain & Procurement</p>
   </div>
 </div>
@@ -46,11 +46,11 @@ Advisor for <a href="https://www.spaceunited.com" target="_blank"><strong>Space 
 
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
   <div class="text-center">
-    <img src="{{ site.baseurl }}/Space%20United%20team.png" alt="Space United Team" class="rounded-lg shadow-lg cursor-pointer">
+    <img src="/Space%20United%20team.png" alt="Space United Team" class="rounded-lg shadow-lg cursor-pointer">
     <p class="mt-2 text-gray-200">Space United Team</p>
   </div>
   <div class="text-center">
-    <img src="{{ site.baseurl }}/Space%20United%20with%20Atletico%20Nacional.png" alt="Space United with Atletico Nacional" class="rounded-lg shadow-lg cursor-pointer">
+    <img src="/Space%20United%20with%20Atletico%20Nacional.png" alt="Space United with Atletico Nacional" class="rounded-lg shadow-lg cursor-pointer">
     <p class="mt-2 text-gray-200">Outreach Collaboration with Atlético Nacional</p>
   </div>
 </div>
@@ -62,19 +62,19 @@ Founded and scaled **Anything Flows**, an industrial automation and valve soluti
 
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
   <div class="text-center">
-    <img src="{{ site.baseurl }}/Anything%20Flows.jpg" alt="Anything Flows Logo" class="rounded-lg shadow-lg cursor-pointer">
+    <img src="/Anything%20Flows.jpg" alt="Anything Flows Logo" class="rounded-lg shadow-lg cursor-pointer">
     <p class="mt-2 text-gray-200">Anything Flows – Valve & Control Solutions Startup</p>
   </div>
   <div class="text-center">
-    <img src="{{ site.baseurl }}/Anything%20Flows%20Valve%20Actuators.jpg" alt="Valve Actuators" class="rounded-lg shadow-lg cursor-pointer">
+    <img src="/Anything%20Flows%20Valve%20Actuators.jpg" alt="Valve Actuators" class="rounded-lg shadow-lg cursor-pointer">
     <p class="mt-2 text-gray-200">Industrial Valve Actuators – Process Automation</p>
   </div>
   <div class="text-center">
-    <img src="{{ site.baseurl }}/Andres%20Tobacia%20with%20Ball%20Valves.jpg" alt="Andres delivering Natural Gas Pipeline Valves" class="rounded-lg shadow-lg cursor-pointer">
+    <img src="/Andres%20Tobacia%20with%20Ball%20Valves.jpg" alt="Andres delivering Natural Gas Pipeline Valves" class="rounded-lg shadow-lg cursor-pointer">
     <p class="mt-2 text-gray-200">Andres Tobacia delivering Natural Gas Pipeline Valves – Engineering Solutions</p>
   </div>
   <div class="text-center">
-    <img src="{{ site.baseurl }}/Vincent%20Van%20Flow.jpg" alt="Vincent Van Flow" class="rounded-lg shadow-lg cursor-pointer">
+    <img src="/Vincent%20Van%20Flow.jpg" alt="Vincent Van Flow" class="rounded-lg shadow-lg cursor-pointer">
     <p class="mt-2 text-gray-200">Vincent Van Flow – Trademarked Creative Branding</p>
   </div>
 </div>
@@ -107,7 +107,7 @@ Beyond engineering and supply chain leadership, I actively support humanitarian 
 
 <div class="grid grid-cols-1 gap-6 mt-4">
   <div class="text-center">
-    <img src="{{ site.baseurl }}/Tobacia%20Brothers.jpg" alt="Technology for Humanity" class="rounded-lg shadow-lg cursor-pointer">
+    <img src="/Tobacia%20Brothers.jpg" alt="Technology for Humanity" class="rounded-lg shadow-lg cursor-pointer">
     <p class="mt-2 text-gray-200"><strong>Technology for Humanity</strong> – Using innovation to create a better future for all.</p>
   </div>
 </div>
