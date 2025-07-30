@@ -5,7 +5,6 @@ title: "Home"
 
 <div class="flex flex-col items-center justify-center text-center space-y-6 mt-8 px-4">
   <div class="home-headshot">
-    <!-- Root-relative path so it loads under tobacia.space -->
     <img src="/Andres%20Tobacia%20Professional%20Headshot.jpg" alt="Andrés Tobacia" class="w-40 sm:w-56 md:w-64 rounded-full shadow-lg cursor-pointer mx-auto">
   </div>
 
@@ -14,12 +13,15 @@ title: "Home"
     Industrial Engineering & Supply Chain Executive | AI-Powered Manufacturing & Space Exploration
   </h2>
 
+  <!-- Language Switch -->
+  <div class="mt-2">
+    <a href="/index-es.html" class="text-blue-400 hover:text-blue-500 underline">🌐 View this page in Spanish</a>
+  </div>
+
   <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 mt-4 w-full max-w-2xl px-2">
-    <!-- All internal links now root-relative to avoid /tobacia/ prefix issues -->
     <a href="/contact.html" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center">Contact Me</a>
     <a href="https://www.linkedin.com/in/jatobacia/" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center">LinkedIn</a>
-    <a href="/Andres_Tobacia_AI_Resume_EN.pdf" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center">📄 AI Resume Teaser (English)</a>
-    <a href="/Andres_Tobacia_AI_Resume_ES.pdf" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center">📄 Resumen Ejecutivo IA (Español)</a>
+    <a href="/Andres_Tobacia_AI_Resume_EN.pdf" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center">📄 AI Resume Teaser</a>
     <a href="https://calendly.com/yotangoflow" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center">📅 Book Me to Speak</a>
   </div>
 </div>
@@ -30,7 +32,7 @@ title: "Home"
     🧠 New Blog on Substack – Check out AI, Space, and Supply Chain insights!
   </p>
   <a href="/blog.html" class="inline-block mt-2 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
-    Visit Blog / Ir al Blog
+    Visit Blog
   </a>
 </div>
 
@@ -73,7 +75,6 @@ document.querySelectorAll('.home-headshot img').forEach(img => {
 
     overlay.appendChild(fullImg);
     overlay.addEventListener('click', () => document.body.removeChild(overlay));
-
     document.body.appendChild(overlay);
   });
 });
