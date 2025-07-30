@@ -39,8 +39,8 @@ Para conferencias, oportunidades de reclutamiento o para solicitar mi hoja de vi
       <textarea name="message" required class="w-full p-2 rounded bg-gray-900 text-white border border-gray-600"></textarea>
     </div>
 
-    <!-- reCAPTCHA -->
-    <div class="g-recaptcha" data-sitekey="6LdILpErAAAAAC6binGsWsK2QVyP5rRbQxo-TiKn"></div>
+    <!-- ✅ Replace site key with one created for tobacia.space -->
+    <div class="g-recaptcha" data-sitekey="YOUR_NEW_SITE_KEY_FOR_TOBAClA.SPACE"></div>
 
     <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
       Send Message / Enviar Mensaje
@@ -61,8 +61,8 @@ Para conferencias, oportunidades de reclutamiento o para solicitar mi hoja de vi
 Disponibles en Inglés y Español para reclutadores y organizadores de eventos.</p>
 
 <div class="flex flex-col sm:flex-row gap-3 justify-center mt-2">
-  <a href="{{ site.baseurl }}/Andres_Tobacia_AI_Resume_EN.pdf" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center">AI Resume Teaser (English)</a>
-  <a href="{{ site.baseurl }}/Andres_Tobacia_AI_Resume_ES.pdf" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center">Resumen Ejecutivo IA (Español)</a>
+  <a href="/Andres_Tobacia_AI_Resume_EN.pdf" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center">AI Resume Teaser (English)</a>
+  <a href="/Andres_Tobacia_AI_Resume_ES.pdf" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center">Resumen Ejecutivo IA (Español)</a>
 </div>
 
 <p class="text-sm mt-2 text-center">Full resume available upon request. / Hoja de vida completa disponible a solicitud.</p>
