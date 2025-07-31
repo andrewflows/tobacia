@@ -1,1 +1,148 @@
+---
+layout: page
+title: "Experiencia"
+permalink: /experiencia.html
+---
+
+## Experiencia Profesional
+
+<div class="relative border-l border-gray-700 ml-4 mt-6">
+
+  <!-- Blue Origin -->
+  <div class="mb-10 ml-6">
+    <div class="absolute -left-3 w-6 h-6 bg-blue-500 rounded-full border border-gray-900"></div>
+    <h3 class="text-xl font-semibold text-blue-300">Blue Origin – Kent, WA</h3>
+    <p class="text-sm text-gray-400">Julio 2025 – Presente</p>
+    <p class="font-bold">Supply Chain Project Manager (Nivel III) | Estrategia y Operaciones</p>
+    <ul class="list-disc ml-6 mt-2 text-gray-200">
+      <li>Liderando iniciativas de IA y automatización en la transformación de la cadena de suministro global.</li>
+      <li>Implementación de aprendizaje automático para pronósticos de inventario y análisis de riesgo de proveedores.</li>
+      <li>Impulsando transformación digital de punta a punta con analítica predictiva y RPA.</li>
+    </ul>
+  </div>
+
+  <div class="mb-10 ml-6">
+    <div class="absolute -left-3 w-6 h-6 bg-blue-500 rounded-full border border-gray-900"></div>
+    <p class="text-sm text-gray-400">2022 – Julio 2025</p>
+    <p class="font-bold">Supply Chain Program Manager (Nivel III) | New Shepard</p>
+    <ul class="list-disc ml-6 mt-2 text-gray-200">
+      <li>Gestionó la cadena de suministro para subsistemas de la cápsula tripulada de New Shepard.</li>
+      <li>Supervisó compras, pronósticos y finanzas no laborales para compuestos, paracaídas, aviónica.</li>
+      <li>Apoyo a <strong>12+ misiones suborbitales</strong>, <strong>1 misión orbital</strong> y <strong>40+ astronautas</strong>.</li>
+    </ul>
+  </div>
+
+  <!-- Anything Flows -->
+  <div class="mb-10 ml-6">
+    <div class="absolute -left-3 w-6 h-6 bg-green-500 rounded-full border border-gray-900"></div>
+    <h3 class="text-xl font-semibold text-green-300">Anything Flows – Houston, TX</h3>
+    <p class="text-sm text-gray-400">2018 – 2022</p>
+    <p class="font-bold">Gerente General</p>
+    <ul class="list-disc ml-6 mt-2 text-gray-200">
+      <li>Fundó y escaló startup de válvulas y controles con 400% de crecimiento.</li>
+      <li>Desarrolló la primera plataforma de comercio electrónico de la industria para válvulas y controles.</li>
+      <li>Gestionó contratos multimillonarios para clientes de petróleo, gas y minería.</li>
+    </ul>
+  </div>
+
+  <!-- Weir -->
+  <div class="mb-10 ml-6">
+    <div class="absolute -left-3 w-6 h-6 bg-yellow-500 rounded-full border border-gray-900"></div>
+    <h3 class="text-xl font-semibold text-yellow-300">Weir Minerals – Houston, TX</h3>
+    <p class="text-sm text-gray-400">2016 – 2017</p>
+    <p class="font-bold">Ingeniero Senior de Ventas</p>
+    <ul class="list-disc ml-6 mt-2 text-gray-200">
+      <li>Cubrió territorios de ventas en NM, AZ, TX y CA.</li>
+      <li>Gestionó cuentas estratégicas para clientes industriales y de petróleo.</li>
+    </ul>
+  </div>
+
+  <!-- Lockwood -->
+  <div class="mb-10 ml-6">
+    <div class="absolute -left-3 w-6 h-6 bg-purple-500 rounded-full border border-gray-900"></div>
+    <h3 class="text-xl font-semibold text-purple-300">Lockwood International – Houston, TX</h3>
+    <p class="text-sm text-gray-400">2015 – Mayo 2016</p>
+    <p class="font-bold">Gerente de Cuentas Externas</p>
+    <ul class="list-disc ml-6 mt-2 text-gray-200">
+      <li>Gestionó cuentas clave de gasoductos (Kinder Morgan, Enbridge, Williams, TC Energy).</li>
+      <li>Entregó soluciones de válvulas y actuadores de bola, logrando ingresos significativos.</li>
+      <li>Especializado en sistemas de tuberías y tendencias de mercado.</li>
+    </ul>
+  </div>
+
+  <!-- Rotork -->
+  <div class="mb-10 ml-6">
+    <div class="absolute -left-3 w-6 h-6 bg-indigo-500 rounded-full border border-gray-900"></div>
+    <h3 class="text-xl font-semibold text-indigo-300">Rotork Inc – Houston, TX</h3>
+    <p class="text-sm text-gray-400">Enero 2012 – Dic 2014</p>
+    <p class="font-bold">Ingeniero de Ventas Externas, Latinoamérica</p>
+    <ul class="list-disc ml-6 mt-2 text-gray-200">
+      <li>Aumentó ventas en LATAM en 200% y abrió nueva oficina en Chile.</li>
+      <li>Lideró estudios de mercado y capacitó equipos en 7 países.</li>
+    </ul>
+  </div>
+
+  <!-- Cameron -->
+  <div class="mb-10 ml-6">
+    <div class="absolute -left-3 w-6 h-6 bg-red-500 rounded-full border border-gray-900"></div>
+    <h3 class="text-xl font-semibold text-red-300">SLB (Cameron Valves & Controls) – Houston, TX</h3>
+    <p class="text-sm text-gray-400">2010 – 2012</p>
+    <p class="font-bold">Gerente Senior de Proyectos</p>
+    <ul class="list-disc ml-6 mt-2 text-gray-200">
+      <li>Gestionó inventario de válvulas y actuadores de $8M.</li>
+      <li>Creó programa de dimensionamiento en Excel mejorando velocidad de cotización en 40%.</li>
+      <li>Impulsó ingresos del centro de automatización de $0.9M a $3M.</li>
+    </ul>
+  </div>
+
+  <!-- Emerson -->
+  <div class="mb-10 ml-6">
+    <div class="absolute -left-3 w-6 h-6 bg-pink-500 rounded-full border border-gray-900"></div>
+    <h3 class="text-xl font-semibold text-pink-300">Emerson Process Management – Houston, TX</h3>
+    <p class="text-sm text-gray-400">2008 – 2010</p>
+    <p class="font-bold">Ingeniero de Aplicaciones y Ventas</p>
+    <ul class="list-disc ml-6 mt-2 text-gray-200">
+      <li>Aumentó ingresos en LATAM de $10.8M a $17M mediante flujos de cotización mejorados.</li>
+      <li>Aseguró contratos clave para actuadores Shafer en sectores de gas natural y minería.</li>
+    </ul>
+  </div>
+
+  <!-- GE -->
+  <div class="mb-6 ml-6">
+    <div class="absolute -left-3 w-6 h-6 bg-gray-400 rounded-full border border-gray-900"></div>
+    <h3 class="text-xl font-semibold text-gray-300">GE – Houston, TX</h3>
+    <p class="text-sm text-gray-400">2007</p>
+    <p class="font-bold">Ingeniero Pasante de Turbinas de Gas</p>
+    <ul class="list-disc ml-6 mt-2 text-gray-200">
+      <li>Co-op en hardware de combustión de turbinas GE 7FA.</li>
+      <li>Realizó revisiones técnicas y gestión de inventarios.</li>
+    </ul>
+  </div>
+
+</div>
+
+---
+
+## Educación
+
+- **Texas A&M University** – B.S. Ingeniería Industrial y de Sistemas (2003 – 2008)  
+- **Harvard Business School Online** – Negociación y Operaciones Emprendedoras (2019)  
+- **Diploma Bachillerato Internacional** – John Tyler HS, Tyler, TX (1991 – 2003)
+
+---
+
+<style>
+@media (max-width: 640px) {
+  h2, h3 {
+    font-size: 1.1rem;
+  }
+  p, li {
+    font-size: 0.95rem;
+  }
+}
+</style>
+
+<div class="mt-6">
+  <a href="/experience.html" class="text-blue-400 hover:text-blue-500 underline">🌐 View this page in English</a>
+</div>
 
