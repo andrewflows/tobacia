@@ -49,15 +49,16 @@
 
     <!-- Language Switch -->
     <div class="lang-switch absolute top-4 right-4">
-      {% if page.url contains '-es' or page.url contains '/inicio' %}
+      {% if page.url contains '-es' or page.url contains '/inicio' or page.url contains '/acercademi' %}
         <a href="/index.html">English</a>
       {% else %}
         <a href="/inicio">Español</a>
       {% endif %}
     </div>
 
+    <!-- Navigation -->
     <nav class="mt-2 space-x-4">
-      {% if page.url contains '-es' or page.url contains '/inicio' or page.url contains '/acercademi' %}
+      {% if page.url contains '-es' or page.url contains '/inicio' or page.url contains '/acercademi' or page.url contains '/experiencia' or page.url contains '/proyectos' or page.url contains '/conferencias' or page.url contains '/contacto' %}
         <a href="/inicio" class="hover:text-blue-400">Inicio</a>
         <a href="/acercademi" class="hover:text-blue-400">Acerca de mí</a>
         <a href="/experiencia" class="hover:text-blue-400">Experiencia</a>
@@ -88,4 +89,3 @@
   </footer>
 </body>
 </html>
-
