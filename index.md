@@ -15,7 +15,7 @@ title: "Home"
 
   <!-- Language Switch -->
   <div class="mt-2">
-    <a href="/index-es.html" class="text-blue-400 hover:text-blue-500 underline">🌐 View this page in Spanish</a>
+    <a href="/inicio" class="text-blue-400 hover:text-blue-500 underline">🌐 View this page in Spanish</a>
   </div>
 
   <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 mt-4 w-full max-w-2xl px-2">
@@ -87,4 +87,5 @@ document.querySelectorAll('.home-headshot img').forEach(img => {
   overflow: hidden;
 }
 </style>
+
 
