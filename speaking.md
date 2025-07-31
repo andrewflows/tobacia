@@ -1,40 +1,39 @@
 ---
 layout: page
-title: "Speaking / Conferencias"
+title: "Speaking"
 ---
 
-## Speaking & Media 🎤 / Conferencias y Medios 🎤
+## Speaking & Media 🎤
 
-Available for conferences, panels, and leadership talks on:  
-Disponibles para conferencias, paneles y charlas de liderazgo sobre:
+Available for conferences, panels, and leadership talks on:
 
-- AI-powered manufacturing and supply chain automation 🤖 / Manufactura impulsada por IA y automatización de cadenas de suministro 🤖  
-- Space exploration operations and industrial innovation 🚀 / Operaciones de exploración espacial e innovación industrial 🚀  
-- Soccer in space and sports as a tool for inspiration ⚽🌌 / Fútbol en el espacio y deportes como herramienta de inspiración ⚽🌌  
-- Renewable energy and sustainable transitions ⚡🌱 / Energía renovable y transiciones sostenibles ⚡🌱  
-- Open-source tech for humanitarian impact 🌍 / Tecnología open-source para impacto humanitario 🌍  
-- Fertility strategies & population initiatives 👶🌎 / Estrategias de fertilidad e iniciativas de población 👶🌎  
-- The future of humanity with AI and ethical innovation 🤖🌍 / El futuro de la humanidad con IA e innovación ética 🤖🌍  
+- AI-powered manufacturing and supply chain automation 🤖  
+- Space exploration operations and industrial innovation 🚀  
+- Soccer in space and sports as a tool for inspiration ⚽🌌  
+- Renewable energy and sustainable transitions ⚡🌱  
+- Open-source tech for humanitarian impact 🌍  
+- Fertility strategies & population initiatives 👶🌎  
+- The future of humanity with AI and ethical innovation 🤖🌍  
 
 <div class="flex justify-center mt-4">
   <a href="https://calendly.com/yotangoflow" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
-    📅 Book Me to Speak / Reservar Conferencia
+    📅 Book Me to Speak
   </a>
 </div>
 
 ---
 
-### Tobacia Brothers – Engineering Leadership / Liderazgo en Ingeniería
+### Tobacia Brothers – Engineering Leadership
 
 <div class="flex justify-center mt-4">
   <img src="/Tobacia%20Brothers.jpg" alt="Tobacia Brothers" class="w-72 sm:w-96 rounded-lg shadow-lg cursor-pointer">
 </div>
 
-<p class="text-center text-gray-200 mt-2">Engineering leadership across space exploration, renewable energy, and industrial systems. / Liderazgo en ingeniería en exploración espacial, energía renovable y sistemas industriales.</p>
+<p class="text-center text-gray-200 mt-2">Engineering leadership across space exploration, renewable energy, and industrial systems.</p>
 
 ---
 
-### 🎥 Featured STEM Outreach / Divulgación STEM
+### 🎥 Featured STEM Outreach
 
 <div class="video-container">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/4tuNPfHYMjE" 
@@ -44,7 +43,7 @@ Disponibles para conferencias, paneles y charlas de liderazgo sobre:
   </iframe>
 </div>
 
-<p class="text-center text-gray-200 mt-2"><strong>Over 17,000+ views on YouTube. / Más de 17,000 vistas en YouTube.</strong></p>
+<p class="text-center text-gray-200 mt-2"><strong>Over 17,000+ views on YouTube.</strong></p>
 
 ---
 
@@ -92,10 +91,8 @@ document.querySelectorAll('img').forEach(img => {
 
     overlay.appendChild(fullImg);
     overlay.addEventListener('click', () => document.body.removeChild(overlay));
-
     document.body.appendChild(overlay);
   });
 });
 </script>
-
 
