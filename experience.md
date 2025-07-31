@@ -34,7 +34,7 @@ title: "Experience"
   <!-- Anything Flows -->
   <div class="mb-10 ml-6">
     <div class="absolute -left-3 w-6 h-6 bg-green-500 rounded-full border border-gray-900"></div>
-    <h3 class="text-xl font-semibold text-green-300">Anything Flows LLC – Houston, TX</h3>
+    <h3 class="text-xl font-semibold text-green-300">Anything Flows – Houston, TX</h3>
     <p class="text-sm text-gray-400">2018 – 2022</p>
     <p class="font-bold">General Manager</p>
     <ul class="list-disc ml-6 mt-2 text-gray-200">
