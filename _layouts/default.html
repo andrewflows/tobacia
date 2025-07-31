@@ -38,12 +38,23 @@
     .neon-text { color: #38bdf8; text-shadow: 0 0 10px rgba(56, 189, 248, 0.7); }
     nav a { transition: color 0.3s; }
     nav a:hover { color: #60a5fa; }
+    .lang-switch { float: right; font-size: 0.9rem; }
+    .lang-switch a { color: #38bdf8; margin-left: 10px; text-decoration: underline; }
   </style>
 </head>
 
 <body class="font-sans leading-relaxed">
-  <header class="text-center p-4 shadow-md">
+  <header class="text-center p-4 shadow-md relative">
     <h1 class="text-3xl font-bold neon-text">{{ site.title }}</h1>
+
+    <!-- Language Switch Tab -->
+    <div class="lang-switch absolute top-4 right-4">
+      {% if page.url contains '-es' %}
+        <a href="/index.html">English</a>
+      {% else %}
+        <a href="/index-es.html">Español</a>
+      {% endif %}
+    </div>
 
     <nav class="mt-2 space-x-4">
       {% if page.url contains '-es' %}
