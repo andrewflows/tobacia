@@ -1,1 +1,169 @@
+---
+layout: page
+title: "Proyectos e Iniciativas"
+permalink: /proyectos.html
+---
+
+## Proyectos e Iniciativas
+
+### Blue Origin – Manufactura Espacial y Optimización de Cadena de Suministro
+Apoyo a más de **12 misiones suborbitales exitosas**, **1 misión orbital** y múltiples misiones de carga útil. Contribución clave a la introducción de **40+ nuevos astronautas** al espacio mientras se impulsa la excelencia en la cadena de suministro para componentes críticos de misión.
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+  <div class="text-center">
+    <img src="/8_NS22-Capsule-Descent-1.jpg" alt="NS22 Cápsula Descenso" class="rounded-lg shadow-lg cursor-pointer">
+    <p class="mt-2 text-gray-200">NS-22 Recuperación de Cápsula Tripulada e Integración de Cadena de Suministro</p>
+  </div>
+  <div class="text-center">
+    <img src="/NS22_EarthView (1).jpg" alt="Vista de la Tierra NS22" class="rounded-lg shadow-lg cursor-pointer">
+    <p class="mt-2 text-gray-200">NS-22 Vista de la Tierra desde la Cápsula</p>
+  </div>
+  <div class="text-center">
+    <img src="/ns25-egress-ed-dwight_gallery.jpg" alt="Ed Dwight NS25" class="rounded-lg shadow-lg cursor-pointer">
+    <p class="mt-2 text-gray-200"><strong>NS-25 Vuelo Histórico:</strong> Soporte logístico para Ed Dwight, el primer candidato afroamericano a astronauta, cumpliendo un viaje de décadas.</p>
+  </div>
+  <div class="text-center">
+    <img src="/ns26_capsule_touchdown_booster_background.jpg" alt="NS26 Aterrizaje de Cápsula" class="rounded-lg shadow-lg cursor-pointer">
+    <p class="mt-2 text-gray-200">NS-26 Operaciones de Recuperación de Cápsula y Booster</p>
+  </div>
+  <div class="text-center">
+    <img src="/ns-28-emily-calandrelli-(1).jpg" alt="Emily Calandrelli NS28" class="rounded-lg shadow-lg cursor-pointer">
+    <p class="mt-2 text-gray-200"><strong>NS-28:</strong> Soporte logístico para la misión de Emily Calandrelli (“The Space Gal”).</p>
+  </div>
+  <div class="text-center">
+    <img src="/ns-31-katy-perry.jpg" alt="NS31 Katy Perry" class="rounded-lg shadow-lg cursor-pointer">
+    <p class="mt-2 text-gray-200"><strong>NS-31:</strong> Preparación de cadena de suministro para la misión que llevó a Katy Perry y promovió el compromiso público con los vuelos espaciales comerciales.</p>
+  </div>
+  <div class="text-center">
+    <img src="/blue-origin-new-glenn-ng-1-liftoff-closeup-vertical.jpg" alt="Lanzamiento New Glenn" class="rounded-lg shadow-lg cursor-pointer">
+    <p class="mt-2 text-gray-200">Vehículo de Lanzamiento New Glenn – Cadena de Suministro y Compras</p>
+  </div>
+</div>
+
+---
+
+### Space United – Deportes en el Espacio
+Asesor de <a href="https://www.spaceunited.com" target="_blank"><strong>Space United</strong></a>, una iniciativa dedicada a llevar los deportes más allá de la Tierra, comenzando con el hermoso juego del fútbol.
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
+  <div class="text-center">
+    <img src="/Space%20United%20team.png" alt="Equipo Space United" class="rounded-lg shadow-lg cursor-pointer">
+    <p class="mt-2 text-gray-200">Equipo de Space United</p>
+  </div>
+  <div class="text-center">
+    <img src="/Space%20United%20with%20Atletico%20Nacional.png" alt="Space United con Atlético Nacional" class="rounded-lg shadow-lg cursor-pointer">
+    <p class="mt-2 text-gray-200">Colaboración con Atlético Nacional</p>
+  </div>
+</div>
+
+---
+
+### Anything Flows – Startup y Branding
+Fundador de **Anything Flows**, una empresa de soluciones industriales de automatización y válvulas, con múltiples marcas registradas incluyendo el creativo branding **Vincent Van Flow**.
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+  <div class="text-center">
+    <img src="/Anything%20Flows.jpg" alt="Logo Anything Flows" class="rounded-lg shadow-lg cursor-pointer">
+    <p class="mt-2 text-gray-200">Anything Flows – Startup de Soluciones de Válvulas y Controles</p>
+  </div>
+  <div class="text-center">
+    <img src="/Anything%20Flows%20Valve%20Actuators.jpg" alt="Actuadores de Válvulas" class="rounded-lg shadow-lg cursor-pointer">
+    <p class="mt-2 text-gray-200">Actuadores Industriales – Automatización de Procesos</p>
+  </div>
+  <div class="text-center">
+    <img src="/Andres%20Tobacia%20with%20Ball%20Valves.jpg" alt="Andrés entregando válvulas" class="rounded-lg shadow-lg cursor-pointer">
+    <p class="mt-2 text-gray-200">Andrés Tobacia entregando válvulas para gasoductos – Soluciones de Ingeniería</p>
+  </div>
+  <div class="text-center">
+    <img src="/Vincent%20Van%20Flow.jpg" alt="Vincent Van Flow" class="rounded-lg shadow-lg cursor-pointer">
+    <p class="mt-2 text-gray-200">Vincent Van Flow – Branding Creativo Registrado</p>
+  </div>
+</div>
+
+---
+
+### Divulgación STEM e IA
+Alcance educativo y contenido que inspiran a futuros ingenieros y entusiastas del espacio.
+
+<div class="video-container">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/4tuNPfHYMjE" 
+    title="Video de Divulgación STEM de los Hermanos Tobacia" frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+  </iframe>
+</div>
+
+<p class="text-gray-200 mt-2"><strong>Más de 17,000 vistas en YouTube.</strong></p>
+
+---
+
+### Iniciativas Humanitarias 🌍
+Más allá de la ingeniería y liderazgo en cadena de suministro, apoyo activamente iniciativas humanitarias que aprovechan tecnología open-source para crear un cambio positivo global.
+
+- **Tecnología Descentralizada Open-Source:** Empoderando comunidades a través de sistemas transparentes e innovación.  
+- **Inclusión Financiera:** Apoyo a tecnologías que brindan acceso económico a poblaciones desatendidas.  
+- **Ayuda sin Fronteras:** Promoción de soluciones digitales para entregar ayuda humanitaria sin barreras.  
+- **Energía Sostenible:** Defensa de transiciones industriales responsables y adopción de energías renovables.
+
+<div class="grid grid-cols-1 gap-6 mt-4">
+  <div class="text-center">
+    <img src="/Tobacia%20Brothers.jpg" alt="Tecnología para la Humanidad" class="rounded-lg shadow-lg cursor-pointer">
+    <p class="mt-2 text-gray-200"><strong>Tecnología para la Humanidad</strong> – Usando innovación para crear un mejor futuro para todos.</p>
+  </div>
+</div>
+
+---
+
+<style>
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  margin: 20px 0;
+}
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,255,255,0.3);
+}
+</style>
+
+<script>
+document.querySelectorAll('img').forEach(img => {
+  img.addEventListener('click', function() {
+    const overlay = document.createElement('div');
+    overlay.style.position = 'fixed';
+    overlay.style.top = 0;
+    overlay.style.left = 0;
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.background = 'rgba(0,0,0,0.9)';
+    overlay.style.display = 'flex';
+    overlay.style.alignItems = 'center';
+    overlay.style.justifyContent = 'center';
+    overlay.style.zIndex = 9999;
+
+    const fullImg = document.createElement('img');
+    fullImg.src = this.src;
+    fullImg.style.maxWidth = '90%';
+    fullImg.style.maxHeight = '90%';
+    fullImg.style.borderRadius = '8px';
+    fullImg.style.boxShadow = '0 0 25px rgba(0,255,255,0.8)';
+
+    overlay.appendChild(fullImg);
+    overlay.addEventListener('click', () => document.body.removeChild(overlay));
+    document.body.appendChild(overlay);
+  });
+});
+</script>
+
+<div class="mt-6">
+  <a href="/projects.html" class="text-blue-400 hover:text-blue-500 underline">🌐 Ver esta página en Inglés</a>
+</div>
 
