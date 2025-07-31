@@ -87,4 +87,3 @@ document.querySelectorAll('.home-headshot img').forEach(img => {
   overflow: hidden;
 }
 </style>
-
