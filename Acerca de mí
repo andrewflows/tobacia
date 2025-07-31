@@ -1,92 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }} | {{ site.title }}</title>
+---
+layout: page
+title: "Acerca de mí"
+permalink: /acerca-de-mi
+---
 
-  <!-- Tailwind CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+## Acerca de Andrés
 
-  <!-- Favicon -->
-  <link rel="icon" href="/favicon.png" type="image/png">
-  <meta name="theme-color" content="#0a0f1c">
+<div class="flex flex-col md:flex-row items-center md:items-start gap-6 mt-4 px-2">
+  <img src="/Andres%20Tobacia%20Blue%20Origin.jpg" alt="Andrés Tobacia" class="w-40 sm:w-56 md:w-64 rounded-lg shadow-lg mx-auto md:mx-0">
 
-  <!-- SEO -->
-  <meta name="description" content="Andrés Tobacia – Industrial Engineering & Supply Chain Executive specializing in AI-powered manufacturing and space exploration.">
-  <meta name="keywords" content="Andrés Tobacia, AI Supply Chain, Industrial Engineering, Space Exploration, AI Manufacturing, Blue Origin">
-  <meta name="author" content="Andrés Tobacia">
+  <div class="text-center md:text-left">
+    Andrés Tobacia es Ingeniero Industrial y de Sistemas graduado de Texas A&M (2008) con más de 17 años optimizando manufactura, logística y automatización en los sectores aeroespacial, energético e industrial.  
 
-  <meta property="og:title" content="Andrés Tobacia | AI-Powered Manufacturing & Space Exploration">
-  <meta property="og:description" content="Industrial Engineering & Supply Chain Executive with 17+ years in aerospace, energy, and manufacturing automation.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://tobacia.space">
-  <meta property="og:image" content="/Andres%20Tobacia%20Professional%20Headshot.jpg">
+    Actualmente se desempeña como **Global Supply Chain Project Manager III** en Blue Origin en Kent, WA, liderando estrategias de compras y cadena de suministro para todos los programas, contribuyendo a más de **12 misiones suborbitales**, **1 misión orbital** y **40+ astronautas** que han llegado al espacio.  
 
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XP8KVNTVR8"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XP8KVNTVR8');
-  </script>
+    - Dirigió iniciativas a gran escala de optimización de procesos y cadena de suministro para programas espaciales avanzados.  
+    - Fundó y escaló una startup de soluciones de cadena de suministro con crecimiento operativo significativo.  
+    - Gestionó contratos multimillonarios y operaciones multi-sitio en Norteamérica y Latinoamérica.  
+    - Certificado en Negociación y Operaciones Emprendedoras por Harvard.  
+    - Experto en branding y creación estratégica de nombres (más de 8 marcas registradas).  
+  </div>
+</div>
 
-  <style>
-    body { background-color: #0a0f1c; color: #f5f5f5; }
-    header, footer { background-color: #111827; }
-    .neon-text { color: #38bdf8; text-shadow: 0 0 10px rgba(56, 189, 248, 0.7); }
-    nav a { transition: color 0.3s; }
-    nav a:hover { color: #60a5fa; }
-    .lang-switch { float: right; font-size: 0.9rem; }
-    .lang-switch a { color: #38bdf8; margin-left: 10px; text-decoration: underline; }
-  </style>
-</head>
+---
 
-<body class="font-sans leading-relaxed">
-  <header class="text-center p-4 shadow-md relative">
-    <h1 class="text-3xl font-bold neon-text">{{ site.title }}</h1>
+### 🌎 Orígenes
 
-    <!-- Language Switch -->
-    <div class="lang-switch absolute top-4 right-4">
-      {% if page.url contains '-es' or page.url contains '/inicio' or page.url contains '/acerca-de-mi' %}
-        <a href="/index.html">English</a>
-      {% else %}
-        <a href="/inicio">Español</a>
-      {% endif %}
-    </div>
+- Nació en Bogotá, Colombia.  
+- Infancia en Ecuador, Colombia, Texas, Luisiana, Alaska y Washington.  
+- Se convirtió en ciudadano estadounidense en 2013.  
+- Proviene de una familia de ingenieros: tres hermanos menores, todos graduados de Texas A&M (Aeroespacial, Industrial, Sistemas Marítimos).  
 
-    <!-- Navigation -->
-    <nav class="mt-2 space-x-4">
-      {% if page.url contains '-es' or page.url contains '/inicio' or page.url contains '/acerca-de-mi' or page.url contains '/experiencia' or page.url contains '/proyectos' or page.url contains '/conferencias' or page.url contains '/contacto' %}
-        <a href="/inicio" class="hover:text-blue-400">Inicio</a>
-        <a href="/acerca-de-mi" class="hover:text-blue-400">Acerca de mí</a>
-        <a href="/experiencia" class="hover:text-blue-400">Experiencia</a>
-        <a href="/proyectos" class="hover:text-blue-400">Proyectos</a>
-        <a href="/conferencias" class="hover:text-blue-400">Conferencias</a>
-        <a href="/contacto" class="hover:text-blue-400">Contacto</a>
-        <a href="/blog-es" class="hover:text-blue-400">Blog</a>
-      {% else %}
-        <a href="/" class="hover:text-blue-400">Home</a>
-        <a href="/about.html" class="hover:text-blue-400">About</a>
-        <a href="/experience.html" class="hover:text-blue-400">Experience</a>
-        <a href="/projects.html" class="hover:text-blue-400">Projects</a>
-        <a href="/speaking.html" class="hover:text-blue-400">Speaking</a>
-        <a href="/contact.html" class="hover:text-blue-400">Contact</a>
-        <a href="/blog.html" class="hover:text-blue-400">Blog</a>
-      {% endif %}
-    </nav>
-  </header>
+---
 
-  <main class="container mx-auto p-6">
-    {{ content }}
-  </main>
+### 💡 Creencias y Visión
 
-  <footer class="text-center p-4 mt-6 text-sm text-gray-400">
-    © 2025 Andrés Tobacia. Built with AI tools 🤖 – This site is open-source.
-    <br>
-    <span class="text-xs">Hosted at <a href="https://tobacia.space" class="hover:text-blue-400">tobacia.space</a></span>
-  </footer>
-</body>
-</html>
+- Construyendo el camino hacia el espacio y cambiando la humanidad un astronauta a la vez.  
+- Defensor de la sostenibilidad y de la transición hacia vehículos eléctricos.  
+- Firme creyente de que la IA puede beneficiar a la humanidad cuando se desarrolla de manera ética y enfocada en el bien común.  
+
+---
+
+### 🌟 Más Allá del Trabajo
+
+- Asesor de **Space United**, llevando el fútbol al espacio como herramienta de inspiración.  
+- Posee más de 8 marcas registradas y experiencia en branding estratégico.  
+- Construyó este sitio web utilizando herramientas de IA 🤖 y lo hizo open-source para demostrar adopción tecnológica eficiente.  
+- Proviene de una familia profundamente involucrada en la exploración espacial y en iniciativas de energía renovable.  
+
+---
+
+<p class="text-sm mt-4 italic text-gray-400">Hoja de vida disponible a solicitud.</p>
+
 
