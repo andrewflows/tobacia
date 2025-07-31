@@ -47,24 +47,24 @@
   <header class="text-center p-4 shadow-md relative">
     <h1 class="text-3xl font-bold neon-text">{{ site.title }}</h1>
 
-    <!-- Language Switch Tab -->
+    <!-- Language Switch -->
     <div class="lang-switch absolute top-4 right-4">
-      {% if page.url contains '-es' %}
+      {% if page.url contains '-es' or page.url contains '/inicio' %}
         <a href="/index.html">English</a>
       {% else %}
-        <a href="/index-es.html">Español</a>
+        <a href="/inicio">Español</a>
       {% endif %}
     </div>
 
     <nav class="mt-2 space-x-4">
-      {% if page.url contains '-es' %}
-        <a href="/index-es.html" class="hover:text-blue-400">Inicio</a>
-        <a href="/about-es.html" class="hover:text-blue-400">Acerca de mi</a>
-        <a href="/experience-es.html" class="hover:text-blue-400">Experiencia</a>
-        <a href="/projects-es.html" class="hover:text-blue-400">Proyectos</a>
-        <a href="/speaking-es.html" class="hover:text-blue-400">Conferencias</a>
-        <a href="/contact-es.html" class="hover:text-blue-400">Contacto</a>
-        <a href="/blog-es.html" class="hover:text-blue-400">Blog</a>
+      {% if page.url contains '-es' or page.url contains '/inicio' or page.url contains '/acercademi' %}
+        <a href="/inicio" class="hover:text-blue-400">Inicio</a>
+        <a href="/acercademi" class="hover:text-blue-400">Acerca de mí</a>
+        <a href="/experiencia" class="hover:text-blue-400">Experiencia</a>
+        <a href="/proyectos" class="hover:text-blue-400">Proyectos</a>
+        <a href="/conferencias" class="hover:text-blue-400">Conferencias</a>
+        <a href="/contacto" class="hover:text-blue-400">Contacto</a>
+        <a href="/blog-es" class="hover:text-blue-400">Blog</a>
       {% else %}
         <a href="/" class="hover:text-blue-400">Home</a>
         <a href="/about.html" class="hover:text-blue-400">About</a>
