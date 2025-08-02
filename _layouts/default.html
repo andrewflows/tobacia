@@ -8,8 +8,9 @@
   <!-- Tailwind CSS -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
-  <!-- Favicon -->
+  <!-- Favicon and Touch Icon -->
   <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/favicon.png">
   <meta name="theme-color" content="#0a0f1c">
 
   <!-- SEO -->
@@ -17,6 +18,7 @@
   <meta name="keywords" content="Andrés Tobacia, AI Supply Chain, Industrial Engineering, Space Exploration, AI Manufacturing, Blue Origin">
   <meta name="author" content="Andrés Tobacia">
 
+  <!-- OpenGraph / Social Preview -->
   <meta property="og:title" content="Andrés Tobacia | AI-Powered Manufacturing & Space Exploration">
   <meta property="og:description" content="Industrial Engineering & Supply Chain Executive with 17+ years in aerospace, energy, and manufacturing automation.">
   <meta property="og:type" content="website">
@@ -49,7 +51,7 @@
 
     <!-- Language Switch -->
     <div class="lang-switch absolute top-4 right-4">
-      {% if page.url contains '-es' or page.url contains '/inicio' or page.url contains '/acerca-de-mi' %}
+      {% if page.url contains '-es' or page.url contains '/inicio' or page.url contains '/acerca-de-mi.html' %}
         <a href="/index.html">English</a>
       {% else %}
         <a href="/inicio">Español</a>
@@ -58,9 +60,9 @@
 
     <!-- Navigation -->
     <nav class="mt-2 space-x-4">
-      {% if page.url contains '-es' or page.url contains '/inicio' or page.url contains '/acerca-de-mi' or page.url contains '/experiencia' or page.url contains '/proyectos' or page.url contains '/conferencias' or page.url contains '/contacto' %}
+      {% if page.url contains '-es' or page.url contains '/inicio' or page.url contains '/acerca-de-mi.html' or page.url contains '/experiencia' or page.url contains '/proyectos' or page.url contains '/conferencias' or page.url contains '/contacto' %}
         <a href="/inicio" class="hover:text-blue-400">Inicio</a>
-        <a href="/acerca-de-mi" class="hover:text-blue-400">Acerca de mí</a>
+        <a href="/acerca-de-mi.html" class="hover:text-blue-400">Acerca de mí</a>
         <a href="/experiencia" class="hover:text-blue-400">Experiencia</a>
         <a href="/proyectos" class="hover:text-blue-400">Proyectos</a>
         <a href="/conferencias" class="hover:text-blue-400">Conferencias</a>
