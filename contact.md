@@ -38,7 +38,7 @@ For speaking engagements, recruitment opportunities, or to request my full resum
       <textarea name="message" required class="w-full p-2 rounded bg-gray-900 text-white border border-gray-600"></textarea>
     </div>
 
-    <div class="g-recaptcha" data-sitekey="6LfX65MrAAAAAE5IDVa1IDCHv9zUz5CdQJ1AFyIB"></div>
+    <div class="g-recaptcha" data-sitekey="6LfIw7ArAAAAADropvC062ZsO33pndf3M3latKrC"></div>
 
     <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
       Send Message
