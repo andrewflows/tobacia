@@ -42,7 +42,7 @@
       <!-- Left: Input -->
       <div class="bg-navy-card border border-gray-700 rounded-xl p-6">
         <h2 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">Part Specification</h2>
-        <textarea id="specInput" rows="6" class="w-full bg-navy border border-gray-600 rounded-lg p-3 text-sm text-gray-200 focus:border-blue-500 focus:outline-none resize-none" placeholder='Example: 8" ball valve, ANSI Class 150, CF8M body, full port, RPTFE seats, lever operated, API 6D'></textarea>
+        <textarea id="specInput" rows="6" class="w-full bg-navy border border-gray-600 rounded-lg p-3 text-sm text-gray-200 focus:border-blue-500 focus:outline-none resize-none" placeholder='Example: Centrifugal pump, 500 GPM, 150 ft TDH, 316SS wetted parts, mechanical seal, ANSI B73.1. For chemical transfer service.'></textarea>
 
         <div class="flex gap-3 mt-4">
           <button onclick="matchSupplier()" id="matchBtn" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-lg transition text-sm">
@@ -128,9 +128,9 @@ const API_BASE = window.API_BASE || 'https://tobacia-rfq-parser.onrender.com';
 let parsedData = null;
 
 const SAMPLE_SPECS = [
-  '10" Trunnion Mounted Ball Valve, ANSI Class 600, A105 body, ENP coating, double block and bleed, gear operated. API 6D certified. NACE MR0175 required for sour gas service. Prefer Neles, Cameron, or Flowserve.',
-  '4" Control Valve, Globe Style, ANSI Class 300, WCC body, equal percentage trim, 4-20mA positioner with HART protocol. ISA S75 compliant. For steam service at 450F.',
-  '6" Triple Offset Butterfly Valve, ANSI Class 300, WCB body, SS316 disc, metal-to-metal seat, gear operated. API 609 Category B. Fire-safe per API 607.',
+  'Centrifugal pump, 500 GPM, 150 ft TDH, 316SS wetted parts, mechanical seal, ANSI B73.1 compliant. For chemical transfer service, ambient temperature. Explosion-proof motor, 460V/3ph/60Hz.',
+  'Plate heat exchanger, 2 MMBtu/hr capacity, 316SS plates, EPDM gaskets. Hot side: 200F glycol. Cold side: 60F process water. ASME U-stamp required. Include mounting frame.',
+  'Industrial air compressor, rotary screw, 200 HP, 125 PSI, 800 CFM at full load. Variable speed drive. Integrated dryer and filtration. For automotive paint shop, Class 1 Div 2 area.',
 ];
 
 function loadSample() {
