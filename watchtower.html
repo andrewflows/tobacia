@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Watchtower — See supply chain disruptions before they hit. | Andres Tobacia</title>
+  <meta name="description" content="Watchtower — Monitor your supplier list for disruption risks in real time.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { navy: '#0a1628', 'navy-light': '#111d33', 'navy-card': '#162033', accent: '#3b82f6' } } }
+    }
+  </script>
+  <style>
+    body { background: #0a1628; }
+    .fade-in { animation: fadeIn 0.3s ease-in; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .spinner { border: 3px solid rgba(255,255,255,0.1); border-top-color: #3b82f6; border-radius: 50%; width: 20px; height: 20px; animation: spin 0.8s linear infinite; display: inline-block; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    details summary { cursor: pointer; }
+    details summary::-webkit-details-marker { display: none; }
+    .risk-critical { border-color: #dc2626; } .risk-critical .risk-label { color: #fca5a5; background: rgba(220,38,38,0.2); }
+    .risk-high { border-color: #ea580c; } .risk-high .risk-label { color: #fdba74; background: rgba(234,88,12,0.2); }
+    .risk-medium { border-color: #ca8a04; } .risk-medium .risk-label { color: #fde047; background: rgba(202,138,4,0.2); }
+    .risk-low { border-color: #16a34a; } .risk-low .risk-label { color: #86efac; background: rgba(22,163,74,0.2); }
+  </style>
+</head>
+<body class="text-gray-200 min-h-screen">
+
+  <nav class="border-b border-gray-800 px-6 py-3 flex items-center justify-between">
+    <a href="https://tobacia.space" class="text-sm text-gray-400 hover:text-white transition">&larr; tobacia.space</a>
+    <span class="text-sm font-semibold text-blue-400">Watchtower</span>
+  </nav>
+
+  <header class="max-w-5xl mx-auto px-4 pt-10 pb-6 text-center">
+    <h1 class="text-2xl sm:text-3xl font-bold text-white mb-1">Watchtower</h1>
+    <p class="text-blue-400 font-semibold text-lg mb-3">See supply chain disruptions before they hit.</p>
+    <p class="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">
+      Enter your supplier list or describe your supply chain. Watchtower scans for geopolitical, logistics, tariff, capacity, and regulatory risks — and tells you what to do about them.
+    </p>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-4 pb-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- Left: Input -->
+      <div class="bg-navy-card border border-gray-700 rounded-xl p-6">
+        <h2 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">Supply Chain Input</h2>
+        <textarea id="supplierInput" rows="8" class="w-full bg-navy border border-gray-600 rounded-lg p-3 text-sm text-gray-200 focus:border-blue-500 focus:outline-none resize-none" placeholder="Example:
+Suppliers:
+- Neles (Finland) — ball valves, control valves
+- DeZurik (USA) — knife gate valves
+- Rotork (UK) — actuators
+- Flexitallic (UK/USA) — gaskets
+- Consolidated (USA) — pressure relief valves
+
+Delivery to: Houston, TX
+Industry: Oil & Gas upstream"></textarea>
+
+        <div class="flex gap-3 mt-4">
+          <button onclick="analyzeRisks()" id="analyzeBtn" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-lg transition text-sm">
+            Scan for Risks
+          </button>
+          <button onclick="loadSample()" id="sampleBtn" class="flex-1 border border-gray-600 hover:border-blue-500 text-gray-300 hover:text-white py-2.5 px-4 rounded-lg transition text-sm">
+            Try with Sample
+          </button>
+        </div>
+
+        <div id="status" class="mt-4 hidden">
+          <div class="flex items-center gap-2 text-sm">
+            <div class="spinner"></div>
+            <span id="statusText" class="text-gray-400">Scanning supply chain...</span>
+          </div>
+        </div>
+        <div id="error" class="mt-4 hidden bg-red-900/30 border border-red-800 rounded-lg p-3">
+          <p class="text-red-300 text-sm" id="errorText"></p>
+        </div>
+      </div>
+
+      <!-- Right: Results -->
+      <div class="bg-navy-card border border-gray-700 rounded-xl p-6 overflow-y-auto" style="max-height: 80vh;">
+        <h2 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">Risk Assessment</h2>
+
+        <div id="placeholder" class="text-center py-12">
+          <p class="text-gray-600 text-sm">Risk analysis will appear here</p>
+        </div>
+
+        <!-- Risk Summary -->
+        <div id="riskSummary" class="hidden mb-4 fade-in">
+          <div class="bg-navy/50 rounded-lg p-4 text-center" id="riskSummaryContent"></div>
+        </div>
+
+        <!-- Risk Cards -->
+        <div id="riskCards" class="hidden fade-in space-y-3"></div>
+
+        <!-- Recommendations -->
+        <div id="recommendations" class="hidden mt-4 fade-in">
+          <h3 class="text-sm font-semibold text-gray-300 mb-2">Priority Actions</h3>
+          <div id="recsContent" class="space-y-2"></div>
+        </div>
+
+        <!-- Health Narrative -->
+        <div id="healthNarrative" class="hidden mt-4 fade-in">
+          <div class="bg-navy/50 rounded-lg p-3 text-xs text-gray-400" id="healthContent"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- How It Works -->
+    <div class="mt-8">
+      <details class="bg-navy-card border border-gray-700 rounded-xl">
+        <summary class="px-6 py-4 text-sm font-semibold text-gray-300 hover:text-white transition flex items-center justify-between">
+          <span>How Watchtower works — Architecture & Technical Deep-Dive</span>
+          <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="px-6 pb-6 text-sm text-gray-400 space-y-4">
+          <h3 class="text-white font-semibold">The Problem</h3>
+          <p>Supply chain disruptions cost manufacturers billions every year. A port closure in Rotterdam, a tariff change on Chinese steel, a capacity crunch at a key foundry — these events cascade through supply chains before most procurement teams even hear about them. By the time you know, it's too late to pivot.</p>
+
+          <h3 class="text-white font-semibold">The Solution</h3>
+          <p>Watchtower analyzes your supplier portfolio against current geopolitical, logistics, trade, and capacity risks. It identifies vulnerabilities, assesses probability and impact, and recommends specific mitigation actions — before disruptions hit your production line.</p>
+
+          <h3 class="text-white font-semibold">Architecture</h3>
+          <pre class="bg-navy rounded-lg p-4 text-xs text-gray-400 overflow-x-auto">
+Browser (enter supplier list)
+  |
+  v
+FastAPI Backend (Python)
+  |-- Validate: input length, content
+  |
+  v
+LLM API (Risk Intelligence Engine)
+  |-- System prompt with geopolitical + trade knowledge
+  |-- Multi-dimensional risk scoring
+  |-- Actionable mitigation recommendations
+  |-- Response validation
+  |
+  v
+Browser (render risk dashboard + action items)</pre>
+
+          <h3 class="text-white font-semibold">About</h3>
+          <p>Built by <a href="https://tobacia.space" class="text-blue-400 hover:underline">Andres Tobacia</a> — Industrial Engineer with 17+ years in manufacturing, supply chain, and space exploration.</p>
+          <p class="text-xs text-gray-600 mt-2">No data is stored. All processing is stateless. AI processing powered by a large language model API. No training is performed on input data.</p>
+        </div>
+      </details>
+    </div>
+  </main>
+
+<script>
+const API_BASE = window.API_BASE || 'https://tobacia-rfq-parser.onrender.com';
+
+const SAMPLE_INPUTS = [
+  `Suppliers for a Gulf Coast refinery turnaround project:
+- Neles/Valmet (Finland) — 10" trunnion ball valves, CL600
+- Fisher/Emerson (USA, Marshalltown IA) — 4" control valves with positioners
+- DeZurik (USA, Sartell MN) — 8" knife gate valves
+- Rotork (UK, Bath) — pneumatic scotch-yoke actuators
+- Consolidated/Baker Hughes (USA) — pressure safety valves
+- Flexitallic (UK/USA) — spiral wound gaskets
+- Bray International (USA, Houston TX) — 12" triple offset butterfly valves
+- Parker Hannifin (USA) — needle valves and instrumentation fittings
+
+Delivery to: Houston, TX
+Timeline: 8-16 weeks
+Industry: Oil & Gas refining
+Notes: Several items require NACE MR0175 compliance. Some European suppliers may be affected by current shipping disruptions.`,
+
+  `Supply chain for industrial water treatment plant:
+- Flowserve (USA) — centrifugal pumps, mechanical seals
+- Georg Fischer (Switzerland) — PVC/CPVC piping systems
+- Endress+Hauser (Germany) — flow meters, level transmitters
+- ABB (Switzerland) — VFDs, motor starters
+- Grundfos (Denmark) — submersible pumps
+- Siemens (Germany) — PLC controllers, HMI panels
+- Hach (USA) — water quality analyzers
+
+Delivery to: Phoenix, AZ
+Timeline: 12-20 weeks
+Industry: Municipal water treatment`,
+];
+
+function loadSample() {
+  document.getElementById('supplierInput').value = SAMPLE_INPUTS[Math.floor(Math.random() * SAMPLE_INPUTS.length)];
+  analyzeRisks();
+}
+
+async function analyzeRisks() {
+  const suppliers = document.getElementById('supplierInput').value.trim();
+  if (!suppliers) { showError('Please enter a supplier list.'); return; }
+
+  const analyzeBtn = document.getElementById('analyzeBtn');
+  const sampleBtn = document.getElementById('sampleBtn');
+  analyzeBtn.disabled = true; sampleBtn.disabled = true;
+  analyzeBtn.textContent = 'Scanning...';
+  hideError(); showStatus('Analyzing supply chain...'); hideResults();
+
+  try {
+    updateStatus('Scanning for geopolitical, logistics, and capacity risks...');
+    const response = await fetch(`${API_BASE}/api/risk-monitor`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ suppliers }),
+    });
+    if (!response.ok) {
+      const err = await response.json().catch(() => ({ detail: 'Unknown error' }));
+      throw new Error(err.detail || `Error ${response.status}`);
+    }
+    updateStatus('Building risk assessment...');
+    const data = await response.json();
+    hideStatus();
+    renderResults(data);
+  } catch (err) {
+    hideStatus(); showError(err.message);
+  } finally {
+    analyzeBtn.disabled = false; sampleBtn.disabled = false;
+    analyzeBtn.textContent = 'Scan for Risks';
+  }
+}
+
+function renderResults(data) {
+  document.getElementById('placeholder').classList.add('hidden');
+
+  // Risk Summary
+  const summary = data.risk_summary || {};
+  const summaryDiv = document.getElementById('riskSummaryContent');
+  const level = (summary.overall_risk_level || 'UNKNOWN').toUpperCase();
+  const score = summary.risk_score || 0;
+  const levelColor = level.includes('CRITICAL') ? 'text-red-400' : level.includes('HIGH') ? 'text-orange-400' : level.includes('ELEVATED') ? 'text-yellow-400' : level.includes('MODERATE') ? 'text-yellow-300' : 'text-green-400';
+  const barColor = level.includes('CRITICAL') ? 'bg-red-500' : level.includes('HIGH') ? 'bg-orange-500' : level.includes('ELEVATED') ? 'bg-yellow-500' : level.includes('MODERATE') ? 'bg-yellow-400' : 'bg-green-500';
+
+  summaryDiv.innerHTML = `
+    <div class="text-xs text-gray-500 mb-1">${escapeHtml(summary.scope || 'Supply Chain Assessment')}</div>
+    <div class="text-2xl font-bold ${levelColor} mb-1">${escapeHtml(level)}</div>
+    <div class="w-full bg-gray-700 rounded-full h-2 mb-2">
+      <div class="${barColor} h-2 rounded-full transition-all" style="width: ${score}%"></div>
+    </div>
+    <div class="text-xs text-gray-500">Risk Score: ${score}/100</div>
+  `;
+  document.getElementById('riskSummary').classList.remove('hidden');
+
+  // Risk Cards
+  const cardsDiv = document.getElementById('riskCards');
+  cardsDiv.innerHTML = '';
+  const risks = data.risks || [];
+
+  risks.forEach(risk => {
+    const sev = (risk.severity || 'MEDIUM').toUpperCase();
+    const sevClass = sev === 'CRITICAL' ? 'risk-critical' : sev === 'HIGH' ? 'risk-high' : sev === 'MEDIUM' ? 'risk-medium' : 'risk-low';
+    cardsDiv.innerHTML += `
+      <div class="bg-navy/50 border rounded-lg p-3 ${sevClass} fade-in">
+        <div class="flex items-center justify-between mb-1">
+          <span class="font-semibold text-sm text-gray-200">${escapeHtml(risk.title || '')}</span>
+          <span class="risk-label text-xs px-2 py-0.5 rounded font-semibold">${escapeHtml(sev)}</span>
+        </div>
+        <div class="text-xs text-gray-500 mb-2">${escapeHtml(risk.category || '')} | Probability: ${escapeHtml(risk.probability || '')} | ${escapeHtml(risk.timeline || '')}</div>
+        <p class="text-xs text-gray-300 mb-2">${escapeHtml(risk.description || '')}</p>
+        ${risk.affected_suppliers ? `<p class="text-xs text-gray-500 mb-1">Affected: ${escapeHtml(risk.affected_suppliers)}</p>` : ''}
+        ${risk.impact ? `<p class="text-xs text-gray-400 mb-1">Impact: ${escapeHtml(risk.impact)}</p>` : ''}
+        ${risk.mitigation ? `<div class="text-xs bg-blue-900/20 border border-blue-800/30 rounded p-2 mt-2 text-blue-300">Mitigation: ${escapeHtml(risk.mitigation)}</div>` : ''}
+      </div>`;
+  });
+  cardsDiv.classList.remove('hidden');
+
+  // Recommendations
+  const recs = data.recommendations || [];
+  if (recs.length > 0) {
+    const recsDiv = document.getElementById('recsContent');
+    recsDiv.innerHTML = '';
+    recs.forEach(rec => {
+      recsDiv.innerHTML += `
+        <div class="bg-navy/50 border border-gray-700 rounded-lg p-2 text-xs">
+          <span class="text-blue-400 font-semibold">#${rec.priority}</span> <span class="text-gray-200">${escapeHtml(rec.action)}</span>
+          <p class="text-gray-500 mt-1">${escapeHtml(rec.rationale || '')}</p>
+        </div>`;
+    });
+    document.getElementById('recommendations').classList.remove('hidden');
+  }
+
+  // Health Narrative
+  if (data.supply_chain_health) {
+    document.getElementById('healthContent').innerHTML = `<span class="text-gray-500">Assessment:</span> ${escapeHtml(data.supply_chain_health)}`;
+    document.getElementById('healthNarrative').classList.remove('hidden');
+  }
+}
+
+function showStatus(t) { document.getElementById('status').classList.remove('hidden'); document.getElementById('statusText').textContent = t; }
+function updateStatus(t) { document.getElementById('statusText').textContent = t; }
+function hideStatus() { document.getElementById('status').classList.add('hidden'); }
+function showError(t) { document.getElementById('error').classList.remove('hidden'); document.getElementById('errorText').textContent = t; }
+function hideError() { document.getElementById('error').classList.add('hidden'); }
+function hideResults() {
+  document.getElementById('riskCards').classList.add('hidden');
+  document.getElementById('riskSummary').classList.add('hidden');
+  document.getElementById('recommendations').classList.add('hidden');
+  document.getElementById('healthNarrative').classList.add('hidden');
+  document.getElementById('placeholder').classList.remove('hidden');
+}
+function escapeHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+</script>
+</body>
+</html>

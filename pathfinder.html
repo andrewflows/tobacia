@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pathfinder — Find the right supplier. Instantly. | Andres Tobacia</title>
+  <meta name="description" content="Pathfinder — Paste a part spec, get ranked supplier recommendations with lead times and pricing.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { navy: '#0a1628', 'navy-light': '#111d33', 'navy-card': '#162033', accent: '#3b82f6' } } }
+    }
+  </script>
+  <style>
+    body { background: #0a1628; }
+    .fade-in { animation: fadeIn 0.3s ease-in; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .spinner { border: 3px solid rgba(255,255,255,0.1); border-top-color: #3b82f6; border-radius: 50%; width: 20px; height: 20px; animation: spin 0.8s linear infinite; display: inline-block; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    details summary { cursor: pointer; }
+    details summary::-webkit-details-marker { display: none; }
+  </style>
+</head>
+<body class="text-gray-200 min-h-screen">
+
+  <nav class="border-b border-gray-800 px-6 py-3 flex items-center justify-between">
+    <a href="https://tobacia.space" class="text-sm text-gray-400 hover:text-white transition">&larr; tobacia.space</a>
+    <span class="text-sm font-semibold text-blue-400">Pathfinder</span>
+  </nav>
+
+  <header class="max-w-5xl mx-auto px-4 pt-10 pb-6 text-center">
+    <h1 class="text-2xl sm:text-3xl font-bold text-white mb-1">Pathfinder</h1>
+    <p class="text-blue-400 font-semibold text-lg mb-3">Find the right supplier. Instantly.</p>
+    <p class="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">
+      Paste a part specification — size, material, pressure class, standard — and get ranked supplier recommendations with lead times and pricing estimates. Powered by industrial domain knowledge.
+    </p>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-4 pb-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- Left: Input -->
+      <div class="bg-navy-card border border-gray-700 rounded-xl p-6">
+        <h2 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">Part Specification</h2>
+        <textarea id="specInput" rows="6" class="w-full bg-navy border border-gray-600 rounded-lg p-3 text-sm text-gray-200 focus:border-blue-500 focus:outline-none resize-none" placeholder='Example: 8" ball valve, ANSI Class 150, CF8M body, full port, RPTFE seats, lever operated, API 6D'></textarea>
+
+        <div class="flex gap-3 mt-4">
+          <button onclick="matchSupplier()" id="matchBtn" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-lg transition text-sm">
+            Find Suppliers
+          </button>
+          <button onclick="loadSample()" id="sampleBtn" class="flex-1 border border-gray-600 hover:border-blue-500 text-gray-300 hover:text-white py-2.5 px-4 rounded-lg transition text-sm">
+            Try with Sample
+          </button>
+        </div>
+
+        <div id="status" class="mt-4 hidden">
+          <div class="flex items-center gap-2 text-sm">
+            <div class="spinner"></div>
+            <span id="statusText" class="text-gray-400">Searching suppliers...</span>
+          </div>
+        </div>
+        <div id="error" class="mt-4 hidden bg-red-900/30 border border-red-800 rounded-lg p-3">
+          <p class="text-red-300 text-sm" id="errorText"></p>
+        </div>
+      </div>
+
+      <!-- Right: Results -->
+      <div class="bg-navy-card border border-gray-700 rounded-xl p-6">
+        <h2 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">Supplier Recommendations</h2>
+
+        <div id="placeholder" class="text-center py-12">
+          <p class="text-gray-600 text-sm">Supplier matches will appear here</p>
+        </div>
+
+        <div id="specAnalysis" class="hidden mb-4 fade-in">
+          <div class="bg-navy/50 rounded-lg p-3 text-xs space-y-1" id="specAnalysisContent"></div>
+        </div>
+
+        <div id="results" class="hidden fade-in space-y-3" id="supplierCards"></div>
+
+        <div id="sourcingNotes" class="hidden mt-4 fade-in">
+          <div class="bg-navy/50 rounded-lg p-3 text-xs text-gray-400" id="sourcingNotesContent"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- How It Works -->
+    <div class="mt-8">
+      <details class="bg-navy-card border border-gray-700 rounded-xl">
+        <summary class="px-6 py-4 text-sm font-semibold text-gray-300 hover:text-white transition flex items-center justify-between">
+          <span>How Pathfinder works — Architecture & Technical Deep-Dive</span>
+          <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="px-6 pb-6 text-sm text-gray-400 space-y-4">
+          <h3 class="text-white font-semibold">The Problem</h3>
+          <p>When a procurement team needs to source a specific part — say a 10" trunnion-mounted ball valve in Class 600 with NACE compliance — they rely on institutional memory, outdated catalogs, or hours of manual research. The knowledge of which manufacturer makes the best fit for a given spec lives in the heads of experienced buyers, not in searchable systems.</p>
+
+          <h3 class="text-white font-semibold">The Solution</h3>
+          <p>Pathfinder uses AI with deep industrial domain knowledge to analyze a part specification and return ranked supplier recommendations. It understands pressure classes, material grades, API standards, and manufacturer product lines — the kind of knowledge that typically takes years to accumulate.</p>
+
+          <h3 class="text-white font-semibold">Architecture</h3>
+          <pre class="bg-navy rounded-lg p-4 text-xs text-gray-400 overflow-x-auto">
+Browser (paste part spec)
+  |
+  v
+FastAPI Backend (Python)
+  |-- Validate: input length, content
+  |
+  v
+LLM API (Domain-Aware Matching)
+  |-- System prompt with industrial supplier knowledge
+  |-- Structured JSON output with ranking
+  |-- Response validation
+  |
+  v
+Browser (render supplier cards + spec analysis)</pre>
+
+          <h3 class="text-white font-semibold">About</h3>
+          <p>Built by <a href="https://tobacia.space" class="text-blue-400 hover:underline">Andres Tobacia</a> — Industrial Engineer with 17+ years in manufacturing, supply chain, and space exploration.</p>
+          <p class="text-xs text-gray-600 mt-2">No data is stored. All processing is stateless. AI processing powered by a large language model API. No training is performed on input data.</p>
+        </div>
+      </details>
+    </div>
+  </main>
+
+<script>
+const API_BASE = window.API_BASE || 'https://tobacia-rfq-parser.onrender.com';
+let parsedData = null;
+
+const SAMPLE_SPECS = [
+  '10" Trunnion Mounted Ball Valve, ANSI Class 600, A105 body, ENP coating, double block and bleed, gear operated. API 6D certified. NACE MR0175 required for sour gas service. Prefer Neles, Cameron, or Flowserve.',
+  '4" Control Valve, Globe Style, ANSI Class 300, WCC body, equal percentage trim, 4-20mA positioner with HART protocol. ISA S75 compliant. For steam service at 450F.',
+  '6" Triple Offset Butterfly Valve, ANSI Class 300, WCB body, SS316 disc, metal-to-metal seat, gear operated. API 609 Category B. Fire-safe per API 607.',
+];
+
+function loadSample() {
+  const sample = SAMPLE_SPECS[Math.floor(Math.random() * SAMPLE_SPECS.length)];
+  document.getElementById('specInput').value = sample;
+  matchSupplier();
+}
+
+async function matchSupplier() {
+  const spec = document.getElementById('specInput').value.trim();
+  if (!spec) { showError('Please enter a part specification.'); return; }
+
+  const matchBtn = document.getElementById('matchBtn');
+  const sampleBtn = document.getElementById('sampleBtn');
+  matchBtn.disabled = true; sampleBtn.disabled = true;
+  matchBtn.textContent = 'Searching...';
+  hideError(); showStatus('Analyzing specification...'); hideResults();
+
+  try {
+    updateStatus('Matching suppliers...');
+    const response = await fetch(`${API_BASE}/api/match-supplier`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ spec }),
+    });
+    if (!response.ok) {
+      const err = await response.json().catch(() => ({ detail: 'Unknown error' }));
+      throw new Error(err.detail || `Error ${response.status}`);
+    }
+    const data = await response.json();
+    parsedData = data;
+    hideStatus();
+    renderResults(data);
+  } catch (err) {
+    hideStatus(); showError(err.message);
+  } finally {
+    matchBtn.disabled = false; sampleBtn.disabled = false;
+    matchBtn.textContent = 'Find Suppliers';
+  }
+}
+
+function renderResults(data) {
+  document.getElementById('placeholder').classList.add('hidden');
+
+  // Spec Analysis
+  const analysis = data.spec_analysis || {};
+  const analysisDiv = document.getElementById('specAnalysisContent');
+  analysisDiv.innerHTML = '';
+  const fields = [
+    ['Product Type', analysis.product_type], ['Size', analysis.size],
+    ['Pressure Class', analysis.pressure_class], ['Material', analysis.material],
+    ['Standard', analysis.standard], ['Special Requirements', analysis.special_requirements],
+    ['Assumptions', analysis.assumptions],
+  ];
+  fields.forEach(([label, value]) => {
+    if (value) analysisDiv.innerHTML += `<div><span class="text-gray-500">${label}:</span> <span class="text-gray-300">${escapeHtml(value)}</span></div>`;
+  });
+  if (analysisDiv.innerHTML) document.getElementById('specAnalysis').classList.remove('hidden');
+
+  // Supplier Cards
+  const resultsDiv = document.getElementById('results');
+  resultsDiv.innerHTML = '';
+  const suppliers = data.suppliers || [];
+
+  if (suppliers.length === 0) {
+    resultsDiv.innerHTML = '<p class="text-gray-500 text-sm text-center py-4">No suppliers found for this specification.</p>';
+  } else {
+    suppliers.forEach(s => {
+      const rankColor = s.rank === 1 ? 'text-green-400 border-green-800' : s.rank === 2 ? 'text-blue-400 border-blue-800' : 'text-gray-400 border-gray-700';
+      resultsDiv.innerHTML += `
+        <div class="bg-navy/50 border ${s.rank <= 2 ? (s.rank === 1 ? 'border-green-800' : 'border-blue-800') : 'border-gray-700'} rounded-lg p-3 fade-in">
+          <div class="flex items-center justify-between mb-1">
+            <span class="font-semibold text-sm ${s.rank === 1 ? 'text-green-300' : s.rank === 2 ? 'text-blue-300' : 'text-gray-300'}">#${s.rank} ${escapeHtml(s.manufacturer)}</span>
+            <span class="text-xs text-gray-500">${escapeHtml(s.estimated_lead_time || '')}</span>
+          </div>
+          <p class="text-xs text-gray-400 mb-1">${escapeHtml(s.product_line || '')}</p>
+          <p class="text-xs text-gray-300 mb-1">${escapeHtml(s.why_recommended || '')}</p>
+          <div class="flex justify-between text-xs mt-2">
+            <span class="text-gray-500">Price: ${escapeHtml(s.price_range || 'Contact for pricing')}</span>
+            ${s.notes ? `<span class="text-gray-600 italic">${escapeHtml(s.notes)}</span>` : ''}
+          </div>
+        </div>`;
+    });
+  }
+  resultsDiv.classList.remove('hidden');
+
+  // Sourcing Notes
+  if (data.sourcing_notes) {
+    document.getElementById('sourcingNotesContent').innerHTML = `<span class="text-gray-500">Sourcing Notes:</span> ${escapeHtml(data.sourcing_notes)}`;
+    document.getElementById('sourcingNotes').classList.remove('hidden');
+  }
+}
+
+function showStatus(t) { document.getElementById('status').classList.remove('hidden'); document.getElementById('statusText').textContent = t; }
+function updateStatus(t) { document.getElementById('statusText').textContent = t; }
+function hideStatus() { document.getElementById('status').classList.add('hidden'); }
+function showError(t) { document.getElementById('error').classList.remove('hidden'); document.getElementById('errorText').textContent = t; }
+function hideError() { document.getElementById('error').classList.add('hidden'); }
+function hideResults() {
+  document.getElementById('results').classList.add('hidden');
+  document.getElementById('specAnalysis').classList.add('hidden');
+  document.getElementById('sourcingNotes').classList.add('hidden');
+  document.getElementById('placeholder').classList.remove('hidden');
+}
+function escapeHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+</script>
+</body>
+</html>
