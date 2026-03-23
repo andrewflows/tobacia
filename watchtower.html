@@ -48,14 +48,14 @@
         <h2 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">Supply Chain Input</h2>
         <textarea id="supplierInput" rows="8" class="w-full bg-navy border border-gray-600 rounded-lg p-3 text-sm text-gray-200 focus:border-blue-500 focus:outline-none resize-none" placeholder="Example:
 Suppliers:
-- Neles (Finland) — ball valves, control valves
-- DeZurik (USA) — knife gate valves
-- Rotork (UK) — actuators
-- Flexitallic (UK/USA) — gaskets
-- Consolidated (USA) — pressure relief valves
+- Tenaris (Argentina) — seamless carbon steel pipe
+- Texas Flange (USA) — ASME flanges, CL150-2500
+- Bonney Forge (USA) — forged steel fittings
+- Flowserve (USA) — centrifugal pumps, API 610
+- Nucor Fastener (USA) — stud bolts, hex nuts
 
 Delivery to: Houston, TX
-Industry: Oil & Gas upstream"></textarea>
+Industry: Oil & Gas / Petrochemical"></textarea>
 
         <div class="flex gap-3 mt-4">
           <button onclick="analyzeRisks()" id="analyzeBtn" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-lg transition text-sm">
@@ -150,33 +150,34 @@ Browser (render risk dashboard + action items)</pre>
 const API_BASE = window.API_BASE || 'https://tobacia-rfq-parser.onrender.com';
 
 const SAMPLE_INPUTS = [
-  `Suppliers for a Gulf Coast refinery turnaround project:
-- Neles/Valmet (Finland) — 10" trunnion ball valves, CL600
-- Fisher/Emerson (USA, Marshalltown IA) — 4" control valves with positioners
-- DeZurik (USA, Sartell MN) — 8" knife gate valves
-- Rotork (UK, Bath) — pneumatic scotch-yoke actuators
-- Consolidated/Baker Hughes (USA) — pressure safety valves
-- Flexitallic (UK/USA) — spiral wound gaskets
-- Bray International (USA, Houston TX) — 12" triple offset butterfly valves
-- Parker Hannifin (USA) — needle valves and instrumentation fittings
+  `Supplier list for a petrochemical plant expansion (Gulf Coast):
+- Tenaris (Argentina/Mexico) — seamless carbon steel pipe, A106 Gr.B, 2" through 24"
+- Sandvik (Sweden) — duplex and super duplex stainless steel tubing
+- Bonney Forge (USA, Mount Union PA) — forged steel fittings, A105 and F316
+- Texas Flange (USA, Houston TX) — ASME B16.5 flanges, WN and SO, CL150-2500
+- Nucor Fastener (USA) — A193 B7 stud bolts, A194 2H heavy hex nuts, HDG
+- Flowserve (USA) — centrifugal pumps, API 610, mechanical seals
+- Grundfos (Denmark) — submersible and booster pumps
+- Flexitallic (UK/USA) — spiral wound gaskets, ring joint gaskets, ASME B16.20
 
-Delivery to: Houston, TX
+Delivery to: Freeport, TX
+Timeline: 10-20 weeks
+Industry: Petrochemical
+Notes: Buy American requirements on some line items. Duplex materials have extended lead times. Tariff exposure on imported steel.`,
+
+  `Supply chain for a midstream gas compression station:
+- Sumitomo (Japan) — seamless alloy pipe, ASTM A335 P11, high-temp service
+- Ulma Piping (Spain) — stainless steel flanges, F304/F316, large bore
+- PCC Energy Group (USA) — forged fittings, heavy wall, sour service rated
+- Hilti (Liechtenstein) — pipe supports, hangers, structural fasteners
+- Sulzer (Switzerland) — reciprocating compressor parts, seals, bearings
+- Parker Hannifin (USA) — instrumentation tubing, tube fittings, manifolds
+- Swagelok (USA) — sample systems, needle valves, regulators
+
+Delivery to: Midland, TX
 Timeline: 8-16 weeks
-Industry: Oil & Gas refining
-Notes: Several items require NACE MR0175 compliance. Some European suppliers may be affected by current shipping disruptions.`,
-
-  `Supply chain for industrial water treatment plant:
-- Flowserve (USA) — centrifugal pumps, mechanical seals
-- Georg Fischer (Switzerland) — PVC/CPVC piping systems
-- Endress+Hauser (Germany) — flow meters, level transmitters
-- ABB (Switzerland) — VFDs, motor starters
-- Grundfos (Denmark) — submersible pumps
-- Siemens (Germany) — PLC controllers, HMI panels
-- Hach (USA) — water quality analyzers
-
-Delivery to: Phoenix, AZ
-Timeline: 12-20 weeks
-Industry: Municipal water treatment`,
+Industry: Oil & Gas midstream
+Notes: NACE MR0175 required on all wetted parts. Some Japanese suppliers affected by shipping route disruptions. Lead times on forged fittings increasing.`,
 ];
 
 function loadSample() {
