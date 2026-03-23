@@ -30,12 +30,13 @@ Most AI doesn't know a ball valve from a butterfly valve. These tools do.
     <a href="/rfq-parser" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-sm text-center w-full">Try Frontier Live</a>
   </div>
 
-  <!-- Project #2 — Coming Soon -->
+  <!-- Pathfinder — Coming Soon -->
   <div class="bg-gray-800 border border-gray-700 rounded-lg p-5 opacity-60">
     <div class="flex items-center justify-between mb-3">
-      <h3 class="text-lg font-bold text-gray-400">Project #2</h3>
+      <h3 class="text-lg font-bold text-gray-400">Pathfinder</h3>
       <span class="text-xs font-semibold bg-gray-700 text-gray-400 px-2 py-1 rounded">COMING SOON</span>
     </div>
+    <p class="text-gray-400 text-xs font-semibold mb-2">Find the right supplier. Instantly.</p>
     <p class="text-gray-500 text-sm mb-3">Paste a part specification and get ranked supplier recommendations with lead time and pricing estimates — powered by industrial domain knowledge.</p>
     <div class="flex flex-wrap gap-2 mb-4">
       <span class="text-xs bg-gray-700 text-gray-500 px-2 py-1 rounded">Python</span>
@@ -44,12 +45,13 @@ Most AI doesn't know a ball valve from a butterfly valve. These tools do.
     </div>
   </div>
 
-  <!-- Project #3 — Coming Soon -->
+  <!-- Watchtower — Coming Soon -->
   <div class="bg-gray-800 border border-gray-700 rounded-lg p-5 opacity-60">
     <div class="flex items-center justify-between mb-3">
-      <h3 class="text-lg font-bold text-gray-400">Project #3</h3>
+      <h3 class="text-lg font-bold text-gray-400">Watchtower</h3>
       <span class="text-xs font-semibold bg-gray-700 text-gray-400 px-2 py-1 rounded">COMING SOON</span>
     </div>
+    <p class="text-gray-400 text-xs font-semibold mb-2">See supply chain disruptions before they hit.</p>
     <p class="text-gray-500 text-sm mb-3">Monitor your supplier list for disruption risks — news events, geopolitical shifts, and capacity changes flagged in real time.</p>
     <div class="flex flex-wrap gap-2 mb-4">
       <span class="text-xs bg-gray-700 text-gray-500 px-2 py-1 rounded">Python</span>
