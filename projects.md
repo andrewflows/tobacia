@@ -96,22 +96,6 @@ Educational outreach and content inspiring future engineers and space enthusiast
 
 ---
 
-### Humanitarian Initiatives 🌍
-
-Beyond engineering and supply chain leadership, I actively support humanitarian initiatives that leverage open-source technology to create positive global change.
-
-- **Open-Source Decentralized Tech:** Empowering communities through transparent systems and innovation.  
-- **Financial Inclusion:** Supporting technology that provides access to economic tools for underserved populations.  
-- **Borderless Aid:** Promoting digital solutions to deliver humanitarian relief across regions without barriers.  
-- **Sustainable Energy:** Advocating for responsible industrial transitions and renewable energy adoption.
-
-<div class="grid grid-cols-1 gap-6 mt-4">
-  <div class="text-center">
-    <img src="/Tobacia%20Brothers.jpg" alt="Technology for Humanity" class="rounded-lg shadow-lg cursor-pointer">
-    <p class="mt-2 text-gray-200"><strong>Technology for Humanity</strong> – Using innovation to create a better future for all.</p>
-  </div>
-</div>
-
 ---
 
 <style>

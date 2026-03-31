@@ -74,4 +74,7 @@ These tools apply AI where it creates the most value — not in consumer apps, b
 
 **Built by Andres Tobacia** — Industrial Engineer, 17+ years in manufacturing, supply chain, energy, and space exploration.
 
-<a href="/contact.html" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-sm mt-4">Get in Touch</a>
+<div class="flex flex-wrap gap-3 mt-4">
+  <a href="/contact.html" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-sm">Get in Touch</a>
+  <a href="https://github.com/andrewflows/tobacia-rfq-parser" target="_blank" class="inline-block border border-gray-600 hover:border-blue-500 text-gray-300 hover:text-white font-bold py-2 px-4 rounded text-sm">View Source on GitHub</a>
+</div>

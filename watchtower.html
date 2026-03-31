@@ -27,6 +27,11 @@
 </head>
 <body class="text-gray-200 min-h-screen">
 
+  <!-- API Status Banner -->
+  <div id="apiBanner" class="hidden bg-yellow-900/60 border-b border-yellow-700 px-4 py-2 text-center text-sm text-yellow-200">
+    <span id="bannerText">Demo server is waking up — this takes about 30 seconds on first visit...</span>
+  </div>
+
   <nav class="border-b border-gray-800 px-6 py-3 flex items-center justify-between">
     <a href="https://tobacia.space" class="text-sm text-gray-400 hover:text-white transition">&larr; tobacia.space</a>
     <span class="text-sm font-semibold text-blue-400">Watchtower</span>
@@ -297,6 +302,22 @@ function hideResults() {
   document.getElementById('placeholder').classList.remove('hidden');
 }
 function escapeHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+// --- API Health Check ---
+(async function checkAPI() {
+  const banner = document.getElementById('apiBanner');
+  const bannerText = document.getElementById('bannerText');
+  banner.classList.remove('hidden');
+  try {
+    const res = await fetch(`${API_BASE}/api/health`, { signal: AbortSignal.timeout(45000) });
+    if (res.ok) { banner.classList.add('hidden'); }
+    else {
+      bannerText.textContent = 'Demo server is temporarily unavailable. Try refreshing in a minute.';
+      banner.className = banner.className.replace('bg-yellow-900/60', 'bg-red-900/60').replace('border-yellow-700', 'border-red-700');
+      bannerText.className = bannerText.className.replace('text-yellow-200', 'text-red-200');
+    }
+  } catch (e) { bannerText.textContent = 'Demo server is starting up — please wait about 30 seconds and try again.'; }
+})();
 </script>
   <footer class="max-w-3xl mx-auto text-center py-6 px-4 text-xs text-gray-600">
     These tools are portfolio demonstrations built to showcase AI-driven approaches to common industrial problems. They are not commercial products — outputs may not reflect current pricing, availability, or specifications, and should not be used as the basis for procurement or sourcing decisions. No user data is stored.

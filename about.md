@@ -12,7 +12,7 @@ title: "About"
   <div class="text-center md:text-left">
     Andrés Tobacia is an Industrial & Systems Engineer from Texas A&M (2008) with 17+ years optimizing manufacturing, logistics, and automation across aerospace, energy, and industrial sectors.  
 
-    Currently serving as **Global Supply Chain Project Manager III** at Blue Origin in Kent, WA, Andrés leads procurement and supply chain strategies for all programs, contributing to over **12 suborbital missions**, **1 orbital mission**, and **40+ astronauts** reaching space.  
+    Currently serving as <strong>Global Supply Chain Project Manager III</strong> at Blue Origin in Kent, WA, Andrés leads procurement and supply chain strategies for all programs, contributing to over <strong>12 suborbital missions</strong>, <strong>1 orbital mission</strong>, and <strong>40+ astronauts</strong> reaching space.  
 
     - Directed large-scale supply chain and process optimization initiatives for advanced space programs.  
     - Founded and scaled a supply chain solutions startup with significant operational growth.  
@@ -45,11 +45,14 @@ title: "About"
 
 - Advisor for **Space United**, bringing soccer to space as a tool for inspiration.  
 - Holder of over 8 registered trademarks and experienced in strategic branding.  
-- Built this website using AI tools 🤖 and made it open-source to demonstrate efficient tech adoption.  
+- Built this website using AI tools to demonstrate efficient tech adoption.  
 - Comes from a family deeply involved in space exploration and renewable energy initiatives.  
 
 ---
 
-<p class="text-sm mt-4 italic text-gray-400">Resume available upon request. / Hoja de vida disponible a solicitud.</p>
+<div class="flex flex-col sm:flex-row gap-3 justify-center mt-6">
+  <a href="/Andres_Tobacia_AI_Resume_EN.pdf" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center text-sm">Download Resume (EN)</a>
+  <a href="https://www.linkedin.com/in/jatobacia/" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center text-sm">LinkedIn Profile</a>
+</div>
 
 
