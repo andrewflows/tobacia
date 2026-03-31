@@ -5,7 +5,7 @@ title: "Contact"
 
 ## Contact Me 📬
 
-For speaking engagements, recruitment opportunities, or to request my full resume, please use the form below or reach out via LinkedIn.
+For recruitment opportunities or inquiries, please use the form below or reach out via <a href="https://www.linkedin.com/in/jatobacia/" target="_blank" class="text-blue-400 hover:underline">LinkedIn</a>.
 
 <div id="form-container">
   <form
@@ -60,7 +60,7 @@ For speaking engagements, recruitment opportunities, or to request my full resum
   <a href="/Andres_Tobacia_AI_Resume_EN.pdf" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center">AI Resume Teaser</a>
 </div>
 
-<p class="text-sm mt-2 text-center">Full resume available upon request.</p>
+<p class="text-sm mt-2 text-center"><a href="https://www.linkedin.com/in/jatobacia/" target="_blank" class="text-blue-400 hover:underline">Connect on LinkedIn</a></p>
 
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
