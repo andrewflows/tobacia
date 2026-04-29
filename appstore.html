@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tobacia App Store — Personal AI Tools | Andres Tobacia</title>
+  <meta name="description" content="A personal app store. Custom AI tools built for one operator, shared with the world. Industrial-grade. No compromises.">
+
+  <!-- PWA / iOS install hooks -->
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#0a1628">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Tobacia">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#0a1628',
+            'navy-light': '#111d33',
+            'navy-card': '#162033',
+            accent: '#3b82f6',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background: #0a1628; }
+    .fade-in { animation: fadeIn 0.4s ease-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .app-card { transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; }
+    .app-card:hover { transform: translateY(-2px); border-color: #3b82f6; box-shadow: 0 0 24px rgba(59,130,246,0.15); }
+    .app-icon { background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%); }
+    .app-icon-2 { background: linear-gradient(135deg, #06b6d4 0%, #0e7490 100%); }
+    .app-icon-3 { background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%); }
+    .modal-backdrop { background: rgba(10,22,40,0.85); backdrop-filter: blur(6px); }
+    .install-btn { background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%); }
+    .install-btn:hover { background: linear-gradient(180deg, #60a5fa 0%, #3b82f6 100%); }
+    details summary { cursor: pointer; list-style: none; }
+    details summary::-webkit-details-marker { display: none; }
+  </style>
+</head>
+<body class="text-gray-200 min-h-screen">
+
+  <!-- Nav -->
+  <nav class="border-b border-gray-800 px-6 py-3 flex items-center justify-between">
+    <a href="https://tobacia.space" class="text-sm text-gray-400 hover:text-white transition">&larr; tobacia.space</a>
+    <span class="text-sm font-semibold text-blue-400">App Store</span>
+  </nav>
+
+  <!-- Hero -->
+  <header class="max-w-5xl mx-auto px-4 pt-12 pb-8 text-center">
+    <div class="inline-block mb-4 px-3 py-1 rounded-full text-xs font-semibold bg-blue-900/40 text-blue-300 border border-blue-700/50">
+      PERSONAL APP STORE · v1
+    </div>
+    <h1 class="text-3xl sm:text-5xl font-bold text-white mb-3">Tobacia App Store</h1>
+    <p class="text-blue-400 font-semibold text-lg sm:text-xl mb-4">Custom AI tools, built for one operator. Shared with the world.</p>
+    <p class="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
+      No compromises. No committee design. Each app exists because I needed it &mdash; built end-to-end with AI agents, then handed back as a clean install.
+      Tap an app to use it on the web, or <span class="text-blue-300 font-medium">Add to Home Screen</span> to run it like a native app.
+    </p>
+  </header>
+
+  <!-- Naval quote -->
+  <section class="max-w-3xl mx-auto px-4 pb-2">
+    <div class="bg-navy-card border-l-4 border-blue-500 rounded-r-lg p-5 text-sm text-gray-300 italic leading-relaxed">
+      &ldquo;AI coding agents can now deliver one-shot custom apps straight to your phone. It&rsquo;s the beginning of the end for the iPhone&rsquo;s dominance.&rdquo;
+      <div class="not-italic text-xs text-gray-500 mt-2">&mdash; Naval Ravikant</div>
+    </div>
+  </section>
+
+  <!-- Featured: large hero card -->
+  <section class="max-w-5xl mx-auto px-4 pt-10 pb-4">
+    <div class="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-3">Featured Today</div>
+    <div class="bg-gradient-to-br from-blue-950 via-navy-card to-navy-light border border-blue-800/40 rounded-2xl p-6 sm:p-8 fade-in">
+      <div class="flex items-start gap-4 sm:gap-6">
+        <div class="app-icon w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
+          <svg class="w-8 h-8 sm:w-10 sm:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1">
+            <h2 class="text-xl sm:text-2xl font-bold text-white truncate">Frontier</h2>
+            <span class="text-[10px] font-bold bg-green-900/60 text-green-300 px-2 py-0.5 rounded">LIVE</span>
+          </div>
+          <p class="text-blue-300 text-sm font-medium mb-2">Stop transcribing. Start quoting.</p>
+          <p class="text-gray-400 text-sm leading-relaxed mb-4 hidden sm:block">
+            Drop a PDF RFQ. Get every line item, spec, and quantity &mdash; structured and quote-ready in seconds. Built because manual transcription was eating 30 minutes per quote.
+          </p>
+          <div class="flex flex-wrap items-center gap-3">
+            <a href="/rfq-parser" class="install-btn inline-flex items-center gap-2 text-white font-semibold px-5 py-2 rounded-full text-sm shadow">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd"/></svg>
+              INSTALL
+            </a>
+            <button onclick="openInstallHelp('Frontier','/rfq-parser')" class="text-xs text-gray-400 hover:text-blue-300 underline">How to install on iPhone</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- All apps grid -->
+  <section class="max-w-5xl mx-auto px-4 py-8">
+    <div class="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-3">Industrial AI · 3 apps</div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+      <!-- Frontier card -->
+      <div class="app-card bg-navy-card border border-gray-800 rounded-xl p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="app-icon w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+          <div class="min-w-0">
+            <h3 class="text-base font-bold text-white truncate">Frontier</h3>
+            <p class="text-xs text-gray-500">RFQ &rarr; Quote</p>
+          </div>
+        </div>
+        <p class="text-sm text-gray-400 mb-4 leading-relaxed">Drop a PDF. Get structured line items in seconds.</p>
+        <div class="flex items-center justify-between">
+          <a href="/rfq-parser" class="install-btn text-white font-semibold px-4 py-1.5 rounded-full text-xs">INSTALL</a>
+          <span class="text-[10px] text-gray-600">v1.2 · 4.8 MB</span>
+        </div>
+      </div>
+
+      <!-- Pathfinder card -->
+      <div class="app-card bg-navy-card border border-gray-800 rounded-xl p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="app-icon-2 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div class="min-w-0">
+            <h3 class="text-base font-bold text-white truncate">Pathfinder</h3>
+            <p class="text-xs text-gray-500">Spec &rarr; Supplier</p>
+          </div>
+        </div>
+        <p class="text-sm text-gray-400 mb-4 leading-relaxed">Paste a part spec. Get ranked supplier matches.</p>
+        <div class="flex items-center justify-between">
+          <a href="/pathfinder" class="install-btn text-white font-semibold px-4 py-1.5 rounded-full text-xs">INSTALL</a>
+          <span class="text-[10px] text-gray-600">v1.0 · 3.6 MB</span>
+        </div>
+      </div>
+
+      <!-- Watchtower card -->
+      <div class="app-card bg-navy-card border border-gray-800 rounded-xl p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="app-icon-3 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+          </div>
+          <div class="min-w-0">
+            <h3 class="text-base font-bold text-white truncate">Watchtower</h3>
+            <p class="text-xs text-gray-500">Risk Monitor</p>
+          </div>
+        </div>
+        <p class="text-sm text-gray-400 mb-4 leading-relaxed">Watch supplier risk before it becomes a fire.</p>
+        <div class="flex items-center justify-between">
+          <a href="/watchtower" class="install-btn text-white font-semibold px-4 py-1.5 rounded-full text-xs">INSTALL</a>
+          <span class="text-[10px] text-gray-600">v1.0 · 3.2 MB</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- The bug-fix loop -->
+  <section class="max-w-3xl mx-auto px-4 py-10">
+    <div class="bg-navy-card border border-gray-800 rounded-xl p-6">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-10 h-10 rounded-lg bg-red-900/40 border border-red-700/50 flex items-center justify-center">
+          <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div>
+          <h2 class="text-lg font-bold text-white">Found a bug? Claude will fix it overnight.</h2>
+          <p class="text-xs text-gray-500">Bug-loop · auto PR · human approval gate</p>
+        </div>
+      </div>
+      <p class="text-sm text-gray-400 leading-relaxed mb-4">
+        Every app has a bug button. Tap it. Your report opens a GitHub issue. A scheduled Claude agent reviews issues weekly (or on-demand), opens fix branches as PRs, and waits for me to approve and ship. You get a reply. The loop closes.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+        <div class="bg-navy-light border border-gray-800 rounded-lg p-3">
+          <div class="font-bold text-blue-300 mb-1">1 &middot; Report</div>
+          <div class="text-gray-500">Tap "Report bug" inside any app. Pre-filled issue.</div>
+        </div>
+        <div class="bg-navy-light border border-gray-800 rounded-lg p-3">
+          <div class="font-bold text-blue-300 mb-1">2 &middot; Auto-fix</div>
+          <div class="text-gray-500">Weekly Action wakes Claude. Fix branch + PR.</div>
+        </div>
+        <div class="bg-navy-light border border-gray-800 rounded-lg p-3">
+          <div class="font-bold text-blue-300 mb-1">3 &middot; Ship</div>
+          <div class="text-gray-500">I review, merge, deploy. Reporter notified.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why this exists -->
+  <section class="max-w-3xl mx-auto px-4 pb-10">
+    <details class="bg-navy-card border border-gray-800 rounded-xl p-5">
+      <summary class="flex items-center justify-between text-sm font-semibold text-gray-300">
+        <span>Why a personal app store?</span>
+        <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </summary>
+      <div class="mt-4 text-sm text-gray-400 leading-relaxed space-y-3">
+        <p>Off-the-shelf apps are best-of-breed for broad use cases. They&rsquo;re bad at niche, idiosyncratic, &ldquo;only-I-care&rdquo; workflows. AI coding agents collapse the cost of building niche software to nearly zero, which means individual operators can now own a full app store of tools tuned to their exact way of working.</p>
+        <p>This is mine. The apps in it solve problems I&rsquo;ve hit personally over 17 years in industrial supply chain &mdash; the kind of problems where a generic SaaS tool gets you 60% of the way and the last 40% is friction every single day.</p>
+        <p class="text-gray-500 text-xs italic">No compromises. No committee design. Built end-to-end by one operator + AI agents.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- Footer -->
+  <footer class="max-w-5xl mx-auto px-4 py-10 border-t border-gray-800 text-center">
+    <p class="text-xs text-gray-500 mb-2">Built by <a href="/" class="text-blue-400 hover:text-blue-300">Andres Tobacia</a> &middot; Industrial Engineer &middot; 17+ yrs in supply chain, energy, space</p>
+    <p class="text-xs text-gray-600">Apps are demo-grade. Use synthetic data only.</p>
+  </footer>
+
+  <!-- Install help modal -->
+  <div id="installModal" class="fixed inset-0 modal-backdrop hidden items-center justify-center z-50 px-4">
+    <div class="bg-navy-card border border-gray-700 rounded-2xl max-w-md w-full p-6 fade-in">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-lg font-bold text-white" id="installAppName">Install on iPhone</h3>
+        <button onclick="closeInstallHelp()" class="text-gray-500 hover:text-white">&times;</button>
+      </div>
+      <ol class="space-y-3 text-sm text-gray-300 mb-5">
+        <li class="flex gap-3"><span class="text-blue-400 font-bold">1.</span><span>Open the app in <b>Safari</b> (this works best on iPhone Safari).</span></li>
+        <li class="flex gap-3"><span class="text-blue-400 font-bold">2.</span><span>Tap the <b>Share</b> button (square with arrow up).</span></li>
+        <li class="flex gap-3"><span class="text-blue-400 font-bold">3.</span><span>Scroll and tap <b>Add to Home Screen</b>.</span></li>
+        <li class="flex gap-3"><span class="text-blue-400 font-bold">4.</span><span>Tap <b>Add</b>. The app launches fullscreen, like a native app.</span></li>
+      </ol>
+      <a id="installModalLink" href="#" class="install-btn block text-center text-white font-semibold px-5 py-2.5 rounded-full text-sm">Open the app now</a>
+    </div>
+  </div>
+
+  <script>
+    function openInstallHelp(name, url){
+      document.getElementById('installAppName').textContent = 'Install ' + name;
+      document.getElementById('installModalLink').href = url;
+      document.getElementById('installModal').classList.remove('hidden');
+      document.getElementById('installModal').classList.add('flex');
+    }
+    function closeInstallHelp(){
+      document.getElementById('installModal').classList.add('hidden');
+      document.getElementById('installModal').classList.remove('flex');
+    }
+    document.getElementById('installModal').addEventListener('click', function(e){
+      if(e.target === this) closeInstallHelp();
+    });
+  </script>
+
+</body>
+</html>

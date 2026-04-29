@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Watchtower — See supply chain disruptions before they hit. | Andres Tobacia</title>
   <meta name="description" content="Watchtower — Monitor your supplier list for disruption risks in real time.">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#0a1628">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Watchtower">
+  <link rel="apple-touch-icon" href="/favicon.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -33,8 +39,11 @@
   </div>
 
   <nav class="border-b border-gray-800 px-6 py-3 flex items-center justify-between">
-    <a href="https://tobacia.space" class="text-sm text-gray-400 hover:text-white transition">&larr; tobacia.space</a>
-    <span class="text-sm font-semibold text-blue-400">Watchtower</span>
+    <a href="/appstore.html" class="text-sm text-gray-400 hover:text-white transition">&larr; App Store</a>
+    <div class="flex items-center gap-3">
+      <span class="text-sm font-semibold text-blue-400">Watchtower</span>
+      <a href="https://github.com/andrewflows/tobacia/issues/new?title=%5BWatchtower%5D+Bug%3A+&body=%2A%2AWhat+happened%3F%2A%2A%0A%0A%2A%2AWhat+did+you+expect%3F%2A%2A%0A%0A%2A%2ASteps+to+reproduce%3A%2A%2A%0A1.+%0A2.+%0A3.+%0A%0A%2A%2ABrowser+%2F+device%3A%2A%2A%0A%0A---%0A_Auto-filed+from+Watchtower.+Claude+will+review+and+open+a+fix+PR+within+24h._&labels=bug%2Cauto-fix%2Capp%3Awatchtower" target="_blank" rel="noopener" class="text-xs text-gray-500 hover:text-red-400 transition border border-gray-800 hover:border-red-700/50 rounded-full px-2.5 py-0.5" title="Report a bug — Claude will fix it overnight">🐞 Report bug</a>
+    </div>
   </nav>
 
   <header class="max-w-5xl mx-auto px-4 pt-10 pb-6 text-center">
