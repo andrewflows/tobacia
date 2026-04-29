@@ -1,0 +1,26 @@
+{
+  "name": "Tobacia App Store",
+  "short_name": "Tobacia",
+  "description": "Personal AI tools for industrial supply chain — built by one operator, shared with the world.",
+  "start_url": "/appstore.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a1628",
+  "theme_color": "#0a1628",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["productivity", "business", "utilities"]
+}
