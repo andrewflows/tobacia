@@ -47,6 +47,27 @@ Organizaciones que impulsan el acceso al espacio, la educación STEAM y el futur
 
 ---
 
+### Liderazgo Comunitario 🌍
+
+Roles donde lidero comunidad, no solo apoyo.
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
+
+  <!-- New Fisher -->
+  <div class="bg-gray-800 border border-gray-700 rounded-lg p-5 hover:border-blue-500 transition flex flex-col" style="box-shadow: 0 0 15px rgba(56, 189, 248, 0.1);">
+    <div class="flex items-center justify-between mb-3">
+      <h3 class="text-lg font-bold text-blue-300">New Fisher</h3>
+      <span class="text-xs font-semibold bg-green-900 text-green-300 px-2 py-1 rounded">PRESIDENTE</span>
+    </div>
+    <p class="text-blue-400 text-xs font-semibold mb-2">Comunidad de padres y cuidadores en Blue Origin.</p>
+    <p class="text-gray-300 text-sm mb-3 flex-1">Presidente de la organización de Blue Origin para padres y cuidadores, conectando la comunidad entre nuestro sitio y los equipos globales. Lideré eventos de <strong>Take Your Child to Work</strong>, campañas del sitio y la iniciativa <strong>Workforce 2030</strong> de formación STEAM inspirando a la próxima generación de ingenieros, científicos y operadores.</p>
+    <p class="text-xs text-gray-500 italic">Liderazgo comunitario interno en Blue Origin · Divulgación STEAM.</p>
+  </div>
+
+</div>
+
+---
+
 <p class="text-sm text-gray-400 text-center mt-6">¿Quieres sugerir una organización o colaborar en una iniciativa STEAM? <a href="/contacto" class="text-blue-400 hover:underline">Contáctame</a>.</p>
 
 <div class="mt-6">
