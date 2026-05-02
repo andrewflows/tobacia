@@ -47,4 +47,25 @@ Organizations advancing space access, STEAM education, and the future of human e
 
 ---
 
+### Community Leadership 🌍
+
+Roles where I lead community, not just support it.
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
+
+  <!-- New Fisher -->
+  <div class="bg-gray-800 border border-gray-700 rounded-lg p-5 hover:border-blue-500 transition flex flex-col" style="box-shadow: 0 0 15px rgba(56, 189, 248, 0.1);">
+    <div class="flex items-center justify-between mb-3">
+      <h3 class="text-lg font-bold text-blue-300">New Fisher</h3>
+      <span class="text-xs font-semibold bg-green-900 text-green-300 px-2 py-1 rounded">CHAIR</span>
+    </div>
+    <p class="text-blue-400 text-xs font-semibold mb-2">Parents &amp; caregivers community at Blue Origin.</p>
+    <p class="text-gray-300 text-sm mb-3 flex-1">Chair of Blue Origin's organization for parents and caregivers, connecting the community across our site and global teams. Led <strong>Take Your Child to Work</strong> events, site campaigns, and the <strong>Workforce 2030</strong> STEAM-pipeline initiative inspiring the next generation of engineers, scientists, and operators.</p>
+    <p class="text-xs text-gray-500 italic">Blue Origin internal community leadership · STEAM outreach.</p>
+  </div>
+
+</div>
+
+---
+
 <p class="text-sm text-gray-400 text-center mt-6">Want to suggest an organization or partner on a STEAM initiative? <a href="/contact.html" class="text-blue-400 hover:underline">Get in touch</a>.</p>
