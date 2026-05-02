@@ -27,7 +27,7 @@ title: "Experience"
     <ul class="list-disc ml-6 mt-2 text-gray-200">
       <li>Led supply chain program for New Shepard crew capsule subsystems.</li>
       <li>Oversaw procurement, forecasting, and non-labor finance for composites, parachutes, avionics.</li>
-      <li>Supported <strong>12+ suborbital missions</strong>, <strong>1 orbital mission</strong>, and <strong>40+ astronauts</strong>.</li>
+      <li>Supported <strong>16 suborbital flights</strong>, <strong>3 orbital missions</strong>, and <strong>65+ astronauts</strong>.</li>
     </ul>
   </div>
 

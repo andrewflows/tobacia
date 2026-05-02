@@ -21,9 +21,14 @@ title: "Projects & Initiatives"
 
 **On Global Strategic Projects (Aug 2025 – Present).** Building the AI procurement and operational-intelligence layer for BO's supply chain. I designed and deployed the company's first AI-driven procurement automation pipeline, and personally built and deployed 20+ AI agents for procurement and operational intelligence — supplier monitoring, workflow automation, and decision support. I also led an enterprise platform migration across BO's procurement organization without interrupting production.
 
+<div class="my-6">
+  <img src="/bo-new-glenn-manufacturing.jpg" alt="New Glenn hardware manufacturing facility" class="rounded-lg shadow-lg w-full cursor-pointer">
+  <p class="text-sm text-gray-400 italic mt-2 text-center">New Glenn hardware manufacturing facility — where the work lives.</p>
+</div>
+
 #### A Program That Made Space Accessible
 
-By NS-38, New Shepard had flown 92 individuals — 98 seats — above the Kármán line: explorers, engineers, teachers, founders, physicians, artists, pilots, and pioneers from around the world.
+By NS-38, New Shepard had flown **92 individuals — 98 seats** above the Kármán line: explorers, engineers, teachers, founders, physicians, artists, pilots, and pioneers from around the world. From NS-22 through NS-38, I was part of the supply chain team supporting **69 of those individuals** across **12+ crewed missions** during my chapter.
 
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 my-6">
   <div>
@@ -31,8 +36,8 @@ By NS-38, New Shepard had flown 92 individuals — 98 seats — above the Kárm�
     <p class="text-sm text-gray-400 italic mt-2 text-center">NS-31 — first all-female spaceflight since 1963. Crew capsule recovery.</p>
   </div>
   <div>
-    <img src="/bo-ns37-crew.jpg" alt="NS-37 crew" class="rounded-lg shadow-lg w-full cursor-pointer">
-    <p class="text-sm text-gray-400 italic mt-2 text-center">NS-37 crew.</p>
+    <img src="/bo-ns26-thrusters-landing.jpg" alt="NS-26 capsule thrusters firing during landing" class="rounded-lg shadow-lg w-full cursor-pointer">
+    <p class="text-sm text-gray-400 italic mt-2 text-center">NS-26 — capsule thrusters firing during descent.</p>
   </div>
 </div>
 

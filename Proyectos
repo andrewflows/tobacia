@@ -22,6 +22,11 @@ permalink: /proyectos.html
 
 **En Global Strategic Projects (Ago 2025 – Presente).** Construyendo la capa de automatización de compras e inteligencia operativa basada en IA para la cadena de suministro de BO. Diseñé y desplegué la primera tubería de automatización de compras impulsada por IA de la compañía, y construí y desplegué personalmente más de 20 agentes de IA para inteligencia operativa y de procura — monitoreo de proveedores, automatización de flujos de trabajo y soporte a decisiones. También lideré una migración de plataforma empresarial en toda la organización de compras de BO sin interrumpir la producción.
 
+<div class="my-6">
+  <img src="/bo-new-glenn-manufacturing.jpg" alt="Planta de manufactura de New Glenn" class="rounded-lg shadow-lg w-full cursor-pointer">
+  <p class="text-sm text-gray-400 italic mt-2 text-center">Planta de manufactura de New Glenn — donde vive el trabajo.</p>
+</div>
+
 #### Un Programa Que Hizo Accesible el Espacio
 
 Para NS-38, New Shepard había llevado a 92 individuos — 98 asientos — más allá de la línea de Kármán: exploradores, ingenieros, maestros, fundadores, médicos, artistas, pilotos y pioneros de todo el mundo.
@@ -32,8 +37,8 @@ Para NS-38, New Shepard había llevado a 92 individuos — 98 asientos — más 
     <p class="text-sm text-gray-400 italic mt-2 text-center">NS-31 — primer vuelo espacial totalmente femenino desde 1963. Recuperación de la cápsula.</p>
   </div>
   <div>
-    <img src="/bo-ns37-crew.jpg" alt="Tripulación NS-37" class="rounded-lg shadow-lg w-full cursor-pointer">
-    <p class="text-sm text-gray-400 italic mt-2 text-center">Tripulación NS-37.</p>
+    <img src="/bo-ns26-thrusters-landing.jpg" alt="Propulsores de la cápsula NS-26 encendidos durante el descenso" class="rounded-lg shadow-lg w-full cursor-pointer">
+    <p class="text-sm text-gray-400 italic mt-2 text-center">NS-26 — propulsores de la cápsula encendidos durante el descenso.</p>
   </div>
 </div>
 
