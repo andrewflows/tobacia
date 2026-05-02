@@ -14,7 +14,7 @@ Organizations advancing space access, STEAM education, and the future of human e
   <div class="bg-gray-800 border border-gray-700 rounded-lg p-5 hover:border-blue-500 transition flex flex-col" style="box-shadow: 0 0 15px rgba(56, 189, 248, 0.1);">
     <div class="flex items-center justify-between mb-3">
       <h3 class="text-lg font-bold text-blue-300">Goal for Launch</h3>
-      <span class="text-xs font-semibold bg-blue-900 text-blue-300 px-2 py-1 rounded">SUPPORTER</span>
+      <span class="text-xs font-semibold bg-green-900 text-green-300 px-2 py-1 rounded">ADVISOR</span>
     </div>
     <p class="text-blue-400 text-xs font-semibold mb-2">Soccer × Space × STEM.</p>
     <p class="text-gray-300 text-sm mb-4 flex-1">A global network of recreational soccer clubs of engineer-athletes powering STEM education, the "Sports-in-Space" initiative, and a youth Soccer &amp; Space academy.</p>

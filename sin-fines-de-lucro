@@ -14,7 +14,7 @@ Organizaciones que impulsan el acceso al espacio, la educación STEAM y el futur
   <div class="bg-gray-800 border border-gray-700 rounded-lg p-5 hover:border-blue-500 transition flex flex-col" style="box-shadow: 0 0 15px rgba(56, 189, 248, 0.1);">
     <div class="flex items-center justify-between mb-3">
       <h3 class="text-lg font-bold text-blue-300">Goal for Launch</h3>
-      <span class="text-xs font-semibold bg-blue-900 text-blue-300 px-2 py-1 rounded">PARTIDARIO</span>
+      <span class="text-xs font-semibold bg-green-900 text-green-300 px-2 py-1 rounded">ASESOR</span>
     </div>
     <p class="text-blue-400 text-xs font-semibold mb-2">Fútbol × Espacio × STEM.</p>
     <p class="text-gray-300 text-sm mb-4 flex-1">Una red global de clubes de fútbol recreativo de ingenieros-atletas que impulsan la educación STEM, la iniciativa "Sports-in-Space" y una academia juvenil de Fútbol &amp; Espacio.</p>
