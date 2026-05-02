@@ -62,6 +62,22 @@ For recruitment opportunities or inquiries, please use the form below or reach o
 
 <p class="text-sm mt-2 text-center"><a href="https://www.linkedin.com/in/jatobacia/" target="_blank" class="text-blue-400 hover:underline">Connect on LinkedIn</a></p>
 
+---
+
+### 🌐 Connect With Me
+
+<div class="flex flex-wrap justify-center gap-3 mt-4">
+  <a href="https://www.linkedin.com/in/jatobacia/" target="_blank" rel="noopener" style="background-color: #0A66C2;" class="hover:opacity-90 text-white font-semibold py-2 px-4 rounded text-sm">LinkedIn</a>
+  <a href="https://x.com/andrestobacia" target="_blank" rel="noopener" style="background-color: #000000;" class="hover:opacity-90 text-white font-semibold py-2 px-4 rounded text-sm border border-gray-700">X (Twitter)</a>
+  <a href="https://www.instagram.com/andrestobacia" target="_blank" rel="noopener" style="background-image: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);" class="hover:opacity-90 text-white font-semibold py-2 px-4 rounded text-sm">Instagram</a>
+  <a href="https://www.facebook.com/andrestobacia" target="_blank" rel="noopener" style="background-color: #1877F2;" class="hover:opacity-90 text-white font-semibold py-2 px-4 rounded text-sm">Facebook</a>
+  <a href="https://www.threads.net/@andrestobacia" target="_blank" rel="noopener" style="background-color: #101010;" class="hover:opacity-90 text-white font-semibold py-2 px-4 rounded text-sm border border-gray-600">Threads</a>
+  <a href="https://www.youtube.com/@andrestobacia" target="_blank" rel="noopener" style="background-color: #FF0000;" class="hover:opacity-90 text-white font-semibold py-2 px-4 rounded text-sm">YouTube</a>
+  <a href="https://njump.me/npub1z4t9eperpgjagpplh0rqd6dhsa7nx95j6qp6p9ekprpqaycsaalqpu8r5w" target="_blank" rel="noopener" style="background-color: #7B2CBF;" class="hover:opacity-90 text-white font-semibold py-2 px-4 rounded text-sm">Nostr</a>
+</div>
+
+<p class="text-xs text-center text-gray-400 mt-3">Handle: <code class="text-blue-300">andrestobacia</code> on most platforms · Nostr npub: <span class="font-mono break-all text-gray-500">npub1z4t9eperpgjagpplh0rqd6dhsa7nx95j6qp6p9ekprpqaycsaalqpu8r5w</span></p>
+
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <script>
