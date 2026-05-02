@@ -1,0 +1,111 @@
+---
+layout: page
+title: "Portafolio IA"
+permalink: /portafolio-ia.html
+---
+
+## Portafolio IA
+
+Sistemas de IA aplicada para operaciones industriales — construidos con conocimiento de dominio acumulado en 17+ años de manufactura, cadena de suministro y exploración espacial.
+
+La mayoría de la IA no distingue una válvula de bola de una válvula mariposa. Estas herramientas sí.
+
+---
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+
+  <!-- Frontier -->
+  <div class="bg-gray-800 border border-gray-700 rounded-lg p-5 hover:border-blue-500 transition" style="box-shadow: 0 0 15px rgba(56, 189, 248, 0.1);">
+    <div class="flex items-center justify-between mb-3">
+      <h3 class="text-lg font-bold text-blue-300">Frontier</h3>
+      <span class="text-xs font-semibold bg-green-900 text-green-300 px-2 py-1 rounded">EN VIVO</span>
+    </div>
+    <p class="text-blue-400 text-xs font-semibold mb-2">Deja de transcribir. Empieza a cotizar.</p>
+    <p class="text-gray-300 text-sm mb-3">Sube un PDF. Obtén cada línea, especificación y cantidad — estructurada y lista para cotizar en segundos.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded">Python</span>
+      <span class="text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded">FastAPI</span>
+      <span class="text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded">LLM API</span>
+      <span class="text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded">Lectura de PDF</span>
+    </div>
+    <a href="/rfq-parser" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-sm text-center w-full">Probar Frontier en Vivo</a>
+  </div>
+
+  <!-- Pathfinder -->
+  <div class="bg-gray-800 border border-gray-700 rounded-lg p-5 hover:border-blue-500 transition" style="box-shadow: 0 0 15px rgba(56, 189, 248, 0.1);">
+    <div class="flex items-center justify-between mb-3">
+      <h3 class="text-lg font-bold text-blue-300">Pathfinder</h3>
+      <span class="text-xs font-semibold bg-green-900 text-green-300 px-2 py-1 rounded">EN VIVO</span>
+    </div>
+    <p class="text-blue-400 text-xs font-semibold mb-2">Encuentra al proveedor correcto. Al instante.</p>
+    <p class="text-gray-300 text-sm mb-3">Pega la especificación de una pieza y recibe recomendaciones de proveedores ordenadas por relevancia, con tiempos de entrega y estimados de precio — impulsado por conocimiento industrial.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded">Python</span>
+      <span class="text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded">FastAPI</span>
+      <span class="text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded">LLM API</span>
+    </div>
+    <a href="/pathfinder" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-sm text-center w-full">Probar Pathfinder en Vivo</a>
+  </div>
+
+  <!-- Watchtower -->
+  <div class="bg-gray-800 border border-gray-700 rounded-lg p-5 hover:border-blue-500 transition" style="box-shadow: 0 0 15px rgba(56, 189, 248, 0.1);">
+    <div class="flex items-center justify-between mb-3">
+      <h3 class="text-lg font-bold text-blue-300">Watchtower</h3>
+      <span class="text-xs font-semibold bg-green-900 text-green-300 px-2 py-1 rounded">EN VIVO</span>
+    </div>
+    <p class="text-blue-400 text-xs font-semibold mb-2">Detecta interrupciones de cadena de suministro antes de que impacten.</p>
+    <p class="text-gray-300 text-sm mb-3">Monitorea tu lista de proveedores ante riesgos de disrupción — eventos noticiosos, cambios geopolíticos y de capacidad detectados en tiempo real.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded">Python</span>
+      <span class="text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded">NLP</span>
+      <span class="text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded">LLM API</span>
+    </div>
+    <a href="/watchtower" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-sm text-center w-full">Probar Watchtower en Vivo</a>
+  </div>
+
+</div>
+
+<div class="mt-8 bg-gradient-to-br from-blue-950 via-gray-800 to-gray-900 border border-blue-800/40 rounded-xl p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+  <div class="flex-1">
+    <p class="text-xs uppercase tracking-widest text-blue-300 font-semibold mb-1">Tienda de Apps Personal</p>
+    <h3 class="text-xl font-bold text-white mb-1">Instala estas herramientas como apps nativas</h3>
+    <p class="text-sm text-gray-400">Frontier, Pathfinder y Watchtower — y lo que viene — empaquetadas como apps instalables en iPhone, Android y escritorio.</p>
+  </div>
+  <a href="/appstore.html" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-5 rounded-full text-sm whitespace-nowrap">Abrir la App Store →</a>
+</div>
+
+---
+
+### ¿Por Qué Estos Proyectos?
+
+La cadena de suministro industrial es uno de los sectores menos digitalizados de la economía. Las empresas todavía procesan RFQs a mano, eligen proveedores de memoria y se enteran de las disrupciones cuando ya impactaron la producción.
+
+Estas herramientas aplican IA donde genera más valor — no en apps de consumo, sino en los flujos de trabajo complejos y cargados de documentos que mueven más de $600B al año en distribución industrial.
+
+**Construido por Andrés Tobacia** — Ingeniero Industrial, 17+ años en manufactura, cadena de suministro, energía y exploración espacial.
+
+<div class="flex flex-wrap gap-3 mt-4">
+  <a href="/contacto" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-sm">Contáctame</a>
+  <a href="https://github.com/andrewflows/tobacia-rfq-parser" target="_blank" class="inline-block border border-gray-600 hover:border-blue-500 text-gray-300 hover:text-white font-bold py-2 px-4 rounded text-sm">Ver Código en GitHub</a>
+</div>
+
+---
+
+### Más Allá de la IA Industrial — Música Asistida por IA
+
+La IA también está presente en mi trabajo creativo. Escribo y produzco canciones con IA como colaboradora — explorando letras, arreglos y producción de principio a fin.
+
+<div class="mt-4 bg-gray-800 border border-gray-700 rounded-lg p-5 hover:border-blue-500 transition" style="box-shadow: 0 0 15px rgba(56, 189, 248, 0.1);">
+  <div class="flex items-center justify-between mb-2">
+    <h4 class="text-lg font-bold text-blue-300">Música Asistida por IA</h4>
+    <span class="text-xs font-semibold bg-red-900 text-red-300 px-2 py-1 rounded">YOUTUBE</span>
+  </div>
+  <p class="text-gray-300 text-sm mb-4">Composición y producción musical asistidas por IA.</p>
+  <a href="https://www.youtube.com/@andrestobacia" target="_blank" rel="noopener" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded text-sm">Escuchar en YouTube →</a>
+</div>
+
+---
+
+<div class="mt-6">
+  <a href="/ai-portfolio.html" class="text-blue-400 hover:text-blue-500 underline">🌐 Ver esta página en Inglés</a>
+</div>
