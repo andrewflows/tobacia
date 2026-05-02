@@ -60,7 +60,7 @@ Roles where I lead community, not just support it.
       <span class="text-xs font-semibold bg-green-900 text-green-300 px-2 py-1 rounded">CHAIR</span>
     </div>
     <p class="text-blue-400 text-xs font-semibold mb-2">Parents &amp; caregivers community at Blue Origin.</p>
-    <p class="text-gray-300 text-sm mb-3 flex-1">Chair of Blue Origin's organization for parents and caregivers, connecting the community across our site and global teams. Led <strong>Take Your Child to Work</strong> events, site campaigns, and the <strong>Workforce 2030</strong> STEAM-pipeline initiative inspiring the next generation of engineers, scientists, and operators.</p>
+    <p class="text-gray-300 text-sm mb-3 flex-1">Chair of Blue Origin's organization for parents and caregivers, connecting the community across our site and global teams. Led <strong>Take Your Child to Work</strong> events, site campaigns, and STEAM outreach connecting BO families to the work that takes humans to space.</p>
     <p class="text-xs text-gray-500 italic">Blue Origin internal community leadership · STEAM outreach.</p>
   </div>
 
