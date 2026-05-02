@@ -51,7 +51,7 @@
 
     <!-- Language Switch -->
     <div class="lang-switch absolute top-4 right-4">
-      {% if page.url contains '-es' or page.url contains '/inicio' or page.url contains '/acerca-de-mi.html' or page.url contains '/portafolio-ia' or page.url contains '/sin-fines-de-lucro' or page.url contains '/capitulo-blue-origin' %}
+      {% if page.url contains '-es' or page.url contains '/inicio' or page.url contains '/acerca-de-mi.html' or page.url contains '/portafolio-ia' or page.url contains '/sin-fines-de-lucro' %}
         <a href="/index.html">English</a>
       {% else %}
         <a href="/inicio">Español</a>
@@ -60,11 +60,10 @@
 
     <!-- Navigation -->
     <nav class="mt-2 space-x-4">
-      {% if page.url contains '-es' or page.url contains '/inicio' or page.url contains '/acerca-de-mi.html' or page.url contains '/experiencia' or page.url contains '/proyectos' or page.url contains '/conferencias' or page.url contains '/contacto' or page.url contains '/portafolio-ia' or page.url contains '/sin-fines-de-lucro' or page.url contains '/capitulo-blue-origin' %}
+      {% if page.url contains '-es' or page.url contains '/inicio' or page.url contains '/acerca-de-mi.html' or page.url contains '/experiencia' or page.url contains '/proyectos' or page.url contains '/conferencias' or page.url contains '/contacto' or page.url contains '/portafolio-ia' or page.url contains '/sin-fines-de-lucro' %}
         <a href="/inicio" class="hover:text-blue-400">Inicio</a>
         <a href="/acerca-de-mi.html" class="hover:text-blue-400">Acerca de mí</a>
         <a href="/experiencia" class="hover:text-blue-400">Experiencia</a>
-        <a href="/capitulo-blue-origin.html" class="hover:text-blue-400">Blue Origin</a>
         <a href="/proyectos" class="hover:text-blue-400">Proyectos</a>
         <a href="/portafolio-ia.html" class="hover:text-blue-400">Portafolio IA</a>
         <a href="/conferencias" class="hover:text-blue-400">Conferencias</a>
@@ -76,7 +75,6 @@
         <a href="/" class="hover:text-blue-400">Home</a>
         <a href="/about.html" class="hover:text-blue-400">About</a>
         <a href="/experience.html" class="hover:text-blue-400">Experience</a>
-        <a href="/blue-origin.html" class="hover:text-blue-400">Blue Origin</a>
         <a href="/projects.html" class="hover:text-blue-400">Projects</a>
         <a href="/ai-portfolio.html" class="hover:text-blue-400">AI Portfolio</a>
         <a href="/speaking.html" class="hover:text-blue-400">Speaking</a>

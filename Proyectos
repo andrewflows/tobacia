@@ -6,8 +6,61 @@ permalink: /proyectos.html
 
 ## Proyectos e Iniciativas
 
-### Blue Origin – Manufactura Espacial y Optimización de Cadena de Suministro
-Apoyo a más de **12 misiones suborbitales exitosas**, **1 misión orbital** y múltiples misiones de carga útil. Contribución clave a la introducción de **40+ nuevos astronautas** al espacio mientras se impulsa la excelencia en la cadena de suministro para componentes críticos de misión.
+### Blue Origin — Un Capítulo en Vuelos Espaciales Tripulados 🚀
+
+**Supply Chain Program Manager III — New Shepard** · Jul 2022 – Jul 2025
+**Supply Chain Project Manager III — Global Strategic Projects** · Ago 2025 – Presente
+
+<div class="my-6">
+  <img src="/bo-ng3-booster-return.jpg" alt="Retorno del propulsor New Glenn NG-3" class="rounded-lg shadow-lg w-full cursor-pointer">
+  <p class="text-sm text-gray-400 italic mt-2 text-center">New Glenn NG-3 — retorno del propulsor.</p>
+</div>
+
+#### Lo Que Lideré
+
+**En New Shepard (Jul 2022 – Jul 2025).** Responsable único de la ejecución de cadena de suministro para subsistemas de la cápsula tripulada — estructuras, aviónica y compuestos. Lideré la planificación de materiales basada en MRP a través de múltiples subsistemas, sostuve la cadencia de vuelo para 12+ misiones tripuladas y negocié contratos con proveedores a escala. Cuando aparecían escasez de materiales o cambios de ingeniería de último minuto, tomaba las decisiones de balance que mantenían los cronogramas de lanzamiento intactos.
+
+**En Global Strategic Projects (Ago 2025 – Presente).** Construyendo la capa de automatización de compras e inteligencia operativa basada en IA para la cadena de suministro de BO. Diseñé y desplegué la primera tubería de automatización de compras impulsada por IA de la compañía, y construí y desplegué personalmente más de 20 agentes de IA para inteligencia operativa y de procura — monitoreo de proveedores, automatización de flujos de trabajo y soporte a decisiones. También lideré una migración de plataforma empresarial en toda la organización de compras de BO sin interrumpir la producción.
+
+#### Un Programa Que Hizo Accesible el Espacio
+
+Para NS-38, New Shepard había llevado a 92 individuos — 98 asientos — más allá de la línea de Kármán: exploradores, ingenieros, maestros, fundadores, médicos, artistas, pilotos y pioneros de todo el mundo.
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 my-6">
+  <div>
+    <img src="/bo-ns31-crew-recovery.jpg" alt="Recuperación de cápsula NS-31" class="rounded-lg shadow-lg w-full cursor-pointer">
+    <p class="text-sm text-gray-400 italic mt-2 text-center">NS-31 — primer vuelo espacial totalmente femenino desde 1963. Recuperación de la cápsula.</p>
+  </div>
+  <div>
+    <img src="/bo-ns37-crew.jpg" alt="Tripulación NS-37" class="rounded-lg shadow-lg w-full cursor-pointer">
+    <p class="text-sm text-gray-400 italic mt-2 text-center">Tripulación NS-37.</p>
+  </div>
+</div>
+
+Entre los hitos que más me enorgullece haber apoyado:
+
+- **Sara Sabry** — primera egipcia en el espacio
+- **Mário Ferreira** — primer portugués en el espacio
+- **Ed Dwight** — primer candidato afroamericano a astronauta de EE. UU., volando finalmente seis décadas después de haber sido rechazado
+- **Gopi Thotakura** — primer turista espacial indio
+- **Jesús Calleja** — tercer español en el espacio
+- **Amanda Nguyễn** — primera mujer vietnamita en el espacio
+- **Michaela "Michi" Benthaus** — primera usuaria de silla de ruedas más allá de la línea de Kármán
+- **NS-31** — primer vuelo espacial totalmente femenino desde 1963
+
+<details class="mt-6 bg-gray-800 border border-gray-700 rounded-lg p-4">
+  <summary class="cursor-pointer text-blue-400 hover:underline text-sm font-semibold">Ver lista completa de astronautas de mi capítulo (NS-22 → NS-38)</summary>
+  <p class="text-sm text-gray-300 mt-3 leading-relaxed">
+    Coby Cotton · Mário Ferreira · Vanessa O'Brien · Clint Kelly III · Sara Sabry · Steve Young · Mason Angel · Sylvain Chiron · Ed Dwight · Ken Hess · Carol Schaller · Gopi Thotakura · Nicolina Elrick · Rob Ferl · Eugene Grin · Eiman Jahangir · Karsen Kitchen · Ephraim Rabin · Emily Calandrelli · Marc &amp; Sharon Hagle · Austin Litteral · J.D. Russell · Hank Wolfond · Jesús Calleja · Lane Bess · Elaine Hyde · Richard Scott · Tushar Shah · Aisha Bowe · Kerianne Flynn · Gayle King · Amanda Nguyễn · Katy Perry · Lauren Sánchez · Jaime Alemán · Gretchen Green · Paul Jeris · Aymette Medina Jorge · Mark Rocket · Jesse Williams · Allie &amp; Carl Kuehner · Leland Larson · Freddie Rescigno Jr. · Owolabi Salis · Jim Sitkin · Arvi Bahal · Gökhan Erdem · Deborah Martorell · Lionel Pitchford · Justin Sun · Jeff Elgin · Danna Karagussova · Will Lewis · Aaron Newman · Vitalii Ostrovsky · Michaela "Michi" Benthaus · Joey Hyde · Hans Koenigsmann · Neal Milch · Adonis Pouroulis · Jason Stansell · Tim Drexler · Linda Edwards · Alain Fernandez · Alberto Gutiérrez · Jim Hendren · Laura Stiles.
+  </p>
+</details>
+
+<div class="my-6">
+  <img src="/bo-ns38-astronauts.jpg" alt="Astronautas NS-38" class="rounded-lg shadow-lg w-full cursor-pointer">
+  <p class="text-sm text-gray-400 italic mt-2 text-center">Astronautas NS-38.</p>
+</div>
+
+#### Hitos de Misiones
 
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
   <div class="text-center">
@@ -28,7 +81,7 @@ Apoyo a más de **12 misiones suborbitales exitosas**, **1 misión orbital** y m
   </div>
   <div class="text-center">
     <img src="/ns-28-emily-calandrelli-(1).jpg" alt="Emily Calandrelli NS28" class="rounded-lg shadow-lg cursor-pointer">
-    <p class="mt-2 text-gray-200"><strong>NS-28:</strong> Soporte logístico para la misión de Emily Calandrelli (“The Space Gal”).</p>
+    <p class="mt-2 text-gray-200"><strong>NS-28:</strong> Soporte logístico para la misión de Emily Calandrelli ("The Space Gal").</p>
   </div>
   <div class="text-center">
     <img src="/ns-31-katy-perry.jpg" alt="NS31 Katy Perry" class="rounded-lg shadow-lg cursor-pointer">
@@ -38,6 +91,25 @@ Apoyo a más de **12 misiones suborbitales exitosas**, **1 misión orbital** y m
     <img src="/blue-origin-new-glenn-ng-1-liftoff-closeup-vertical.jpg" alt="Lanzamiento New Glenn" class="rounded-lg shadow-lg cursor-pointer">
     <p class="mt-2 text-gray-200">Vehículo de Lanzamiento New Glenn – Cadena de Suministro y Compras</p>
   </div>
+</div>
+
+#### Lo Que Este Capítulo Me Enseñó
+
+Tres lecciones que llevo conmigo:
+
+1. **Confiabilidad bajo escrutinio público.** Cuando una celebridad, un jefe de estado o un niño está sentado en tu cápsula, "suficientemente bueno" no es un estándar defendible.
+2. **Velocidad sin comprometer cero defectos.** La cadencia suborbital nos obligó a ejecutar más rápido que la industria aeroespacial tradicional — sin heredar la burocracia que normalmente la frena.
+3. **La reducción de costos más rápida es el sistema que reemplaza al manual.** Los ahorros reales no vienen de exprimir a los proveedores — vienen de reconstruir los flujos de trabajo que deciden qué comprar y a quién.
+
+#### Hacia Dónde Lleva Esto
+
+Automatizo operaciones industriales que todos los demás todavía manejan manualmente. Los agentes de IA que construyo dentro de BO y las herramientas de IA que he lanzado en tobacia.space (Frontier, Pathfinder, Watchtower) son la misma tesis aplicada a dos escalas: **encontrar el proceso manual, construir el sistema que lo reemplaza, y demostrar que funciona.**
+
+Este capítulo ha reforzado mi convicción de que el futuro pertenece a equipos dispuestos a construir cosas difíciles, abrir nuevas fronteras, y expandir lo que la humanidad cree posible. Llevo ese estándar a los sistemas de IA para flujos de trabajo industriales — un sector que lo necesita desesperadamente.
+
+<div class="flex flex-wrap gap-3 mt-6">
+  <a href="/portafolio-ia.html" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-sm">Ver el Portafolio IA →</a>
+  <a href="/contacto" class="inline-block border border-gray-600 hover:border-blue-500 text-gray-300 hover:text-white font-bold py-2 px-4 rounded text-sm">Contáctame</a>
 </div>
 
 ---
