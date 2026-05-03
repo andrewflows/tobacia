@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brag-Doc Logger · Tobacia</title>
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#0a1628">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Brag-Doc">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style> body { background:#0a1628; color:#e5e7eb; } </style>
+</head>
+<body class="min-h-screen">
+
+  <nav class="border-b border-gray-800 px-6 py-3 flex items-center justify-between">
+    <a href="/me.html" class="text-sm text-gray-400 hover:text-white transition">&larr; Personal Apps</a>
+    <span class="text-sm font-semibold text-blue-400">Brag-Doc Logger</span>
+  </nav>
+
+  <main class="max-w-3xl mx-auto px-4 py-8">
+    <h1 class="text-2xl sm:text-3xl font-bold text-white mb-2">Brag-Doc Logger</h1>
+    <p class="text-gray-400 text-sm mb-6">Describe a recent win in plain language. AI tags it as a STAR story (Situation, Task, Action, Result) and a Competency Index tag, then formats it as a markdown entry ready to paste into <code class="text-blue-300">Obsidian Vault/Andres/Career/brag-doc.md</code>.</p>
+
+    <div class="bg-gray-900 border border-gray-800 rounded-lg p-5 mb-5">
+      <label class="block text-sm text-gray-300 mb-2">Win description (free-form, voice-to-text-friendly):</label>
+      <textarea id="input" rows="6" class="w-full p-3 rounded bg-gray-950 text-white border border-gray-700 focus:border-blue-500 outline-none text-sm" placeholder="Example: Led the migration of 64K PO line items to a new supplier platform without disrupting production. Took 6 weeks. Key challenge was..."></textarea>
+
+      <div class="flex flex-wrap gap-2 mt-3 items-center">
+        <label class="text-xs text-gray-400">Optional context tag:</label>
+        <select id="ctx" class="bg-gray-950 border border-gray-700 text-gray-200 text-xs rounded px-2 py-1">
+          <option value="Blue Origin">Blue Origin</option>
+          <option value="tobacia.space">tobacia.space</option>
+          <option value="Anything Flows">Anything Flows</option>
+          <option value="Personal">Personal</option>
+        </select>
+        <label class="text-xs text-gray-400 ml-3">Date:</label>
+        <input id="date" type="date" class="bg-gray-950 border border-gray-700 text-gray-200 text-xs rounded px-2 py-1">
+      </div>
+
+      <div class="mt-4 flex flex-wrap gap-2">
+        <button id="generate" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-5 rounded text-sm">Tag &amp; Format ↗</button>
+        <button id="clear" class="bg-gray-800 hover:bg-gray-700 text-gray-300 font-semibold py-2 px-4 rounded text-sm">Clear</button>
+        <span id="status" class="text-xs text-gray-500 self-center"></span>
+      </div>
+    </div>
+
+    <div id="output-wrap" class="hidden bg-gray-900 border border-gray-800 rounded-lg p-5">
+      <div class="flex justify-between items-center mb-3">
+        <h2 class="text-sm font-semibold text-blue-300 uppercase tracking-widest">Markdown output</h2>
+        <button id="copy" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-1.5 px-4 rounded text-xs">Copy</button>
+      </div>
+      <pre id="output" class="bg-gray-950 border border-gray-800 rounded p-4 text-xs text-gray-200 whitespace-pre-wrap font-mono overflow-x-auto"></pre>
+      <p class="text-xs text-gray-500 mt-3">Paste this at the bottom of <code>brag-doc.md</code> under <code>## Wins</code>.</p>
+    </div>
+  </main>
+
+  <script src="/apps/api-client.js"></script>
+  <script>
+    document.getElementById('date').valueAsDate = new Date();
+
+    const SYSTEM = `You are a STAR-story formatter for Andres Tobacia's career brag doc.
+
+CONTEXT ABOUT ANDRES:
+- Supply Chain Project Manager III, Global Strategic Projects at Blue Origin (Aug 2025–Present)
+- Previously Supply Chain Program Manager III, New Shepard at Blue Origin (Jul 2022–Jul 2025)
+- 17 years aerospace + industrial supply chain experience
+- AI Systems Builder positioning (live AI tools at tobacia.space)
+- Current job search target: founding-team PM/engineering at AI + manufacturing/supply chain startups
+
+COMPETENCY TAGS (pick one or two that fit):
+[AI/Automation] [Supply Chain Strategy] [Cost Reduction] [Production Readiness]
+[Cross-Functional Leadership] [Crisis/Recovery] [Founder/Entrepreneurship]
+[Stakeholder Management] [Technical Program Management] [Supplier Negotiation]
+
+OUTPUT FORMAT (markdown, exactly this structure, nothing else):
+
+### {one-line headline} · {YYYY-MM-DD}
+**Tags:** {Competency tag 1} · {Competency tag 2 if applicable} · {Context}
+
+**Situation:** {1-2 sentences setting the stage}
+
+**Task:** {what you needed to deliver, 1 sentence}
+
+**Action:** {3-5 bullets of what you specifically did}
+
+**Result:** {quantified outcomes where possible — savings, time, scale, mission impact}
+
+---`;
+
+    document.getElementById('generate').onclick = async () => {
+      const text = document.getElementById('input').value.trim();
+      if (!text) { alert('Describe a win first.'); return; }
+      const ctx = document.getElementById('ctx').value;
+      const date = document.getElementById('date').value || new Date().toISOString().slice(0,10);
+      const status = document.getElementById('status');
+      status.textContent = 'Tagging... (Sonnet 4.6)';
+
+      try {
+        const result = await TobaciaAPI.call({
+          system: SYSTEM,
+          prompt: `Context: ${ctx}\nDate: ${date}\n\nWin description:\n${text}\n\nFormat as STAR markdown entry.`,
+          maxTokens: 1500,
+        });
+        document.getElementById('output').textContent = result.text;
+        document.getElementById('output-wrap').classList.remove('hidden');
+        status.textContent = `✓ Generated · ${result.usage?.input_tokens || 0} in / ${result.usage?.output_tokens || 0} out`;
+      } catch (e) {
+        status.textContent = '';
+        alert('Error: ' + e.message);
+      }
+    };
+
+    document.getElementById('clear').onclick = () => {
+      document.getElementById('input').value = '';
+      document.getElementById('output-wrap').classList.add('hidden');
+      document.getElementById('status').textContent = '';
+    };
+
+    document.getElementById('copy').onclick = (e) => {
+      TobaciaAPI.copyToClipboard(document.getElementById('output').textContent, e.target);
+    };
+  </script>
+</body>
+</html>
