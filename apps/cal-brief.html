@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Calendar Pre-Brief · Tobacia</title>
+<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#0a1628">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Pre-Brief">
+<link rel="icon" href="/favicon.png"><link rel="apple-touch-icon" href="/favicon.png">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body{background:#0a1628;color:#e5e7eb;font-family:'Segoe UI',-apple-system,sans-serif}</style>
+</head><body class="min-h-screen">
+<nav class="border-b border-gray-800 px-6 py-3 flex items-center justify-between">
+  <a href="/me.html" class="text-sm text-gray-400 hover:text-white">&larr; Personal Apps</a>
+  <span class="text-sm font-semibold text-blue-400">Calendar Pre-Brief</span>
+</nav>
+<main class="max-w-3xl mx-auto px-4 py-6">
+  <h1 class="text-2xl sm:text-3xl font-bold text-white mb-2">Calendar Pre-Brief 📆</h1>
+  <p class="text-gray-400 text-sm mb-5">Paste meeting details + any notes you have on attendees. Get a 1-pager: who/what/last-time-we-talked, prep questions, hidden risks.</p>
+  <div class="bg-yellow-900/30 border border-yellow-700/50 rounded p-3 mb-5 text-xs text-yellow-300">
+    💡 Path A version (no Calendar OAuth). Copy meeting details from your calendar invite. For attendee context, paste any prior interaction notes from Obsidian or LinkedIn.
+  </div>
+  <div class="bg-gray-900 border border-gray-800 rounded-lg p-5 mb-5">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+      <input id="title" type="text" placeholder="Meeting title" class="bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2">
+      <input id="when" type="text" placeholder="When (e.g., today 3 PM, 30 min)" class="bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2">
+    </div>
+    <label class="block text-xs text-gray-400 mb-2">Attendees (one per line, role/company)
+      <textarea id="attendees" rows="3" placeholder="Jane Doe — VP Eng, Acme AI&#10;Mark Smith — Recruiter, Acme&#10;Andres (me)" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2"></textarea>
+    </label>
+    <label class="block text-xs text-gray-400 mb-2">Meeting agenda / invite description
+      <textarea id="agenda" rows="3" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2"></textarea>
+    </label>
+    <label class="block text-xs text-gray-400 mb-2">Prior interaction notes / context (paste from Obsidian or LinkedIn)
+      <textarea id="context" rows="4" placeholder="Last talked: Mar 14, discussed RFQ workflow at their company. Jane mentioned hiring for SC PM role. Mark hasn't replied to last 2 emails." class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2"></textarea>
+    </label>
+    <label class="block text-xs text-gray-400 mb-2">My desired outcome from this meeting
+      <input id="outcome" type="text" placeholder="e.g., commit to a follow-up call about the SC PM role" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2">
+    </label>
+    <div class="flex gap-2"><button id="gen" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-5 rounded text-sm">Build pre-brief ↗</button><span id="status" class="text-xs text-gray-500 self-center"></span></div>
+  </div>
+  <div id="out-wrap" class="hidden bg-gray-900 border border-gray-800 rounded-lg p-5">
+    <div class="flex justify-between items-center mb-3"><h2 class="text-sm font-semibold text-blue-300 uppercase tracking-widest">Pre-brief</h2><button id="copy" class="bg-blue-500 text-white py-1.5 px-4 rounded text-xs">Copy</button></div>
+    <pre id="out" class="bg-gray-950 border border-gray-800 rounded p-4 text-xs text-gray-200 whitespace-pre-wrap font-mono"></pre>
+  </div>
+</main>
+<script src="/apps/api-client.js"></script>
+<script>
+const SYS=`You build a 1-page pre-brief for a meeting. Output exactly this markdown:
+
+# {Meeting Title} · {When}
+
+## Who
+- {Attendee — role — 1-line context}
+(for each attendee)
+
+## What's on the table
+{2-3 sentences: agenda + my desired outcome}
+
+## What they likely want
+{What is each non-Andres attendee optimizing for? Read between the lines of provided context. 2-3 bullets.}
+
+## Open threads from prior interaction
+- {Each unresolved thread that should be addressed or revisited}
+
+## My 3 talking points (in priority order)
+1. ...
+2. ...
+3. ...
+
+## My ASK (the one thing I'm leaving with)
+{1 sentence — make it specific, time-bound, easy for them to say yes to}
+
+## Risk flags
+- {1-3 likely traps or things that could derail this}
+
+## End-state check
+After the meeting, did I:
+- □ Make my ask clearly?
+- □ Lock the next step (date, owner, action)?
+- □ Capture takeaways within 30 min (use Interview Debrief Filer if interview-style)?
+
+Be specific. Don't fabricate context — if missing, say "(unknown — check Obsidian backlinks for [name])".`;
+
+document.getElementById('gen').onclick=async()=>{
+  const t=document.getElementById('title').value.trim(),w=document.getElementById('when').value.trim(),a=document.getElementById('attendees').value.trim(),ag=document.getElementById('agenda').value.trim(),c=document.getElementById('context').value.trim(),o=document.getElementById('outcome').value.trim();
+  if(!t||!a){alert('Title + attendees required.'); return;}
+  const status=document.getElementById('status'); status.textContent='Building...';
+  try{
+    const out=await TobaciaAPI.call({system:SYS,prompt:`Title: ${t}\nWhen: ${w}\n\nAttendees:\n${a}\n\nAgenda:\n${ag||'(not provided)'}\n\nPrior context:\n${c||'(none)'}\n\nMy desired outcome:\n${o||'(not stated — surface ones that fit context)'}`,maxTokens:2500});
+    document.getElementById('out').textContent=out.text;
+    document.getElementById('out-wrap').classList.remove('hidden');
+    status.textContent=`✓ ${out.usage?.input_tokens||0}/${out.usage?.output_tokens||0}`;
+  }catch(e){status.textContent=''; alert('Error: '+e.message);}
+};
+document.getElementById('copy').onclick=(e)=>TobaciaAPI.copyToClipboard(document.getElementById('out').textContent,e.target);
+</script></body></html>
