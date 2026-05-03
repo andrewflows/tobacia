@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recruiter Triage · Tobacia</title>
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#0a1628">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Recruiter Triage">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style> body { background:#0a1628; color:#e5e7eb; } </style>
+</head>
+<body class="min-h-screen">
+
+  <nav class="border-b border-gray-800 px-6 py-3 flex items-center justify-between">
+    <a href="/me.html" class="text-sm text-gray-400 hover:text-white transition">&larr; Personal Apps</a>
+    <span class="text-sm font-semibold text-blue-400">Recruiter Triage</span>
+  </nav>
+
+  <main class="max-w-3xl mx-auto px-4 py-8">
+    <h1 class="text-2xl sm:text-3xl font-bold text-white mb-2">Recruiter Triage</h1>
+    <p class="text-gray-400 text-sm mb-6">Paste an inbound recruiter email. Get back: <strong class="text-blue-300">YES / NO / MAYBE</strong> verdict against your job-search compass, three reply drafts (interested / pass / ask-for-more), and a one-line entry for your tracker.</p>
+
+    <div class="bg-gray-900 border border-gray-800 rounded-lg p-5 mb-5">
+      <label class="block text-sm text-gray-300 mb-2">Recruiter email (paste full message — subject, sender, body):</label>
+      <textarea id="email" rows="9" class="w-full p-3 rounded bg-gray-950 text-white border border-gray-700 focus:border-blue-500 outline-none text-sm font-mono" placeholder="From: jane@acme.com&#10;Subject: Sr Director, Supply Chain at Acme AI&#10;&#10;Hi Andres, I came across your profile..."></textarea>
+
+      <div class="mt-4 flex flex-wrap gap-2">
+        <button id="generate" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-5 rounded text-sm">Triage ↗</button>
+        <button id="clear" class="bg-gray-800 hover:bg-gray-700 text-gray-300 font-semibold py-2 px-4 rounded text-sm">Clear</button>
+        <span id="status" class="text-xs text-gray-500 self-center"></span>
+      </div>
+    </div>
+
+    <div id="output-wrap" class="hidden space-y-4">
+
+      <div class="bg-gray-900 border border-gray-800 rounded-lg p-5">
+        <h2 class="text-sm font-semibold text-blue-300 uppercase tracking-widest mb-2">Verdict</h2>
+        <div id="verdict" class="text-2xl font-bold mb-2"></div>
+        <p id="reasoning" class="text-sm text-gray-400"></p>
+      </div>
+
+      <div class="bg-gray-900 border border-gray-800 rounded-lg p-5">
+        <div class="flex justify-between items-center mb-3">
+          <h2 class="text-sm font-semibold text-blue-300 uppercase tracking-widest">Reply Drafts</h2>
+          <select id="reply-tab" class="bg-gray-950 border border-gray-700 text-gray-200 text-xs rounded px-2 py-1">
+            <option value="interested">Interested</option>
+            <option value="ask">Ask for more info</option>
+            <option value="pass">Polite pass</option>
+          </select>
+        </div>
+        <pre id="reply" class="bg-gray-950 border border-gray-800 rounded p-4 text-xs text-gray-200 whitespace-pre-wrap font-mono"></pre>
+        <button id="copy-reply" class="mt-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-1.5 px-4 rounded text-xs">Copy reply</button>
+      </div>
+
+      <div class="bg-gray-900 border border-gray-800 rounded-lg p-5">
+        <h2 class="text-sm font-semibold text-blue-300 uppercase tracking-widest mb-2">Tracker Entry</h2>
+        <pre id="tracker" class="bg-gray-950 border border-gray-800 rounded p-3 text-xs text-gray-200 whitespace-pre-wrap font-mono"></pre>
+        <button id="copy-tracker" class="mt-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-1.5 px-4 rounded text-xs">Copy entry</button>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="/apps/api-client.js"></script>
+  <script>
+    const SYSTEM = `You triage inbound recruiter emails for Andres Tobacia against his job-search compass.
+
+ANDRES'S COMPASS:
+- Target: founding-team or senior PM/engineering roles at AI + manufacturing/supply chain startups
+- Path A (preferred): high-equity role at AI startup ($50K+ equity grant, ideally $500K+ vesting potential by 10y)
+- Path B (hedge): scale own ventures
+- Locations: Austin, Seattle, remote-friendly
+- Currently W-2: Blue Origin Supply Chain Project Manager III (Aug 2025–Present)
+- 17 years aerospace + industrial supply chain experience
+- 100-company target tracker — strong matches: Anthropic, Crusoe, OpenAI, xAI, Anduril, Saronic, Castelion, Skild AI, Field AI, Bedrock Robotics, CesiumAstro, Impulse, Relativity
+- Hard pass: pure consulting, public-sector/SAM.gov roles, big legacy aerospace primes (Boeing/LM/Northrop)
+- Soft pass unless equity is exceptional: hardware-only roles with no AI angle, role w/ < $50K equity total
+
+RUBRIC:
+- YES = matches compass strongly, equity-likely, AI/SC fit, target-list company or peer-tier
+- MAYBE = partial fit (e.g., good company, wrong role; right role, equity unclear). Worth asking for more info.
+- NO = clear mismatch (consulting, government, unrelated industry, low-equity bigCo)
+
+OUTPUT (strict JSON, nothing else):
+
+{
+  "verdict": "YES" | "NO" | "MAYBE",
+  "reasoning": "1-2 sentence rationale grounded in the compass",
+  "company": "extracted company name",
+  "role": "extracted role title",
+  "recruiter": "extracted recruiter name + email",
+  "replies": {
+    "interested": "Email reply for if YES — warm, professional, asks for 15-min chat. 80-120 words. Include Andres's R3 link (tobacia.space).",
+    "ask": "Email reply for MAYBE — friendly, asks 2-3 specific questions about equity range, role scope, location, company stage. 80-120 words.",
+    "pass": "Email reply for NO — polite, brief, leaves door open. 50-80 words."
+  },
+  "tracker_entry": "| YYYY-MM-DD | Company | Role | Recruiter | Verdict | Status |"
+}`;
+
+    document.getElementById('generate').onclick = async () => {
+      const email = document.getElementById('email').value.trim();
+      if (!email) { alert('Paste a recruiter email first.'); return; }
+      const status = document.getElementById('status');
+      status.textContent = 'Triaging... (Sonnet 4.6)';
+
+      try {
+        const result = await TobaciaAPI.call({
+          system: SYSTEM,
+          prompt: 'Inbound recruiter email:\n\n' + email + '\n\nTriage against the compass and output strict JSON only.',
+          maxTokens: 2500,
+        });
+        // Extract JSON from response
+        const text = result.text;
+        const m = text.match(/\{[\s\S]*\}/);
+        if (!m) throw new Error('No JSON found in response.');
+        const data = JSON.parse(m[0]);
+        window.__triage = data;
+
+        const verdictEl = document.getElementById('verdict');
+        verdictEl.textContent = data.verdict;
+        verdictEl.className = 'text-2xl font-bold mb-2 ' +
+          (data.verdict === 'YES' ? 'text-green-400' :
+           data.verdict === 'NO' ? 'text-red-400' : 'text-yellow-400');
+        document.getElementById('reasoning').textContent = data.reasoning;
+        document.getElementById('tracker').textContent = data.tracker_entry || '—';
+        renderReply(document.getElementById('reply-tab').value);
+        document.getElementById('output-wrap').classList.remove('hidden');
+        status.textContent = `✓ ${result.usage?.input_tokens || 0} in / ${result.usage?.output_tokens || 0} out`;
+      } catch (e) {
+        status.textContent = '';
+        alert('Error: ' + e.message);
+      }
+    };
+
+    function renderReply(key) {
+      const data = window.__triage;
+      if (!data) return;
+      document.getElementById('reply').textContent = (data.replies && data.replies[key]) || '—';
+    }
+    document.getElementById('reply-tab').onchange = (e) => renderReply(e.target.value);
+
+    document.getElementById('clear').onclick = () => {
+      document.getElementById('email').value = '';
+      document.getElementById('output-wrap').classList.add('hidden');
+      document.getElementById('status').textContent = '';
+      window.__triage = null;
+    };
+    document.getElementById('copy-reply').onclick = (e) => {
+      TobaciaAPI.copyToClipboard(document.getElementById('reply').textContent, e.target);
+    };
+    document.getElementById('copy-tracker').onclick = (e) => {
+      TobaciaAPI.copyToClipboard(document.getElementById('tracker').textContent, e.target);
+    };
+  </script>
+</body>
+</html>

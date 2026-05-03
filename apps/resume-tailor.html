@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Tailor · Tobacia</title>
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#0a1628">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Resume Tailor">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style> body { background:#0a1628; color:#e5e7eb; } .tab-active { color:#60a5fa; border-bottom:2px solid #3b82f6; } </style>
+</head>
+<body class="min-h-screen">
+
+  <nav class="border-b border-gray-800 px-6 py-3 flex items-center justify-between">
+    <a href="/me.html" class="text-sm text-gray-400 hover:text-white transition">&larr; Personal Apps</a>
+    <span class="text-sm font-semibold text-blue-400">Resume Tailor</span>
+  </nav>
+
+  <main class="max-w-4xl mx-auto px-4 py-8">
+    <h1 class="text-2xl sm:text-3xl font-bold text-white mb-2">Resume Tailor</h1>
+    <p class="text-gray-400 text-sm mb-6">Paste a job description. Get back: a tailored resume rewrite (R3 base), a custom cover letter, and a recruiter LinkedIn DM. All anchored to Andres's R3 facts — no fabrication.</p>
+
+    <div class="bg-gray-900 border border-gray-800 rounded-lg p-5 mb-5">
+      <label class="block text-sm text-gray-300 mb-2">Job description (paste full text — title, company, requirements, all of it):</label>
+      <textarea id="jd" rows="10" class="w-full p-3 rounded bg-gray-950 text-white border border-gray-700 focus:border-blue-500 outline-none text-sm font-mono" placeholder="Senior Technical Program Manager — Acme AI Robotics&#10;&#10;About the role: ..."></textarea>
+
+      <div class="flex flex-wrap gap-3 mt-3 text-xs">
+        <label class="text-gray-400 self-center">Tone:</label>
+        <select id="tone" class="bg-gray-950 border border-gray-700 text-gray-200 rounded px-2 py-1">
+          <option value="confident-direct">Confident &amp; Direct</option>
+          <option value="founder-first">Founder-First (founder lens)</option>
+          <option value="big-co-formal">Big-Co Formal</option>
+        </select>
+
+        <label class="text-gray-400 self-center ml-3">Emphasis:</label>
+        <select id="emphasis" class="bg-gray-950 border border-gray-700 text-gray-200 rounded px-2 py-1">
+          <option value="ai">AI / automation builder</option>
+          <option value="ops">Aerospace ops &amp; SC strategy</option>
+          <option value="founder">Founder / 0-to-1</option>
+          <option value="balanced">Balanced</option>
+        </select>
+      </div>
+
+      <div class="mt-4 flex flex-wrap gap-2">
+        <button id="generate" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-5 rounded text-sm">Generate ↗</button>
+        <button id="clear" class="bg-gray-800 hover:bg-gray-700 text-gray-300 font-semibold py-2 px-4 rounded text-sm">Clear</button>
+        <span id="status" class="text-xs text-gray-500 self-center"></span>
+      </div>
+    </div>
+
+    <div id="output-wrap" class="hidden bg-gray-900 border border-gray-800 rounded-lg p-5">
+      <div class="flex border-b border-gray-800 mb-4">
+        <button class="tab px-4 py-2 text-sm tab-active" data-tab="resume">Resume</button>
+        <button class="tab px-4 py-2 text-sm text-gray-400 hover:text-gray-200" data-tab="cover">Cover Letter</button>
+        <button class="tab px-4 py-2 text-sm text-gray-400 hover:text-gray-200" data-tab="dm">LinkedIn DM</button>
+      </div>
+      <div class="flex justify-end mb-2">
+        <button id="copy" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-1.5 px-4 rounded text-xs">Copy current tab</button>
+      </div>
+      <pre id="output" class="bg-gray-950 border border-gray-800 rounded p-4 text-xs text-gray-200 whitespace-pre-wrap font-mono overflow-x-auto max-h-[60vh]"></pre>
+    </div>
+  </main>
+
+  <script src="/apps/api-client.js"></script>
+  <script>
+    const RESUME_FACTS = `ANDRES TOBACIA — R3 RESUME FACTS (use only these; do not fabricate):
+
+Contact: andrestobacia@gmail.com · 903-258-3861 · linkedin.com/in/jatobacia · tobacia.space · Bilingual EN/ES · U.S. Person
+
+Positioning: Program Leader — AI-Enabled Operations & Supply Chain. AI Systems Builder. Aerospace & Industrial Ops. $30M+ contracts.
+
+Live AI portfolio (built and deployed by Andres):
+- Frontier — AI RFQ parser (FastAPI + pdfplumber + LLM)
+- Pathfinder — AI supplier matching engine
+- Watchtower — Supply chain risk monitor
+- All deployed at tobacia.space, with rate limiting + schema validation + prompt injection mitigation
+
+Profile: 17 years aerospace and industrial supply chain. Built and deployed 20+ AI agents at Blue Origin and 3 personal AI tools. Founded and scaled industrial distribution company to $1.2M revenue.
+
+Career highlights:
+- Designed and implemented first AI-driven procurement automation pipeline at Blue Origin (PR-to-PO 0% → 11%)
+- Built and deployed 20+ AI agents at Blue Origin: on-time delivery monitoring, supplier scorecards, grief tickets, non-conformance aging, PR aging, automated meeting agendas, recommendation engines
+- Delivered $13M+ annualized cost savings ($8.2M in 2024, $5M in 2023) on New Shepard
+- Negotiated and executed $30M+ in supplier contracts
+- Led enterprise migration of 64K+ PO line items, 4K suppliers, 6K+ users to new supplier platform without production interruption
+
+Experience:
+1. Blue Origin, Kent WA
+   - Aug 2025–Present: Supply Chain Project Manager III, Global Strategic Projects (AI/automation, enterprise system deployment, cross-functional aerospace programs)
+   - Jul 2022–Jul 2025: Supply Chain Program Manager III, New Shepard (single-threaded SC owner for capsule subsystems — structures/avionics/composites/propulsion-adjacent; 12+ crewed missions; $13M+ annualized savings; $30M+ contracts)
+
+2. Anything Flows LLC, Houston TX (Aug 2018–Jun 2022): Founder & GM, scaled to $1.2M revenue, 7,000+ SKUs, e-commerce platform, North/Latin America supplier network
+3. Earlier (2008–2018): Sr Sales Engineer & PM at Weir Group, Lockwood International, Rotork, Cameron (SLB), Emerson — managed $8M inventory, $30M+ projects, 200% LATAM growth at Weir, opened Rotork Chile office, Excel sizing program 40% faster quotes
+
+Education:
+- B.S. Industrial Engineering, Texas A&M University
+
+Certifications:
+- Anthropic AI Agent Systems Development (Claude API + MCP) — 2026
+- Supply Chain Management & Digital Transformation — MIT — 2025
+- Entrepreneurial Operations & Negotiation — Harvard — 2019
+
+Tech stack: Python · FastAPI · Next.js · Claude API · MCP · n8n · pdfplumber · Databricks · Costpoint · SAP · Oracle · Coupa · Exostar · Jira · Windchill
+
+Languages: English / Spanish (native bilingual).`;
+
+    const SYSTEM = `You generate three artifacts for a job application: a tailored resume, a cover letter, and a LinkedIn DM to send to the recruiter or hiring manager.
+
+HARD RULES:
+- Use ONLY the facts in the RESUME FACTS block I provide. Do NOT invent metrics, technologies, employers, dates, or accomplishments not in those facts.
+- Reorder, re-emphasize, and rephrase to match the job description — but never add new claims.
+- Keep numbers from the facts (e.g., $13M+, 64K POs, 12+ crewed missions). Don't invent new numbers.
+- If the JD asks for skills Andres genuinely has per the facts, surface them. If it asks for skills he doesn't have, do NOT pretend.
+- Match tone and emphasis as instructed.
+- Output in the exact 3-section format below, separated by the literal markers shown.
+
+OUTPUT FORMAT:
+
+===== RESUME =====
+[Plain-text resume, ~1 page, ATS-friendly. Include: contact line · positioning headline · 4-5 line profile · core skills (5-6 bullets matching JD) · 2-3 BO bullets emphasizing JD-relevant facts · AF founder bullets · earlier-career condensed · education · certifications. Keep numbers from R3.]
+
+===== COVER LETTER =====
+[3-4 short paragraphs. Specific to the role and company. Lead with why-this-company. Tie 2-3 R3 accomplishments directly to JD requirements. Close with what Andres wants from the conversation.]
+
+===== LINKEDIN DM =====
+[80-120 words. Casual but professional. Reference the role + 1-2 specific R3 wins relevant to the JD. End with a clear ask (15-min chat).]`;
+
+    document.getElementById('generate').onclick = async () => {
+      const jd = document.getElementById('jd').value.trim();
+      if (!jd) { alert('Paste a job description first.'); return; }
+      const tone = document.getElementById('tone').value;
+      const emphasis = document.getElementById('emphasis').value;
+      const status = document.getElementById('status');
+      status.textContent = 'Generating... (Sonnet 4.6, ~15s)';
+
+      try {
+        const result = await TobaciaAPI.call({
+          system: SYSTEM + '\n\n' + RESUME_FACTS,
+          prompt: `JOB DESCRIPTION:\n${jd}\n\nTONE: ${tone}\nEMPHASIS: ${emphasis}\n\nGenerate the resume, cover letter, and LinkedIn DM.`,
+          maxTokens: 4096,
+        });
+        window.__lastOutput = result.text;
+        renderTab('resume');
+        document.getElementById('output-wrap').classList.remove('hidden');
+        status.textContent = `✓ ${result.usage?.input_tokens || 0} in / ${result.usage?.output_tokens || 0} out`;
+      } catch (e) {
+        status.textContent = '';
+        alert('Error: ' + e.message);
+      }
+    };
+
+    function renderTab(tab) {
+      const text = window.__lastOutput || '';
+      let section = '';
+      if (tab === 'resume')      section = (text.split('===== RESUME =====')[1] || '').split('===== COVER LETTER =====')[0].trim();
+      else if (tab === 'cover')  section = (text.split('===== COVER LETTER =====')[1] || '').split('===== LINKEDIN DM =====')[0].trim();
+      else if (tab === 'dm')     section = (text.split('===== LINKEDIN DM =====')[1] || '').trim();
+      document.getElementById('output').textContent = section || text;
+      document.querySelectorAll('.tab').forEach(b => {
+        b.classList.toggle('tab-active', b.dataset.tab === tab);
+        b.classList.toggle('text-gray-400', b.dataset.tab !== tab);
+      });
+      document.getElementById('output').dataset.tab = tab;
+    }
+    document.querySelectorAll('.tab').forEach(b => b.onclick = () => renderTab(b.dataset.tab));
+    document.getElementById('clear').onclick = () => {
+      document.getElementById('jd').value = '';
+      document.getElementById('output-wrap').classList.add('hidden');
+      document.getElementById('status').textContent = '';
+      window.__lastOutput = '';
+    };
+    document.getElementById('copy').onclick = (e) => {
+      TobaciaAPI.copyToClipboard(document.getElementById('output').textContent, e.target);
+    };
+  </script>
+</body>
+</html>
