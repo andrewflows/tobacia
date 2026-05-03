@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Interview Brief (Personal) · Tobacia</title>
+<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#0a1628">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="My Brief">
+<link rel="icon" href="/favicon.png"><link rel="apple-touch-icon" href="/favicon.png">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body{background:#0a1628;color:#e5e7eb;font-family:'Segoe UI',-apple-system,sans-serif}</style>
+</head><body class="min-h-screen">
+<nav class="border-b border-gray-800 px-6 py-3 flex items-center justify-between">
+  <a href="/me.html" class="text-sm text-gray-400 hover:text-white">&larr; Personal Apps</a>
+  <span class="text-sm font-semibold text-blue-400">Interview Brief (Personal)</span>
+</nav>
+<main class="max-w-3xl mx-auto px-4 py-6">
+  <h1 class="text-2xl sm:text-3xl font-bold text-white mb-2">Interview Brief — Personal 🎯</h1>
+  <p class="text-gray-400 text-sm mb-5">Personal version pre-loaded with your background. Paste interviewer profile → 10 likely questions + 10 to ask + their backstory + warm threads + which R3 stories to lead with for THIS person.</p>
+  <div class="bg-gray-900 border border-gray-800 rounded-lg p-5 mb-5">
+    <label class="block text-xs text-gray-400 mb-3">Interviewer LinkedIn URL or pasted profile
+      <textarea id="profile" rows="6" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 font-mono"></textarea>
+    </label>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+      <input id="role" type="text" placeholder="Role you're applying for" class="bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2">
+      <input id="company" type="text" placeholder="Company" class="bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2">
+      <select id="round" class="bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2">
+        <option value="screening">1 — Recruiter Screening</option><option value="hm">2 — Hiring Manager</option><option value="panel">3 — Panel</option><option value="exec">4 — Exec / Final</option><option value="bar">Bar-Raiser</option>
+      </select>
+    </div>
+    <div class="flex gap-2"><button id="gen" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-5 rounded text-sm">Build brief ↗</button><span id="status" class="text-xs text-gray-500 self-center"></span></div>
+  </div>
+  <div id="out-wrap" class="hidden bg-gray-900 border border-gray-800 rounded-lg p-5">
+    <div class="flex justify-between items-center mb-3"><h2 class="text-sm font-semibold text-blue-300 uppercase tracking-widest">Brief</h2><button id="copy" class="bg-blue-500 text-white py-1.5 px-4 rounded text-xs">Copy</button></div>
+    <pre id="out" class="bg-gray-950 border border-gray-800 rounded p-4 text-xs text-gray-200 whitespace-pre-wrap font-mono"></pre>
+  </div>
+</main>
+<script src="/apps/api-client.js"></script>
+<script>
+const ANDRES_FACTS=`MY BACKGROUND:
+- Blue Origin Supply Chain Project Manager III, Global Strategic Projects (Aug 2025–Present). Previously SC Program Manager III, New Shepard (Jul 2022–Jul 2025).
+- 17 years aerospace + industrial supply chain.
+- Built and deployed 20+ AI agents at BO + 3 live AI tools at tobacia.space (Frontier RFQ parser, Pathfinder supplier match, Watchtower risk monitor) — using FastAPI, Anthropic API, pdfplumber.
+- $13M+ annualized cost savings on New Shepard, $30M+ contracts negotiated.
+- Founded Anything Flows LLC (industrial distribution, $1.2M revenue, 7,000+ SKUs, 2018-2022).
+- Bilingual EN/ES (native).
+- Education: B.S. Industrial Engineering, Texas A&M.
+- Certs: Anthropic Claude API + MCP (2026), MIT SC Digital Transformation (2025), Harvard Negotiation + Entrepreneurship (2019).
+- Brother Camilo overlapped with Nick Donn at SpaceX 2014-2018 (warm thread for SpaceX-tribe interviewers).
+- Currently looking for founding/early-team PM/engineering roles at AI + manufacturing/SC startups.`;
+
+const SYS=`You build a personal interview brief for Andres Tobacia. Use his background (provided) to recommend WHICH stories to lead with for THIS specific interviewer.
+
+OUTPUT (markdown):
+
+# Brief: {Interviewer Name} · {Company} {Role} · {Round} · ${new Date().toISOString().slice(0,10)}
+
+## Their Backstory
+{3-4 sentences. Read between the lines.}
+
+## What They Care About (inferred from trajectory)
+- bullet
+- bullet
+
+## 10 Questions They'll Likely Ask
+1. ...
+(specific to round + their focus)
+
+## My Best Stories for This Interview (from my R3 facts)
+- **{Story headline}** — Why it lands here: {1 line}. Lead with: {opening sentence}.
+(3-4 stories, prioritized)
+
+## 10 Questions to Ask Them
+1. ...
+(specific, revealing, not "what's your tech stack")
+
+## Warm Threads (rapport openers)
+- {Specific shared connection / school / company / location, with conversational opener}
+- (3-5 threads)
+
+## Risks to Manage
+- {1-2 likely traps and how to handle them}
+
+## Last-mile prep checklist
+- □ Numbers I should have memorized: ...
+- □ Story to NOT lead with: ...
+- □ Notes app open with: ...
+
+Be specific. Use my background facts. Don't fabricate.`;
+
+document.getElementById('gen').onclick=async()=>{
+  const p=document.getElementById('profile').value.trim(),r=document.getElementById('role').value.trim(),c=document.getElementById('company').value.trim(),rd=document.getElementById('round').value;
+  if(!p||!r||!c){alert('Profile, role, company required.'); return;}
+  const status=document.getElementById('status'); status.textContent='Building brief... (Sonnet 4.6, ~15s)';
+  try{
+    const out=await TobaciaAPI.call({system:SYS+'\n\n'+ANDRES_FACTS,prompt:`INTERVIEWER:\n${p}\n\nROLE: ${r} at ${c}\nROUND: ${rd}\n\nBuild the personal brief.`,maxTokens:4000});
+    document.getElementById('out').textContent=out.text;
+    document.getElementById('out-wrap').classList.remove('hidden');
+    status.textContent=`✓ ${out.usage?.input_tokens||0}/${out.usage?.output_tokens||0}`;
+  }catch(e){status.textContent=''; alert('Error: '+e.message);}
+};
+document.getElementById('copy').onclick=(e)=>TobaciaAPI.copyToClipboard(document.getElementById('out').textContent,e.target);
+</script></body></html>

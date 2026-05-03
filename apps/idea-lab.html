@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Idea Lab Capture · Tobacia</title>
+<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#0a1628">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Idea Lab">
+<link rel="icon" href="/favicon.png"><link rel="apple-touch-icon" href="/favicon.png">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body{background:#0a1628;color:#e5e7eb;font-family:'Segoe UI',-apple-system,sans-serif}</style>
+</head><body class="min-h-screen">
+<nav class="border-b border-gray-800 px-6 py-3 flex items-center justify-between">
+  <a href="/me.html" class="text-sm text-gray-400 hover:text-white">&larr; Personal Apps</a>
+  <span class="text-sm font-semibold text-blue-400">Idea Lab Capture</span>
+</nav>
+<main class="max-w-3xl mx-auto px-4 py-6">
+  <h1 class="text-2xl sm:text-3xl font-bold text-white mb-2">Idea Lab Capture 💡</h1>
+  <p class="text-gray-400 text-sm mb-5">Voice or text → STAR + SWOT entry for <code>idea-lab.md</code>. Tagged by workspace. Realistic optimism (per `feedback_less_dramatic.md`).</p>
+  <div class="bg-gray-900 border border-gray-800 rounded-lg p-5 mb-5">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+      <input id="title" type="text" placeholder="Idea title" class="bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2">
+      <select id="ws" class="bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2">
+        <option value="AT">AT (Personal/Career)</option><option value="AF">AF</option><option value="CB">CB</option><option value="MH">MH</option><option value="Forkroads">Forkroads (cross-workspace)</option>
+      </select>
+    </div>
+    <label class="block text-xs text-gray-400 mb-2">Idea description (free-form)
+      <textarea id="desc" rows="5" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2"></textarea>
+    </label>
+    <div class="flex gap-2"><button id="gen" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-5 rounded text-sm">Capture ↗</button><span id="status" class="text-xs text-gray-500 self-center"></span></div>
+  </div>
+  <div id="out-wrap" class="hidden bg-gray-900 border border-gray-800 rounded-lg p-5">
+    <div class="flex justify-between items-center mb-3"><h2 class="text-sm font-semibold text-blue-300 uppercase tracking-widest">Idea entry (paste into idea-lab.md)</h2><button id="copy" class="bg-blue-500 text-white py-1.5 px-4 rounded text-xs">Copy</button></div>
+    <pre id="out" class="bg-gray-950 border border-gray-800 rounded p-4 text-xs text-gray-200 whitespace-pre-wrap font-mono"></pre>
+  </div>
+</main>
+<script src="/apps/api-client.js"></script>
+<script>
+const SYS=`You capture an idea into Andres's idea-lab.md format. Output exactly this markdown:
+
+### {Title} · {YYYY-MM-DD} · {Workspace}
+
+**One-liner:** {what is this in 12 words}
+
+**STAR (anchored to a specific moment / problem):**
+- Situation: ...
+- Task: ...
+- Action (proposed): ...
+- Result (target outcome): ...
+
+**SWOT (realistic optimism — name the actual weaknesses, not flattering ones):**
+- Strengths: 2-3 bullets
+- Weaknesses: 2-3 bullets (be honest)
+- Opportunities: 2 bullets
+- Threats: 2 bullets
+
+**One Project Rule check:** Does this conflict with current active project? {Yes/No, brief reason}
+
+**Cost Gate check:** Implications for $0 spend rule? {Brief}
+
+**Decision/Status:** Proposed · Active · Parked · Shelved (default Proposed for new entries)`;
+document.getElementById('gen').onclick=async()=>{
+  const t=document.getElementById('title').value.trim(),w=document.getElementById('ws').value,d=document.getElementById('desc').value.trim();
+  if(!t||!d){alert('Title + description required.'); return;}
+  const status=document.getElementById('status'); status.textContent='Capturing...';
+  try{
+    const r=await TobaciaAPI.call({system:SYS,prompt:`Title: ${t}\nWorkspace: ${w}\n\nIdea:\n${d}`,maxTokens:1500});
+    document.getElementById('out').textContent=r.text;
+    document.getElementById('out-wrap').classList.remove('hidden');
+    status.textContent=`✓ ${r.usage?.input_tokens||0}/${r.usage?.output_tokens||0}`;
+  }catch(e){status.textContent=''; alert('Error: '+e.message);}
+};
+document.getElementById('copy').onclick=(e)=>TobaciaAPI.copyToClipboard(document.getElementById('out').textContent,e.target);
+</script></body></html>

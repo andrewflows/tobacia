@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Voice-to-Tasks · Tobacia</title>
+<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#0a1628">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="V2T">
+<link rel="icon" href="/favicon.png"><link rel="apple-touch-icon" href="/favicon.png">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body{background:#0a1628;color:#e5e7eb;font-family:'Segoe UI',-apple-system,sans-serif} .rec-on{background:#dc2626!important;animation:pulse 1.5s infinite}@keyframes pulse{50%{opacity:.5}}</style>
+</head><body class="min-h-screen">
+<nav class="border-b border-gray-800 px-6 py-3 flex items-center justify-between">
+  <a href="/me.html" class="text-sm text-gray-400 hover:text-white">&larr; Personal Apps</a>
+  <span class="text-sm font-semibold text-blue-400">Voice-to-Tasks</span>
+</nav>
+<main class="max-w-3xl mx-auto px-4 py-6">
+  <h1 class="text-2xl sm:text-3xl font-bold text-white mb-2">Voice-to-Tasks 🎙️</h1>
+  <p class="text-gray-400 text-sm mb-5">Speak items. AI sorts into AF / CB / MH / AT / Personal workspaces, formats as Obsidian Tasks markdown ready to paste.</p>
+
+  <div class="bg-gray-900 border border-gray-800 rounded-lg p-5 mb-5">
+    <button id="rec" class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded text-sm">🎤 Hold to record</button>
+    <span id="rec-status" class="text-xs text-gray-500 ml-3"></span>
+    <p class="text-xs text-gray-500 mt-2">Or type/paste below if browser speech doesn't work:</p>
+    <textarea id="text" rows="5" placeholder="Email Acme back about the RFQ. Pick up dry cleaning Tuesday. Schedule call with Jane re: Anthropic interview. Order new air filter for the bedroom." class="w-full mt-2 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2"></textarea>
+    <div class="flex gap-2 mt-3"><button id="gen" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-5 rounded text-sm">Sort &amp; format ↗</button><span id="status" class="text-xs text-gray-500 self-center"></span></div>
+  </div>
+
+  <div id="out-wrap" class="hidden bg-gray-900 border border-gray-800 rounded-lg p-5">
+    <div class="flex justify-between items-center mb-3"><h2 class="text-sm font-semibold text-blue-300 uppercase tracking-widest">Sorted tasks</h2><button id="copy" class="bg-blue-500 text-white py-1.5 px-4 rounded text-xs">Copy</button></div>
+    <pre id="out" class="bg-gray-950 border border-gray-800 rounded p-4 text-xs text-gray-200 whitespace-pre-wrap font-mono"></pre>
+  </div>
+</main>
+<script src="/apps/api-client.js"></script>
+<script>
+// Speech recognition (Webkit/Chrome only on iOS Safari latest)
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+let recog=null, isRecording=false;
+if(SR){
+  recog=new SR();
+  recog.continuous=true; recog.interimResults=true; recog.lang='en-US';
+  recog.onresult=(e)=>{let t=''; for(let i=0;i<e.results.length;i++) t+=e.results[i][0].transcript+' '; document.getElementById('text').value=t.trim();};
+  recog.onerror=(e)=>{document.getElementById('rec-status').textContent='Speech error: '+e.error;};
+  recog.onend=()=>{isRecording=false; document.getElementById('rec').classList.remove('rec-on'); document.getElementById('rec').textContent='🎤 Hold to record';};
+}else{
+  document.getElementById('rec').disabled=true; document.getElementById('rec-status').textContent='Speech not supported in this browser — type below.';
+}
+document.getElementById('rec').onclick=()=>{
+  if(!recog) return;
+  if(isRecording){recog.stop();}
+  else{isRecording=true; document.getElementById('rec').classList.add('rec-on'); document.getElementById('rec').textContent='⏹️ Stop'; recog.start();}
+};
+const SYS=`You sort spoken/typed task fragments into Andres's workspace structure and format as Obsidian Tasks markdown. Output exactly this format, nothing else:
+
+## AF (Anything Flows)
+- [ ] task · #af [optional tags]
+
+## CB (Cuckoo Block)
+- [ ] task · #cb
+
+## MH (Mighty Hub)
+- [ ] task · #mh
+
+## AT (Andres Tobacia personal)
+- [ ] task · #at
+
+## Personal / Household
+- [ ] task · #personal
+
+(Skip empty sections. Only include sections that have tasks.)
+
+Workspace cues:
+- AF: valves, suppliers, customers, quotes, RFQs, Vincent Van Flow, FloconX (DON'T mention publicly)
+- CB: Cuckoo Clear, vendor compliance, music royalties
+- MH: trademark, holding company, legal
+- AT: tobacia.space, job applications, interviews, brag doc, equity offers, Anthropic, BO career
+- Personal: home, family, faith, health, finances, errands
+
+If unclear which workspace, default to Personal.`;
+document.getElementById('gen').onclick=async()=>{
+  const t=document.getElementById('text').value.trim();
+  if(!t){alert('Need text.'); return;}
+  const status=document.getElementById('status'); status.textContent='Sorting...';
+  try{
+    const r=await TobaciaAPI.call({system:SYS,prompt:t,maxTokens:1500});
+    document.getElementById('out').textContent=r.text;
+    document.getElementById('out-wrap').classList.remove('hidden');
+    status.textContent=`✓ ${r.usage?.input_tokens||0}/${r.usage?.output_tokens||0}`;
+  }catch(e){status.textContent=''; alert('Error: '+e.message);}
+};
+document.getElementById('copy').onclick=(e)=>TobaciaAPI.copyToClipboard(document.getElementById('out').textContent,e.target);
+</script></body></html>
