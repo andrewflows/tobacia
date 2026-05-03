@@ -12,7 +12,7 @@ title: "About"
   <div class="text-center md:text-left">
     Andrés Tobacia is an Industrial & Systems Engineer from Texas A&M (2008) with 17+ years optimizing manufacturing, logistics, and automation across aerospace, energy, and industrial sectors.  
 
-    Currently serving as <strong>Global Supply Chain Project Manager III</strong> at Blue Origin in Kent, WA, Andrés leads procurement and supply chain strategies for all programs, contributing to over <strong>12 suborbital missions</strong>, <strong>1 orbital mission</strong>, and <strong>40+ astronauts</strong> reaching space.  
+    Currently serving as <strong>Global Supply Chain Project Manager III</strong> at Blue Origin in Kent, WA, Andrés leads procurement and supply chain strategies for all programs. From <strong>NS-22 through NS-38</strong>, I was part of the supply chain team supporting <strong>69 of those individuals</strong> across <strong>12+ crewed missions</strong> during my chapter.  
 
     - Directed large-scale supply chain and process optimization initiatives for advanced space programs.  
     - Founded and scaled a supply chain solutions startup with significant operational growth.  
