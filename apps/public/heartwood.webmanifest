@@ -1,0 +1,16 @@
+{
+  "name": "Heartwood — Home Routines",
+  "short_name": "Heartwood",
+  "description": "The quiet routines that hold a home up.",
+  "start_url": "/apps/public/heartwood.html",
+  "scope": "/apps/public/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a1628",
+  "theme_color": "#0a1628",
+  "icons": [
+    { "src": "/favicon.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/favicon.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ],
+  "categories": ["productivity", "lifestyle", "utilities"]
+}

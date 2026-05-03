@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heartwood — The quiet routines that hold a home up</title>
+  <meta name="description" content="Track recurring household maintenance — air filters, oil changes, sprinklers, anything that keeps a home running.">
+  <meta name="theme-color" content="#0a1628">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Heartwood">
+  <link rel="manifest" href="/apps/public/heartwood.webmanifest">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background:#0a1628; color:#e5e7eb; font-family:'Segoe UI', -apple-system, sans-serif; }
+    .row-overdue { border-left:3px solid #ef4444; background:rgba(239,68,68,0.06); }
+    .row-soon    { border-left:3px solid #eab308; background:rgba(234,179,8,0.05); }
+    .row-ok      { border-left:3px solid #22c55e; }
+    .row-done    { opacity:0.45; }
+    .swipe-area:active { transform:scale(0.98); }
+  </style>
+</head>
+<body class="min-h-screen">
+
+  <nav class="border-b border-gray-800 px-6 py-3 flex items-center justify-between">
+    <a href="https://tobacia.space/appstore.html" class="text-sm text-gray-400 hover:text-white transition">&larr; tobacia.space</a>
+    <span class="text-sm font-semibold text-blue-400">Heartwood</span>
+  </nav>
+
+  <main class="max-w-3xl mx-auto px-4 py-6">
+    <header class="text-center mb-6">
+      <h1 class="text-3xl sm:text-4xl font-bold text-white mb-1">Heartwood 🌳</h1>
+      <p class="text-blue-300 text-sm sm:text-base font-semibold">The quiet routines that hold a home up.</p>
+      <p class="text-gray-400 text-xs sm:text-sm mt-2 max-w-xl mx-auto">Track recurring household maintenance. Everything stored locally on this device — no account, no servers, no tracking.</p>
+    </header>
+
+    <!-- Summary -->
+    <div id="summary" class="grid grid-cols-3 gap-3 mb-6">
+      <div class="bg-gray-900 border border-gray-800 rounded-lg p-3 text-center">
+        <div id="count-overdue" class="text-2xl font-bold text-red-400">0</div>
+        <div class="text-xs text-gray-500 uppercase tracking-wider">Overdue</div>
+      </div>
+      <div class="bg-gray-900 border border-gray-800 rounded-lg p-3 text-center">
+        <div id="count-soon" class="text-2xl font-bold text-yellow-400">0</div>
+        <div class="text-xs text-gray-500 uppercase tracking-wider">Due Soon</div>
+      </div>
+      <div class="bg-gray-900 border border-gray-800 rounded-lg p-3 text-center">
+        <div id="count-ok" class="text-2xl font-bold text-green-400">0</div>
+        <div class="text-xs text-gray-500 uppercase tracking-wider">All Good</div>
+      </div>
+    </div>
+
+    <!-- Add task -->
+    <div class="bg-gray-900 border border-gray-800 rounded-lg p-4 mb-5">
+      <h2 class="text-sm font-semibold text-blue-300 uppercase tracking-widest mb-3">Add a routine</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+        <input id="t-name" type="text" placeholder="What needs doing?" class="bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 placeholder-gray-500 focus:border-blue-500 outline-none">
+        <select id="t-category" class="bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none">
+          <option value="🏠 Home">🏠 Home</option>
+          <option value="🚗 Vehicle">🚗 Vehicle</option>
+          <option value="🌱 Yard">🌱 Yard</option>
+          <option value="🔧 Appliance">🔧 Appliance</option>
+          <option value="💼 Other">💼 Other</option>
+        </select>
+        <div class="flex gap-2">
+          <input id="t-interval" type="number" min="1" placeholder="Every…" class="bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 w-24 placeholder-gray-500 focus:border-blue-500 outline-none">
+          <select id="t-unit" class="bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 flex-1 focus:border-blue-500 outline-none">
+            <option value="days">days</option>
+            <option value="weeks">weeks</option>
+            <option value="months" selected>months</option>
+            <option value="years">years</option>
+          </select>
+        </div>
+        <input id="t-last" type="date" class="bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none">
+      </div>
+      <input id="t-note" type="text" placeholder="Optional note (e.g., '20x25x1 MERV 11')" class="w-full bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 placeholder-gray-500 focus:border-blue-500 outline-none mb-3">
+      <div class="flex gap-2 flex-wrap">
+        <button id="add-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded text-sm">Add Routine</button>
+        <button id="seed-btn" class="bg-gray-800 hover:bg-gray-700 text-gray-300 font-semibold py-2 px-3 rounded text-xs">Load Starter Kit</button>
+        <button id="export-btn" class="bg-gray-800 hover:bg-gray-700 text-gray-300 font-semibold py-2 px-3 rounded text-xs">Export JSON</button>
+        <button id="import-btn" class="bg-gray-800 hover:bg-gray-700 text-gray-300 font-semibold py-2 px-3 rounded text-xs">Import JSON</button>
+        <input id="import-file" type="file" accept="application/json" class="hidden">
+      </div>
+    </div>
+
+    <!-- Filter -->
+    <div class="flex gap-2 mb-3 text-xs flex-wrap">
+      <button class="filter-btn bg-blue-600 text-white py-1 px-3 rounded" data-filter="all">All</button>
+      <button class="filter-btn bg-gray-800 text-gray-300 py-1 px-3 rounded hover:bg-gray-700" data-filter="overdue">Overdue</button>
+      <button class="filter-btn bg-gray-800 text-gray-300 py-1 px-3 rounded hover:bg-gray-700" data-filter="soon">Due Soon</button>
+      <button class="filter-btn bg-gray-800 text-gray-300 py-1 px-3 rounded hover:bg-gray-700" data-filter="ok">All Good</button>
+    </div>
+
+    <!-- Tasks list -->
+    <div id="task-list" class="space-y-2"></div>
+
+    <!-- Notification opt-in -->
+    <div id="notif-prompt" class="hidden mt-6 bg-gray-900 border border-gray-800 rounded-lg p-4 text-center">
+      <p class="text-sm text-gray-300 mb-2">Get gentle nudges when something's overdue?</p>
+      <button id="notif-enable" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded text-sm">Enable Notifications</button>
+    </div>
+
+    <footer class="text-center text-xs text-gray-500 mt-10 pb-6">
+      <p>Tap and hold any routine to mark complete · Data lives only on this device</p>
+      <p class="mt-1">A <a href="https://tobacia.space" class="text-blue-400 hover:underline">tobacia.space</a> tool · 🌳 Heartwood v1</p>
+    </footer>
+  </main>
+
+  <script>
+    // ──────────── Storage ────────────
+    const KEY = 'heartwood_v1';
+    const load = () => JSON.parse(localStorage.getItem(KEY) || '[]');
+    const save = (rows) => localStorage.setItem(KEY, JSON.stringify(rows));
+
+    // ──────────── Date helpers ────────────
+    const DAY_MS = 86400000;
+    const today = () => { const d = new Date(); d.setHours(0,0,0,0); return d; };
+    const parseDate = (s) => { const d = new Date(s); d.setHours(0,0,0,0); return d; };
+    const addInterval = (date, n, unit) => {
+      const d = new Date(date);
+      if (unit === 'days')   d.setDate(d.getDate() + n);
+      if (unit === 'weeks')  d.setDate(d.getDate() + n*7);
+      if (unit === 'months') d.setMonth(d.getMonth() + n);
+      if (unit === 'years')  d.setFullYear(d.getFullYear() + n);
+      return d;
+    };
+    const fmtDate = (d) => d.toISOString().slice(0,10);
+    const daysBetween = (a, b) => Math.round((b - a) / DAY_MS);
+
+    function nextDue(row) {
+      const last = parseDate(row.last);
+      return addInterval(last, +row.interval, row.unit);
+    }
+    function statusOf(row) {
+      const due = nextDue(row);
+      const t = today();
+      const diff = daysBetween(t, due);
+      if (diff < 0) return { state:'overdue', diff };
+      if (diff <= 14) return { state:'soon', diff };
+      return { state:'ok', diff };
+    }
+
+    // ──────────── Rendering ────────────
+    let currentFilter = 'all';
+
+    function render() {
+      const rows = load();
+      const list = document.getElementById('task-list');
+
+      // counts
+      const c = { overdue:0, soon:0, ok:0 };
+      rows.forEach(r => c[statusOf(r).state]++);
+      document.getElementById('count-overdue').textContent = c.overdue;
+      document.getElementById('count-soon').textContent = c.soon;
+      document.getElementById('count-ok').textContent = c.ok;
+
+      // sort: overdue first by most overdue, then soon by soonest, then ok by soonest
+      const sorted = [...rows].sort((a, b) => {
+        const sa = statusOf(a), sb = statusOf(b);
+        const order = { overdue:0, soon:1, ok:2 };
+        if (order[sa.state] !== order[sb.state]) return order[sa.state] - order[sb.state];
+        return sa.diff - sb.diff;
+      });
+
+      const filtered = currentFilter === 'all' ? sorted : sorted.filter(r => statusOf(r).state === currentFilter);
+
+      list.innerHTML = filtered.length ? '' : '<div class="text-center text-gray-500 text-sm py-8">No routines yet — tap "Load Starter Kit" or "Add Routine" above.</div>';
+
+      filtered.forEach(row => {
+        const s = statusOf(row);
+        const due = nextDue(row);
+        const dueStr = fmtDate(due);
+        const dayLabel =
+          s.state === 'overdue' ? `${Math.abs(s.diff)} day${Math.abs(s.diff)!==1?'s':''} overdue` :
+          s.diff === 0 ? 'due today' :
+          s.diff === 1 ? 'due tomorrow' :
+          `in ${s.diff} days`;
+
+        const card = document.createElement('div');
+        card.className = `swipe-area row-${s.state} bg-gray-900 border border-gray-800 rounded-lg p-3 sm:p-4 flex items-start justify-between gap-3 transition-all`;
+        card.innerHTML = `
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-1 flex-wrap">
+              <span class="font-semibold text-sm sm:text-base text-white">${row.name}</span>
+              <span class="text-xs text-gray-500">${row.category}</span>
+            </div>
+            <div class="text-xs ${s.state==='overdue'?'text-red-400':s.state==='soon'?'text-yellow-400':'text-gray-400'}">
+              Next: <strong>${dueStr}</strong> · ${dayLabel} · every ${row.interval} ${row.unit}
+            </div>
+            ${row.note ? `<div class="text-xs text-gray-500 mt-1 italic">${row.note}</div>` : ''}
+          </div>
+          <div class="flex flex-col gap-1">
+            <button class="done-btn bg-green-700 hover:bg-green-600 text-white text-xs font-semibold px-3 py-1.5 rounded" data-id="${row.id}">Done ✓</button>
+            <button class="del-btn bg-gray-800 hover:bg-red-700 text-gray-400 hover:text-white text-xs px-3 py-1 rounded" data-id="${row.id}">Delete</button>
+          </div>`;
+        list.appendChild(card);
+      });
+
+      // wire buttons
+      list.querySelectorAll('.done-btn').forEach(b => b.onclick = () => markDone(b.dataset.id));
+      list.querySelectorAll('.del-btn').forEach(b => b.onclick = () => del(b.dataset.id));
+    }
+
+    // ──────────── Actions ────────────
+    function add() {
+      const name = document.getElementById('t-name').value.trim();
+      const interval = +document.getElementById('t-interval').value;
+      const unit = document.getElementById('t-unit').value;
+      const last = document.getElementById('t-last').value || fmtDate(today());
+      if (!name || !interval) { alert('Name and interval required.'); return; }
+      const rows = load();
+      rows.push({
+        id: Math.random().toString(36).slice(2,9),
+        name, category: document.getElementById('t-category').value,
+        interval, unit, last,
+        note: document.getElementById('t-note').value.trim(),
+        history: [],
+      });
+      save(rows);
+      document.getElementById('t-name').value = '';
+      document.getElementById('t-interval').value = '';
+      document.getElementById('t-note').value = '';
+      render();
+    }
+    function markDone(id) {
+      const rows = load();
+      const r = rows.find(x => x.id === id);
+      if (!r) return;
+      r.history = r.history || [];
+      r.history.push(r.last);
+      r.last = fmtDate(today());
+      save(rows);
+      render();
+    }
+    function del(id) {
+      if (!confirm('Delete this routine?')) return;
+      save(load().filter(r => r.id !== id));
+      render();
+    }
+    function seed() {
+      if (load().length && !confirm('Replace existing routines with starter kit?')) return;
+      const t = today();
+      const rows = [
+        { id:'a1', name:'Change HVAC air filter',     category:'🏠 Home',     interval:3, unit:'months', last:fmtDate(addInterval(t,-2,'months')), note:'Check size on current filter; common: 20x25x1 MERV 11', history:[] },
+        { id:'a2', name:'Change car oil',             category:'🚗 Vehicle',  interval:6, unit:'months', last:fmtDate(addInterval(t,-4,'months')), note:'5W-30 synthetic; check owner manual for interval', history:[] },
+        { id:'a3', name:'Shut off yard sprinklers (winterize)', category:'🌱 Yard', interval:1, unit:'years',  last:fmtDate(addInterval(t,-10,'months')), note:'Before first hard freeze (typically Oct/Nov)', history:[] },
+        { id:'a4', name:'Test smoke detectors',       category:'🏠 Home',     interval:6, unit:'months', last:fmtDate(addInterval(t,-5,'months')), note:'Replace 9V batteries during daylight saving changes', history:[] },
+        { id:'a5', name:'Clean dryer vent + lint trap', category:'🔧 Appliance', interval:6, unit:'months', last:fmtDate(addInterval(t,-7,'months')), note:'Fire-prevention; remove lint from full vent line', history:[] },
+        { id:'a6', name:'Flush water heater',         category:'🔧 Appliance', interval:1, unit:'years',  last:fmtDate(addInterval(t,-8,'months')), note:'Drains sediment; extends tank life', history:[] },
+        { id:'a7', name:'Rotate car tires',           category:'🚗 Vehicle',   interval:6, unit:'months', last:fmtDate(addInterval(t,-3,'months')), note:'Every 5K-7K miles', history:[] },
+        { id:'a8', name:'Replace HVAC capacitor / service AC', category:'🏠 Home', interval:1, unit:'years', last:fmtDate(addInterval(t,-6,'months')), note:'Pre-summer tune-up', history:[] },
+      ];
+      save(rows);
+      render();
+    }
+    function exportJson() {
+      const blob = new Blob([JSON.stringify(load(), null, 2)], {type:'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `heartwood-${fmtDate(today())}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+    function importJson(file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          const rows = JSON.parse(e.target.result);
+          if (!Array.isArray(rows)) throw new Error('Not a valid Heartwood export.');
+          if (load().length && !confirm('Replace current routines with imported data?')) return;
+          save(rows);
+          render();
+        } catch (err) { alert('Import failed: ' + err.message); }
+      };
+      reader.readAsText(file);
+    }
+
+    // ──────────── Notifications ────────────
+    function checkNotifications() {
+      const overdue = load().filter(r => statusOf(r).state === 'overdue');
+      if (overdue.length && Notification.permission === 'granted') {
+        const last = +localStorage.getItem('heartwood_last_notif') || 0;
+        if (Date.now() - last > 24 * 60 * 60 * 1000) {
+          new Notification(`Heartwood: ${overdue.length} routine${overdue.length>1?'s':''} overdue`, {
+            body: overdue.slice(0,3).map(r => r.name).join(' · '),
+            icon: '/favicon.png',
+          });
+          localStorage.setItem('heartwood_last_notif', Date.now());
+        }
+      }
+    }
+
+    // ──────────── Init ────────────
+    document.getElementById('t-last').valueAsDate = new Date();
+    document.getElementById('add-btn').onclick = add;
+    document.getElementById('seed-btn').onclick = seed;
+    document.getElementById('export-btn').onclick = exportJson;
+    document.getElementById('import-btn').onclick = () => document.getElementById('import-file').click();
+    document.getElementById('import-file').onchange = (e) => e.target.files[0] && importJson(e.target.files[0]);
+    document.querySelectorAll('.filter-btn').forEach(b => b.onclick = () => {
+      currentFilter = b.dataset.filter;
+      document.querySelectorAll('.filter-btn').forEach(x => {
+        x.classList.toggle('bg-blue-600', x.dataset.filter === currentFilter);
+        x.classList.toggle('text-white', x.dataset.filter === currentFilter);
+        x.classList.toggle('bg-gray-800', x.dataset.filter !== currentFilter);
+        x.classList.toggle('text-gray-300', x.dataset.filter !== currentFilter);
+      });
+      render();
+    });
+
+    // Notification opt-in (only show if not already prompted)
+    if ('Notification' in window && Notification.permission === 'default') {
+      document.getElementById('notif-prompt').classList.remove('hidden');
+      document.getElementById('notif-enable').onclick = async () => {
+        const p = await Notification.requestPermission();
+        if (p === 'granted') {
+          document.getElementById('notif-prompt').classList.add('hidden');
+          checkNotifications();
+        }
+      };
+    }
+
+    render();
+    checkNotifications();
+  </script>
+</body>
+</html>
