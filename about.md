@@ -50,6 +50,36 @@ title: "About"
 
 ---
 
+### 🎓 Licenses & Certifications
+
+<div class="space-y-4 mt-4">
+
+  <div class="border-l-4 border-orange-400 pl-4 py-1">
+    <p class="font-bold text-gray-100">AI Agent Systems Development (Claude API & MCP)</p>
+    <p class="text-sm text-gray-400">Anthropic · Issued Mar 2026</p>
+    <p class="text-xs text-gray-500">Credential ID: 4tf5x4bty43t</p>
+    <p class="text-xs text-gray-500">Skills: Coding Experience</p>
+  </div>
+
+  <div class="border-l-4 border-red-400 pl-4 py-1">
+    <p class="font-bold text-gray-100">Supply Chain Management: AI &amp; Digital Transformation</p>
+    <p class="text-sm text-gray-400">Massachusetts Institute of Technology · Issued Nov 2025</p>
+  </div>
+
+  <div class="border-l-4 border-yellow-400 pl-4 py-1">
+    <p class="font-bold text-gray-100">Negotiation Mastery</p>
+    <p class="text-sm text-gray-400">Harvard Business School Online · Issued Jan 2020</p>
+  </div>
+
+  <div class="border-l-4 border-yellow-400 pl-4 py-1">
+    <p class="font-bold text-gray-100">Entrepreneurship Essentials</p>
+    <p class="text-sm text-gray-400">Harvard Business School Online · Issued May 2019</p>
+  </div>
+
+</div>
+
+---
+
 <div class="flex flex-col sm:flex-row gap-3 justify-center mt-6">
   <a href="/Andres_Tobacia_AI_Resume_EN.pdf" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center text-sm">Download Resume (EN)</a>
   <a href="https://www.linkedin.com/in/jatobacia/" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center text-sm">LinkedIn Profile</a>
