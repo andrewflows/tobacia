@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cold Email Composer — Three takes on every outreach</title>
+  <meta name="description" content="Paste a recipient profile and your reason. Get three cold email variants — warm-mutual, value-led, and direct-ask — tuned to your tone.">
+  <meta name="theme-color" content="#0a1628">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Cold Email">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style> body { background:#0a1628; color:#e5e7eb; font-family:'Segoe UI', -apple-system, sans-serif; } .tab-active { color:#60a5fa; border-bottom:2px solid #3b82f6; } </style>
+</head>
+<body class="min-h-screen">
+  <nav class="border-b border-gray-800 px-6 py-3 flex items-center justify-between">
+    <a href="/appstore.html" class="text-sm text-gray-400 hover:text-white transition">&larr; tobacia.space</a>
+    <span class="text-sm font-semibold text-blue-400">Cold Email Composer</span>
+  </nav>
+
+  <main class="max-w-3xl mx-auto px-4 py-8">
+    <header class="text-center mb-6">
+      <h1 class="text-3xl sm:text-4xl font-bold text-white mb-2">Cold Email Composer ✉️</h1>
+      <p class="text-blue-300 text-sm sm:text-base font-semibold">Three takes on every outreach.</p>
+      <p class="text-gray-400 text-xs sm:text-sm mt-2">Bring your own Anthropic API key. Nothing is sent to any server but Anthropic's, and your key stays on this device.</p>
+    </header>
+
+    <div class="bg-gray-900 border border-gray-800 rounded-lg p-5 mb-5">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+        <label class="block text-xs text-gray-400">Recipient name
+          <input id="r-name" type="text" placeholder="Jane Doe" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none">
+        </label>
+        <label class="block text-xs text-gray-400">Role &amp; company
+          <input id="r-role" type="text" placeholder="VP Engineering at Acme AI" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none">
+        </label>
+      </div>
+      <label class="block text-xs text-gray-400 mb-3">Optional: their LinkedIn URL or 1-2 lines of background
+        <input id="r-bg" type="text" placeholder="linkedin.com/in/janedoe — ex-Anthropic, scaling robotics ops" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none">
+      </label>
+      <label class="block text-xs text-gray-400 mb-3">Why are you reaching out? What do you bring or want?
+        <textarea id="reason" rows="4" placeholder="I'm a supply chain operator who built 3 live AI tools at tobacia.space. I think Acme's RFQ workflow is exactly the problem I've solved 4 times." class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none"></textarea>
+      </label>
+      <label class="block text-xs text-gray-400 mb-3">Desired call-to-action
+        <select id="cta" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none">
+          <option value="15-min chat">15-minute call</option>
+          <option value="intro to someone">Intro to a specific person</option>
+          <option value="reply with thoughts">Their thoughts/feedback by email</option>
+          <option value="job consideration">Consideration for a role</option>
+          <option value="partnership">Partnership conversation</option>
+        </select>
+      </label>
+      <div class="flex gap-2">
+        <button id="generate" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-5 rounded text-sm">Generate 3 variants ↗</button>
+        <button id="clear" class="bg-gray-800 hover:bg-gray-700 text-gray-300 font-semibold py-2 px-4 rounded text-sm">Clear</button>
+        <span id="status" class="text-xs text-gray-500 self-center"></span>
+      </div>
+    </div>
+
+    <div id="output-wrap" class="hidden bg-gray-900 border border-gray-800 rounded-lg p-5">
+      <div class="flex border-b border-gray-800 mb-4 flex-wrap">
+        <button class="tab px-4 py-2 text-sm tab-active" data-tab="warm">Warm / Mutual</button>
+        <button class="tab px-4 py-2 text-sm text-gray-400 hover:text-gray-200" data-tab="value">Value-led</button>
+        <button class="tab px-4 py-2 text-sm text-gray-400 hover:text-gray-200" data-tab="direct">Direct ask</button>
+      </div>
+      <div class="flex justify-end mb-2">
+        <button id="copy" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-1.5 px-4 rounded text-xs">Copy</button>
+      </div>
+      <pre id="output" class="bg-gray-950 border border-gray-800 rounded p-4 text-xs text-gray-200 whitespace-pre-wrap font-mono overflow-x-auto"></pre>
+    </div>
+
+    <footer class="text-center text-xs text-gray-500 mt-8 pb-6">
+      <p>A <a href="/appstore.html" class="text-blue-400 hover:underline">tobacia.space</a> tool · ✉️ Cold Email v1 · BYO API key</p>
+    </footer>
+  </main>
+
+  <script src="/apps/api-client.js"></script>
+  <script>
+    const SYSTEM = `You write 3 cold email variants for a single outreach context. Output strict JSON only.
+
+VARIANTS:
+- "warm" — leads with mutual ground (shared connection, interest, school, location). 80-130 words. Friendly, not gushing.
+- "value" — leads with what you bring (insight, asset, observation about their work). 80-130 words. Specific, not generic.
+- "direct" — leads with the ask itself, professionally. 60-100 words. Respectful of their time.
+
+ALL VARIANTS:
+- Subject line included
+- One specific reason this email is for THIS person, not a template
+- One clear CTA
+- No emojis, no hyperbole, no "I hope this finds you well"
+- Sign-off: "— [Your name]" (leave [Your name] as placeholder unless given)
+
+OUTPUT (strict JSON):
+{
+  "warm":   { "subject": "...", "body": "..." },
+  "value":  { "subject": "...", "body": "..." },
+  "direct": { "subject": "...", "body": "..." }
+}`;
+
+    document.getElementById('generate').onclick = async () => {
+      const name = document.getElementById('r-name').value.trim();
+      const role = document.getElementById('r-role').value.trim();
+      const bg = document.getElementById('r-bg').value.trim();
+      const reason = document.getElementById('reason').value.trim();
+      const cta = document.getElementById('cta').value;
+      if (!name || !role || !reason) { alert('Fill in name, role, and reason.'); return; }
+
+      const status = document.getElementById('status');
+      status.textContent = 'Generating... (Sonnet 4.6)';
+
+      try {
+        const result = await TobaciaAPI.call({
+          system: SYSTEM,
+          prompt: `Recipient: ${name} — ${role}\nBackground: ${bg || '(none provided)'}\nReason for outreach: ${reason}\nCTA: ${cta}\n\nGenerate 3 variants. Output strict JSON.`,
+          maxTokens: 2500,
+        });
+        const m = result.text.match(/\{[\s\S]*\}/);
+        if (!m) throw new Error('No JSON found.');
+        window.__variants = JSON.parse(m[0]);
+        renderTab('warm');
+        document.getElementById('output-wrap').classList.remove('hidden');
+        status.textContent = `✓ ${result.usage?.input_tokens || 0} in / ${result.usage?.output_tokens || 0} out`;
+      } catch (e) {
+        status.textContent = '';
+        alert('Error: ' + e.message);
+      }
+    };
+
+    function renderTab(key) {
+      const v = window.__variants?.[key];
+      if (!v) return;
+      document.getElementById('output').textContent = `Subject: ${v.subject}\n\n${v.body}`;
+      document.querySelectorAll('.tab').forEach(b => {
+        b.classList.toggle('tab-active', b.dataset.tab === key);
+        b.classList.toggle('text-gray-400', b.dataset.tab !== key);
+      });
+    }
+    document.querySelectorAll('.tab').forEach(b => b.onclick = () => renderTab(b.dataset.tab));
+    document.getElementById('clear').onclick = () => {
+      ['r-name','r-role','r-bg','reason'].forEach(i => document.getElementById(i).value = '');
+      document.getElementById('output-wrap').classList.add('hidden');
+      document.getElementById('status').textContent = '';
+    };
+    document.getElementById('copy').onclick = (e) => {
+      TobaciaAPI.copyToClipboard(document.getElementById('output').textContent, e.target);
+    };
+  </script>
+</body>
+</html>
