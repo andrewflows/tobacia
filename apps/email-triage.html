@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Email Triage · Tobacia</title>
+<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#0a1628">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Email Triage">
+<link rel="icon" href="/favicon.png"><link rel="apple-touch-icon" href="/favicon.png">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body{background:#0a1628;color:#e5e7eb;font-family:'Segoe UI',-apple-system,sans-serif}</style>
+</head><body class="min-h-screen">
+<nav class="border-b border-gray-800 px-6 py-3 flex items-center justify-between">
+  <a href="/me.html" class="text-sm text-gray-400 hover:text-white">&larr; Personal Apps</a>
+  <span class="text-sm font-semibold text-blue-400">Email Triage</span>
+</nav>
+<main class="max-w-3xl mx-auto px-4 py-6">
+  <h1 class="text-2xl sm:text-3xl font-bold text-white mb-2">Email Triage 📥</h1>
+  <p class="text-gray-400 text-sm mb-5">Paste a batch of unread emails. AI sorts to Pipeline-persona owner, drafts replies, flags spam.</p>
+  <div class="bg-yellow-900/30 border border-yellow-700/50 rounded p-3 mb-5 text-xs text-yellow-300">
+    💡 Path A version (no Gmail OAuth needed). To batch: Gmail web → select multiple → Forward as attachment, or just copy subject+sender+body of each unread message separated by blank lines.
+  </div>
+  <div class="bg-gray-900 border border-gray-800 rounded-lg p-5 mb-5">
+    <label class="block text-xs text-gray-400 mb-2">Inbox dump (separate emails with blank line, ---, or === between)
+      <textarea id="dump" rows="14" placeholder="From: jane@acme.com&#10;Subject: Q3 supplier review&#10;Hi Andres, can we sync on...&#10;&#10;---&#10;&#10;From: noreply@linkedin.com&#10;Subject: 3 new messages&#10;..." class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 font-mono"></textarea>
+    </label>
+    <div class="flex gap-2"><button id="gen" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-5 rounded text-sm">Triage batch ↗</button><span id="status" class="text-xs text-gray-500 self-center"></span></div>
+  </div>
+  <div id="out-wrap" class="hidden bg-gray-900 border border-gray-800 rounded-lg p-5">
+    <div class="flex justify-between items-center mb-3"><h2 class="text-sm font-semibold text-blue-300 uppercase tracking-widest">Triage report</h2><button id="copy" class="bg-blue-500 text-white py-1.5 px-4 rounded text-xs">Copy</button></div>
+    <pre id="out" class="bg-gray-950 border border-gray-800 rounded p-4 text-xs text-gray-200 whitespace-pre-wrap font-mono"></pre>
+  </div>
+</main>
+<script src="/apps/api-client.js"></script>
+<script>
+const SYS=`You triage Andres's inbox. Output markdown report.
+
+PIPELINE PERSONAS (who owns what):
+- Aaron (Chief of Staff) — internal coordination, follow-ups, scheduling
+- Juan (Hiring Manager) — recruiter messages, job leads, interview coordination
+- Benjamin (General Counsel) — legal, contracts, IP, employment
+- Leonardo (AF Strategy) — Anything Flows business decisions, supplier relations
+- Sofia (UI/UX) — tobacia.space changes, design feedback
+- Alex (Architect) — technical infra, agent design, MCP, Claude API
+- Noe (Wellbeing) — health, family, pastoral, personal balance
+
+OUTPUT (markdown):
+
+# Inbox Triage · ${new Date().toISOString().slice(0,10)}
+
+## 🔥 Urgent (today)
+| From | Subject | Owner | Action |
+|---|---|---|---|
+(or "None" if nothing)
+
+## 📋 Routine (this week)
+{Same format}
+
+## 🗑️ Archive / Spam
+- {From — Subject — why}
+
+## ✏️ Draft Replies
+For each urgent + routine email, format:
+
+### {From} — {Subject}
+**Owner:** {Persona}
+**Recommended action:** {1 line}
+**Draft reply:**
+\`\`\`
+{2-4 sentence draft, professional, in Andres's voice}
+\`\`\`
+
+If sender is recruiter, redirect: "use Recruiter Triage app — recruiter-triage.html"
+If sender is for AF business, mark "AF — needs explicit review per publishing rule"`;
+
+document.getElementById('gen').onclick=async()=>{
+  const dump=document.getElementById('dump').value.trim();
+  if(!dump){alert('Paste emails first.'); return;}
+  const status=document.getElementById('status'); status.textContent='Triaging... (Sonnet 4.6)';
+  try{
+    const out=await TobaciaAPI.call({system:SYS,prompt:'Inbox dump:\n\n'+dump+'\n\nTriage and produce report.',maxTokens:4000});
+    document.getElementById('out').textContent=out.text;
+    document.getElementById('out-wrap').classList.remove('hidden');
+    status.textContent=`✓ ${out.usage?.input_tokens||0}/${out.usage?.output_tokens||0}`;
+  }catch(e){status.textContent=''; alert('Error: '+e.message);}
+};
+document.getElementById('copy').onclick=(e)=>TobaciaAPI.copyToClipboard(document.getElementById('out').textContent,e.target);
+</script></body></html>

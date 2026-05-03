@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Thelio Status · Tobacia</title>
+<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#0a1628">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Thelio">
+<link rel="icon" href="/favicon.png"><link rel="apple-touch-icon" href="/favicon.png">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body{background:#0a1628;color:#e5e7eb;font-family:'Segoe UI',-apple-system,sans-serif} .pulse{animation:pulse 2s infinite}@keyframes pulse{50%{opacity:.5}}</style>
+</head><body class="min-h-screen">
+<nav class="border-b border-gray-800 px-6 py-3 flex items-center justify-between">
+  <a href="/me.html" class="text-sm text-gray-400 hover:text-white">&larr; Personal Apps</a>
+  <span class="text-sm font-semibold text-blue-400">Thelio Status</span>
+</nav>
+<main class="max-w-3xl mx-auto px-4 py-6">
+  <h1 class="text-2xl sm:text-3xl font-bold text-white mb-2">Thelio Status 🖥️</h1>
+  <p class="text-gray-400 text-sm mb-2">One screen for n8n + Render keep-alive + NAS + bug-loop. Pings each endpoint from your browser.</p>
+  <p class="text-xs text-yellow-400 mb-5">⚠️ Most endpoints only reachable on your Tailnet (Tailscale on). Public endpoints (Render) work anywhere.</p>
+
+  <div class="bg-gray-900 border border-gray-800 rounded-lg p-5 mb-5">
+    <div class="flex justify-between items-center mb-3">
+      <h2 class="text-sm font-semibold text-gray-300 uppercase tracking-widest">Service Health</h2>
+      <button id="refresh" class="bg-blue-500 hover:bg-blue-600 text-white py-1.5 px-4 rounded text-xs">⟳ Refresh</button>
+    </div>
+    <div id="services" class="space-y-2"></div>
+  </div>
+
+  <div class="bg-gray-900 border border-gray-800 rounded-lg p-5">
+    <h2 class="text-sm font-semibold text-gray-300 uppercase tracking-widest mb-3">Configure Endpoints</h2>
+    <p class="text-xs text-gray-500 mb-3">Saved in localStorage on this device. Use Tailscale IPs (e.g., http://100.90.99.41:5678) for Tailnet-only services.</p>
+    <div id="config"></div>
+    <button id="save-cfg" class="mt-3 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded text-sm">Save</button>
+    <button id="reset-cfg" class="mt-3 ml-2 bg-gray-800 hover:bg-gray-700 text-gray-300 py-2 px-4 rounded text-xs">Reset to defaults</button>
+  </div>
+</main>
+<script>
+const KEY='tobacia_thelio_endpoints';
+const DEFAULTS=[
+  { id:'n8n',          name:'n8n',                         url:'http://100.90.99.41:5678/healthz',                       icon:'🔄', tailscaleOnly:true },
+  { id:'render',       name:'Render keep-alive (Frontier)',url:'https://tobacia-rfq-parser.onrender.com/health',          icon:'🌐', tailscaleOnly:false },
+  { id:'pathfinder',   name:'Pathfinder backend',          url:'https://tobacia-rfq-parser.onrender.com/health',          icon:'🧭', tailscaleOnly:false },
+  { id:'nas',          name:'NAS Synology',                url:'http://100.90.99.42:5000',                                icon:'💾', tailscaleOnly:true },
+  { id:'bug-loop',     name:'Bug-fix loop',                url:'http://100.90.99.41:8100/status',                         icon:'🐛', tailscaleOnly:true },
+  { id:'github-pages', name:'tobacia.space (GitHub Pages)',url:'https://tobacia.space/favicon.png',                       icon:'🌳', tailscaleOnly:false },
+];
+const load=()=>JSON.parse(localStorage.getItem(KEY)||'null')||DEFAULTS;
+const save=(s)=>localStorage.setItem(KEY,JSON.stringify(s));
+
+async function check(svc) {
+  const start=Date.now();
+  try{
+    // Use no-cors mode + image trick for cross-origin reachability check
+    await Promise.race([
+      fetch(svc.url, { mode:'no-cors', cache:'no-store' }),
+      new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 5000))
+    ]);
+    return { ok:true, ms:Date.now()-start };
+  }catch(e){return { ok:false, error:e.message };}
+}
+async function refresh(){
+  const services=load();
+  const list=document.getElementById('services');
+  list.innerHTML='';
+  services.forEach(s=>{
+    const row=document.createElement('div');
+    row.className='bg-gray-950 border border-gray-800 rounded p-3 flex items-center justify-between';
+    row.innerHTML=`<span class="flex items-center gap-2"><span class="text-lg">${s.icon}</span><span><div class="text-sm font-semibold">${s.name}</div><div class="text-xs text-gray-500">${s.url}${s.tailscaleOnly?' · Tailnet':''}</div></span></span><span id="st-${s.id}" class="text-xs text-yellow-400 pulse">checking…</span>`;
+    list.appendChild(row);
+  });
+  for(const s of services){
+    const r=await check(s);
+    const cell=document.getElementById('st-'+s.id);
+    if(!cell) continue;
+    cell.classList.remove('pulse');
+    if(r.ok){cell.textContent=`✅ up · ${r.ms}ms`; cell.className='text-xs text-green-400';}
+    else if(s.tailscaleOnly){cell.textContent='⚠️ no Tailnet?'; cell.className='text-xs text-yellow-400';}
+    else{cell.textContent='❌ down'; cell.className='text-xs text-red-400';}
+  }
+}
+function renderConfig(){
+  const services=load();
+  const c=document.getElementById('config');
+  c.innerHTML=services.map((s,i)=>`<div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-2"><input class="cfg-name bg-gray-950 border border-gray-700 text-gray-100 text-xs rounded px-2 py-1.5" data-i="${i}" value="${s.name.replace(/"/g,'&quot;')}"><input class="cfg-url bg-gray-950 border border-gray-700 text-gray-100 text-xs rounded px-2 py-1.5 sm:col-span-2 font-mono" data-i="${i}" value="${s.url.replace(/"/g,'&quot;')}"></div>`).join('');
+}
+document.getElementById('save-cfg').onclick=()=>{
+  const names=[...document.querySelectorAll('.cfg-name')].map(i=>i.value);
+  const urls=[...document.querySelectorAll('.cfg-url')].map(i=>i.value);
+  const services=load();
+  services.forEach((s,i)=>{s.name=names[i]; s.url=urls[i];});
+  save(services); refresh();
+};
+document.getElementById('reset-cfg').onclick=()=>{if(confirm('Reset endpoints to defaults?')){localStorage.removeItem(KEY); renderConfig(); refresh();}};
+document.getElementById('refresh').onclick=refresh;
+renderConfig(); refresh();
+setInterval(refresh, 60000); // auto-refresh every 60s
+</script></body></html>
