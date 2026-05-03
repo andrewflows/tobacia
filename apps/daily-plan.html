@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Daily Plan · Tobacia</title>
+<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#0a1628">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Daily Plan">
+<link rel="icon" href="/favicon.png"><link rel="apple-touch-icon" href="/favicon.png">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body{background:#0a1628;color:#e5e7eb;font-family:'Segoe UI',-apple-system,sans-serif}</style>
+</head><body class="min-h-screen">
+<nav class="border-b border-gray-800 px-6 py-3 flex items-center justify-between">
+  <a href="/me.html" class="text-sm text-gray-400 hover:text-white">&larr; Personal Apps</a>
+  <span class="text-sm font-semibold text-blue-400">Daily Plan</span>
+</nav>
+<main class="max-w-3xl mx-auto px-4 py-6">
+  <h1 class="text-2xl sm:text-3xl font-bold text-white mb-2">Daily Plan 📅</h1>
+  <p class="text-gray-400 text-sm mb-5">Yesterday's recap + today's blockers → today's prioritized battle plan in Aaron's daily-planner format.</p>
+
+  <div class="bg-gray-900 border border-gray-800 rounded-lg p-5 mb-5">
+    <label class="block text-xs text-gray-400 mb-2">Yesterday's recap (what shipped, what stalled)
+      <textarea id="recap" rows="4" placeholder="Yesterday: shipped Heartwood, started Resume Tailor; stuck on Cloudflare Tunnel docs..." class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none"></textarea>
+    </label>
+    <label class="block text-xs text-gray-400 mb-2 mt-3">Today's active blockers / context
+      <textarea id="blockers" rows="3" placeholder="Today: BO standup at 10, interview prep for Anthropic at 2pm, Tax filing deadline approaching..." class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none"></textarea>
+    </label>
+    <label class="block text-xs text-gray-400 mb-2 mt-3">Top 3 goals from your weekly review (optional, free text)
+      <textarea id="goals" rows="2" placeholder="1) ship 2 personal apps · 2) reach 5 cold-email follow-ups · 3) finish Anthropic course module 4" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none"></textarea>
+    </label>
+    <div class="flex gap-2 mt-3"><button id="gen" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-5 rounded text-sm">Generate plan ↗</button><span id="status" class="text-xs text-gray-500 self-center"></span></div>
+  </div>
+
+  <div id="out-wrap" class="hidden bg-gray-900 border border-gray-800 rounded-lg p-5">
+    <div class="flex justify-between items-center mb-3"><h2 class="text-sm font-semibold text-blue-300 uppercase tracking-widest">Today's plan</h2><button id="copy" class="bg-blue-500 hover:bg-blue-600 text-white py-1.5 px-4 rounded text-xs">Copy</button></div>
+    <pre id="out" class="bg-gray-950 border border-gray-800 rounded p-4 text-xs text-gray-200 whitespace-pre-wrap font-mono"></pre>
+  </div>
+</main>
+
+<script src="/apps/api-client.js"></script>
+<script>
+const SYS=`You generate Andres Tobacia's daily plan in Aaron's chief-of-staff format.
+
+ANDRES'S CONTEXT:
+- W-2: Blue Origin Supply Chain Project Manager III (full-time anchor)
+- Active: tobacia.space portfolio + job search + Anthropic R3 interviews
+- Personal time blocks: weekday evenings 8-10 PM, Saturday mornings
+- One Project Rule: only one active portfolio project at a time
+- Cost Gate: $0 new spend
+- AT Protocol: Build · Expand · Serve. Christ-centered. Equity over salary.
+
+OUTPUT (markdown):
+
+# Daily Plan · ${new Date().toISOString().slice(0,10)}
+
+## Top 3 today
+1. {Specific outcome — verb + result}
+2. ...
+3. ...
+
+## Time-boxed blocks (8AM → 6PM BO work hours)
+- 08:00 · ...
+- 09:30 · ...
+- (only show non-trivial blocks; preserve standing meetings)
+
+## Personal blocks (8-10 PM)
+- ...
+
+## Watch out for
+- {Risk/distraction with countermeasure}
+
+## End-of-day check
+- Did I ship #1? □
+- Did I do 1 application? □
+- Did I check in with Noe (wellbeing)? □
+
+Be specific. Use yesterday's stalls + today's blockers to inform priorities. Don't add anything beyond the format.`;
+
+document.getElementById('gen').onclick=async()=>{
+  const recap=document.getElementById('recap').value.trim();
+  const blockers=document.getElementById('blockers').value.trim();
+  const goals=document.getElementById('goals').value.trim();
+  if(!recap&&!blockers){alert('Need at least recap or blockers.'); return;}
+  const status=document.getElementById('status'); status.textContent='Generating... (Sonnet 4.6)';
+  try{
+    const r=await TobaciaAPI.call({system:SYS,prompt:`YESTERDAY:\n${recap||'(no recap)'}\n\nTODAY'S BLOCKERS/CONTEXT:\n${blockers||'(none)'}\n\nWEEKLY GOALS:\n${goals||'(none)'}\n\nGenerate today's plan.`,maxTokens:2000});
+    document.getElementById('out').textContent=r.text;
+    document.getElementById('out-wrap').classList.remove('hidden');
+    status.textContent=`✓ ${r.usage?.input_tokens||0}/${r.usage?.output_tokens||0}`;
+  }catch(e){status.textContent=''; alert('Error: '+e.message);}
+};
+document.getElementById('copy').onclick=(e)=>TobaciaAPI.copyToClipboard(document.getElementById('out').textContent,e.target);
+</script></body></html>

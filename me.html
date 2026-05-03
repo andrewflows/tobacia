@@ -27,7 +27,6 @@
     .app-card:hover { transform: translateY(-2px); border-color:#3b82f6; box-shadow:0 0 24px rgba(59,130,246,0.15); }
     .app-card.disabled { opacity:0.55; }
     .app-card.disabled:hover { transform:none; border-color:#1f2937; box-shadow:none; }
-    .icon-bg { background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%); }
   </style>
 </head>
 <body class="text-gray-200 min-h-screen">
@@ -39,7 +38,7 @@
 
   <header class="max-w-5xl mx-auto px-4 pt-12 pb-4 text-center">
     <div class="inline-block mb-4 px-3 py-1 rounded-full text-xs font-semibold bg-yellow-900/40 text-yellow-300 border border-yellow-700/50">
-      🔒 PRIVATE · ANDRES ONLY · v1
+      🔒 PRIVATE · ANDRES ONLY · v2 · 15 LIVE
     </div>
     <h1 class="text-3xl sm:text-5xl font-bold text-white mb-3">Tobacia · Personal</h1>
     <p class="text-blue-400 font-semibold text-lg sm:text-xl mb-4">Tools I built for me, not the world.</p>
@@ -49,133 +48,109 @@
     </p>
   </header>
 
+  <!-- Career & Job Search -->
   <section class="max-w-5xl mx-auto px-4 py-8">
     <div class="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-3">Career &amp; Job Search · 5 apps</div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
 
-      <!-- Brag-Doc Logger - LIVE -->
       <a href="/apps/brag-doc.html" class="app-card bg-navy-card border border-gray-800 rounded-xl p-5 block">
-        <div class="flex items-center justify-between mb-2">
-          <h3 class="text-base font-bold text-white">Brag-Doc Logger</h3>
-          <span class="text-[10px] font-bold bg-green-900/60 text-green-300 px-2 py-0.5 rounded">LIVE</span>
-        </div>
-        <p class="text-xs text-gray-400 mb-3">Voice/text → STAR-tagged Obsidian entry.</p>
-        <span class="text-xs text-blue-400">Open →</span>
+        <div class="flex items-center justify-between mb-2"><h3 class="text-base font-bold text-white">Brag-Doc Logger</h3><span class="text-[10px] font-bold bg-green-900/60 text-green-300 px-2 py-0.5 rounded">LIVE</span></div>
+        <p class="text-xs text-gray-400 mb-3">Voice/text → STAR-tagged Obsidian entry.</p><span class="text-xs text-blue-400">Open →</span>
       </a>
 
-      <!-- Resume Tailor - LIVE -->
       <a href="/apps/resume-tailor.html" class="app-card bg-navy-card border border-gray-800 rounded-xl p-5 block">
-        <div class="flex items-center justify-between mb-2">
-          <h3 class="text-base font-bold text-white">Resume Tailor</h3>
-          <span class="text-[10px] font-bold bg-green-900/60 text-green-300 px-2 py-0.5 rounded">LIVE</span>
-        </div>
-        <p class="text-xs text-gray-400 mb-3">JD → tailored R3 resume + cover letter.</p>
-        <span class="text-xs text-blue-400">Open →</span>
+        <div class="flex items-center justify-between mb-2"><h3 class="text-base font-bold text-white">Resume Tailor</h3><span class="text-[10px] font-bold bg-green-900/60 text-green-300 px-2 py-0.5 rounded">LIVE</span></div>
+        <p class="text-xs text-gray-400 mb-3">JD → tailored R3 + cover letter + DM.</p><span class="text-xs text-blue-400">Open →</span>
       </a>
 
-      <!-- Recruiter Triage - LIVE -->
       <a href="/apps/recruiter-triage.html" class="app-card bg-navy-card border border-gray-800 rounded-xl p-5 block">
-        <div class="flex items-center justify-between mb-2">
-          <h3 class="text-base font-bold text-white">Recruiter Triage</h3>
-          <span class="text-[10px] font-bold bg-green-900/60 text-green-300 px-2 py-0.5 rounded">LIVE</span>
-        </div>
-        <p class="text-xs text-gray-400 mb-3">Recruiter email → yes/no/maybe + reply.</p>
-        <span class="text-xs text-blue-400">Open →</span>
+        <div class="flex items-center justify-between mb-2"><h3 class="text-base font-bold text-white">Recruiter Triage</h3><span class="text-[10px] font-bold bg-green-900/60 text-green-300 px-2 py-0.5 rounded">LIVE</span></div>
+        <p class="text-xs text-gray-400 mb-3">Email → YES/NO/MAYBE + reply drafts.</p><span class="text-xs text-blue-400">Open →</span>
       </a>
 
-      <!-- Round-N Interview Brief - PLANNED -->
-      <div class="app-card disabled bg-navy-card border border-gray-800 rounded-xl p-5">
-        <div class="flex items-center justify-between mb-2">
-          <h3 class="text-base font-bold text-white">Round-N Interview Brief</h3>
-          <span class="text-[10px] font-bold bg-gray-700 text-gray-400 px-2 py-0.5 rounded">PLANNED</span>
-        </div>
-        <p class="text-xs text-gray-500 mb-3">LinkedIn URL → 10+10 Q&amp;A panel.</p>
-        <span class="text-xs text-gray-600">Coming soon</span>
-      </div>
+      <a href="/apps/interview-brief.html" class="app-card bg-navy-card border border-gray-800 rounded-xl p-5 block">
+        <div class="flex items-center justify-between mb-2"><h3 class="text-base font-bold text-white">Interview Brief</h3><span class="text-[10px] font-bold bg-green-900/60 text-green-300 px-2 py-0.5 rounded">LIVE</span></div>
+        <p class="text-xs text-gray-400 mb-3">Personal version: 10+10 Q&amp;A panel pre-loaded with your R3 facts.</p><span class="text-xs text-blue-400">Open →</span>
+      </a>
 
-      <!-- Application Sequence Bot - PLANNED -->
-      <div class="app-card disabled bg-navy-card border border-gray-800 rounded-xl p-5">
-        <div class="flex items-center justify-between mb-2">
-          <h3 class="text-base font-bold text-white">Application Sequence</h3>
-          <span class="text-[10px] font-bold bg-gray-700 text-gray-400 px-2 py-0.5 rounded">PLANNED</span>
-        </div>
-        <p class="text-xs text-gray-500 mb-3">Daily 1-app reminder + auto-fill tracker.</p>
-        <span class="text-xs text-gray-600">Coming soon</span>
-      </div>
+      <a href="/apps/app-sequence.html" class="app-card bg-navy-card border border-gray-800 rounded-xl p-5 block">
+        <div class="flex items-center justify-between mb-2"><h3 class="text-base font-bold text-white">Application Sequence</h3><span class="text-[10px] font-bold bg-green-900/60 text-green-300 px-2 py-0.5 rounded">LIVE</span></div>
+        <p class="text-xs text-gray-400 mb-3">Daily 1-app reminder + streak tracker.</p><span class="text-xs text-blue-400">Open →</span>
+      </a>
 
     </div>
   </section>
 
+  <!-- Compensation & Equity -->
   <section class="max-w-5xl mx-auto px-4 py-8">
     <div class="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-3">Compensation &amp; Equity · 2 apps</div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
 
-      <div class="app-card disabled bg-navy-card border border-gray-800 rounded-xl p-5">
-        <div class="flex items-center justify-between mb-2">
-          <h3 class="text-base font-bold text-white">Equity Calculator</h3>
-          <span class="text-[10px] font-bold bg-gray-700 text-gray-400 px-2 py-0.5 rounded">PLANNED</span>
-        </div>
-        <p class="text-xs text-gray-500 mb-3">Offer in → 10y math vs BO RSA.</p>
-        <span class="text-xs text-gray-600">Coming soon</span>
-      </div>
+      <a href="/apps/equity-calc.html" class="app-card bg-navy-card border border-gray-800 rounded-xl p-5 block">
+        <div class="flex items-center justify-between mb-2"><h3 class="text-base font-bold text-white">Equity Calculator</h3><span class="text-[10px] font-bold bg-green-900/60 text-green-300 px-2 py-0.5 rounded">LIVE</span></div>
+        <p class="text-xs text-gray-400 mb-3">Offer in → 4y/10y math vs your BO RSA baseline.</p><span class="text-xs text-blue-400">Open →</span>
+      </a>
+
+      <a href="/apps/vesting.html" class="app-card bg-navy-card border border-gray-800 rounded-xl p-5 block">
+        <div class="flex items-center justify-between mb-2"><h3 class="text-base font-bold text-white">RSA / Vesting Tracker</h3><span class="text-[10px] font-bold bg-green-900/60 text-green-300 px-2 py-0.5 rounded">LIVE</span></div>
+        <p class="text-xs text-gray-400 mb-3">Countdown clocks for BO + new grants.</p><span class="text-xs text-blue-400">Open →</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Daily Operations -->
+  <section class="max-w-5xl mx-auto px-4 py-8">
+    <div class="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-3">Daily Operations · 5 apps · 1 deferred</div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+      <a href="/apps/daily-plan.html" class="app-card bg-navy-card border border-gray-800 rounded-xl p-5 block">
+        <div class="flex items-center justify-between mb-2"><h3 class="text-base font-bold text-white">Daily Plan</h3><span class="text-[10px] font-bold bg-green-900/60 text-green-300 px-2 py-0.5 rounded">LIVE</span></div>
+        <p class="text-xs text-gray-400 mb-3">Yesterday + blockers → today's battle plan.</p><span class="text-xs text-blue-400">Open →</span>
+      </a>
+
+      <a href="/apps/daily-closer.html" class="app-card bg-navy-card border border-gray-800 rounded-xl p-5 block">
+        <div class="flex items-center justify-between mb-2"><h3 class="text-base font-bold text-white">Daily Closer</h3><span class="text-[10px] font-bold bg-green-900/60 text-green-300 px-2 py-0.5 rounded">LIVE</span></div>
+        <p class="text-xs text-gray-400 mb-3">9 PM debrief → tomorrow's plan + wellbeing pulse.</p><span class="text-xs text-blue-400">Open →</span>
+      </a>
+
+      <a href="/apps/voice-tasks.html" class="app-card bg-navy-card border border-gray-800 rounded-xl p-5 block">
+        <div class="flex items-center justify-between mb-2"><h3 class="text-base font-bold text-white">Voice-to-Tasks</h3><span class="text-[10px] font-bold bg-green-900/60 text-green-300 px-2 py-0.5 rounded">LIVE</span></div>
+        <p class="text-xs text-gray-400 mb-3">Speak → workspace-sorted Obsidian tasks.</p><span class="text-xs text-blue-400">Open →</span>
+      </a>
+
+      <a href="/apps/idea-lab.html" class="app-card bg-navy-card border border-gray-800 rounded-xl p-5 block">
+        <div class="flex items-center justify-between mb-2"><h3 class="text-base font-bold text-white">Idea Lab Capture</h3><span class="text-[10px] font-bold bg-green-900/60 text-green-300 px-2 py-0.5 rounded">LIVE</span></div>
+        <p class="text-xs text-gray-400 mb-3">Voice idea → STAR + SWOT entry.</p><span class="text-xs text-blue-400">Open →</span>
+      </a>
+
+      <a href="/apps/job-mas.html" class="app-card bg-navy-card border border-gray-800 rounded-xl p-5 block">
+        <div class="flex items-center justify-between mb-2"><h3 class="text-base font-bold text-white">Job-MAS Re-Scorer</h3><span class="text-[10px] font-bold bg-green-900/60 text-green-300 px-2 py-0.5 rounded">LIVE</span></div>
+        <p class="text-xs text-gray-400 mb-3">Monthly re-rank of your 100-company list.</p><span class="text-xs text-blue-400">Open →</span>
+      </a>
 
       <div class="app-card disabled bg-navy-card border border-gray-800 rounded-xl p-5">
-        <div class="flex items-center justify-between mb-2">
-          <h3 class="text-base font-bold text-white">RSA / Vesting Tracker</h3>
-          <span class="text-[10px] font-bold bg-gray-700 text-gray-400 px-2 py-0.5 rounded">PLANNED</span>
-        </div>
-        <p class="text-xs text-gray-500 mb-3">Countdown clocks for BO + new grants.</p>
-        <span class="text-xs text-gray-600">Coming soon</span>
+        <div class="flex items-center justify-between mb-2"><h3 class="text-base font-bold text-white">Calendar Pre-Brief</h3><span class="text-[10px] font-bold bg-gray-700 text-gray-400 px-2 py-0.5 rounded">PLANNED · Path B</span></div>
+        <p class="text-xs text-gray-500 mb-3">1h pre-meeting → 1-pager from Obsidian.</p><span class="text-xs text-gray-600">Needs Calendar OAuth</span>
       </div>
 
     </div>
   </section>
 
+  <!-- Content & Reflection -->
   <section class="max-w-5xl mx-auto px-4 py-8">
-    <div class="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-3">Daily Operations · 5 apps</div>
+    <div class="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-3">Content &amp; Reflection · 2 apps · 1 deferred</div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
 
-      <div class="app-card disabled bg-navy-card border border-gray-800 rounded-xl p-5">
-        <div class="flex items-center justify-between mb-2"><h3 class="text-base font-bold text-white">Daily Plan PWA</h3><span class="text-[10px] font-bold bg-gray-700 text-gray-400 px-2 py-0.5 rounded">PLANNED</span></div>
-        <p class="text-xs text-gray-500 mb-3">Aaron's daily-planner skill, installable.</p><span class="text-xs text-gray-600">Coming soon</span>
-      </div>
+      <a href="/apps/interview-debrief.html" class="app-card bg-navy-card border border-gray-800 rounded-xl p-5 block">
+        <div class="flex items-center justify-between mb-2"><h3 class="text-base font-bold text-white">Interview Debrief Filer</h3><span class="text-[10px] font-bold bg-green-900/60 text-green-300 px-2 py-0.5 rounded">LIVE</span></div>
+        <p class="text-xs text-gray-400 mb-3">Voice memo → STAR signals → Brag Doc.</p><span class="text-xs text-blue-400">Open →</span>
+      </a>
 
-      <div class="app-card disabled bg-navy-card border border-gray-800 rounded-xl p-5">
-        <div class="flex items-center justify-between mb-2"><h3 class="text-base font-bold text-white">Daily Closer</h3><span class="text-[10px] font-bold bg-gray-700 text-gray-400 px-2 py-0.5 rounded">PLANNED</span></div>
-        <p class="text-xs text-gray-500 mb-3">9 PM debrief → tomorrow's plan + wellbeing.</p><span class="text-xs text-gray-600">Coming soon</span>
-      </div>
-
-      <div class="app-card disabled bg-navy-card border border-gray-800 rounded-xl p-5">
-        <div class="flex items-center justify-between mb-2"><h3 class="text-base font-bold text-white">Voice-to-Tasks</h3><span class="text-[10px] font-bold bg-gray-700 text-gray-400 px-2 py-0.5 rounded">PLANNED</span></div>
-        <p class="text-xs text-gray-500 mb-3">Speak items → workspace-sorted Obsidian tasks.</p><span class="text-xs text-gray-600">Coming soon</span>
-      </div>
-
-      <div class="app-card disabled bg-navy-card border border-gray-800 rounded-xl p-5">
-        <div class="flex items-center justify-between mb-2"><h3 class="text-base font-bold text-white">Calendar Pre-Brief</h3><span class="text-[10px] font-bold bg-gray-700 text-gray-400 px-2 py-0.5 rounded">PLANNED</span></div>
-        <p class="text-xs text-gray-500 mb-3">1h pre-meeting → 1-pager from Obsidian.</p><span class="text-xs text-gray-600">Coming soon</span>
-      </div>
-
-      <div class="app-card disabled bg-navy-card border border-gray-800 rounded-xl p-5">
-        <div class="flex items-center justify-between mb-2"><h3 class="text-base font-bold text-white">Idea Lab Capture</h3><span class="text-[10px] font-bold bg-gray-700 text-gray-400 px-2 py-0.5 rounded">PLANNED</span></div>
-        <p class="text-xs text-gray-500 mb-3">Voice idea → STAR + SWOT entry.</p><span class="text-xs text-gray-600">Coming soon</span>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="max-w-5xl mx-auto px-4 py-8">
-    <div class="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-3">Content &amp; Reflection · 3 apps</div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-
-      <div class="app-card disabled bg-navy-card border border-gray-800 rounded-xl p-5">
-        <div class="flex items-center justify-between mb-2"><h3 class="text-base font-bold text-white">Interview Debrief Filer</h3><span class="text-[10px] font-bold bg-gray-700 text-gray-400 px-2 py-0.5 rounded">PLANNED</span></div>
-        <p class="text-xs text-gray-500 mb-3">Voice memo → STAR signals → Brag Doc.</p><span class="text-xs text-gray-600">Coming soon</span>
-      </div>
-
-      <div class="app-card disabled bg-navy-card border border-gray-800 rounded-xl p-5">
-        <div class="flex items-center justify-between mb-2"><h3 class="text-base font-bold text-white">LinkedIn Post Composer</h3><span class="text-[10px] font-bold bg-gray-700 text-gray-400 px-2 py-0.5 rounded">PLANNED</span></div>
-        <p class="text-xs text-gray-500 mb-3">tobacia win → 3 LinkedIn variants.</p><span class="text-xs text-gray-600">Coming soon</span>
-      </div>
+      <a href="/apps/linkedin-post.html" class="app-card bg-navy-card border border-gray-800 rounded-xl p-5 block">
+        <div class="flex items-center justify-between mb-2"><h3 class="text-base font-bold text-white">LinkedIn Post Composer</h3><span class="text-[10px] font-bold bg-green-900/60 text-green-300 px-2 py-0.5 rounded">LIVE</span></div>
+        <p class="text-xs text-gray-400 mb-3">Win → 3 LinkedIn variants (hook/log/manifesto).</p><span class="text-xs text-blue-400">Open →</span>
+      </a>
 
       <div class="app-card disabled bg-navy-card border border-gray-800 rounded-xl p-5">
         <div class="flex items-center justify-between mb-2"><h3 class="text-base font-bold text-white">Sermon-to-Note</h3><span class="text-[10px] font-bold bg-gray-700 text-gray-400 px-2 py-0.5 rounded">PLANNED · Path B</span></div>
@@ -185,14 +160,15 @@
     </div>
   </section>
 
+  <!-- Health & Infra -->
   <section class="max-w-5xl mx-auto px-4 py-8">
-    <div class="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-3">Health &amp; Infra · 2 apps</div>
+    <div class="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-3">Health &amp; Infra · 1 app · 1 deferred</div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
 
-      <div class="app-card disabled bg-navy-card border border-gray-800 rounded-xl p-5">
-        <div class="flex items-center justify-between mb-2"><h3 class="text-base font-bold text-white">Workout Tracker</h3><span class="text-[10px] font-bold bg-gray-700 text-gray-400 px-2 py-0.5 rounded">PLANNED</span></div>
-        <p class="text-xs text-gray-500 mb-3">Custom strength + Apple Health + body diagram.</p><span class="text-xs text-gray-600">Coming soon</span>
-      </div>
+      <a href="/apps/workout.html" class="app-card bg-navy-card border border-gray-800 rounded-xl p-5 block">
+        <div class="flex items-center justify-between mb-2"><h3 class="text-base font-bold text-white">Workout Tracker</h3><span class="text-[10px] font-bold bg-green-900/60 text-green-300 px-2 py-0.5 rounded">LIVE</span></div>
+        <p class="text-xs text-gray-400 mb-3">Custom strength + sets + 7-day streak.</p><span class="text-xs text-blue-400">Open →</span>
+      </a>
 
       <div class="app-card disabled bg-navy-card border border-gray-800 rounded-xl p-5">
         <div class="flex items-center justify-between mb-2"><h3 class="text-base font-bold text-white">Thelio Status Page</h3><span class="text-[10px] font-bold bg-gray-700 text-gray-400 px-2 py-0.5 rounded">PLANNED · Path B</span></div>
@@ -202,8 +178,9 @@
     </div>
   </section>
 
+  <!-- Email & Inbox -->
   <section class="max-w-5xl mx-auto px-4 py-8">
-    <div class="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-3">Email &amp; Inbox · 1 app</div>
+    <div class="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-3">Email &amp; Inbox · 0 apps · 1 deferred</div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
 
       <div class="app-card disabled bg-navy-card border border-gray-800 rounded-xl p-5">
@@ -214,20 +191,8 @@
     </div>
   </section>
 
-  <section class="max-w-5xl mx-auto px-4 py-8">
-    <div class="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-3">Job Search Strategy · 1 app</div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-
-      <div class="app-card disabled bg-navy-card border border-gray-800 rounded-xl p-5">
-        <div class="flex items-center justify-between mb-2"><h3 class="text-base font-bold text-white">Job-MAS Re-Scorer</h3><span class="text-[10px] font-bold bg-gray-700 text-gray-400 px-2 py-0.5 rounded">PLANNED</span></div>
-        <p class="text-xs text-gray-500 mb-3">Monthly re-rank with current valuations.</p><span class="text-xs text-gray-600">Coming soon</span>
-      </div>
-
-    </div>
-  </section>
-
   <footer class="max-w-5xl mx-auto px-4 py-12 text-center text-xs text-gray-500">
-    <p class="mb-2">17 personal apps · 3 live · 14 planned</p>
+    <p class="mb-2">17 personal apps · 15 LIVE · 4 deferred (Path B — Cloudflare Worker / OAuth / Tailscale)</p>
     <p>One Project Rule · $0 Cost Gate · keys never leave your device</p>
   </footer>
 

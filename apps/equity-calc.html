@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Equity Calculator (Personal) · Tobacia</title>
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#0a1628">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="My Equity">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style> body { background:#0a1628; color:#e5e7eb; font-family:'Segoe UI', -apple-system, sans-serif; } </style>
+</head>
+<body class="min-h-screen">
+  <nav class="border-b border-gray-800 px-6 py-3 flex items-center justify-between">
+    <a href="/me.html" class="text-sm text-gray-400 hover:text-white transition">&larr; Personal Apps</a>
+    <span class="text-sm font-semibold text-blue-400">Equity Calculator (Personal)</span>
+  </nav>
+
+  <main class="max-w-3xl mx-auto px-4 py-8">
+    <h1 class="text-2xl sm:text-3xl font-bold text-white mb-2">Equity Calculator 💎</h1>
+    <p class="text-gray-400 text-sm mb-6">Personal version — your BO RSA baseline is saved in localStorage. Compare any incoming offer against it instantly. Use the public version at <a href="/apps/public/equity-calc.html" class="text-blue-400 hover:underline">/apps/public/equity-calc.html</a> for offer-to-offer comparisons.</p>
+
+    <div class="bg-gray-900 border border-yellow-700 rounded-lg p-5 mb-5">
+      <h2 class="text-sm font-semibold text-yellow-300 uppercase tracking-widest mb-3">Your BO Baseline (saved on this device)</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <label class="block text-xs text-gray-400">BO Base ($)
+          <input id="bo-base" type="number" placeholder="180000" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none">
+        </label>
+        <label class="block text-xs text-gray-400">BO Annual RSA refresh ($)
+          <input id="bo-rsa" type="number" placeholder="60000" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none">
+        </label>
+        <label class="block text-xs text-gray-400">BO Annual bonus ($)
+          <input id="bo-bonus" type="number" placeholder="20000" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none">
+        </label>
+      </div>
+      <button id="save-bo" class="mt-3 bg-yellow-700 hover:bg-yellow-600 text-white font-semibold py-1.5 px-3 rounded text-xs">Save baseline</button>
+      <span id="save-status" class="text-xs text-gray-500 ml-2"></span>
+    </div>
+
+    <div class="bg-gray-900 border border-blue-800 rounded-lg p-5 mb-5">
+      <h2 class="text-sm font-semibold text-blue-300 uppercase tracking-widest mb-3">New Offer</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <label class="block text-xs text-gray-400">Company
+          <input id="company" type="text" placeholder="e.g., Crusoe, Anthropic" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none">
+        </label>
+        <label class="block text-xs text-gray-400">Base ($)
+          <input id="n-base" type="number" placeholder="220000" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none">
+        </label>
+        <label class="block text-xs text-gray-400">Equity grant ($, current value)
+          <input id="n-equity" type="number" placeholder="800000" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none">
+        </label>
+        <label class="block text-xs text-gray-400">Vest period (years)
+          <input id="n-vest" type="number" value="4" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none">
+        </label>
+        <label class="block text-xs text-gray-400">Signing bonus ($)
+          <input id="n-signing" type="number" placeholder="50000" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none">
+        </label>
+        <label class="block text-xs text-gray-400">Annual bonus ($)
+          <input id="n-bonus" type="number" placeholder="0" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none">
+        </label>
+      </div>
+      <p class="text-xs text-gray-500 mt-3">Equity multiplier (illustrative outcome at exit):</p>
+      <div class="grid grid-cols-5 gap-1 mt-1">
+        <button class="m-btn bg-red-900 text-white text-xs py-1.5 rounded" data-mult="0">0×</button>
+        <button class="m-btn bg-gray-800 text-gray-300 text-xs py-1.5 rounded" data-mult="1">1×</button>
+        <button class="m-btn bg-blue-700 text-white text-xs py-1.5 rounded ring-2 ring-blue-400" data-mult="3">3×</button>
+        <button class="m-btn bg-green-700 text-white text-xs py-1.5 rounded" data-mult="10">10×</button>
+        <button class="m-btn bg-purple-700 text-white text-xs py-1.5 rounded" data-mult="50">50×</button>
+      </div>
+    </div>
+
+    <div class="bg-gray-900 border border-blue-800 rounded-lg p-5">
+      <h2 class="text-sm font-semibold text-blue-300 uppercase tracking-widest mb-3">Comparison vs BO Baseline</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
+        <div class="bg-gray-950 border border-gray-800 rounded p-3"><div class="text-xs text-gray-500 uppercase">BO 4y</div><div id="bo-4y" class="text-lg font-bold text-yellow-300">$0</div></div>
+        <div class="bg-gray-950 border border-gray-800 rounded p-3"><div class="text-xs text-gray-500 uppercase">Offer 4y</div><div id="off-4y" class="text-lg font-bold text-blue-300">$0</div></div>
+        <div class="bg-gray-950 border border-gray-800 rounded p-3"><div class="text-xs text-gray-500 uppercase">Delta</div><div id="delta-4y" class="text-lg font-bold text-green-400">$0</div></div>
+      </div>
+      <div id="verdict" class="bg-gray-950 border-l-4 rounded p-4">
+        <div class="font-bold text-lg" id="v-text">Enter offer above to compare</div>
+        <div class="text-xs text-gray-400 mt-1" id="v-detail">All math runs locally; nothing leaves your device.</div>
+      </div>
+    </div>
+
+    <footer class="text-center text-xs text-gray-500 mt-8 pb-6">
+      <p>Personal Equity Calc v1 · Pure JS, no LLM · ⚠️ Not financial advice</p>
+    </footer>
+  </main>
+
+  <script>
+    const KEY_BO = 'tobacia_bo_baseline';
+    const fmt = (n) => '$' + Math.round(n).toLocaleString();
+    let mult = 3;
+
+    // Load saved
+    const saved = JSON.parse(localStorage.getItem(KEY_BO) || '{}');
+    if (saved.base) document.getElementById('bo-base').value = saved.base;
+    if (saved.rsa) document.getElementById('bo-rsa').value = saved.rsa;
+    if (saved.bonus) document.getElementById('bo-bonus').value = saved.bonus;
+
+    document.getElementById('save-bo').onclick = () => {
+      const data = {
+        base: +document.getElementById('bo-base').value || 0,
+        rsa:  +document.getElementById('bo-rsa').value || 0,
+        bonus:+document.getElementById('bo-bonus').value || 0,
+      };
+      localStorage.setItem(KEY_BO, JSON.stringify(data));
+      document.getElementById('save-status').textContent = '✓ Saved';
+      setTimeout(() => document.getElementById('save-status').textContent = '', 1500);
+      compute();
+    };
+
+    document.querySelectorAll('.m-btn').forEach(b => b.onclick = () => {
+      mult = +b.dataset.mult;
+      document.querySelectorAll('.m-btn').forEach(x => x.classList.toggle('ring-2', x === b));
+      compute();
+    });
+
+    document.querySelectorAll('input').forEach(i => i.oninput = compute);
+
+    function val(id) { return +document.getElementById(id).value || 0; }
+
+    function compute() {
+      const bo4y = (val('bo-base') + val('bo-rsa') + val('bo-bonus')) * 4;
+      const off4y = val('n-base') * 4 + val('n-equity') * mult + val('n-signing') + val('n-bonus') * 4;
+      const delta = off4y - bo4y;
+
+      document.getElementById('bo-4y').textContent = fmt(bo4y);
+      document.getElementById('off-4y').textContent = fmt(off4y);
+      document.getElementById('delta-4y').textContent = (delta >= 0 ? '+' : '−') + '$' + Math.abs(Math.round(delta)).toLocaleString();
+      document.getElementById('delta-4y').className = 'text-lg font-bold ' + (delta >= 0 ? 'text-green-400' : 'text-red-400');
+
+      const v = document.getElementById('verdict');
+      const t = document.getElementById('v-text');
+      const d = document.getElementById('v-detail');
+      if (!val('n-base')) {
+        v.className = 'bg-gray-950 border-l-4 border-gray-700 rounded p-4';
+        t.textContent = 'Enter offer above to compare';
+        d.textContent = 'All math runs locally; nothing leaves your device.';
+        return;
+      }
+      const co = document.getElementById('company').value || 'this offer';
+      if (delta > 200000)      { v.className = 'bg-gray-950 border-l-4 border-green-500 rounded p-4'; t.textContent = `✅ Take ${co}`; d.textContent = `${fmt(delta)} better than BO baseline at ${mult}× multiplier. Strong move.`; }
+      else if (delta > 0)      { v.className = 'bg-gray-950 border-l-4 border-blue-500 rounded p-4'; t.textContent = `👍 ${co} is upside`; d.textContent = `+${fmt(delta)} over BO at ${mult}× multiplier. Realistic exit?`; }
+      else if (delta > -100000){ v.className = 'bg-gray-950 border-l-4 border-yellow-500 rounded p-4'; t.textContent = `🤔 Roughly equivalent`; d.textContent = `Math is close (${fmt(delta)}). Mission/role fit decides.`; }
+      else                     { v.className = 'bg-gray-950 border-l-4 border-red-500 rounded p-4'; t.textContent = `⚠️ BO wins on math`; d.textContent = `BO is ${fmt(Math.abs(delta))} ahead at ${mult}× multiplier. Need higher multiplier or higher offer.`; }
+    }
+    compute();
+  </script>
+</body>
+</html>

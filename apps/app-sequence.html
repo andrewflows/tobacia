@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Application Sequence Bot · Tobacia</title>
+<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#0a1628">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="App Seq">
+<link rel="icon" href="/favicon.png"><link rel="apple-touch-icon" href="/favicon.png">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body{background:#0a1628;color:#e5e7eb;font-family:'Segoe UI',-apple-system,sans-serif}</style>
+</head><body class="min-h-screen">
+<nav class="border-b border-gray-800 px-6 py-3 flex items-center justify-between">
+  <a href="/me.html" class="text-sm text-gray-400 hover:text-white">&larr; Personal Apps</a>
+  <span class="text-sm font-semibold text-blue-400">Application Sequence</span>
+</nav>
+<main class="max-w-3xl mx-auto px-4 py-6">
+  <h1 class="text-2xl sm:text-3xl font-bold text-white mb-2">Application Sequence 📨</h1>
+  <p class="text-gray-400 text-sm mb-5">1 application per day. Juan holds accountability. Tap "Logged today" once you ship the daily app — streak builds.</p>
+
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-5">
+    <div class="bg-gray-900 border border-gray-800 rounded p-4 text-center">
+      <div class="text-xs text-gray-500 uppercase">Streak</div>
+      <div id="streak" class="text-3xl font-bold text-yellow-400">0</div>
+      <div class="text-xs text-gray-500">days</div>
+    </div>
+    <div class="bg-gray-900 border border-gray-800 rounded p-4 text-center">
+      <div class="text-xs text-gray-500 uppercase">This week</div>
+      <div id="week" class="text-3xl font-bold text-blue-300">0</div>
+      <div class="text-xs text-gray-500">/ 7 days</div>
+    </div>
+    <div class="bg-gray-900 border border-gray-800 rounded p-4 text-center">
+      <div class="text-xs text-gray-500 uppercase">Total</div>
+      <div id="total" class="text-3xl font-bold text-green-400">0</div>
+      <div class="text-xs text-gray-500">apps</div>
+    </div>
+  </div>
+
+  <div class="bg-gray-900 border border-blue-800 rounded-lg p-5 mb-5 text-center">
+    <div id="status-msg" class="text-lg font-bold mb-3"></div>
+    <button id="log-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded text-base">✓ Logged Application Today</button>
+  </div>
+
+  <div class="bg-gray-900 border border-gray-800 rounded-lg p-5 mb-5">
+    <h2 class="text-sm font-semibold text-gray-300 uppercase tracking-widest mb-3">Quick log a company</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3">
+      <input id="c-name" type="text" placeholder="Company name" class="bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2">
+      <input id="c-role" type="text" placeholder="Role" class="bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2">
+    </div>
+    <div class="flex gap-2">
+      <input id="c-url" type="url" placeholder="JD URL (optional)" class="bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 flex-1">
+      <button id="add-co" class="bg-gray-800 hover:bg-gray-700 text-gray-300 py-2 px-4 rounded text-xs">Log + counts</button>
+    </div>
+  </div>
+
+  <h2 class="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-2">Recent applications</h2>
+  <div id="list" class="space-y-1 mb-6"></div>
+
+  <button id="enable-notif" class="hidden bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded text-sm">Enable 8 AM daily reminder</button>
+</main>
+
+<script>
+const KEY='tobacia_app_seq';
+const load=()=>JSON.parse(localStorage.getItem(KEY)||'[]');
+const save=(s)=>localStorage.setItem(KEY,JSON.stringify(s));
+const today=()=>new Date().toISOString().slice(0,10);
+
+function render(){
+  const apps=load();
+  document.getElementById('total').textContent=apps.length;
+  // streak
+  const dates=new Set(apps.map(a=>a.date));
+  let streak=0; const d=new Date();
+  while(true){const k=d.toISOString().slice(0,10); if(dates.has(k)) streak++; else break; d.setDate(d.getDate()-1);}
+  document.getElementById('streak').textContent=streak;
+  // week
+  const weekStart=new Date(); weekStart.setDate(weekStart.getDate()-6);
+  const wk=[...dates].filter(k=>new Date(k)>=weekStart).length;
+  document.getElementById('week').textContent=wk;
+  // status
+  const sm=document.getElementById('status-msg');
+  const t=today();
+  if(dates.has(t)){sm.innerHTML='✅ <span class="text-green-400">Logged today.</span>'; document.getElementById('log-btn').disabled=true; document.getElementById('log-btn').classList.add('opacity-50');}
+  else{sm.innerHTML='⏳ <span class="text-yellow-400">Not yet today.</span>'; document.getElementById('log-btn').disabled=false; document.getElementById('log-btn').classList.remove('opacity-50');}
+  // list
+  const list=document.getElementById('list');
+  list.innerHTML='';
+  apps.slice(-15).reverse().forEach((a,i)=>{
+    const idx=apps.length-1-i;
+    const div=document.createElement('div');
+    div.className='bg-gray-900 border border-gray-800 rounded px-3 py-2 flex justify-between text-sm';
+    div.innerHTML=`<span><span class="text-gray-500 text-xs">${a.date}</span> · ${a.company||'(no company)'}${a.role?' · '+a.role:''}${a.url?` · <a href="${a.url}" target="_blank" class="text-blue-400">JD</a>`:''}</span>
+      <button class="del text-xs text-gray-500 hover:text-red-400" data-i="${idx}">×</button>`;
+    list.appendChild(div);
+  });
+  list.querySelectorAll('.del').forEach(b=>b.onclick=()=>{const a=load(); a.splice(+b.dataset.i,1); save(a); render();});
+}
+document.getElementById('log-btn').onclick=()=>{
+  const apps=load();
+  apps.push({date:today(),company:'',role:'',url:''});
+  save(apps); render();
+};
+document.getElementById('add-co').onclick=()=>{
+  const apps=load();
+  apps.push({date:today(),company:document.getElementById('c-name').value.trim(),role:document.getElementById('c-role').value.trim(),url:document.getElementById('c-url').value.trim()});
+  save(apps);
+  ['c-name','c-role','c-url'].forEach(i=>document.getElementById(i).value='');
+  render();
+};
+if('Notification' in window && Notification.permission==='default'){
+  document.getElementById('enable-notif').classList.remove('hidden');
+  document.getElementById('enable-notif').onclick=async()=>{await Notification.requestPermission(); document.getElementById('enable-notif').classList.add('hidden');};
+}
+render();
+</script></body></html>

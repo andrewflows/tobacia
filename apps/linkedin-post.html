@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>LinkedIn Post Composer · Tobacia</title>
+<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#0a1628">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="LI Post">
+<link rel="icon" href="/favicon.png"><link rel="apple-touch-icon" href="/favicon.png">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body{background:#0a1628;color:#e5e7eb;font-family:'Segoe UI',-apple-system,sans-serif} .tab-active{color:#60a5fa;border-bottom:2px solid #3b82f6}</style>
+</head><body class="min-h-screen">
+<nav class="border-b border-gray-800 px-6 py-3 flex items-center justify-between">
+  <a href="/me.html" class="text-sm text-gray-400 hover:text-white">&larr; Personal Apps</a>
+  <span class="text-sm font-semibold text-blue-400">LinkedIn Post Composer</span>
+</nav>
+<main class="max-w-3xl mx-auto px-4 py-6">
+  <h1 class="text-2xl sm:text-3xl font-bold text-white mb-2">LinkedIn Post Composer 📝</h1>
+  <p class="text-gray-400 text-sm mb-5">Win → 3 LinkedIn variants in your voice: short hook, medium build-log, long manifesto. No theory posts — show what you built.</p>
+
+  <div class="bg-gray-900 border border-gray-800 rounded-lg p-5 mb-5">
+    <label class="block text-xs text-gray-400 mb-2">The win or insight (1-3 sentences)
+      <textarea id="win" rows="3" placeholder="Just shipped Heartwood — a 0-cost PWA that tracks household maintenance. Built in one Saturday morning. Went from idea to live in 4 hours." class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2"></textarea>
+    </label>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+      <label class="block text-xs text-gray-400">Audience
+        <select id="aud" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2">
+          <option value="recruiters">AI startup recruiters / hiring</option>
+          <option value="engineers">Engineers / builders</option>
+          <option value="sc-peers">Supply chain peers</option>
+          <option value="founders">Founders / 0-to-1 operators</option>
+          <option value="general">General professional</option>
+        </select>
+      </label>
+      <label class="block text-xs text-gray-400">CTA
+        <select id="cta" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2">
+          <option value="thoughts">Ask for thoughts/feedback</option>
+          <option value="link">Link to artifact (URL/demo)</option>
+          <option value="hire">Open to roles + DM invitation</option>
+          <option value="silent">No CTA (just the story)</option>
+        </select>
+      </label>
+    </div>
+    <div class="flex gap-2"><button id="gen" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-5 rounded text-sm">Generate 3 variants ↗</button><span id="status" class="text-xs text-gray-500 self-center"></span></div>
+  </div>
+
+  <div id="out-wrap" class="hidden bg-gray-900 border border-gray-800 rounded-lg p-5">
+    <div class="flex border-b border-gray-800 mb-4 flex-wrap">
+      <button class="tab px-4 py-2 text-sm tab-active" data-tab="short">Short hook</button>
+      <button class="tab px-4 py-2 text-sm text-gray-400" data-tab="medium">Build log</button>
+      <button class="tab px-4 py-2 text-sm text-gray-400" data-tab="long">Manifesto</button>
+    </div>
+    <div class="flex justify-end mb-2"><button id="copy" class="bg-blue-500 text-white py-1.5 px-4 rounded text-xs">Copy</button></div>
+    <pre id="out" class="bg-gray-950 border border-gray-800 rounded p-4 text-xs text-gray-200 whitespace-pre-wrap font-mono"></pre>
+    <p class="text-xs text-gray-500 mt-3" id="hashtags"></p>
+  </div>
+</main>
+
+<script src="/apps/api-client.js"></script>
+<script>
+const SYS=`You write LinkedIn posts in Andres Tobacia's voice. Output strict JSON only.
+
+ANDRES'S VOICE:
+- Specifics over generics. Numbers, names, outcomes. No "thoughts on the future of..." filler.
+- Show the work. Build logs > manifestos. Artifacts > opinions.
+- One insight per post, sharp.
+- No emojis at start of post. Maybe 1 in body if it earns its place.
+- No "I'm humbled and excited..." opening cliches.
+- End with question or quiet CTA, not gushing.
+
+POSITIONING: AI Systems Builder · Aerospace + Industrial Ops · Operator who ships.
+
+OUTPUT (strict JSON):
+{
+  "short":  "60-100 words. Hook + insight + question. No fluff.",
+  "medium": "150-250 words. Build log style. What I built / why I built it / what I learned / what's next. 3-4 short paragraphs.",
+  "long":   "350-500 words. Manifesto style. Sets up a bigger thesis using the win as evidence. 5-7 paragraphs. Earns the length.",
+  "hashtags": "5-7 hashtags, space-separated, no '#' (the user adds those). Match the audience."
+}`;
+
+document.getElementById('gen').onclick=async()=>{
+  const win=document.getElementById('win').value.trim();
+  if(!win){alert('Need a win.'); return;}
+  const aud=document.getElementById('aud').value, cta=document.getElementById('cta').value;
+  const status=document.getElementById('status'); status.textContent='Generating... (Sonnet 4.6)';
+  try{
+    const r=await TobaciaAPI.call({system:SYS,prompt:`WIN: ${win}\nAUDIENCE: ${aud}\nCTA: ${cta}\n\nGenerate 3 variants. Output strict JSON.`,maxTokens:3000});
+    const m=r.text.match(/\{[\s\S]*\}/); if(!m) throw new Error('No JSON.');
+    window.__variants=JSON.parse(m[0]);
+    renderTab('short');
+    document.getElementById('out-wrap').classList.remove('hidden');
+    document.getElementById('hashtags').textContent='Suggested hashtags: ' + (window.__variants.hashtags||'').split(' ').map(h=>'#'+h).join(' ');
+    status.textContent=`✓ ${r.usage?.input_tokens||0}/${r.usage?.output_tokens||0}`;
+  }catch(e){status.textContent=''; alert('Error: '+e.message);}
+};
+function renderTab(k){
+  document.getElementById('out').textContent=window.__variants?.[k]||'';
+  document.querySelectorAll('.tab').forEach(b=>{b.classList.toggle('tab-active',b.dataset.tab===k); b.classList.toggle('text-gray-400',b.dataset.tab!==k);});
+}
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>renderTab(b.dataset.tab));
+document.getElementById('copy').onclick=(e)=>TobaciaAPI.copyToClipboard(document.getElementById('out').textContent,e.target);
+</script></body></html>

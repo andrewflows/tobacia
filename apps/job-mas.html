@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Job-MAS Re-Scorer · Tobacia</title>
+<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#0a1628">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Job-MAS">
+<link rel="icon" href="/favicon.png"><link rel="apple-touch-icon" href="/favicon.png">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body{background:#0a1628;color:#e5e7eb;font-family:'Segoe UI',-apple-system,sans-serif}</style>
+</head><body class="min-h-screen">
+<nav class="border-b border-gray-800 px-6 py-3 flex items-center justify-between">
+  <a href="/me.html" class="text-sm text-gray-400 hover:text-white">&larr; Personal Apps</a>
+  <span class="text-sm font-semibold text-blue-400">Job-MAS Re-Scorer</span>
+</nav>
+<main class="max-w-3xl mx-auto px-4 py-6">
+  <h1 class="text-2xl sm:text-3xl font-bold text-white mb-2">Job-MAS Re-Scorer 🎯</h1>
+  <p class="text-gray-400 text-sm mb-5">Monthly cadence: paste current target list + recent market signals (funding, news) → re-ranked top 25 by equity-maximization compass with delta notes vs last month.</p>
+  <div class="bg-gray-900 border border-gray-800 rounded-lg p-5 mb-5">
+    <label class="block text-xs text-gray-400 mb-2">Current target list (paste from target-tracker-v2.html or just list companies, one per line)
+      <textarea id="list" rows="8" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2" placeholder="Anthropic · Crusoe · Saronic · CesiumAstro · OpenAI · xAI · Anduril · Skild AI · Field AI · Bedrock Robotics · ..."></textarea>
+    </label>
+    <label class="block text-xs text-gray-400 mb-2">Recent market signals (news, funding, layoffs, leadership moves — last 30 days)
+      <textarea id="signals" rows="6" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2" placeholder="• Skild AI raised at $14B (April) · Anthropic confirmed BO partnership rumor · OpenAI hardware ops PM rejected me · xAI laid off 5% of operations team..."></textarea>
+    </label>
+    <div class="flex gap-2"><button id="gen" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-5 rounded text-sm">Re-rank ↗</button><span id="status" class="text-xs text-gray-500 self-center"></span></div>
+  </div>
+  <div id="out-wrap" class="hidden bg-gray-900 border border-gray-800 rounded-lg p-5">
+    <div class="flex justify-between items-center mb-3"><h2 class="text-sm font-semibold text-blue-300 uppercase tracking-widest">Re-ranked top 25</h2><button id="copy" class="bg-blue-500 text-white py-1.5 px-4 rounded text-xs">Copy</button></div>
+    <pre id="out" class="bg-gray-950 border border-gray-800 rounded p-4 text-xs text-gray-200 whitespace-pre-wrap font-mono"></pre>
+  </div>
+</main>
+<script src="/apps/api-client.js"></script>
+<script>
+const SYS=`You re-rank Andres Tobacia's job-search target list by equity-maximization compass.
+
+ANDRES'S COMPASS:
+- Path A: founding/early-team PM/engineering roles at AI + manufacturing/supply chain startups, $50K+ equity grant target, ideally $500K+ vesting potential by 10y
+- Strong fit: AI + industrial / aerospace / defense / robotics / supply chain
+- Weak fit: pure consulting, government, big legacy aerospace (Boeing/LM/Northrop), low-equity bigCo
+- Locations: Austin, Seattle, remote-friendly
+- Currently: Blue Origin Supply Chain PM III (Aug 2025–Present) — must beat BO RSA baseline
+- Brother Camilo connection: SpaceX 2014-2018 (warm-thread asset for SpaceX-tribe)
+
+OUTPUT (markdown):
+
+# Top 25 — Re-ranked ${new Date().toISOString().slice(0,10)}
+
+| # | Company | Score (1-100) | Tier | Δ vs prior | Note |
+|---|---|---|---|---|---|
+| 1 | ... | ... | A/B/C | ↑5 / ↓3 / new / = | one-line rationale |
+
+(25 rows. Tier A = ideal Path A. Tier B = strong but caveats. Tier C = backup/long-shot.)
+
+## Top 10 changes this cycle
+- {bullet — what moved and why, anchored to signals provided}
+
+## Drop list (companies that dropped out of top 25)
+- {company — reason}
+
+## New additions
+- {company — reason}
+
+Be honest about fit. Use the signals to justify ranking moves. If signals contradict prior assumptions, name the contradiction.`;
+document.getElementById('gen').onclick=async()=>{
+  const l=document.getElementById('list').value.trim(),s=document.getElementById('signals').value.trim();
+  if(!l){alert('Need target list.'); return;}
+  const status=document.getElementById('status'); status.textContent='Re-ranking... (Sonnet 4.6)';
+  try{
+    const r=await TobaciaAPI.call({system:SYS,prompt:`TARGET LIST:\n${l}\n\nMARKET SIGNALS:\n${s||'(none provided)'}\n\nRe-rank.`,maxTokens:4000});
+    document.getElementById('out').textContent=r.text;
+    document.getElementById('out-wrap').classList.remove('hidden');
+    status.textContent=`✓ ${r.usage?.input_tokens||0}/${r.usage?.output_tokens||0}`;
+  }catch(e){status.textContent=''; alert('Error: '+e.message);}
+};
+document.getElementById('copy').onclick=(e)=>TobaciaAPI.copyToClipboard(document.getElementById('out').textContent,e.target);
+</script></body></html>

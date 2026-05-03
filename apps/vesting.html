@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RSA / Vesting Tracker · Tobacia</title>
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#0a1628">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Vesting">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style> body { background:#0a1628; color:#e5e7eb; font-family:'Segoe UI', -apple-system, sans-serif; } .bar-bg { background:#1f2937; } .bar-fg { background:linear-gradient(90deg,#3b82f6,#22c55e); } </style>
+</head>
+<body class="min-h-screen">
+  <nav class="border-b border-gray-800 px-6 py-3 flex items-center justify-between">
+    <a href="/me.html" class="text-sm text-gray-400 hover:text-white transition">&larr; Personal Apps</a>
+    <span class="text-sm font-semibold text-blue-400">Vesting Tracker</span>
+  </nav>
+
+  <main class="max-w-3xl mx-auto px-4 py-8">
+    <h1 class="text-2xl sm:text-3xl font-bold text-white mb-2">Vesting Tracker ⏳</h1>
+    <p class="text-gray-400 text-sm mb-6">Track every equity grant — BO RSA cliffs, future grants from offers you accept. Countdown to next vest, vested vs unvested totals, golden-handcuff visibility.</p>
+
+    <div class="bg-gray-900 border border-gray-800 rounded-lg p-5 mb-5">
+      <h2 class="text-sm font-semibold text-gray-300 uppercase tracking-widest mb-3">Add a grant</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+        <input id="g-name" type="text" placeholder="Grant name (e.g., BO 2025 Refresh)" class="bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2">
+        <input id="g-value" type="number" placeholder="Total grant value ($)" class="bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2">
+        <input id="g-start" type="date" class="bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2">
+        <select id="g-schedule" class="bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2">
+          <option value="4y-1y-cliff">4y vest · 1y cliff (standard)</option>
+          <option value="4y-monthly">4y vest · monthly</option>
+          <option value="3y-1y-cliff">3y vest · 1y cliff</option>
+          <option value="custom-3-3-3-1">3yr · backloaded (Amazon-style 5/15/40/40)</option>
+        </select>
+      </div>
+      <button id="add" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded text-sm">Add Grant</button>
+    </div>
+
+    <div class="bg-gray-900 border border-gray-800 rounded-lg p-5 mb-5">
+      <h2 class="text-sm font-semibold text-gray-300 uppercase tracking-widest mb-3">Summary</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div class="bg-gray-950 border border-gray-800 rounded p-3"><div class="text-xs text-gray-500 uppercase">Total Grants</div><div id="s-total" class="text-lg font-bold text-blue-300">$0</div></div>
+        <div class="bg-gray-950 border border-gray-800 rounded p-3"><div class="text-xs text-gray-500 uppercase">Vested</div><div id="s-vested" class="text-lg font-bold text-green-400">$0</div></div>
+        <div class="bg-gray-950 border border-gray-800 rounded p-3"><div class="text-xs text-gray-500 uppercase">Unvested</div><div id="s-unvested" class="text-lg font-bold text-yellow-400">$0</div></div>
+      </div>
+    </div>
+
+    <div id="grants" class="space-y-3"></div>
+
+    <footer class="text-center text-xs text-gray-500 mt-8 pb-6">
+      <p>Vesting Tracker v1 · Pure JS, localStorage · ⚠️ Illustrative; doesn't model dilution or 409A</p>
+    </footer>
+  </main>
+
+  <script>
+    const KEY = 'tobacia_grants';
+    const load = () => JSON.parse(localStorage.getItem(KEY) || '[]');
+    const save = (g) => localStorage.setItem(KEY, JSON.stringify(g));
+    const fmt = (n) => '$' + Math.round(n).toLocaleString();
+    const today = () => { const d = new Date(); d.setHours(0,0,0,0); return d; };
+
+    function vestedFraction(start, schedule, now) {
+      const days = Math.max(0, (now - new Date(start)) / 86400000);
+      const yrs = days / 365.25;
+      switch (schedule) {
+        case '4y-1y-cliff':
+          if (yrs < 1) return 0;
+          return Math.min(1, yrs / 4);
+        case '4y-monthly':
+          return Math.min(1, yrs / 4);
+        case '3y-1y-cliff':
+          if (yrs < 1) return 0;
+          return Math.min(1, yrs / 3);
+        case 'custom-3-3-3-1':
+          // Amazon-style: 5/15/40/40 over 4 years (1y cliff implicit)
+          if (yrs < 1) return 0;
+          if (yrs < 2) return 0.05 + (yrs - 1) * 0.15;
+          if (yrs < 3) return 0.20 + (yrs - 2) * 0.40;
+          if (yrs < 4) return 0.60 + (yrs - 3) * 0.40;
+          return 1;
+        default: return 0;
+      }
+    }
+
+    function nextVestDate(start, schedule, now) {
+      const startD = new Date(start);
+      const f = vestedFraction(startD, schedule, now);
+      if (f >= 1) return null;
+      // Estimate next monthly vest
+      const monthlyAfterCliff = new Date(startD);
+      const monthsSinceStart = Math.floor((now - startD) / (30.44 * 86400000));
+      monthlyAfterCliff.setMonth(monthlyAfterCliff.getMonth() + monthsSinceStart + 1);
+      // Cliff handling
+      if (schedule.includes('cliff') && f === 0) {
+        const cliff = new Date(startD); cliff.setFullYear(cliff.getFullYear() + 1);
+        return cliff;
+      }
+      return monthlyAfterCliff;
+    }
+
+    function render() {
+      const grants = load();
+      const now = today();
+      let total = 0, vested = 0;
+      grants.forEach(g => { total += g.value; vested += g.value * vestedFraction(g.start, g.schedule, now); });
+      document.getElementById('s-total').textContent = fmt(total);
+      document.getElementById('s-vested').textContent = fmt(vested);
+      document.getElementById('s-unvested').textContent = fmt(total - vested);
+
+      const list = document.getElementById('grants');
+      list.innerHTML = grants.length ? '' : '<div class="bg-gray-900 border border-gray-800 rounded-lg p-5 text-center text-gray-500 text-sm">No grants yet. Add one above to start tracking.</div>';
+      grants.forEach((g, i) => {
+        const frac = vestedFraction(g.start, g.schedule, now);
+        const next = nextVestDate(g.start, g.schedule, now);
+        const daysToNext = next ? Math.ceil((next - now) / 86400000) : null;
+        const card = document.createElement('div');
+        card.className = 'bg-gray-900 border border-gray-800 rounded-lg p-4';
+        card.innerHTML = `
+          <div class="flex justify-between items-start mb-2">
+            <div>
+              <div class="font-semibold text-white">${g.name}</div>
+              <div class="text-xs text-gray-500">Started ${g.start} · ${g.schedule.replace(/-/g,' ')}</div>
+            </div>
+            <button class="del bg-gray-800 hover:bg-red-700 text-gray-400 hover:text-white text-xs px-2 py-1 rounded" data-i="${i}">×</button>
+          </div>
+          <div class="bar-bg rounded-full h-3 overflow-hidden mb-2">
+            <div class="bar-fg h-full" style="width:${(frac*100).toFixed(1)}%"></div>
+          </div>
+          <div class="flex justify-between text-xs text-gray-400">
+            <span>Vested ${(frac*100).toFixed(1)}% · ${fmt(g.value*frac)}</span>
+            <span>${daysToNext != null ? `Next vest in ${daysToNext}d` : 'Fully vested'}</span>
+          </div>
+          <div class="text-xs text-gray-500 mt-1">Total grant: ${fmt(g.value)}</div>`;
+        list.appendChild(card);
+      });
+      list.querySelectorAll('.del').forEach(b => b.onclick = () => {
+        const g = load(); g.splice(+b.dataset.i, 1); save(g); render();
+      });
+    }
+
+    document.getElementById('add').onclick = () => {
+      const name = document.getElementById('g-name').value.trim();
+      const value = +document.getElementById('g-value').value || 0;
+      const start = document.getElementById('g-start').value;
+      const schedule = document.getElementById('g-schedule').value;
+      if (!name || !value || !start) { alert('Name, value, start date required.'); return; }
+      const grants = load();
+      grants.push({ name, value, start, schedule });
+      save(grants);
+      ['g-name','g-value','g-start'].forEach(i => document.getElementById(i).value = '');
+      render();
+    };
+    document.getElementById('g-start').valueAsDate = new Date();
+    render();
+  </script>
+</body>
+</html>
