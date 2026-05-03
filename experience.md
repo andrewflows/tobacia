@@ -125,8 +125,37 @@ title: "Experience"
 ## Education / Educación
 
 - **Texas A&M University** – B.S. Industrial & Systems Engineering (2003 – 2008)  
-- **Harvard Business School Online** – Entrepreneurship Essentials & Negotiation Mastery (2019)  
 - **International Baccalaureate Diploma** – John Tyler HS, Tyler, TX (1991 – 2003)
+
+---
+
+## Licenses & Certifications / Licencias y Certificaciones
+
+<div class="space-y-4 mt-4">
+
+  <div class="border-l-4 border-orange-400 pl-4 py-1">
+    <p class="font-bold text-gray-100">AI Agent Systems Development (Claude API & MCP)</p>
+    <p class="text-sm text-gray-400">Anthropic · Issued Mar 2026</p>
+    <p class="text-xs text-gray-500">Credential ID: 4tf5x4bty43t</p>
+    <p class="text-xs text-gray-500">Skills: Coding Experience</p>
+  </div>
+
+  <div class="border-l-4 border-red-400 pl-4 py-1">
+    <p class="font-bold text-gray-100">Supply Chain Management: AI &amp; Digital Transformation</p>
+    <p class="text-sm text-gray-400">Massachusetts Institute of Technology · Issued Nov 2025</p>
+  </div>
+
+  <div class="border-l-4 border-yellow-400 pl-4 py-1">
+    <p class="font-bold text-gray-100">Negotiation Mastery</p>
+    <p class="text-sm text-gray-400">Harvard Business School Online · Issued Jan 2020</p>
+  </div>
+
+  <div class="border-l-4 border-yellow-400 pl-4 py-1">
+    <p class="font-bold text-gray-100">Entrepreneurship Essentials</p>
+    <p class="text-sm text-gray-400">Harvard Business School Online · Issued May 2019</p>
+  </div>
+
+</div>
 
 ---
 
