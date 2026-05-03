@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interview Brief — Walk in knowing more than they expect</title>
+  <meta name="description" content="Paste the interviewer's profile + role context. Get 10 likely questions, 10 you should ask, their backstory, and warm-thread suggestions.">
+  <meta name="theme-color" content="#0a1628">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Interview Brief">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style> body { background:#0a1628; color:#e5e7eb; font-family:'Segoe UI', -apple-system, sans-serif; } </style>
+</head>
+<body class="min-h-screen">
+  <nav class="border-b border-gray-800 px-6 py-3 flex items-center justify-between">
+    <a href="/appstore.html" class="text-sm text-gray-400 hover:text-white transition">&larr; tobacia.space</a>
+    <span class="text-sm font-semibold text-blue-400">Interview Brief</span>
+  </nav>
+
+  <main class="max-w-3xl mx-auto px-4 py-8">
+    <header class="text-center mb-6">
+      <h1 class="text-3xl sm:text-4xl font-bold text-white mb-2">Interview Brief 🎯</h1>
+      <p class="text-blue-300 text-sm sm:text-base font-semibold">Walk in knowing more than they expect.</p>
+      <p class="text-gray-400 text-xs sm:text-sm mt-2">Paste your interviewer's LinkedIn URL or profile + the role context. Get a panel-ready brief: 10 likely questions, 10 to ask back, their backstory, warm threads.</p>
+    </header>
+
+    <div class="bg-gray-900 border border-gray-800 rounded-lg p-5 mb-5">
+      <label class="block text-xs text-gray-400 mb-3">Interviewer LinkedIn URL or pasted profile (paste full bio if URL won't work)
+        <textarea id="profile" rows="6" placeholder="https://linkedin.com/in/janedoe&#10;OR&#10;Jane Doe — VP Engineering at Acme Robotics. Previously Engineering Manager at SpaceX (2018-2022) and Software Engineer at Tesla (2014-2018). Stanford MS, Berkeley BS." class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none font-mono"></textarea>
+      </label>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+        <label class="block text-xs text-gray-400">Role you're interviewing for
+          <input id="role" type="text" placeholder="Senior Technical Program Manager" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none">
+        </label>
+        <label class="block text-xs text-gray-400">Company
+          <input id="company" type="text" placeholder="Acme Robotics" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none">
+        </label>
+      </div>
+
+      <label class="block text-xs text-gray-400 mb-3">Round (optional — informs question depth)
+        <select id="round" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none">
+          <option value="screening">1 — Recruiter Screening</option>
+          <option value="hiring-manager">2 — Hiring Manager</option>
+          <option value="panel">3 — Panel / Cross-functional</option>
+          <option value="exec">4 — Exec / Final</option>
+          <option value="bar-raiser">Bar-Raiser / Skip-Level</option>
+        </select>
+      </label>
+
+      <label class="block text-xs text-gray-400 mb-3">Your background (1-2 lines that set context)
+        <textarea id="bg" rows="2" placeholder="Supply chain operator with 17yr in aerospace + industrial. Built 3 live AI tools. Currently at Blue Origin." class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none"></textarea>
+      </label>
+
+      <div class="flex gap-2">
+        <button id="generate" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-5 rounded text-sm">Build brief ↗</button>
+        <button id="clear" class="bg-gray-800 hover:bg-gray-700 text-gray-300 font-semibold py-2 px-4 rounded text-sm">Clear</button>
+        <span id="status" class="text-xs text-gray-500 self-center"></span>
+      </div>
+    </div>
+
+    <div id="output-wrap" class="hidden space-y-4">
+      <div class="bg-gray-900 border border-gray-800 rounded-lg p-5">
+        <h2 class="text-sm font-semibold text-blue-300 uppercase tracking-widest mb-2">Their Backstory</h2>
+        <pre id="backstory" class="bg-gray-950 border border-gray-800 rounded p-4 text-xs text-gray-200 whitespace-pre-wrap font-mono"></pre>
+      </div>
+      <div class="bg-gray-900 border border-gray-800 rounded-lg p-5">
+        <h2 class="text-sm font-semibold text-blue-300 uppercase tracking-widest mb-2">10 Questions You'll Likely Get</h2>
+        <pre id="questions" class="bg-gray-950 border border-gray-800 rounded p-4 text-xs text-gray-200 whitespace-pre-wrap font-mono"></pre>
+        <button id="copy-questions" class="mt-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-1.5 px-4 rounded text-xs">Copy</button>
+      </div>
+      <div class="bg-gray-900 border border-gray-800 rounded-lg p-5">
+        <h2 class="text-sm font-semibold text-blue-300 uppercase tracking-widest mb-2">10 Questions to Ask Them</h2>
+        <pre id="ask" class="bg-gray-950 border border-gray-800 rounded p-4 text-xs text-gray-200 whitespace-pre-wrap font-mono"></pre>
+        <button id="copy-ask" class="mt-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-1.5 px-4 rounded text-xs">Copy</button>
+      </div>
+      <div class="bg-gray-900 border border-green-800 rounded-lg p-5">
+        <h2 class="text-sm font-semibold text-green-300 uppercase tracking-widest mb-2">Warm Threads — How to Build Rapport</h2>
+        <pre id="warm" class="bg-gray-950 border border-gray-800 rounded p-4 text-xs text-gray-200 whitespace-pre-wrap font-mono"></pre>
+      </div>
+    </div>
+
+    <footer class="text-center text-xs text-gray-500 mt-8 pb-6">
+      <p>A <a href="/appstore.html" class="text-blue-400 hover:underline">tobacia.space</a> tool · 🎯 Interview Brief v1 · BYO API key</p>
+    </footer>
+  </main>
+
+  <script src="/apps/api-client.js"></script>
+  <script>
+    const SYSTEM = `You build pre-interview briefs that help candidates walk in genuinely prepared. Output strict JSON only.
+
+PHILOSOPHY:
+- The best preparation is specific to the person across the table, not the company.
+- Questions to ASK should reveal what the candidate actually wants to know — culture, decision-making, who they really are — not performative "what's your tech stack" filler.
+- Questions you'll GET should reflect the round + the interviewer's likely focus given their background.
+
+OUTPUT (strict JSON):
+{
+  "backstory": "3-4 sentence narrative of who the interviewer is, where they've been, what they likely care about given their trajectory. Read between the lines of their bio.",
+  "questions": "Numbered 1-10. Questions THEY will likely ask. Match round + interviewer focus. Each ~1-2 sentences.",
+  "ask": "Numbered 1-10. Questions YOU should ask THEM. Specific, revealing, not generic. Each ~1-2 sentences.",
+  "warm": "3-5 specific rapport openings. Shared schools/companies/cities/interests. Not 'I see you went to X' — actual openings: 'You overlapped with [name] at [place] — did you work on [project]?'"
+}`;
+
+    document.getElementById('generate').onclick = async () => {
+      const profile = document.getElementById('profile').value.trim();
+      const role = document.getElementById('role').value.trim();
+      const company = document.getElementById('company').value.trim();
+      const round = document.getElementById('round').value;
+      const bg = document.getElementById('bg').value.trim();
+      if (!profile || !role || !company) { alert('Fill in profile, role, company.'); return; }
+
+      const status = document.getElementById('status');
+      status.textContent = 'Building brief... (Sonnet 4.6, ~15s)';
+
+      try {
+        const result = await TobaciaAPI.call({
+          system: SYSTEM,
+          prompt: `INTERVIEWER PROFILE:\n${profile}\n\nROLE: ${role} at ${company}\nROUND: ${round}\nMY BACKGROUND: ${bg || '(not provided)'}\n\nBuild the brief. Output strict JSON.`,
+          maxTokens: 3500,
+        });
+        const m = result.text.match(/\{[\s\S]*\}/);
+        if (!m) throw new Error('No JSON found.');
+        const data = JSON.parse(m[0]);
+        document.getElementById('backstory').textContent = data.backstory;
+        document.getElementById('questions').textContent = data.questions;
+        document.getElementById('ask').textContent = data.ask;
+        document.getElementById('warm').textContent = data.warm;
+        document.getElementById('output-wrap').classList.remove('hidden');
+        status.textContent = `✓ ${result.usage?.input_tokens || 0} in / ${result.usage?.output_tokens || 0} out`;
+      } catch (e) {
+        status.textContent = '';
+        alert('Error: ' + e.message);
+      }
+    };
+
+    document.getElementById('clear').onclick = () => {
+      ['profile','role','company','bg'].forEach(i => document.getElementById(i).value = '');
+      document.getElementById('output-wrap').classList.add('hidden');
+      document.getElementById('status').textContent = '';
+    };
+    document.getElementById('copy-questions').onclick = (e) => TobaciaAPI.copyToClipboard(document.getElementById('questions').textContent, e.target);
+    document.getElementById('copy-ask').onclick = (e) => TobaciaAPI.copyToClipboard(document.getElementById('ask').textContent, e.target);
+  </script>
+</body>
+</html>

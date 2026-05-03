@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Equity Calculator — Should you take that offer?</title>
+  <meta name="description" content="Compare a startup offer against your current package. 4y and 10y projections, break-even math, walk-away verdict — all in your browser, nothing stored on a server.">
+  <meta name="theme-color" content="#0a1628">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Equity Calc">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style> body { background:#0a1628; color:#e5e7eb; font-family:'Segoe UI', -apple-system, sans-serif; } </style>
+</head>
+<body class="min-h-screen">
+  <nav class="border-b border-gray-800 px-6 py-3 flex items-center justify-between">
+    <a href="/appstore.html" class="text-sm text-gray-400 hover:text-white transition">&larr; tobacia.space</a>
+    <span class="text-sm font-semibold text-blue-400">Equity Calculator</span>
+  </nav>
+
+  <main class="max-w-5xl mx-auto px-4 py-8">
+    <header class="text-center mb-6">
+      <h1 class="text-3xl sm:text-4xl font-bold text-white mb-2">Equity Calculator 💎</h1>
+      <p class="text-blue-300 text-sm sm:text-base font-semibold">Should you take that offer?</p>
+      <p class="text-gray-400 text-xs sm:text-sm mt-2">Compare a new offer against your current comp. 4y and 10y projections, break-even math, walk-away verdict. All math runs in your browser; no data leaves this device.</p>
+    </header>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-6">
+      <!-- Current package -->
+      <div class="bg-gray-900 border border-gray-800 rounded-lg p-5">
+        <h2 class="text-sm font-semibold text-gray-300 uppercase tracking-widest mb-3">Current Package</h2>
+        <div class="space-y-3">
+          <label class="block text-xs text-gray-400">Base salary ($/year)
+            <input id="cur-base" type="number" placeholder="180000" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none">
+          </label>
+          <label class="block text-xs text-gray-400">Annual equity refresh ($, target value)
+            <input id="cur-equity" type="number" placeholder="60000" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none">
+          </label>
+          <label class="block text-xs text-gray-400">Annual bonus ($)
+            <input id="cur-bonus" type="number" placeholder="20000" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none">
+          </label>
+        </div>
+      </div>
+
+      <!-- New offer -->
+      <div class="bg-gray-900 border border-blue-800 rounded-lg p-5">
+        <h2 class="text-sm font-semibold text-blue-300 uppercase tracking-widest mb-3">New Offer</h2>
+        <div class="space-y-3">
+          <label class="block text-xs text-gray-400">Base salary ($/year)
+            <input id="new-base" type="number" placeholder="200000" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none">
+          </label>
+          <label class="block text-xs text-gray-400">Total equity grant ($, current value)
+            <input id="new-equity" type="number" placeholder="500000" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none">
+          </label>
+          <label class="block text-xs text-gray-400">Vest period (years, typically 4)
+            <input id="new-vest" type="number" value="4" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none">
+          </label>
+          <label class="block text-xs text-gray-400">Signing bonus ($, one-time)
+            <input id="new-signing" type="number" placeholder="50000" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none">
+          </label>
+          <label class="block text-xs text-gray-400">Annual bonus ($)
+            <input id="new-bonus" type="number" placeholder="0" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none">
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Equity assumptions -->
+    <div class="bg-gray-900 border border-gray-800 rounded-lg p-5 mb-6">
+      <h2 class="text-sm font-semibold text-gray-300 uppercase tracking-widest mb-3">Startup Equity Assumption</h2>
+      <p class="text-xs text-gray-500 mb-3">Pick a multiplier for what the equity might be worth at exit. Illustrative — startup outcomes are bimodal.</p>
+      <div class="grid grid-cols-3 sm:grid-cols-5 gap-2">
+        <button class="multiplier-btn bg-red-900 hover:bg-red-800 text-white text-xs py-2 rounded" data-mult="0">0× (zero)</button>
+        <button class="multiplier-btn bg-gray-800 hover:bg-gray-700 text-gray-300 text-xs py-2 rounded" data-mult="1">1× (flat)</button>
+        <button class="multiplier-btn bg-blue-700 hover:bg-blue-600 text-white text-xs py-2 rounded" data-mult="3">3× (modest)</button>
+        <button class="multiplier-btn bg-green-700 hover:bg-green-600 text-white text-xs py-2 rounded" data-mult="10">10× (good exit)</button>
+        <button class="multiplier-btn bg-purple-700 hover:bg-purple-600 text-white text-xs py-2 rounded" data-mult="50">50× (rocket)</button>
+      </div>
+      <p id="mult-label" class="text-xs text-blue-300 mt-2">Selected: 3× modest exit</p>
+    </div>
+
+    <!-- Results -->
+    <div id="results" class="bg-gray-900 border border-blue-800 rounded-lg p-6">
+      <h2 class="text-lg font-bold text-white mb-4">Results</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-5">
+        <div class="bg-gray-950 border border-gray-800 rounded p-4 text-center">
+          <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">4y Total — Current</div>
+          <div id="cur-4y" class="text-xl font-bold text-gray-300">$0</div>
+        </div>
+        <div class="bg-gray-950 border border-gray-800 rounded p-4 text-center">
+          <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">4y Total — New Offer</div>
+          <div id="new-4y" class="text-xl font-bold text-blue-300">$0</div>
+        </div>
+        <div class="bg-gray-950 border border-gray-800 rounded p-4 text-center">
+          <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">4y Delta</div>
+          <div id="delta-4y" class="text-xl font-bold text-green-400">$0</div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-5">
+        <div class="bg-gray-950 border border-gray-800 rounded p-4">
+          <div class="text-xs text-gray-500 uppercase mb-2">New offer breakdown (4y)</div>
+          <div class="text-xs space-y-1">
+            <div>Base: <span id="bd-base" class="text-gray-300 float-right">$0</span></div>
+            <div>Equity (at multiplier): <span id="bd-equity" class="text-gray-300 float-right">$0</span></div>
+            <div>Bonuses: <span id="bd-bonus" class="text-gray-300 float-right">$0</span></div>
+            <div>Signing: <span id="bd-signing" class="text-gray-300 float-right">$0</span></div>
+          </div>
+        </div>
+        <div class="bg-gray-950 border border-gray-800 rounded p-4">
+          <div class="text-xs text-gray-500 uppercase mb-2">Cash-flow comparison</div>
+          <div class="text-xs space-y-1">
+            <div>Year 1 cash gap: <span id="y1-gap" class="text-gray-300 float-right">$0</span></div>
+            <div>Equity needed to break even: <span id="be-equity" class="text-gray-300 float-right">$0</span></div>
+            <div>Break-even multiplier: <span id="be-mult" class="text-gray-300 float-right">—</span></div>
+          </div>
+        </div>
+        <div class="bg-gray-950 border border-gray-800 rounded p-4">
+          <div class="text-xs text-gray-500 uppercase mb-2">10y projection (steady-state)</div>
+          <div class="text-xs space-y-1">
+            <div>Current 10y: <span id="cur-10y" class="text-gray-300 float-right">$0</span></div>
+            <div>New 10y (steady state): <span id="new-10y" class="text-gray-300 float-right">$0</span></div>
+            <div>10y delta: <span id="delta-10y" class="text-gray-300 float-right">$0</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Verdict -->
+      <div id="verdict" class="bg-gray-950 border-l-4 rounded p-4">
+        <div class="flex items-center gap-3">
+          <div id="verdict-icon" class="text-3xl">⚖️</div>
+          <div>
+            <div id="verdict-text" class="font-bold text-lg">Enter your numbers above</div>
+            <div id="verdict-detail" class="text-xs text-gray-400 mt-1">Verdict updates as you fill in fields.</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-xs text-gray-500 mt-4 italic">⚠️ Illustrative only. Doesn't include taxes, dilution, vesting cliffs, or 409A. For real decisions, consult a comp/finance advisor.</p>
+    </div>
+
+    <footer class="text-center text-xs text-gray-500 mt-8 pb-6">
+      <p>A <a href="/appstore.html" class="text-blue-400 hover:underline">tobacia.space</a> tool · 💎 Equity Calculator v1 · No tracking, no servers</p>
+    </footer>
+  </main>
+
+  <script>
+    const fmt = (n) => '$' + Math.round(n).toLocaleString();
+    let multiplier = 3;
+
+    document.querySelectorAll('.multiplier-btn').forEach(b => {
+      b.onclick = () => {
+        multiplier = +b.dataset.mult;
+        const label = b.textContent;
+        document.getElementById('mult-label').textContent = `Selected: ${label}`;
+        document.querySelectorAll('.multiplier-btn').forEach(x => x.classList.toggle('ring-2', x === b));
+        compute();
+      };
+    });
+
+    document.querySelectorAll('input[type=number]').forEach(i => i.oninput = compute);
+
+    function val(id) { return +document.getElementById(id).value || 0; }
+
+    function compute() {
+      const curBase = val('cur-base'), curEquity = val('cur-equity'), curBonus = val('cur-bonus');
+      const newBase = val('new-base'), newEquity = val('new-equity'), newVest = val('new-vest') || 4;
+      const newSigning = val('new-signing'), newBonus = val('new-bonus');
+
+      // 4y totals
+      const cur4y = (curBase + curEquity + curBonus) * 4;
+      const newEquity4y = newEquity * multiplier; // grant value at chosen multiplier
+      const new4y = newBase * 4 + newEquity4y + newSigning + newBonus * 4;
+
+      const delta4y = new4y - cur4y;
+      document.getElementById('cur-4y').textContent = fmt(cur4y);
+      document.getElementById('new-4y').textContent = fmt(new4y);
+      document.getElementById('delta-4y').textContent = (delta4y >= 0 ? '+' : '−') + '$' + Math.abs(Math.round(delta4y)).toLocaleString();
+      document.getElementById('delta-4y').className = 'text-xl font-bold ' + (delta4y >= 0 ? 'text-green-400' : 'text-red-400');
+
+      // breakdown
+      document.getElementById('bd-base').textContent = fmt(newBase * 4);
+      document.getElementById('bd-equity').textContent = fmt(newEquity4y);
+      document.getElementById('bd-bonus').textContent = fmt(newBonus * 4);
+      document.getElementById('bd-signing').textContent = fmt(newSigning);
+
+      // year 1 cash gap (just base + signing — what hits your bank account)
+      const y1New = newBase + newSigning + newBonus;
+      const y1Cur = curBase + curBonus;
+      const y1gap = y1New - y1Cur;
+      document.getElementById('y1-gap').textContent = (y1gap >= 0 ? '+' : '−') + '$' + Math.abs(Math.round(y1gap)).toLocaleString();
+      document.getElementById('y1-gap').className = (y1gap >= 0 ? 'text-green-400' : 'text-red-400') + ' float-right';
+
+      // break-even — what equity outcome makes new offer match current's 4y total
+      const newCash4y = newBase * 4 + newSigning + newBonus * 4;
+      const beEquityValue = cur4y - newCash4y;
+      document.getElementById('be-equity').textContent = fmt(Math.max(0, beEquityValue));
+      const beMult = newEquity > 0 ? (beEquityValue / newEquity).toFixed(2) + '×' : '—';
+      document.getElementById('be-mult').textContent = beMult;
+
+      // 10y steady-state
+      const cur10y = (curBase + curEquity + curBonus) * 10;
+      // assume vest period equity continues at half rate after vest (steady-state refresh)
+      const refreshAnnual = newEquity / newVest * 0.5;
+      const new10y = newBase * 10 + (newEquity * multiplier) + refreshAnnual * (10 - newVest) * multiplier + newSigning + newBonus * 10;
+      const delta10y = new10y - cur10y;
+      document.getElementById('cur-10y').textContent = fmt(cur10y);
+      document.getElementById('new-10y').textContent = fmt(new10y);
+      document.getElementById('delta-10y').textContent = (delta10y >= 0 ? '+' : '−') + '$' + Math.abs(Math.round(delta10y)).toLocaleString();
+      document.getElementById('delta-10y').className = (delta10y >= 0 ? 'text-green-400' : 'text-red-400') + ' float-right';
+
+      // verdict
+      let icon, text, detail, color;
+      if (curBase === 0 && newBase === 0) {
+        icon = '⚖️'; text = 'Enter your numbers above'; detail = 'Verdict updates as you fill in fields.'; color = 'border-gray-700';
+      } else if (delta4y > 100000 && y1gap > -20000) {
+        icon = '✅'; text = 'Strong case to take it';
+        detail = `4y delta of ${fmt(delta4y)} with cash-flow gap of only ${fmt(Math.abs(y1gap))}. Equity adds ${fmt(newEquity4y)} at ${multiplier}× multiplier.`;
+        color = 'border-green-500';
+      } else if (delta4y > 0 && y1gap > -50000) {
+        icon = '👍'; text = 'Meaningful upside, manageable cash gap';
+        detail = `+${fmt(delta4y)} over 4y vs. current. Year-1 cash ${y1gap >= 0 ? 'up' : 'down'} ${fmt(Math.abs(y1gap))}. Break-even at ${beMult} multiplier — judge realism.`;
+        color = 'border-blue-500';
+      } else if (delta4y > -50000) {
+        icon = '🤔'; text = 'Roughly equivalent — non-financial factors decide';
+        detail = `4y delta is ${fmt(delta4y)}. Money is close enough that role fit, mission, learning, and equity upside matter more than the math.`;
+        color = 'border-yellow-500';
+      } else {
+        icon = '⚠️'; text = 'Walk away unless equity multiplier feels real';
+        detail = `Current package is ${fmt(Math.abs(delta4y))} ahead at this multiplier. You need ${beMult} or better just to break even. Be honest about the realism of that outcome.`;
+        color = 'border-red-500';
+      }
+      const verdict = document.getElementById('verdict');
+      verdict.className = `bg-gray-950 border-l-4 rounded p-4 ${color}`;
+      document.getElementById('verdict-icon').textContent = icon;
+      document.getElementById('verdict-text').textContent = text;
+      document.getElementById('verdict-detail').textContent = detail;
+    }
+
+    compute();
+  </script>
+</body>
+</html>

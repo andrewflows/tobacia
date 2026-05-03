@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bitcoin Tax Reconciler — Cost basis math you can defend</title>
+  <meta name="description" content="Upload your Coinbase or CoinTracker CSV. Get FIFO/LIFO/HIFO comparison, missing-acquisition flags, and an estimated tax delta vs the naive report.">
+  <meta name="theme-color" content="#0a1628">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="BTC Tax">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style> body { background:#0a1628; color:#e5e7eb; font-family:'Segoe UI', -apple-system, sans-serif; } </style>
+</head>
+<body class="min-h-screen">
+  <nav class="border-b border-gray-800 px-6 py-3 flex items-center justify-between">
+    <a href="/appstore.html" class="text-sm text-gray-400 hover:text-white transition">&larr; tobacia.space</a>
+    <span class="text-sm font-semibold text-blue-400">Bitcoin Tax Reconciler</span>
+  </nav>
+
+  <main class="max-w-4xl mx-auto px-4 py-8">
+    <header class="text-center mb-6">
+      <h1 class="text-3xl sm:text-4xl font-bold text-white mb-2">Bitcoin Tax Reconciler ₿</h1>
+      <p class="text-blue-300 text-sm sm:text-base font-semibold">Cost basis math you can defend.</p>
+      <p class="text-gray-400 text-xs sm:text-sm mt-2 max-w-2xl mx-auto">Upload your Coinbase / CoinTracker CSV. Compare FIFO, LIFO, and HIFO outcomes. Flag transactions with missing acquisition data. See an estimated tax delta vs the naive report. <strong class="text-yellow-400">Not tax advice.</strong> Your CSV stays in this browser.</p>
+    </header>
+
+    <div class="bg-gray-900 border border-gray-800 rounded-lg p-5 mb-5">
+      <h2 class="text-sm font-semibold text-gray-300 uppercase tracking-widest mb-3">Step 1 · Upload CSV</h2>
+      <input id="file" type="file" accept=".csv,text/csv" class="block w-full text-sm text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-blue-600 file:text-white hover:file:bg-blue-500">
+      <p class="text-xs text-gray-500 mt-2">Expected columns (case-insensitive): <code>Date</code>, <code>Type</code> (Buy/Sell/Receive/Send), <code>Asset</code> (or Currency), <code>Amount</code> (or Quantity), <code>Cost basis</code> (or Subtotal/Total), <code>Proceeds</code> (or USD Amount).</p>
+
+      <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <label class="block text-xs text-gray-400">Filing year
+          <input id="year" type="number" value="2025" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none">
+        </label>
+        <label class="block text-xs text-gray-400">Long-term capital gains rate (%)
+          <input id="ltcg" type="number" value="15" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none">
+        </label>
+        <label class="block text-xs text-gray-400">Short-term capital gains rate (%)
+          <input id="stcg" type="number" value="32" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none">
+        </label>
+        <label class="block text-xs text-gray-400">Naive report says I owe ($)
+          <input id="naive" type="number" placeholder="(optional, for delta)" class="w-full mt-1 bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none">
+        </label>
+      </div>
+
+      <button id="analyze" class="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-5 rounded text-sm" disabled>Analyze CSV ↗</button>
+      <span id="status" class="text-xs text-gray-500 ml-3"></span>
+    </div>
+
+    <div id="parsed-wrap" class="hidden bg-gray-900 border border-gray-800 rounded-lg p-5 mb-5">
+      <h2 class="text-sm font-semibold text-gray-300 uppercase tracking-widest mb-3">Step 2 · Parsed Summary</h2>
+      <div id="parsed" class="text-xs text-gray-300 space-y-2"></div>
+    </div>
+
+    <div id="results-wrap" class="hidden space-y-4">
+      <div class="bg-gray-900 border border-gray-800 rounded-lg p-5">
+        <h2 class="text-sm font-semibold text-blue-300 uppercase tracking-widest mb-3">Cost Basis Method Comparison (selected year)</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div class="bg-gray-950 border border-gray-800 rounded p-4">
+            <div class="text-xs text-gray-500 uppercase mb-1">FIFO (default IRS)</div>
+            <div id="r-fifo" class="text-lg font-bold text-gray-200">$0</div>
+          </div>
+          <div class="bg-gray-950 border border-gray-800 rounded p-4">
+            <div class="text-xs text-gray-500 uppercase mb-1">LIFO</div>
+            <div id="r-lifo" class="text-lg font-bold text-gray-200">$0</div>
+          </div>
+          <div class="bg-gray-950 border border-gray-800 rounded p-4">
+            <div class="text-xs text-gray-500 uppercase mb-1">HIFO (highest-in-first-out)</div>
+            <div id="r-hifo" class="text-lg font-bold text-green-400">$0</div>
+          </div>
+        </div>
+        <p class="text-xs text-gray-500 mt-3">HIFO typically minimizes tax on appreciated assets. IRS allows specific identification (which HIFO uses) if you maintain consistent documentation.</p>
+      </div>
+
+      <div id="flags-wrap" class="hidden bg-gray-900 border border-yellow-800 rounded-lg p-5">
+        <h2 class="text-sm font-semibold text-yellow-300 uppercase tracking-widest mb-3">⚠️ Flags — Missing Acquisition Data</h2>
+        <div id="flags" class="text-xs text-gray-300 space-y-2"></div>
+      </div>
+
+      <div id="ai-wrap" class="hidden bg-gray-900 border border-gray-800 rounded-lg p-5">
+        <h2 class="text-sm font-semibold text-blue-300 uppercase tracking-widest mb-3">AI Narrative Summary</h2>
+        <pre id="ai-summary" class="bg-gray-950 border border-gray-800 rounded p-4 text-xs text-gray-200 whitespace-pre-wrap font-mono"></pre>
+        <button id="copy-summary" class="mt-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-1.5 px-4 rounded text-xs">Copy</button>
+      </div>
+
+      <button id="ai-btn" class="hidden bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-5 rounded text-sm">Generate AI narrative summary (uses your API key) ↗</button>
+    </div>
+
+    <footer class="text-center text-xs text-gray-500 mt-8 pb-6">
+      <p>⚠️ Not tax advice. Always confirm with a CPA before filing.</p>
+      <p class="mt-1">A <a href="/appstore.html" class="text-blue-400 hover:underline">tobacia.space</a> tool · ₿ BTC Tax Reconciler v1 · CSV stays in your browser</p>
+    </footer>
+  </main>
+
+  <script src="/apps/api-client.js"></script>
+  <script>
+    let TXNS = [];
+
+    document.getElementById('file').onchange = async (e) => {
+      const f = e.target.files[0]; if (!f) return;
+      document.getElementById('status').textContent = 'Reading...';
+      const text = await f.text();
+      TXNS = parseCsv(text);
+      document.getElementById('status').textContent = `Parsed ${TXNS.length} rows.`;
+      document.getElementById('analyze').disabled = TXNS.length === 0;
+    };
+
+    function parseCsv(text) {
+      const lines = text.split(/\r?\n/).filter(l => l.trim());
+      if (!lines.length) return [];
+      const headers = lines[0].split(',').map(h => h.trim().toLowerCase().replace(/"/g, ''));
+      const idx = (names) => names.map(n => headers.findIndex(h => h.includes(n))).find(i => i >= 0);
+      const dateI = idx(['date','timestamp']);
+      const typeI = idx(['type','transaction']);
+      const assetI = idx(['asset','currency','symbol']);
+      const amtI = idx(['amount','quantity']);
+      const basisI = idx(['cost basis','subtotal','total']);
+      const procI = idx(['proceeds','usd amount','usd value','price']);
+
+      return lines.slice(1).map(l => {
+        const cells = l.match(/("[^"]*"|[^,]+)/g) || [];
+        const get = (i) => i != null && cells[i] ? cells[i].replace(/"/g,'').trim() : '';
+        return {
+          date: new Date(get(dateI)),
+          type: (get(typeI) || '').toUpperCase(),
+          asset: (get(assetI) || '').toUpperCase(),
+          amount: parseFloat(get(amtI)) || 0,
+          basis: parseFloat(get(basisI)) || 0,
+          proceeds: parseFloat(get(procI)) || 0,
+        };
+      }).filter(t => t.amount && (t.asset === 'BTC' || t.asset === 'BITCOIN' || !t.asset));
+    }
+
+    document.getElementById('analyze').onclick = () => {
+      const year = +document.getElementById('year').value;
+      const ltcg = +document.getElementById('ltcg').value / 100;
+      const stcg = +document.getElementById('stcg').value / 100;
+
+      const buys  = TXNS.filter(t => t.type.includes('BUY') || t.type.includes('RECEIVE')).sort((a,b) => a.date - b.date);
+      const sells = TXNS.filter(t => t.type.includes('SELL') || t.type.includes('SEND')).filter(t => t.date.getFullYear() === year).sort((a,b) => a.date - b.date);
+
+      const summary = `<div><strong class="text-blue-300">${TXNS.length}</strong> total transactions parsed.</div>
+        <div><strong class="text-blue-300">${buys.length}</strong> buys / receives across all time.</div>
+        <div><strong class="text-blue-300">${sells.length}</strong> sells / sends in ${year}.</div>`;
+      document.getElementById('parsed').innerHTML = summary;
+      document.getElementById('parsed-wrap').classList.remove('hidden');
+
+      // Method comparison
+      const fifoTax = computeTax(buys, sells, 'fifo', ltcg, stcg);
+      const lifoTax = computeTax(buys, sells, 'lifo', ltcg, stcg);
+      const hifoTax = computeTax(buys, sells, 'hifo', ltcg, stcg);
+
+      document.getElementById('r-fifo').textContent = '$' + Math.round(fifoTax).toLocaleString();
+      document.getElementById('r-lifo').textContent = '$' + Math.round(lifoTax).toLocaleString();
+      document.getElementById('r-hifo').textContent = '$' + Math.round(hifoTax).toLocaleString();
+
+      // Flag missing data
+      const flags = sells.filter(s => !s.basis && !s.proceeds);
+      const flagDiv = document.getElementById('flags');
+      const flagsWrap = document.getElementById('flags-wrap');
+      if (flags.length) {
+        flagDiv.innerHTML = `<div><strong class="text-yellow-400">${flags.length} sells</strong> have no cost basis or proceeds — likely originated from external transfers (e.g., self-custody → exchange). These need manual cost-basis reconstruction from the original purchase records.</div>` +
+          flags.slice(0, 5).map(f => `<div class="text-gray-500">• ${f.date.toISOString().slice(0,10)} · ${f.amount} ${f.asset || 'BTC'}</div>`).join('') +
+          (flags.length > 5 ? `<div class="text-gray-500 italic">+ ${flags.length - 5} more</div>` : '');
+        flagsWrap.classList.remove('hidden');
+      } else {
+        flagsWrap.classList.add('hidden');
+      }
+
+      document.getElementById('results-wrap').classList.remove('hidden');
+      document.getElementById('ai-btn').classList.remove('hidden');
+
+      // Save for AI narrative
+      window.__results = { year, fifoTax, lifoTax, hifoTax, sells: sells.length, buys: buys.length, flagged: flags.length };
+    };
+
+    function computeTax(buys, sells, method, ltcgRate, stcgRate) {
+      // Simple tax-lot tracker
+      const lots = buys.map(b => ({ date: b.date, amount: b.amount, basis: (b.basis || b.proceeds || 0) / Math.max(b.amount, 1) * b.amount }));
+      let totalGain = 0, totalSTGain = 0, totalLTGain = 0;
+
+      sells.forEach(s => {
+        let remaining = s.amount;
+        // Sort lots by method
+        const sortedIdx = lots
+          .map((l, i) => ({ i, l }))
+          .filter(o => o.l.amount > 0)
+          .sort((a, b) =>
+            method === 'fifo' ? a.l.date - b.l.date :
+            method === 'lifo' ? b.l.date - a.l.date :
+                                 (b.l.basis / b.l.amount) - (a.l.basis / a.l.amount) // hifo: highest cost basis per coin first
+          );
+
+        for (const { i, l } of sortedIdx) {
+          if (remaining <= 0) break;
+          const used = Math.min(l.amount, remaining);
+          const usedBasis = (l.basis / l.amount) * used;
+          const proceedsPerUnit = s.amount > 0 ? (s.proceeds || s.basis) / s.amount : 0;
+          const gain = (proceedsPerUnit * used) - usedBasis;
+          const heldDays = (s.date - l.date) / 86400000;
+          if (heldDays > 365) totalLTGain += gain; else totalSTGain += gain;
+          l.amount -= used;
+          l.basis -= usedBasis;
+          remaining -= used;
+        }
+      });
+      return Math.max(0, totalLTGain) * ltcgRate + Math.max(0, totalSTGain) * stcgRate;
+    }
+
+    document.getElementById('ai-btn').onclick = async () => {
+      const r = window.__results; if (!r) return;
+      const naive = +document.getElementById('naive').value || 0;
+      const status = document.getElementById('status');
+      status.textContent = 'Calling Sonnet 4.6...';
+      try {
+        const result = await TobaciaAPI.call({
+          system: 'You write a tight, plain-language tax-strategy summary for a Bitcoin holder reconciling their cost basis. Be specific about numbers, conservative about claims, and always recommend confirming with a CPA. ~150 words.',
+          prompt: `Tax year: ${r.year}. ${r.sells} sells, ${r.buys} buys, ${r.flagged} sells flagged for missing acquisition data.\n\nEstimated tax under each method:\n- FIFO: $${Math.round(r.fifoTax).toLocaleString()}\n- LIFO: $${Math.round(r.lifoTax).toLocaleString()}\n- HIFO: $${Math.round(r.hifoTax).toLocaleString()}\n${naive ? `\nNaive Coinbase report says: $${naive.toLocaleString()}\nDelta vs HIFO: $${Math.round(naive - r.hifoTax).toLocaleString()}` : ''}\n\nWrite the summary.`,
+          maxTokens: 1000,
+        });
+        document.getElementById('ai-summary').textContent = result.text;
+        document.getElementById('ai-wrap').classList.remove('hidden');
+        status.textContent = `✓ ${result.usage?.input_tokens || 0} in / ${result.usage?.output_tokens || 0} out`;
+      } catch (e) {
+        status.textContent = '';
+        alert('Error: ' + e.message);
+      }
+    };
+
+    document.getElementById('copy-summary').onclick = (e) => TobaciaAPI.copyToClipboard(document.getElementById('ai-summary').textContent, e.target);
+  </script>
+</body>
+</html>
