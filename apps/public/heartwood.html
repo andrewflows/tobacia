@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Heartwood — The quiet routines that hold a home up</title>
-  <meta name="description" content="Track recurring household maintenance — air filters, oil changes, sprinklers, anything that keeps a home running.">
+  <meta name="description" content="Track recurring household maintenance with live countdowns, smart reminders, and native calendar alerts. Air filters, oil changes, sprinklers — every recurring chore tracked locally.">
   <meta name="theme-color" content="#0a1628">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -15,11 +15,14 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body { background:#0a1628; color:#e5e7eb; font-family:'Segoe UI', -apple-system, sans-serif; }
-    .row-overdue { border-left:3px solid #ef4444; background:rgba(239,68,68,0.06); }
-    .row-soon    { border-left:3px solid #eab308; background:rgba(234,179,8,0.05); }
+    .row-overdue { border-left:3px solid #ef4444; background:linear-gradient(90deg,rgba(239,68,68,0.10),rgba(239,68,68,0.02)); }
+    .row-soon    { border-left:3px solid #eab308; background:linear-gradient(90deg,rgba(234,179,8,0.08),rgba(234,179,8,0.02)); }
+    .row-warn    { border-left:3px solid #f97316; background:linear-gradient(90deg,rgba(249,115,22,0.10),rgba(249,115,22,0.02)); }
     .row-ok      { border-left:3px solid #22c55e; }
-    .row-done    { opacity:0.45; }
-    .swipe-area:active { transform:scale(0.98); }
+    .modal-bg    { background:rgba(0,0,0,0.7); backdrop-filter:blur(4px); }
+    .countdown   { font-variant-numeric:tabular-nums; }
+    @keyframes pulse-red { 0%,100% { box-shadow:0 0 0 0 rgba(239,68,68,0.4); } 50% { box-shadow:0 0 0 8px rgba(239,68,68,0); } }
+    .pulse { animation: pulse-red 2s infinite; }
   </style>
 </head>
 <body class="min-h-screen">
@@ -33,22 +36,26 @@
     <header class="text-center mb-6">
       <h1 class="text-3xl sm:text-4xl font-bold text-white mb-1">Heartwood 🌳</h1>
       <p class="text-blue-300 text-sm sm:text-base font-semibold">The quiet routines that hold a home up.</p>
-      <p class="text-gray-400 text-xs sm:text-sm mt-2 max-w-xl mx-auto">Track recurring household maintenance. Everything stored locally on this device — no account, no servers, no tracking.</p>
+      <p class="text-gray-400 text-xs sm:text-sm mt-2 max-w-xl mx-auto">Live countdowns. Smart reminders. Native calendar alerts. Everything stored locally — no account, no servers.</p>
     </header>
 
     <!-- Summary -->
-    <div id="summary" class="grid grid-cols-3 gap-3 mb-6">
+    <div id="summary" class="grid grid-cols-4 gap-2 sm:gap-3 mb-6">
       <div class="bg-gray-900 border border-gray-800 rounded-lg p-3 text-center">
         <div id="count-overdue" class="text-2xl font-bold text-red-400">0</div>
-        <div class="text-xs text-gray-500 uppercase tracking-wider">Overdue</div>
+        <div class="text-[10px] text-gray-500 uppercase tracking-wider">Overdue</div>
+      </div>
+      <div class="bg-gray-900 border border-gray-800 rounded-lg p-3 text-center">
+        <div id="count-warn" class="text-2xl font-bold text-orange-400">0</div>
+        <div class="text-[10px] text-gray-500 uppercase tracking-wider">Almost</div>
       </div>
       <div class="bg-gray-900 border border-gray-800 rounded-lg p-3 text-center">
         <div id="count-soon" class="text-2xl font-bold text-yellow-400">0</div>
-        <div class="text-xs text-gray-500 uppercase tracking-wider">Due Soon</div>
+        <div class="text-[10px] text-gray-500 uppercase tracking-wider">Due Soon</div>
       </div>
       <div class="bg-gray-900 border border-gray-800 rounded-lg p-3 text-center">
         <div id="count-ok" class="text-2xl font-bold text-green-400">0</div>
-        <div class="text-xs text-gray-500 uppercase tracking-wider">All Good</div>
+        <div class="text-[10px] text-gray-500 uppercase tracking-wider">All Good</div>
       </div>
     </div>
 
@@ -74,11 +81,22 @@
           </select>
         </div>
         <input id="t-last" type="date" class="bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 focus:border-blue-500 outline-none">
+        <div class="flex gap-2 sm:col-span-2">
+          <label class="text-xs text-gray-400 self-center whitespace-nowrap">Alert lead:</label>
+          <select id="t-lead" class="bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-2 py-1.5 flex-1">
+            <option value="0">Day-of only</option>
+            <option value="1">1 day before</option>
+            <option value="3" selected>3 days before</option>
+            <option value="7">1 week before</option>
+            <option value="14">2 weeks before</option>
+          </select>
+        </div>
       </div>
       <input id="t-note" type="text" placeholder="Optional note (e.g., '20x25x1 MERV 11')" class="w-full bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2 placeholder-gray-500 focus:border-blue-500 outline-none mb-3">
       <div class="flex gap-2 flex-wrap">
         <button id="add-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded text-sm">Add Routine</button>
         <button id="seed-btn" class="bg-gray-800 hover:bg-gray-700 text-gray-300 font-semibold py-2 px-3 rounded text-xs">Load Starter Kit</button>
+        <button id="export-cal-btn" class="bg-gray-800 hover:bg-gray-700 text-gray-300 font-semibold py-2 px-3 rounded text-xs">📅 Export all to Calendar</button>
         <button id="export-btn" class="bg-gray-800 hover:bg-gray-700 text-gray-300 font-semibold py-2 px-3 rounded text-xs">Export JSON</button>
         <button id="import-btn" class="bg-gray-800 hover:bg-gray-700 text-gray-300 font-semibold py-2 px-3 rounded text-xs">Import JSON</button>
         <input id="import-file" type="file" accept="application/json" class="hidden">
@@ -89,6 +107,7 @@
     <div class="flex gap-2 mb-3 text-xs flex-wrap">
       <button class="filter-btn bg-blue-600 text-white py-1 px-3 rounded" data-filter="all">All</button>
       <button class="filter-btn bg-gray-800 text-gray-300 py-1 px-3 rounded hover:bg-gray-700" data-filter="overdue">Overdue</button>
+      <button class="filter-btn bg-gray-800 text-gray-300 py-1 px-3 rounded hover:bg-gray-700" data-filter="warn">Almost</button>
       <button class="filter-btn bg-gray-800 text-gray-300 py-1 px-3 rounded hover:bg-gray-700" data-filter="soon">Due Soon</button>
       <button class="filter-btn bg-gray-800 text-gray-300 py-1 px-3 rounded hover:bg-gray-700" data-filter="ok">All Good</button>
     </div>
@@ -97,27 +116,73 @@
     <div id="task-list" class="space-y-2"></div>
 
     <!-- Notification opt-in -->
-    <div id="notif-prompt" class="hidden mt-6 bg-gray-900 border border-gray-800 rounded-lg p-4 text-center">
-      <p class="text-sm text-gray-300 mb-2">Get gentle nudges when something's overdue?</p>
-      <button id="notif-enable" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded text-sm">Enable Notifications</button>
+    <div id="notif-prompt" class="hidden mt-6 bg-gray-900 border border-blue-800 rounded-lg p-4">
+      <p class="text-sm text-gray-200 mb-1 font-semibold">📢 Want browser nudges when something goes overdue?</p>
+      <p class="text-xs text-gray-400 mb-3">⚠️ Browser notifications work best on desktop. <strong>For reliable iPhone alerts, use the "📅 Export to Calendar" button on each routine</strong> — that creates native iOS reminders that work even when this page is closed.</p>
+      <button id="notif-enable" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded text-sm">Enable Browser Notifications</button>
     </div>
 
     <footer class="text-center text-xs text-gray-500 mt-10 pb-6">
-      <p>Tap and hold any routine to mark complete · Data lives only on this device</p>
-      <p class="mt-1">A <a href="https://tobacia.space" class="text-blue-400 hover:underline">tobacia.space</a> tool · 🌳 Heartwood v1</p>
+      <p>Live updates every 60s · Data lives only on this device</p>
+      <p class="mt-1">A <a href="https://tobacia.space" class="text-blue-400 hover:underline">tobacia.space</a> tool · 🌳 Heartwood v2</p>
     </footer>
   </main>
 
+  <!-- DONE modal: ask when the next reminder should be -->
+  <div id="done-modal" class="hidden fixed inset-0 modal-bg z-50 flex items-center justify-center p-4">
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-6 max-w-md w-full">
+      <h3 class="text-lg font-bold text-white mb-1" id="dm-title">Mark "X" as done</h3>
+      <p class="text-sm text-gray-400 mb-4" id="dm-subtitle">Done today (<span id="dm-date"></span>). When should I remind you next?</p>
+
+      <div class="grid grid-cols-2 gap-2 mb-3">
+        <button class="dm-quick bg-blue-700 hover:bg-blue-600 text-white text-sm font-semibold py-3 rounded" data-mode="default">
+          <div class="font-bold">Same as usual</div>
+          <div class="text-xs opacity-80" id="dm-default-label">in X months</div>
+        </button>
+        <button class="dm-quick bg-gray-800 hover:bg-gray-700 text-gray-100 text-sm py-3 rounded" data-mode="earlier">Earlier (suggest)</button>
+        <button class="dm-quick bg-gray-800 hover:bg-gray-700 text-gray-100 text-sm py-3 rounded" data-mode="later">Later (suggest)</button>
+        <button class="dm-quick bg-gray-800 hover:bg-gray-700 text-gray-100 text-sm py-3 rounded" data-mode="custom">Custom date</button>
+      </div>
+
+      <div id="dm-suggestions" class="hidden mb-3 grid grid-cols-3 gap-2"></div>
+
+      <div id="dm-custom" class="hidden mb-3">
+        <label class="block text-xs text-gray-400 mb-1">Pick the next reminder date:</label>
+        <input id="dm-date-input" type="date" class="w-full bg-gray-950 border border-gray-700 text-gray-100 text-sm rounded px-3 py-2">
+      </div>
+
+      <div class="flex gap-2 mt-4">
+        <button id="dm-cancel" class="flex-1 bg-gray-800 hover:bg-gray-700 text-gray-300 py-2 rounded text-sm">Cancel</button>
+        <button id="dm-confirm" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded text-sm">Save</button>
+      </div>
+    </div>
+  </div>
+
   <script>
-    // ──────────── Storage ────────────
-    const KEY = 'heartwood_v1';
-    const load = () => JSON.parse(localStorage.getItem(KEY) || '[]');
+    // ──────────── Storage & dates ────────────
+    const KEY = 'heartwood_v2';
+    const KEY_LEGACY = 'heartwood_v1';
+    const DAY_MS = 86400000;
+
+    function load() {
+      let data = JSON.parse(localStorage.getItem(KEY) || 'null');
+      if (data) return data;
+      // Migrate v1 → v2
+      const legacy = JSON.parse(localStorage.getItem(KEY_LEGACY) || '[]');
+      data = legacy.map(r => ({
+        ...r,
+        next: fmtDate(addInterval(parseDate(r.last), +r.interval, r.unit)),
+        alertLeadDays: 3,
+        history: r.history || [],
+      }));
+      save(data);
+      return data;
+    }
     const save = (rows) => localStorage.setItem(KEY, JSON.stringify(rows));
 
-    // ──────────── Date helpers ────────────
-    const DAY_MS = 86400000;
     const today = () => { const d = new Date(); d.setHours(0,0,0,0); return d; };
     const parseDate = (s) => { const d = new Date(s); d.setHours(0,0,0,0); return d; };
+    const fmtDate = (d) => d.toISOString().slice(0,10);
     const addInterval = (date, n, unit) => {
       const d = new Date(date);
       if (unit === 'days')   d.setDate(d.getDate() + n);
@@ -126,20 +191,40 @@
       if (unit === 'years')  d.setFullYear(d.getFullYear() + n);
       return d;
     };
-    const fmtDate = (d) => d.toISOString().slice(0,10);
     const daysBetween = (a, b) => Math.round((b - a) / DAY_MS);
 
-    function nextDue(row) {
-      const last = parseDate(row.last);
-      return addInterval(last, +row.interval, row.unit);
-    }
     function statusOf(row) {
-      const due = nextDue(row);
-      const t = today();
-      const diff = daysBetween(t, due);
-      if (diff < 0) return { state:'overdue', diff };
-      if (diff <= 14) return { state:'soon', diff };
-      return { state:'ok', diff };
+      const now = new Date();
+      const due = new Date(row.next);
+      const ms = due - now;
+      const days = ms / DAY_MS;
+      const lead = +row.alertLeadDays || 3;
+      if (days < 0)             return { state:'overdue', daysExact: days };
+      if (days < 1)             return { state:'warn', daysExact: days };       // within 24h
+      if (days <= lead)         return { state:'soon', daysExact: days };
+      return { state:'ok', daysExact: days };
+    }
+
+    function liveCountdown(row) {
+      const now = new Date();
+      const due = new Date(row.next);
+      due.setHours(9, 0, 0, 0); // assume reminders fire at 9 AM local
+      const ms = due - now;
+      if (ms < 0) {
+        const past = -ms;
+        const d = Math.floor(past / DAY_MS);
+        const h = Math.floor((past % DAY_MS) / 3600000);
+        if (d > 0) return `${d}d ${h}h overdue`;
+        if (h > 0) return `${h}h overdue`;
+        return 'just overdue';
+      }
+      const d = Math.floor(ms / DAY_MS);
+      const h = Math.floor((ms % DAY_MS) / 3600000);
+      const m = Math.floor((ms % 3600000) / 60000);
+      if (d > 1)  return `${d}d ${h}h left`;
+      if (d === 1)return `1d ${h}h left`;
+      if (h > 0)  return `${h}h ${m}m left`;
+      return `${m}m left`;
     }
 
     // ──────────── Rendering ────────────
@@ -147,91 +232,254 @@
 
     function render() {
       const rows = load();
-      const list = document.getElementById('task-list');
 
-      // counts
-      const c = { overdue:0, soon:0, ok:0 };
+      const c = { overdue:0, warn:0, soon:0, ok:0 };
       rows.forEach(r => c[statusOf(r).state]++);
       document.getElementById('count-overdue').textContent = c.overdue;
+      document.getElementById('count-warn').textContent = c.warn;
       document.getElementById('count-soon').textContent = c.soon;
       document.getElementById('count-ok').textContent = c.ok;
 
-      // sort: overdue first by most overdue, then soon by soonest, then ok by soonest
+      const order = { overdue:0, warn:1, soon:2, ok:3 };
       const sorted = [...rows].sort((a, b) => {
         const sa = statusOf(a), sb = statusOf(b);
-        const order = { overdue:0, soon:1, ok:2 };
         if (order[sa.state] !== order[sb.state]) return order[sa.state] - order[sb.state];
-        return sa.diff - sb.diff;
+        return sa.daysExact - sb.daysExact;
       });
-
       const filtered = currentFilter === 'all' ? sorted : sorted.filter(r => statusOf(r).state === currentFilter);
 
+      const list = document.getElementById('task-list');
       list.innerHTML = filtered.length ? '' : '<div class="text-center text-gray-500 text-sm py-8">No routines yet — tap "Load Starter Kit" or "Add Routine" above.</div>';
 
       filtered.forEach(row => {
         const s = statusOf(row);
-        const due = nextDue(row);
-        const dueStr = fmtDate(due);
-        const dayLabel =
-          s.state === 'overdue' ? `${Math.abs(s.diff)} day${Math.abs(s.diff)!==1?'s':''} overdue` :
-          s.diff === 0 ? 'due today' :
-          s.diff === 1 ? 'due tomorrow' :
-          `in ${s.diff} days`;
+        const histStr = (row.history || []).slice(-3).map(h => h.date || h).reverse().join(' · ') || '(first time)';
 
         const card = document.createElement('div');
-        card.className = `swipe-area row-${s.state} bg-gray-900 border border-gray-800 rounded-lg p-3 sm:p-4 flex items-start justify-between gap-3 transition-all`;
+        card.className = `row-${s.state} bg-gray-900 border border-gray-800 rounded-lg p-3 sm:p-4 ${s.state==='overdue' ? 'pulse' : ''}`;
         card.innerHTML = `
-          <div class="flex-1 min-w-0">
-            <div class="flex items-center gap-2 mb-1 flex-wrap">
-              <span class="font-semibold text-sm sm:text-base text-white">${row.name}</span>
-              <span class="text-xs text-gray-500">${row.category}</span>
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-1 flex-wrap">
+                <span class="font-semibold text-sm sm:text-base text-white">${row.name}</span>
+                <span class="text-xs text-gray-500">${row.category}</span>
+              </div>
+              <div class="text-xs ${s.state==='overdue'?'text-red-400':s.state==='warn'?'text-orange-400':s.state==='soon'?'text-yellow-400':'text-gray-400'}">
+                <span class="countdown font-semibold" data-live="${row.id}">${liveCountdown(row)}</span> · next ${row.next}
+              </div>
+              <div class="text-[11px] text-gray-500 mt-1">Every ${row.interval} ${row.unit} · alert ${row.alertLeadDays || 3}d before · last 3: ${histStr}</div>
+              ${row.note ? `<div class="text-xs text-gray-500 mt-1 italic">${row.note}</div>` : ''}
             </div>
-            <div class="text-xs ${s.state==='overdue'?'text-red-400':s.state==='soon'?'text-yellow-400':'text-gray-400'}">
-              Next: <strong>${dueStr}</strong> · ${dayLabel} · every ${row.interval} ${row.unit}
+            <div class="flex flex-col gap-1">
+              <button class="done-btn bg-green-700 hover:bg-green-600 text-white text-xs font-semibold px-3 py-1.5 rounded whitespace-nowrap" data-id="${row.id}">Done ✓</button>
+              ${s.state==='overdue' || s.state==='warn' ? `<button class="snooze-btn bg-yellow-700 hover:bg-yellow-600 text-white text-xs px-3 py-1 rounded" data-id="${row.id}">Snooze</button>` : ''}
+              <button class="cal-btn bg-gray-800 hover:bg-gray-700 text-gray-300 text-xs px-3 py-1 rounded" data-id="${row.id}" title="Add to iPhone Calendar">📅</button>
+              <button class="del-btn bg-gray-800 hover:bg-red-700 text-gray-400 hover:text-white text-xs px-3 py-1 rounded" data-id="${row.id}">×</button>
             </div>
-            ${row.note ? `<div class="text-xs text-gray-500 mt-1 italic">${row.note}</div>` : ''}
           </div>
-          <div class="flex flex-col gap-1">
-            <button class="done-btn bg-green-700 hover:bg-green-600 text-white text-xs font-semibold px-3 py-1.5 rounded" data-id="${row.id}">Done ✓</button>
-            <button class="del-btn bg-gray-800 hover:bg-red-700 text-gray-400 hover:text-white text-xs px-3 py-1 rounded" data-id="${row.id}">Delete</button>
-          </div>`;
+        `;
         list.appendChild(card);
       });
 
-      // wire buttons
-      list.querySelectorAll('.done-btn').forEach(b => b.onclick = () => markDone(b.dataset.id));
+      list.querySelectorAll('.done-btn').forEach(b => b.onclick = () => openDoneModal(b.dataset.id));
+      list.querySelectorAll('.snooze-btn').forEach(b => b.onclick = () => snooze(b.dataset.id));
+      list.querySelectorAll('.cal-btn').forEach(b => b.onclick = () => exportToCal(b.dataset.id));
       list.querySelectorAll('.del-btn').forEach(b => b.onclick = () => del(b.dataset.id));
     }
 
-    // ──────────── Actions ────────────
+    // ──────────── Live countdown tick ────────────
+    function tick() {
+      const rows = load();
+      rows.forEach(r => {
+        const el = document.querySelector(`[data-live="${r.id}"]`);
+        if (el) el.textContent = liveCountdown(r);
+      });
+    }
+    setInterval(tick, 60000); // update every minute
+    setInterval(render, 5 * 60 * 1000); // full re-render every 5 min (status colors)
+
+    // ──────────── Done modal ────────────
+    let modalRowId = null;
+    function openDoneModal(id) {
+      const row = load().find(r => r.id === id);
+      if (!row) return;
+      modalRowId = id;
+      document.getElementById('dm-title').textContent = `Mark "${row.name}" as done`;
+      document.getElementById('dm-date').textContent = fmtDate(today());
+
+      const defaultNext = addInterval(today(), +row.interval, row.unit);
+      document.getElementById('dm-default-label').textContent = `next: ${fmtDate(defaultNext)}`;
+      document.getElementById('dm-date-input').value = fmtDate(defaultNext);
+
+      // Reset
+      document.getElementById('dm-suggestions').classList.add('hidden');
+      document.getElementById('dm-custom').classList.add('hidden');
+      document.getElementById('dm-confirm').dataset.mode = 'default';
+      document.getElementById('dm-confirm').dataset.date = fmtDate(defaultNext);
+
+      document.querySelectorAll('.dm-quick').forEach(b => {
+        b.classList.remove('ring-2');
+        b.onclick = () => pickMode(b.dataset.mode, row);
+      });
+      // Pre-select default
+      document.querySelector('.dm-quick[data-mode="default"]').classList.add('ring-2');
+
+      document.getElementById('done-modal').classList.remove('hidden');
+    }
+
+    function pickMode(mode, row) {
+      document.querySelectorAll('.dm-quick').forEach(b => b.classList.toggle('ring-2', b.dataset.mode === mode));
+      const interval = +row.interval, unit = row.unit;
+      const sug = document.getElementById('dm-suggestions');
+      const cust = document.getElementById('dm-custom');
+      sug.classList.add('hidden');
+      cust.classList.add('hidden');
+
+      if (mode === 'default') {
+        const d = fmtDate(addInterval(today(), interval, unit));
+        document.getElementById('dm-confirm').dataset.date = d;
+      } else if (mode === 'earlier') {
+        const opts = [
+          { label: '50% sooner', date: addInterval(today(), Math.max(1, Math.round(interval * 0.5)), unit) },
+          { label: '25% sooner', date: addInterval(today(), Math.max(1, Math.round(interval * 0.75)), unit) },
+          { label: 'Half-time',  date: addInterval(today(), Math.max(1, Math.round(interval / 2)), unit) },
+        ];
+        sug.innerHTML = opts.map((o,i) => `<button class="sg bg-gray-800 hover:bg-blue-700 text-gray-100 text-xs py-2 rounded" data-date="${fmtDate(o.date)}">${o.label}<br><span class="text-[10px] text-gray-400">${fmtDate(o.date)}</span></button>`).join('');
+        sug.classList.remove('hidden');
+        sug.querySelectorAll('.sg').forEach(b => b.onclick = () => {
+          sug.querySelectorAll('.sg').forEach(x => x.classList.toggle('bg-blue-700', x === b));
+          document.getElementById('dm-confirm').dataset.date = b.dataset.date;
+        });
+      } else if (mode === 'later') {
+        const opts = [
+          { label: '25% later', date: addInterval(today(), Math.round(interval * 1.25), unit) },
+          { label: '50% later', date: addInterval(today(), Math.round(interval * 1.5),  unit) },
+          { label: 'Double',    date: addInterval(today(), interval * 2, unit) },
+        ];
+        sug.innerHTML = opts.map((o,i) => `<button class="sg bg-gray-800 hover:bg-blue-700 text-gray-100 text-xs py-2 rounded" data-date="${fmtDate(o.date)}">${o.label}<br><span class="text-[10px] text-gray-400">${fmtDate(o.date)}</span></button>`).join('');
+        sug.classList.remove('hidden');
+        sug.querySelectorAll('.sg').forEach(b => b.onclick = () => {
+          sug.querySelectorAll('.sg').forEach(x => x.classList.toggle('bg-blue-700', x === b));
+          document.getElementById('dm-confirm').dataset.date = b.dataset.date;
+        });
+      } else if (mode === 'custom') {
+        cust.classList.remove('hidden');
+        document.getElementById('dm-date-input').oninput = (e) => {
+          document.getElementById('dm-confirm').dataset.date = e.target.value;
+        };
+        document.getElementById('dm-confirm').dataset.date = document.getElementById('dm-date-input').value;
+      }
+      document.getElementById('dm-confirm').dataset.mode = mode;
+    }
+
+    document.getElementById('dm-cancel').onclick = () => document.getElementById('done-modal').classList.add('hidden');
+    document.getElementById('dm-confirm').onclick = () => {
+      const id = modalRowId;
+      const nextDate = document.getElementById('dm-confirm').dataset.date;
+      if (!nextDate) { alert('Pick a date.'); return; }
+      const rows = load();
+      const r = rows.find(x => x.id === id);
+      if (!r) return;
+      r.history = r.history || [];
+      r.history.push({ date: fmtDate(today()) });
+      r.last = fmtDate(today());
+      r.next = nextDate;
+      save(rows);
+      document.getElementById('done-modal').classList.add('hidden');
+      render();
+    };
+
+    // ──────────── Snooze ────────────
+    function snooze(id) {
+      const days = prompt('Snooze for how many days?', '1');
+      const n = parseInt(days, 10);
+      if (!n || n < 1) return;
+      const rows = load();
+      const r = rows.find(x => x.id === id);
+      if (!r) return;
+      r.next = fmtDate(addInterval(today(), n, 'days'));
+      save(rows);
+      render();
+    }
+
+    // ──────────── .ics calendar export ────────────
+    function makeIcsEvent(row) {
+      const d = new Date(row.next + 'T09:00:00');
+      const end = new Date(d.getTime() + 30 * 60000);
+      const fmt = (dt) => dt.toISOString().replace(/[-:]/g,'').replace(/\.\d+/,'');
+      const uid = `heartwood-${row.id}@tobacia.space`;
+      const lead = +row.alertLeadDays || 3;
+      // VALARM trigger: -P{lead}D for advance, also same-day morning alarm
+      return `BEGIN:VEVENT
+UID:${uid}
+DTSTAMP:${fmt(new Date())}
+DTSTART:${fmt(d)}
+DTEND:${fmt(end)}
+SUMMARY:🌳 ${row.name}
+DESCRIPTION:Heartwood routine — ${row.category}. Every ${row.interval} ${row.unit}.${row.note ? ' Note: ' + row.note.replace(/\n/g,'\\n') : ''}
+RRULE:FREQ=${row.unit === 'days' ? 'DAILY' : row.unit === 'weeks' ? 'WEEKLY' : row.unit === 'months' ? 'MONTHLY' : 'YEARLY'};INTERVAL=${row.interval}
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:${row.name} — heads up
+TRIGGER:-P${lead}D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:${row.name} — due today
+TRIGGER:PT0S
+END:VALARM
+END:VEVENT`;
+    }
+    function makeIcsFile(rows) {
+      const events = rows.map(makeIcsEvent).join('\n');
+      return `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//tobacia.space//Heartwood//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+${events}
+END:VCALENDAR`;
+    }
+    function downloadIcs(content, filename) {
+      const blob = new Blob([content], { type: 'text/calendar' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = filename;
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
+    function exportToCal(id) {
+      const r = load().find(x => x.id === id);
+      if (!r) return;
+      downloadIcs(makeIcsFile([r]), `heartwood-${r.name.replace(/[^a-z0-9]/gi,'-').toLowerCase()}.ics`);
+    }
+    document.getElementById('export-cal-btn').onclick = () => {
+      const rows = load();
+      if (!rows.length) { alert('No routines to export.'); return; }
+      downloadIcs(makeIcsFile(rows), `heartwood-${fmtDate(today())}.ics`);
+    };
+
+    // ──────────── CRUD ────────────
     function add() {
       const name = document.getElementById('t-name').value.trim();
       const interval = +document.getElementById('t-interval').value;
       const unit = document.getElementById('t-unit').value;
       const last = document.getElementById('t-last').value || fmtDate(today());
+      const lead = +document.getElementById('t-lead').value;
       if (!name || !interval) { alert('Name and interval required.'); return; }
       const rows = load();
       rows.push({
         id: Math.random().toString(36).slice(2,9),
-        name, category: document.getElementById('t-category').value,
+        name,
+        category: document.getElementById('t-category').value,
         interval, unit, last,
+        next: fmtDate(addInterval(parseDate(last), interval, unit)),
+        alertLeadDays: lead,
         note: document.getElementById('t-note').value.trim(),
         history: [],
       });
       save(rows);
-      document.getElementById('t-name').value = '';
-      document.getElementById('t-interval').value = '';
-      document.getElementById('t-note').value = '';
-      render();
-    }
-    function markDone(id) {
-      const rows = load();
-      const r = rows.find(x => x.id === id);
-      if (!r) return;
-      r.history = r.history || [];
-      r.history.push(r.last);
-      r.last = fmtDate(today());
-      save(rows);
+      ['t-name','t-interval','t-note'].forEach(i => document.getElementById(i).value = '');
       render();
     }
     function del(id) {
@@ -242,27 +490,32 @@
     function seed() {
       if (load().length && !confirm('Replace existing routines with starter kit?')) return;
       const t = today();
+      const mk = (id, name, cat, interval, unit, monthsAgo, note, lead=3) => ({
+        id, name, category:cat, interval, unit, alertLeadDays:lead,
+        last: fmtDate(addInterval(t, -monthsAgo, 'months')),
+        next: fmtDate(addInterval(addInterval(t, -monthsAgo, 'months'), interval, unit)),
+        note, history: []
+      });
       const rows = [
-        { id:'a1', name:'Change HVAC air filter',     category:'🏠 Home',     interval:3, unit:'months', last:fmtDate(addInterval(t,-2,'months')), note:'Check size on current filter; common: 20x25x1 MERV 11', history:[] },
-        { id:'a2', name:'Change car oil',             category:'🚗 Vehicle',  interval:6, unit:'months', last:fmtDate(addInterval(t,-4,'months')), note:'5W-30 synthetic; check owner manual for interval', history:[] },
-        { id:'a3', name:'Shut off yard sprinklers (winterize)', category:'🌱 Yard', interval:1, unit:'years',  last:fmtDate(addInterval(t,-10,'months')), note:'Before first hard freeze (typically Oct/Nov)', history:[] },
-        { id:'a4', name:'Test smoke detectors',       category:'🏠 Home',     interval:6, unit:'months', last:fmtDate(addInterval(t,-5,'months')), note:'Replace 9V batteries during daylight saving changes', history:[] },
-        { id:'a5', name:'Clean dryer vent + lint trap', category:'🔧 Appliance', interval:6, unit:'months', last:fmtDate(addInterval(t,-7,'months')), note:'Fire-prevention; remove lint from full vent line', history:[] },
-        { id:'a6', name:'Flush water heater',         category:'🔧 Appliance', interval:1, unit:'years',  last:fmtDate(addInterval(t,-8,'months')), note:'Drains sediment; extends tank life', history:[] },
-        { id:'a7', name:'Rotate car tires',           category:'🚗 Vehicle',   interval:6, unit:'months', last:fmtDate(addInterval(t,-3,'months')), note:'Every 5K-7K miles', history:[] },
-        { id:'a8', name:'Replace HVAC capacitor / service AC', category:'🏠 Home', interval:1, unit:'years', last:fmtDate(addInterval(t,-6,'months')), note:'Pre-summer tune-up', history:[] },
+        mk('a1', 'Change HVAC air filter',     '🏠 Home',     3, 'months', 2, '20x25x1 MERV 11', 7),
+        mk('a2', 'Change car oil',             '🚗 Vehicle',  6, 'months', 4, '5W-30 synthetic', 7),
+        mk('a3', 'Shut off yard sprinklers (winterize)', '🌱 Yard', 1, 'years', 10, 'Before first hard freeze', 14),
+        mk('a4', 'Test smoke detectors',       '🏠 Home',     6, 'months', 5, 'Replace 9V batteries during DST', 3),
+        mk('a5', 'Clean dryer vent + lint trap','🔧 Appliance',6, 'months', 7, 'Fire-prevention; clear full vent line', 3),
+        mk('a6', 'Flush water heater',         '🔧 Appliance',1, 'years',  8, 'Drains sediment; extends tank life', 7),
+        mk('a7', 'Rotate car tires',           '🚗 Vehicle',  6, 'months', 3, 'Every 5K-7K miles', 3),
+        mk('a8', 'Service AC pre-summer',      '🏠 Home',     1, 'years',  6, 'Replace capacitor if old; check refrigerant', 14),
       ];
       save(rows);
       render();
     }
     function exportJson() {
       const blob = new Blob([JSON.stringify(load(), null, 2)], {type:'application/json'});
-      const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
-      a.href = url;
+      a.href = URL.createObjectURL(blob);
       a.download = `heartwood-${fmtDate(today())}.json`;
       a.click();
-      URL.revokeObjectURL(url);
+      URL.revokeObjectURL(a.href);
     }
     function importJson(file) {
       const reader = new FileReader();
@@ -278,15 +531,19 @@
       reader.readAsText(file);
     }
 
-    // ──────────── Notifications ────────────
+    // ──────────── Browser notifications ────────────
     function checkNotifications() {
       const overdue = load().filter(r => statusOf(r).state === 'overdue');
-      if (overdue.length && Notification.permission === 'granted') {
+      const warn = load().filter(r => statusOf(r).state === 'warn');
+      const urgent = [...overdue, ...warn];
+      if (urgent.length && Notification.permission === 'granted') {
         const last = +localStorage.getItem('heartwood_last_notif') || 0;
-        if (Date.now() - last > 24 * 60 * 60 * 1000) {
-          new Notification(`Heartwood: ${overdue.length} routine${overdue.length>1?'s':''} overdue`, {
-            body: overdue.slice(0,3).map(r => r.name).join(' · '),
+        if (Date.now() - last > 12 * 60 * 60 * 1000) {
+          new Notification(`Heartwood: ${urgent.length} routine${urgent.length>1?'s':''} need attention`, {
+            body: urgent.slice(0,3).map(r => `${r.name} — ${liveCountdown(r)}`).join(' · '),
             icon: '/favicon.png',
+            tag: 'heartwood-overdue',
+            requireInteraction: overdue.length > 0,
           });
           localStorage.setItem('heartwood_last_notif', Date.now());
         }
@@ -311,7 +568,6 @@
       render();
     });
 
-    // Notification opt-in (only show if not already prompted)
     if ('Notification' in window && Notification.permission === 'default') {
       document.getElementById('notif-prompt').classList.remove('hidden');
       document.getElementById('notif-enable').onclick = async () => {
