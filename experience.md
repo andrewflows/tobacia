@@ -34,8 +34,8 @@ title: "Experience"
   <!-- Chapter 2: Founder -->
   <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg flex flex-col">
     <div class="bg-green-700 px-4 py-3">
-      <p class="text-xs font-bold text-white tracking-widest uppercase">2018 – 2022</p>
-      <h4 class="text-lg font-bold text-white mt-1">🚀 Founder Chapter</h4>
+      <p class="text-xs font-bold tracking-widest uppercase" style="color:#ffffff;">2018 – 2022</p>
+      <h4 class="text-lg font-bold mt-1" style="color:#ffffff;">🚀 Founder Chapter</h4>
     </div>
     <div class="p-4 space-y-3 flex-grow">
       <p class="text-sm text-gray-200 leading-relaxed">Founded <strong>Anything Flows LLC</strong>. Owned the P&amp;L end-to-end.</p>
@@ -48,8 +48,8 @@ title: "Experience"
   <!-- Chapter 3: Aerospace + AI -->
   <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg flex flex-col">
     <div class="bg-blue-700 px-4 py-3">
-      <p class="text-xs font-bold text-white tracking-widest uppercase">2022 – Present</p>
-      <h4 class="text-lg font-bold text-white mt-1">🛰 Aerospace + AI</h4>
+      <p class="text-xs font-bold tracking-widest uppercase" style="color:#ffffff;">2022 – Present</p>
+      <h4 class="text-lg font-bold mt-1" style="color:#ffffff;">🛰 Aerospace + AI</h4>
     </div>
     <div class="p-4 space-y-3 flex-grow">
       <p class="text-sm text-gray-200 leading-relaxed"><strong>Blue Origin</strong>. Supply chain owner across <strong>12+ crewed New Shepard missions</strong> (NS-22 → NS-38).</p>
@@ -80,7 +80,7 @@ title: "Experience"
 <!-- Strengths -->
 <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg mb-6">
   <div class="bg-teal-700 px-4 py-3">
-    <h4 class="text-lg font-bold text-white tracking-wide">💪 Strengths — The Edge</h4>
+    <h4 class="text-lg font-bold tracking-wide" style="color:#ffffff;">💪 Strengths — The Edge</h4>
   </div>
   <div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-3">
     <div class="border-l-2 border-teal-400 pl-3">
@@ -109,13 +109,9 @@ title: "Experience"
 <!-- Opportunities -->
 <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg mb-8">
   <div class="bg-orange-600 px-4 py-3">
-    <h4 class="text-lg font-bold text-white tracking-wide">📈 Where I'm Sharpening</h4>
+    <h4 class="text-lg font-bold tracking-wide" style="color:#ffffff;">📈 Where I'm Sharpening</h4>
   </div>
   <div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-3">
-    <div class="border-l-2 border-orange-400 pl-3">
-      <p class="text-orange-300 font-bold text-sm">🌐 Public AI engineering footprint</p>
-      <p class="text-gray-300 text-sm">Closing the gap from "built internally" to "built in public" via tobacia.space, GitHub, and LinkedIn build-log content.</p>
-    </div>
     <div class="border-l-2 border-orange-400 pl-3">
       <p class="text-orange-300 font-bold text-sm">🤖 Multi-agent / MCP depth</p>
       <p class="text-gray-300 text-sm">Beyond single-agent automations → orchestrated, tool-using agent stacks. Anthropic AI Agent Systems &amp; MCP, certified Mar 2026.</p>
@@ -123,10 +119,6 @@ title: "Experience"
     <div class="border-l-2 border-orange-400 pl-3">
       <p class="text-orange-300 font-bold text-sm">👥 Distributed leadership scale</p>
       <p class="text-gray-300 text-sm">From single-threaded ownership ("if it depends on me, it's fragile") to handing off operational systems and developing the next operators.</p>
-    </div>
-    <div class="border-l-2 border-orange-400 pl-3">
-      <p class="text-orange-300 font-bold text-sm">💰 Capital efficiency &amp; equity allocation</p>
-      <p class="text-gray-300 text-sm">Translating operational ROI into investment-grade narratives for high-leverage roles or fundraising.</p>
     </div>
   </div>
 </div>

@@ -35,8 +35,8 @@ permalink: /experiencia.html
   <!-- Capítulo 2: Fundador -->
   <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg flex flex-col">
     <div class="bg-green-700 px-4 py-3">
-      <p class="text-xs font-bold text-white tracking-widest uppercase">2018 – 2022</p>
-      <h4 class="text-lg font-bold text-white mt-1">🚀 Capítulo de Fundador</h4>
+      <p class="text-xs font-bold tracking-widest uppercase" style="color:#ffffff;">2018 – 2022</p>
+      <h4 class="text-lg font-bold mt-1" style="color:#ffffff;">🚀 Capítulo de Fundador</h4>
     </div>
     <div class="p-4 space-y-3 flex-grow">
       <p class="text-sm text-gray-200 leading-relaxed">Fundé <strong>Anything Flows LLC</strong>. Dueño del P&amp;L de punta a punta.</p>
@@ -49,8 +49,8 @@ permalink: /experiencia.html
   <!-- Capítulo 3: Aeroespacial + IA -->
   <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg flex flex-col">
     <div class="bg-blue-700 px-4 py-3">
-      <p class="text-xs font-bold text-white tracking-widest uppercase">2022 – Presente</p>
-      <h4 class="text-lg font-bold text-white mt-1">🛰 Aeroespacial + IA</h4>
+      <p class="text-xs font-bold tracking-widest uppercase" style="color:#ffffff;">2022 – Presente</p>
+      <h4 class="text-lg font-bold mt-1" style="color:#ffffff;">🛰 Aeroespacial + IA</h4>
     </div>
     <div class="p-4 space-y-3 flex-grow">
       <p class="text-sm text-gray-200 leading-relaxed"><strong>Blue Origin</strong>. Dueño de cadena de suministro a través de <strong>12+ misiones tripuladas de New Shepard</strong> (NS-22 → NS-38).</p>
@@ -81,7 +81,7 @@ permalink: /experiencia.html
 <!-- Fortalezas -->
 <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg mb-6">
   <div class="bg-teal-700 px-4 py-3">
-    <h4 class="text-lg font-bold text-white tracking-wide">💪 Fortalezas — La Ventaja</h4>
+    <h4 class="text-lg font-bold tracking-wide" style="color:#ffffff;">💪 Fortalezas — La Ventaja</h4>
   </div>
   <div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-3">
     <div class="border-l-2 border-teal-400 pl-3">
@@ -110,13 +110,9 @@ permalink: /experiencia.html
 <!-- Oportunidades -->
 <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg mb-8">
   <div class="bg-orange-600 px-4 py-3">
-    <h4 class="text-lg font-bold text-white tracking-wide">📈 Donde Estoy Afilando</h4>
+    <h4 class="text-lg font-bold tracking-wide" style="color:#ffffff;">📈 Donde Estoy Afilando</h4>
   </div>
   <div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-3">
-    <div class="border-l-2 border-orange-400 pl-3">
-      <p class="text-orange-300 font-bold text-sm">🌐 Huella pública de ingeniería de IA</p>
-      <p class="text-gray-300 text-sm">Cerrar la brecha entre "construido internamente" y "construido en público" vía tobacia.space, GitHub, y contenido de build-log en LinkedIn.</p>
-    </div>
     <div class="border-l-2 border-orange-400 pl-3">
       <p class="text-orange-300 font-bold text-sm">🤖 Profundidad multi-agente / MCP</p>
       <p class="text-gray-300 text-sm">Más allá de automatizaciones de un solo agente → stacks orquestados con uso de herramientas. Anthropic AI Agent Systems y MCP, certificado Mar 2026.</p>
@@ -124,10 +120,6 @@ permalink: /experiencia.html
     <div class="border-l-2 border-orange-400 pl-3">
       <p class="text-orange-300 font-bold text-sm">👥 Escala de liderazgo distribuido</p>
       <p class="text-gray-300 text-sm">De propiedad single-threaded ("si depende de mí, es frágil") a entregar sistemas operativos y desarrollar los próximos operadores.</p>
-    </div>
-    <div class="border-l-2 border-orange-400 pl-3">
-      <p class="text-orange-300 font-bold text-sm">💰 Eficiencia de capital y asignación de equity</p>
-      <p class="text-gray-300 text-sm">Traducir el ROI operativo en narrativas de grado-inversión para roles de alta leverage o levantamiento de capital.</p>
     </div>
   </div>
 </div>
