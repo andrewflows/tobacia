@@ -38,7 +38,7 @@ title: "About"
       <p>📍 Born in <strong class="text-cyan-300">Bogotá, Colombia</strong></p>
       <p>🌍 Childhood across <strong class="text-cyan-300">Ecuador, Colombia, Texas, Louisiana, Alaska, Washington</strong></p>
       <p>🗽 U.S. citizen <strong class="text-cyan-300">since 2013</strong></p>
-      <p>👥 Family of engineers — <strong class="text-cyan-300">3 brothers, all Texas A&amp;M grads</strong> (Aerospace, Industrial, Maritime Systems)</p>
+      <p>👥 <strong class="text-cyan-300">Family of 5 engineers</strong> — dad and 4 brothers, all <strong class="text-cyan-300">Texas A&amp;M grads</strong></p>
     </div>
   </div>
 
