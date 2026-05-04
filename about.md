@@ -32,7 +32,7 @@ title: "About"
   <!-- Background -->
   <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg flex flex-col">
     <div class="bg-cyan-700 px-4 py-3">
-      <h4 class="text-lg font-bold text-white tracking-wide">🌎 Background</h4>
+      <h4 class="text-lg font-bold tracking-wide" style="color:#ffffff;">🌎 Background</h4>
     </div>
     <div class="p-4 space-y-2 flex-grow text-sm text-gray-200">
       <p>🇨🇴 Born in <strong class="text-cyan-300">Bogotá, Colombia</strong></p>
@@ -45,7 +45,7 @@ title: "About"
   <!-- Beliefs & Vision -->
   <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg flex flex-col">
     <div class="bg-indigo-700 px-4 py-3">
-      <h4 class="text-lg font-bold text-white tracking-wide">💡 Beliefs &amp; Vision</h4>
+      <h4 class="text-lg font-bold tracking-wide" style="color:#ffffff;">💡 Beliefs &amp; Vision</h4>
     </div>
     <div class="p-4 space-y-2 flex-grow text-sm text-gray-200">
       <p>🚀 Building the road to space — <strong class="text-indigo-300">changing humanity one astronaut at a time</strong></p>
@@ -57,7 +57,7 @@ title: "About"
   <!-- Beyond Work -->
   <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg flex flex-col">
     <div class="bg-pink-700 px-4 py-3">
-      <h4 class="text-lg font-bold text-white tracking-wide">🌟 Beyond Work</h4>
+      <h4 class="text-lg font-bold tracking-wide" style="color:#ffffff;">🌟 Beyond Work</h4>
     </div>
     <div class="p-4 space-y-2 flex-grow text-sm text-gray-200">
       <p>⚽ Advisor for <strong class="text-pink-300">Space United</strong> — bringing soccer to space as a tool for inspiration</p>
