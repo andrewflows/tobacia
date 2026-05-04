@@ -4,7 +4,52 @@ title: "Experiencia"
 permalink: /experiencia.html
 ---
 
-## Experiencia Profesional
+<h2 class="text-2xl font-bold mt-8 mb-4 text-blue-200">Resumen Ejecutivo</h2>
+
+<div class="bg-gray-900 border-l-4 border-blue-400 p-5 mt-4 mb-8 rounded-r">
+  <p class="text-gray-100 leading-relaxed">
+    <strong class="text-blue-300">En síntesis:</strong> Soy un constructor-operador con <strong>17 años</strong> entre la industria aeroespacial y la cadena de suministro industrial, dedicado a automatizar los procesos manuales que el resto del mundo todavía corre a mano. He desplegado — no teorizado — sistemas de IA que mueven producción real: <strong>20+ agentes desplegados</strong> en Blue Origin, <strong>3 herramientas de IA en vivo</strong> en tobacia.space, <strong>+$13M en ahorros anualizados</strong>, <strong>+$30M en contratos negociados</strong>, y una empresa de distribución industrial construida desde cero hasta <strong>$1.2M</strong>.
+  </p>
+</div>
+
+<h3 class="text-xl font-bold mt-6 mb-3 text-blue-200">La Trayectoria</h3>
+
+<p class="text-gray-200 mb-2">Dos décadas, tres capítulos:</p>
+
+<ul class="list-disc ml-6 mt-2 text-gray-200 space-y-2">
+  <li><strong>2008–2018 — Escuela del operador</strong> — Ingeniería Industrial en Texas A&amp;M → roles de campo en Emerson, Cameron (SLB), Rotork, Lockwood International, Weir Group. Dupliqué ventas de actuadores en Lockwood ($4M → $8M). Abrí oficina de Rotork en Chile. Construí los hábitos de herramientas-primero — programas de dimensionamiento en Excel, cotización automatizada — que se compusieron en todo lo demás.</li>
+  <li><strong>2018–2022 — Capítulo de fundador</strong> — Fundé <strong>Anything Flows LLC</strong>, escalada a <strong>$1.2M en ingresos anuales</strong>, construí una plataforma automatizada de precios/inventario/abastecimiento en 7,000+ SKUs, mantuve servicio durante los shocks de suministro de COVID. Aprendí qué se siente ser dueño del P&amp;L.</li>
+  <li><strong>2022–presente — Capítulo aeroespacial + IA</strong> — En <strong>Blue Origin</strong>: dueño único de la cadena de suministro para <strong>New Shepard</strong> a través de 12+ misiones tripuladas (NS-22 → NS-38), entregando $8.2M (2024) y $5M (2023) en ahorros. Promovido a <strong>Global Strategic Projects</strong> (Ago 2025) donde diseñé el primer pipeline de automatización de adquisiciones impulsado por IA en Blue Origin — llevando la ejecución automatizada de PR-a-PO de <strong>0% a 11%</strong> — y personalmente construí y desplegué <strong>20+ agentes de inteligencia operativa</strong> en entrega a tiempo, scorecards de proveedores, aging de no-conformidades, y agendas de reuniones. Lideré migración de plataforma empresarial de <strong>64K+ líneas de PO, 4K proveedores, 6K+ usuarios</strong> sin interrumpir producción.</li>
+</ul>
+
+<h3 class="text-xl font-bold mt-6 mb-3 text-blue-200">El Camino Hacia Adelante</h3>
+
+<p class="text-gray-200 leading-relaxed">
+Impulsado por una misión de 10 años hacia la independencia financiera — anclada en fe, familia, y equity sobre salario. Dos caminos viables: un rol de alta equity en una empresa AI / industrial en crecimiento, o escalar ventures personales (Anything Flows + el stack de herramientas IA de tobacia.space) hasta convertirlas en un negocio sostenible. Una compuerta trimestral decide cuál lidera.
+</p>
+
+<h3 class="text-xl font-bold mt-6 mb-3 text-blue-200">Fortalezas</h3>
+
+<ul class="list-disc ml-6 mt-2 text-gray-200 space-y-2">
+  <li><strong>Construir, luego demostrar</strong> — cada afirmación respaldada por un sistema desplegado o un contrato cerrado, no por presentaciones.</li>
+  <li><strong>Operador bilingüe</strong> (EN/ES) — gestiona negocios en las Américas con fluidez nativa en ambos idiomas.</li>
+  <li><strong>Rango</strong> — igual de cómodo en el detalle del ingeniero de campo, en negociaciones de contratos de $30M, en propiedad de P&amp;L, y en código Python / FastAPI / Claude API.</li>
+  <li><strong>Velocidad bajo datos incompletos</strong> — recupera faltantes de última hora y cambios de ingeniería contra fechas de lanzamiento fijas sin perder cronograma.</li>
+  <li><strong>Pensamiento sistémico</strong> — convierte el caos en automatización; reduce puntos únicos de falla (incluyéndome a mí mismo).</li>
+</ul>
+
+<h3 class="text-xl font-bold mt-6 mb-3 text-blue-200">Oportunidades (Donde Estoy Afilando)</h3>
+
+<ul class="list-disc ml-6 mt-2 text-gray-200 space-y-2">
+  <li><strong>Huella pública de ingeniería de IA</strong> — cerrar la brecha entre "construido internamente" y "construido en público" vía tobacia.space, GitHub, y contenido de build-log en LinkedIn.</li>
+  <li><strong>Profundidad multi-agente / MCP</strong> — empujar más allá de automatizaciones de un solo agente hacia stacks orquestados (Anthropic AI Agent Systems Development y Model Context Protocol, certificado Mar 2026).</li>
+  <li><strong>Escala de liderazgo distribuido</strong> — pasar de la propiedad single-threaded ("si depende de mí, es frágil") a entregar sistemas operativos y desarrollar los próximos operadores.</li>
+  <li><strong>Eficiencia de capital y asignación de equity</strong> — traducir el ROI operativo en narrativas de grado-inversión para roles de alta leverage o levantamiento de capital.</li>
+</ul>
+
+<hr class="my-8 border-gray-700">
+
+<h2 class="text-2xl font-bold mt-8 mb-4 text-blue-200">Experiencia Profesional</h2>
 
 <div class="relative border-l border-gray-700 ml-4 mt-6">
 

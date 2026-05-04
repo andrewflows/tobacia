@@ -3,6 +3,43 @@ layout: page
 title: "Experience"
 ---
 
+## Executive Summary
+
+<div class="bg-gray-900 border-l-4 border-blue-400 p-5 mt-4 mb-8 rounded-r">
+  <p class="text-gray-100 leading-relaxed">
+    <strong class="text-blue-300">Bottom line:</strong> I am a builder-operator with <strong>17 years</strong> across aerospace and industrial supply chain who automates the manual processes everyone else still runs by hand. I have shipped — not theorized — AI systems that move real production: <strong>20+ deployed agents</strong> at Blue Origin, <strong>3 live AI tools</strong> at tobacia.space, <strong>$13M+ annualized cost savings</strong>, <strong>$30M+ in contracts negotiated</strong>, and one industrial distribution company built from zero to <strong>$1.2M</strong>.
+  </p>
+</div>
+
+### The Career Arc
+
+Two decades, three chapters:
+
+- **2008–2018 — Operator school** — Texas A&M Industrial Engineering → field roles at Emerson, Cameron (SLB), Rotork, Lockwood International, Weir Group. Doubled actuator sales at Lockwood ($4M → $8M). Opened a Latin America office for Rotork. Built the first-tool habits — Excel sizing programs, automated quoting — that compounded into everything since.
+- **2018–2022 — Founder chapter** — Founded **Anything Flows LLC**, scaled to **$1.2M annual revenue**, built an automated pricing/inventory/sourcing platform across 7,000+ SKUs, kept service running through COVID-era supply shocks. Learned what owning the P&L feels like.
+- **2022–present — Aerospace + AI chapter** — At **Blue Origin**: single-threaded supply chain owner for **New Shepard** across 12+ crewed missions (NS-22 → NS-38), delivering $8.2M (2024) and $5M (2023) in cost savings. Promoted to **Global Strategic Projects** (Aug 2025) where I designed Blue Origin's first AI-driven procurement automation pipeline — taking automated PR-to-PO execution from **0% to 11%** — and personally built and deployed **20+ operational-intelligence agents** across on-time delivery, supplier scorecards, non-conformance aging, and meeting agendas. Led enterprise platform migration of **64K+ PO line items, 4K suppliers, 6K+ users** without interrupting production.
+
+### The Path Forward
+
+Driven by a 10-year mission to financial independence — anchored in faith, family, and equity over salary. Two viable paths: a high-equity role at a growth-stage AI / industrial company, or scaling personal ventures (Anything Flows + the tobacia.space AI tool stack) into a sustaining business. A quarterly path gate decides which leads.
+
+### Strengths
+
+- **Build, then prove** — every claim backed by a deployed system or a closed contract, not slideware.
+- **Bilingual operator** (EN/ES) — runs business across the Americas with native fluency in both languages.
+- **Range** — equally comfortable in field-engineer detail, $30M contract negotiation, P&L ownership, and Python / FastAPI / Claude API code.
+- **Speed under incomplete data** — recovers late-breaking shortages and engineering changes against fixed launch dates without slipping schedule.
+- **Systems thinking** — turns chaos into automation; reduces single-points-of-failure (including himself).
+
+### Opportunities (Where I'm Sharpening)
+
+- **Public AI engineering footprint** — closing the gap from "built internally" to "built in public" via tobacia.space, GitHub, and LinkedIn build-log content.
+- **Multi-agent / MCP depth** — pushing beyond single-agent automations into orchestrated, tool-using agent stacks (Anthropic AI Agent Systems Development & Model Context Protocol, certified Mar 2026).
+- **Distributed leadership scale** — moving from single-threaded ownership ("if it depends on me, it's fragile") to handing off operational systems and developing the next operators.
+- **Capital efficiency & equity allocation** — translating operational ROI into investment-grade narratives for high-leverage roles or fundraising.
+
+---
+
 ## Professional Experience / Experiencia Profesional
 
 <div class="relative border-l border-gray-700 ml-4 mt-6">
