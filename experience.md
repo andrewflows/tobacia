@@ -63,24 +63,74 @@ title: "Experience"
 
 </div>
 
-### The Path Forward
+### The Future
 
-Driven by a 10-year mission to financial independence — anchored in faith, family, and equity over salary. Two viable paths: a high-equity role at a growth-stage AI / industrial company, or scaling personal ventures (Anything Flows + the tobacia.space AI tool stack) into a sustaining business. A quarterly path gate decides which leads.
+<p class="text-gray-300 italic mb-4">Where I'm headed.</p>
 
-### Strengths
+<!-- Mission Hero -->
+<div class="bg-gradient-to-br from-purple-900 to-indigo-900 border-l-4 border-purple-400 rounded-r-lg p-5 mb-6 shadow-lg">
+  <div class="flex items-start gap-3">
+    <span class="text-3xl">🎯</span>
+    <div class="flex-1">
+      <p class="text-xs font-bold text-purple-300 tracking-widest uppercase mb-1">The Mission</p>
+      <p class="text-gray-100 leading-relaxed">A 10-year mission to <strong class="text-purple-200">financial independence</strong> — anchored in <strong class="text-purple-200">faith, family, and equity over salary</strong>. Two viable paths: a high-equity role at a growth-stage AI / industrial company, or scaling personal ventures (Anything Flows + the tobacia.space AI tool stack) into a sustaining business. A <strong class="text-purple-200">quarterly path gate</strong> decides which leads.</p>
+    </div>
+  </div>
+</div>
 
-- **Build, then prove** — every claim backed by a deployed system or a closed contract, not slideware.
-- **Bilingual operator** (EN/ES) — runs business across the Americas with native fluency in both languages.
-- **Range** — equally comfortable in field-engineer detail, $30M contract negotiation, P&L ownership, and Python / FastAPI / Claude API code.
-- **Speed under incomplete data** — recovers late-breaking shortages and engineering changes against fixed launch dates without slipping schedule.
-- **Systems thinking** — turns chaos into automation; reduces single-points-of-failure (including himself).
+<!-- Strengths -->
+<div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg mb-6">
+  <div class="bg-teal-500 px-4 py-3">
+    <h4 class="text-lg font-bold text-gray-900 tracking-wide">💪 Strengths — The Edge</h4>
+  </div>
+  <div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+    <div class="border-l-2 border-teal-400 pl-3">
+      <p class="text-teal-300 font-bold text-sm">⚡ Build, then prove</p>
+      <p class="text-gray-300 text-sm">Every claim backed by a deployed system or closed contract — not slideware.</p>
+    </div>
+    <div class="border-l-2 border-teal-400 pl-3">
+      <p class="text-teal-300 font-bold text-sm">🌎 Bilingual operator (EN/ES)</p>
+      <p class="text-gray-300 text-sm">Runs business across the Americas with native fluency in both languages.</p>
+    </div>
+    <div class="border-l-2 border-teal-400 pl-3">
+      <p class="text-teal-300 font-bold text-sm">🎯 Range</p>
+      <p class="text-gray-300 text-sm">Field-engineer detail · $30M contract negotiation · P&amp;L ownership · Python / FastAPI / Claude API code.</p>
+    </div>
+    <div class="border-l-2 border-teal-400 pl-3">
+      <p class="text-teal-300 font-bold text-sm">🚀 Speed under incomplete data</p>
+      <p class="text-gray-300 text-sm">Recovers late-breaking shortages and engineering changes against fixed launch dates without slipping schedule.</p>
+    </div>
+    <div class="border-l-2 border-teal-400 pl-3 md:col-span-2">
+      <p class="text-teal-300 font-bold text-sm">🧩 Systems thinking</p>
+      <p class="text-gray-300 text-sm">Turns chaos into automation. Reduces single-points-of-failure (including himself).</p>
+    </div>
+  </div>
+</div>
 
-### Opportunities (Where I'm Sharpening)
-
-- **Public AI engineering footprint** — closing the gap from "built internally" to "built in public" via tobacia.space, GitHub, and LinkedIn build-log content.
-- **Multi-agent / MCP depth** — pushing beyond single-agent automations into orchestrated, tool-using agent stacks (Anthropic AI Agent Systems Development & Model Context Protocol, certified Mar 2026).
-- **Distributed leadership scale** — moving from single-threaded ownership ("if it depends on me, it's fragile") to handing off operational systems and developing the next operators.
-- **Capital efficiency & equity allocation** — translating operational ROI into investment-grade narratives for high-leverage roles or fundraising.
+<!-- Opportunities -->
+<div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg mb-8">
+  <div class="bg-orange-500 px-4 py-3">
+    <h4 class="text-lg font-bold text-gray-900 tracking-wide">📈 Where I'm Sharpening</h4>
+  </div>
+  <div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+    <div class="border-l-2 border-orange-400 pl-3">
+      <p class="text-orange-300 font-bold text-sm">🌐 Public AI engineering footprint</p>
+      <p class="text-gray-300 text-sm">Closing the gap from "built internally" to "built in public" via tobacia.space, GitHub, and LinkedIn build-log content.</p>
+    </div>
+    <div class="border-l-2 border-orange-400 pl-3">
+      <p class="text-orange-300 font-bold text-sm">🤖 Multi-agent / MCP depth</p>
+      <p class="text-gray-300 text-sm">Beyond single-agent automations → orchestrated, tool-using agent stacks. Anthropic AI Agent Systems &amp; MCP, certified Mar 2026.</p>
+    </div>
+    <div class="border-l-2 border-orange-400 pl-3">
+      <p class="text-orange-300 font-bold text-sm">👥 Distributed leadership scale</p>
+      <p class="text-gray-300 text-sm">From single-threaded ownership ("if it depends on me, it's fragile") to handing off operational systems and developing the next operators.</p>
+    </div>
+    <div class="border-l-2 border-orange-400 pl-3">
+      <p class="text-orange-300 font-bold text-sm">💰 Capital efficiency &amp; equity allocation</p>
+      <p class="text-gray-300 text-sm">Translating operational ROI into investment-grade narratives for high-leverage roles or fundraising.</p>
+    </div>
+  </div>
+</div>
 
 ---
 
