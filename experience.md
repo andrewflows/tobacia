@@ -72,7 +72,7 @@ title: "Experience"
     <span class="text-3xl">🎯</span>
     <div class="flex-1">
       <p class="text-xs font-bold text-purple-300 tracking-widest uppercase mb-1">The Mission</p>
-      <p class="text-gray-100 leading-relaxed">A 10-year mission to <strong class="text-purple-200">financial independence</strong> — anchored in <strong class="text-purple-200">faith, family, and equity over salary</strong>. Two viable paths: a high-equity role at a growth-stage AI / industrial company, or scaling personal ventures (Anything Flows + the tobacia.space AI tool stack) into a sustaining business. A <strong class="text-purple-200">quarterly path gate</strong> decides which leads.</p>
+      <p class="text-gray-100 leading-relaxed">I build operating systems for <strong class="text-purple-200">industries that move physical things</strong> — aerospace, energy, distribution. My next decade is about doing this at the <strong class="text-purple-200">equity stage of a company that's still shaped by its first hires</strong>. Faith and family set the limits. <strong class="text-purple-200">Compounding sets the pace.</strong></p>
     </div>
   </div>
 </div>
