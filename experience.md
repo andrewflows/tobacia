@@ -33,9 +33,9 @@ title: "Experience"
 
   <!-- Chapter 2: Founder -->
   <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg flex flex-col">
-    <div class="bg-green-500 px-4 py-3">
-      <p class="text-xs font-bold text-gray-900 tracking-widest uppercase">2018 – 2022</p>
-      <h4 class="text-lg font-bold text-gray-900 mt-1">🚀 Founder Chapter</h4>
+    <div class="bg-green-700 px-4 py-3">
+      <p class="text-xs font-bold text-white tracking-widest uppercase">2018 – 2022</p>
+      <h4 class="text-lg font-bold text-white mt-1">🚀 Founder Chapter</h4>
     </div>
     <div class="p-4 space-y-3 flex-grow">
       <p class="text-sm text-gray-200 leading-relaxed">Founded <strong>Anything Flows LLC</strong>. Owned the P&amp;L end-to-end.</p>
@@ -47,7 +47,7 @@ title: "Experience"
 
   <!-- Chapter 3: Aerospace + AI -->
   <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg flex flex-col">
-    <div class="bg-blue-500 px-4 py-3">
+    <div class="bg-blue-700 px-4 py-3">
       <p class="text-xs font-bold text-white tracking-widest uppercase">2022 – Present</p>
       <h4 class="text-lg font-bold text-white mt-1">🛰 Aerospace + AI</h4>
     </div>
@@ -79,8 +79,8 @@ title: "Experience"
 
 <!-- Strengths -->
 <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg mb-6">
-  <div class="bg-teal-500 px-4 py-3">
-    <h4 class="text-lg font-bold text-gray-900 tracking-wide">💪 Strengths — The Edge</h4>
+  <div class="bg-teal-700 px-4 py-3">
+    <h4 class="text-lg font-bold text-white tracking-wide">💪 Strengths — The Edge</h4>
   </div>
   <div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-3">
     <div class="border-l-2 border-teal-400 pl-3">
@@ -108,8 +108,8 @@ title: "Experience"
 
 <!-- Opportunities -->
 <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg mb-8">
-  <div class="bg-orange-500 px-4 py-3">
-    <h4 class="text-lg font-bold text-gray-900 tracking-wide">📈 Where I'm Sharpening</h4>
+  <div class="bg-orange-600 px-4 py-3">
+    <h4 class="text-lg font-bold text-white tracking-wide">📈 Where I'm Sharpening</h4>
   </div>
   <div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-3">
     <div class="border-l-2 border-orange-400 pl-3">
