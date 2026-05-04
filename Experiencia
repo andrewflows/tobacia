@@ -64,30 +64,74 @@ permalink: /experiencia.html
 
 </div>
 
-<h3 class="text-xl font-bold mt-6 mb-3 text-blue-200">El Camino Hacia Adelante</h3>
+<h3 class="text-xl font-bold mt-8 mb-3 text-blue-200">El Futuro</h3>
 
-<p class="text-gray-200 leading-relaxed">
-Impulsado por una misión de 10 años hacia la independencia financiera — anclada en fe, familia, y equity sobre salario. Dos caminos viables: un rol de alta equity en una empresa AI / industrial en crecimiento, o escalar ventures personales (Anything Flows + el stack de herramientas IA de tobacia.space) hasta convertirlas en un negocio sostenible. Una compuerta trimestral decide cuál lidera.
-</p>
+<p class="text-gray-300 italic mb-4">Hacia dónde voy.</p>
 
-<h3 class="text-xl font-bold mt-6 mb-3 text-blue-200">Fortalezas</h3>
+<!-- Misión Hero -->
+<div class="bg-gradient-to-br from-purple-900 to-indigo-900 border-l-4 border-purple-400 rounded-r-lg p-5 mb-6 shadow-lg">
+  <div class="flex items-start gap-3">
+    <span class="text-3xl">🎯</span>
+    <div class="flex-1">
+      <p class="text-xs font-bold text-purple-300 tracking-widest uppercase mb-1">La Misión</p>
+      <p class="text-gray-100 leading-relaxed">Una misión de 10 años hacia la <strong class="text-purple-200">independencia financiera</strong> — anclada en <strong class="text-purple-200">fe, familia, y equity sobre salario</strong>. Dos caminos viables: un rol de alta equity en una empresa AI / industrial en crecimiento, o escalar ventures personales (Anything Flows + el stack de herramientas IA de tobacia.space) hasta convertirlas en un negocio sostenible. Una <strong class="text-purple-200">compuerta trimestral</strong> decide cuál lidera.</p>
+    </div>
+  </div>
+</div>
 
-<ul class="list-disc ml-6 mt-2 text-gray-200 space-y-2">
-  <li><strong>Construir, luego demostrar</strong> — cada afirmación respaldada por un sistema desplegado o un contrato cerrado, no por presentaciones.</li>
-  <li><strong>Operador bilingüe</strong> (EN/ES) — gestiona negocios en las Américas con fluidez nativa en ambos idiomas.</li>
-  <li><strong>Rango</strong> — igual de cómodo en el detalle del ingeniero de campo, en negociaciones de contratos de $30M, en propiedad de P&amp;L, y en código Python / FastAPI / Claude API.</li>
-  <li><strong>Velocidad bajo datos incompletos</strong> — recupera faltantes de última hora y cambios de ingeniería contra fechas de lanzamiento fijas sin perder cronograma.</li>
-  <li><strong>Pensamiento sistémico</strong> — convierte el caos en automatización; reduce puntos únicos de falla (incluyéndome a mí mismo).</li>
-</ul>
+<!-- Fortalezas -->
+<div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg mb-6">
+  <div class="bg-teal-500 px-4 py-3">
+    <h4 class="text-lg font-bold text-gray-900 tracking-wide">💪 Fortalezas — La Ventaja</h4>
+  </div>
+  <div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+    <div class="border-l-2 border-teal-400 pl-3">
+      <p class="text-teal-300 font-bold text-sm">⚡ Construir, luego demostrar</p>
+      <p class="text-gray-300 text-sm">Cada afirmación respaldada por un sistema desplegado o un contrato cerrado — no presentaciones.</p>
+    </div>
+    <div class="border-l-2 border-teal-400 pl-3">
+      <p class="text-teal-300 font-bold text-sm">🌎 Operador bilingüe (EN/ES)</p>
+      <p class="text-gray-300 text-sm">Gestiona negocios en las Américas con fluidez nativa en ambos idiomas.</p>
+    </div>
+    <div class="border-l-2 border-teal-400 pl-3">
+      <p class="text-teal-300 font-bold text-sm">🎯 Rango</p>
+      <p class="text-gray-300 text-sm">Detalle de ingeniero de campo · negociación de contratos de $30M · propiedad de P&amp;L · código Python / FastAPI / Claude API.</p>
+    </div>
+    <div class="border-l-2 border-teal-400 pl-3">
+      <p class="text-teal-300 font-bold text-sm">🚀 Velocidad bajo datos incompletos</p>
+      <p class="text-gray-300 text-sm">Recupera faltantes de última hora y cambios de ingeniería contra fechas de lanzamiento fijas sin perder cronograma.</p>
+    </div>
+    <div class="border-l-2 border-teal-400 pl-3 md:col-span-2">
+      <p class="text-teal-300 font-bold text-sm">🧩 Pensamiento sistémico</p>
+      <p class="text-gray-300 text-sm">Convierte el caos en automatización. Reduce puntos únicos de falla (incluyéndome a mí mismo).</p>
+    </div>
+  </div>
+</div>
 
-<h3 class="text-xl font-bold mt-6 mb-3 text-blue-200">Oportunidades (Donde Estoy Afilando)</h3>
-
-<ul class="list-disc ml-6 mt-2 text-gray-200 space-y-2">
-  <li><strong>Huella pública de ingeniería de IA</strong> — cerrar la brecha entre "construido internamente" y "construido en público" vía tobacia.space, GitHub, y contenido de build-log en LinkedIn.</li>
-  <li><strong>Profundidad multi-agente / MCP</strong> — empujar más allá de automatizaciones de un solo agente hacia stacks orquestados (Anthropic AI Agent Systems Development y Model Context Protocol, certificado Mar 2026).</li>
-  <li><strong>Escala de liderazgo distribuido</strong> — pasar de la propiedad single-threaded ("si depende de mí, es frágil") a entregar sistemas operativos y desarrollar los próximos operadores.</li>
-  <li><strong>Eficiencia de capital y asignación de equity</strong> — traducir el ROI operativo en narrativas de grado-inversión para roles de alta leverage o levantamiento de capital.</li>
-</ul>
+<!-- Oportunidades -->
+<div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg mb-8">
+  <div class="bg-orange-500 px-4 py-3">
+    <h4 class="text-lg font-bold text-gray-900 tracking-wide">📈 Donde Estoy Afilando</h4>
+  </div>
+  <div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+    <div class="border-l-2 border-orange-400 pl-3">
+      <p class="text-orange-300 font-bold text-sm">🌐 Huella pública de ingeniería de IA</p>
+      <p class="text-gray-300 text-sm">Cerrar la brecha entre "construido internamente" y "construido en público" vía tobacia.space, GitHub, y contenido de build-log en LinkedIn.</p>
+    </div>
+    <div class="border-l-2 border-orange-400 pl-3">
+      <p class="text-orange-300 font-bold text-sm">🤖 Profundidad multi-agente / MCP</p>
+      <p class="text-gray-300 text-sm">Más allá de automatizaciones de un solo agente → stacks orquestados con uso de herramientas. Anthropic AI Agent Systems y MCP, certificado Mar 2026.</p>
+    </div>
+    <div class="border-l-2 border-orange-400 pl-3">
+      <p class="text-orange-300 font-bold text-sm">👥 Escala de liderazgo distribuido</p>
+      <p class="text-gray-300 text-sm">De propiedad single-threaded ("si depende de mí, es frágil") a entregar sistemas operativos y desarrollar los próximos operadores.</p>
+    </div>
+    <div class="border-l-2 border-orange-400 pl-3">
+      <p class="text-orange-300 font-bold text-sm">💰 Eficiencia de capital y asignación de equity</p>
+      <p class="text-gray-300 text-sm">Traducir el ROI operativo en narrativas de grado-inversión para roles de alta leverage o levantamiento de capital.</p>
+    </div>
+  </div>
+</div>
 
 <hr class="my-8 border-gray-700">
 
