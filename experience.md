@@ -41,7 +41,6 @@ title: "Experience"
       <p class="text-sm text-gray-200 leading-relaxed">Founded <strong>Anything Flows LLC</strong>. Owned the P&amp;L end-to-end.</p>
       <p class="text-sm text-gray-300">💰 Scaled to <strong class="text-green-300">$1.2M annual revenue</strong></p>
       <p class="text-sm text-gray-300">⚙️ Automated platform across <strong class="text-green-300">7,000+ SKUs</strong></p>
-      <p class="text-sm text-gray-300">🛡️ Sustained service through <strong class="text-green-300">COVID supply shocks</strong></p>
       <p class="text-sm text-gray-400 italic mt-auto">Learned what owning the bottom line actually feels like.</p>
     </div>
   </div>
