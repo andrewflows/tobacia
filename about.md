@@ -35,9 +35,9 @@ title: "About"
       <h4 class="text-lg font-bold tracking-wide" style="color:#ffffff;">🌎 Background</h4>
     </div>
     <div class="p-4 space-y-2 flex-grow text-sm text-gray-200">
-      <p>🇨🇴 Born in <strong class="text-cyan-300">Bogotá, Colombia</strong></p>
+      <p>📍 Born in <strong class="text-cyan-300">Bogotá, Colombia</strong></p>
       <p>🌍 Childhood across <strong class="text-cyan-300">Ecuador, Colombia, Texas, Louisiana, Alaska, Washington</strong></p>
-      <p>🇺🇸 U.S. citizen <strong class="text-cyan-300">since 2013</strong></p>
+      <p>🗽 U.S. citizen <strong class="text-cyan-300">since 2013</strong></p>
       <p>👥 Family of engineers — <strong class="text-cyan-300">3 brothers, all Texas A&amp;M grads</strong> (Aerospace, Industrial, Maritime Systems)</p>
     </div>
   </div>
