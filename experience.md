@@ -13,11 +13,55 @@ title: "Experience"
 
 ### The Career Arc
 
-Two decades, three chapters:
+<p class="text-gray-300 italic mb-4">Two decades. Three chapters.</p>
 
-- **2008–2018 — Operator school** — Texas A&M Industrial Engineering → field roles at Emerson, Cameron (SLB), Rotork, Lockwood International, Weir Group. Doubled actuator sales at Lockwood ($4M → $8M). Opened a Latin America office for Rotork. Built the first-tool habits — Excel sizing programs, automated quoting — that compounded into everything since.
-- **2018–2022 — Founder chapter** — Founded **Anything Flows LLC**, scaled to **$1.2M annual revenue**, built an automated pricing/inventory/sourcing platform across 7,000+ SKUs, kept service running through COVID-era supply shocks. Learned what owning the P&L feels like.
-- **2022–present — Aerospace + AI chapter** — At **Blue Origin**: single-threaded supply chain owner for **New Shepard** across 12+ crewed missions (NS-22 → NS-38), delivering $8.2M (2024) and $5M (2023) in cost savings. **On Global Strategic Projects (Aug 2025 – Present).** Building the AI procurement and operational-intelligence layer for BO's supply chain. Shipped the **company supplier portal on time**, supported the **ERP transformation**, supported the deployment of AI supply chain tools (**PR-to-PO automation** and **supply chain AI agents**), and orchestrated **customer feedback loops** across the procurement organization. Personally built and deployed **20+ AI agents** for procurement and operational intelligence — supplier monitoring, workflow automation, and decision support.
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 mb-8">
+
+  <!-- Chapter 1: Operator -->
+  <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg flex flex-col">
+    <div class="bg-yellow-500 px-4 py-3">
+      <p class="text-xs font-bold text-gray-900 tracking-widest uppercase">2008 – 2018</p>
+      <h4 class="text-lg font-bold text-gray-900 mt-1">🛠 Operator School</h4>
+    </div>
+    <div class="p-4 space-y-3 flex-grow">
+      <p class="text-sm text-gray-200 leading-relaxed">Texas A&amp;M Industrial Engineering. Field roles at <strong>Emerson · Cameron (SLB) · Rotork · Lockwood · Weir</strong>.</p>
+      <p class="text-sm text-gray-300">📈 Doubled Lockwood actuator sales <strong class="text-yellow-300">$4M → $8M</strong></p>
+      <p class="text-sm text-gray-300">🌎 Opened Rotork's <strong class="text-yellow-300">Latin America office</strong></p>
+      <p class="text-sm text-gray-400 italic mt-auto">Built the first-tool habits that compounded into everything since.</p>
+    </div>
+  </div>
+
+  <!-- Chapter 2: Founder -->
+  <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg flex flex-col">
+    <div class="bg-green-500 px-4 py-3">
+      <p class="text-xs font-bold text-gray-900 tracking-widest uppercase">2018 – 2022</p>
+      <h4 class="text-lg font-bold text-gray-900 mt-1">🚀 Founder Chapter</h4>
+    </div>
+    <div class="p-4 space-y-3 flex-grow">
+      <p class="text-sm text-gray-200 leading-relaxed">Founded <strong>Anything Flows LLC</strong>. Owned the P&amp;L end-to-end.</p>
+      <p class="text-sm text-gray-300">💰 Scaled to <strong class="text-green-300">$1.2M annual revenue</strong></p>
+      <p class="text-sm text-gray-300">⚙️ Automated platform across <strong class="text-green-300">7,000+ SKUs</strong></p>
+      <p class="text-sm text-gray-300">🛡️ Sustained service through <strong class="text-green-300">COVID supply shocks</strong></p>
+      <p class="text-sm text-gray-400 italic mt-auto">Learned what owning the bottom line actually feels like.</p>
+    </div>
+  </div>
+
+  <!-- Chapter 3: Aerospace + AI -->
+  <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg flex flex-col">
+    <div class="bg-blue-500 px-4 py-3">
+      <p class="text-xs font-bold text-white tracking-widest uppercase">2022 – Present</p>
+      <h4 class="text-lg font-bold text-white mt-1">🛰 Aerospace + AI</h4>
+    </div>
+    <div class="p-4 space-y-3 flex-grow">
+      <p class="text-sm text-gray-200 leading-relaxed"><strong>Blue Origin</strong>. Supply chain owner across <strong>12+ crewed New Shepard missions</strong> (NS-22 → NS-38).</p>
+      <p class="text-sm text-gray-300">💰 Cost savings <strong class="text-blue-300">$8.2M (2024) · $5M (2023)</strong></p>
+      <p class="text-sm text-gray-300">🤖 <strong class="text-blue-300">Global Strategic Projects (Aug 2025+):</strong> supplier portal · ERP transformation · PR-to-PO automation · customer feedback loops</p>
+      <p class="text-sm text-gray-300">⚡ <strong class="text-blue-300">20+ AI agents</strong> deployed for procurement &amp; operational intelligence</p>
+      <p class="text-sm text-gray-400 italic mt-auto">Building the AI layer for the company's supply chain.</p>
+    </div>
+  </div>
+
+</div>
 
 ### The Path Forward
 
