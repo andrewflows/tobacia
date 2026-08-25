@@ -53,10 +53,11 @@ title: "Experience"
     </div>
     <div class="p-4 space-y-3 flex-grow">
       <p class="text-sm text-gray-200 leading-relaxed"><strong>Blue Origin</strong>. Supply chain owner across <strong>12+ crewed New Shepard missions</strong> (NS-22 → NS-38).</p>
+      <p class="text-sm text-gray-300">🎖 <strong class="text-blue-300">Promoted to Level IV — Senior Supply Chain Program Manager (2026)</strong></p>
       <p class="text-sm text-gray-300">💰 Cost savings <strong class="text-blue-300">$8.2M (2024) · $5M (2023)</strong></p>
       <p class="text-sm text-gray-300">🤖 <strong class="text-blue-300">Global Strategic Projects (Aug 2025+):</strong> supplier portal · ERP transformation · PR-to-PO automation · customer feedback loops</p>
       <p class="text-sm text-gray-300">⚡ <strong class="text-blue-300">20+ AI agents</strong> deployed for procurement &amp; operational intelligence</p>
-      <p class="text-sm text-gray-400 italic mt-auto">Building the AI layer for the company's supply chain.</p>
+      <p class="text-sm text-gray-400 italic mt-auto">Today: senior program owner building the AI layer for the company's supply chain.</p>
     </div>
   </div>
 
@@ -134,11 +135,11 @@ title: "Experience"
     <div class="absolute -left-3 w-6 h-6 bg-blue-500 rounded-full border border-gray-900"></div>
     <h3 class="text-xl font-semibold text-blue-300">Blue Origin – Kent, WA</h3>
     <p class="text-sm text-gray-400">July 2025 – Present</p>
-    <p class="font-bold">Supply Chain Project Manager (Level III) | Strategy & Operations</p>
+    <p class="font-bold">Senior Supply Chain Program Manager (Level IV) | Global Strategic Projects</p>
     <ul class="list-disc ml-6 mt-2 text-gray-200">
-      <li>Spearheading AI & automation initiatives in global supply chain transformation.</li>
-      <li>Implementing machine learning for inventory forecasting and supplier risk analysis.</li>
-      <li>Driving end-to-end digital transformation with predictive analytics and RPA.</li>
+      <li><strong>Promoted to Level IV (Senior Program Manager) in 2026</strong>, leading global supply chain strategy and AI-enabled operations.</li>
+      <li>Spearheading AI & automation initiatives across the supply chain: supplier portal, ERP transformation, and PR-to-PO automation.</li>
+      <li>Deployed 20+ AI agents for procurement and operational intelligence.</li>
     </ul>
   </div>
 
