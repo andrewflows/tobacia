@@ -8,7 +8,7 @@ title: "Home"
     <img src="/Andres%20Tobacia%20Professional%20Headshot.jpg" alt="Andrés Tobacia" class="w-40 sm:w-56 md:w-64 rounded-full shadow-lg cursor-pointer mx-auto">
   </div>
 
-  <h1 class="text-2xl sm:text-3xl font-bold text-blue-300">Andrés Tobacia</h1>
+  <h1 class="text-2xl sm:text-3xl font-bold text-gray-100">Andrés Tobacia</h1>
   <h2 class="text-base sm:text-lg md:text-xl font-medium text-gray-200 typewriter px-2">
     Industrial Engineering & Supply Chain Executive | AI-Powered Manufacturing & Space Exploration
   </h2>
@@ -72,7 +72,7 @@ document.querySelectorAll('.home-headshot img').forEach(img => {
 
 <style>
 .typewriter {
-  border-right: 2px solid #38bdf8;
+  border-right: 2px solid #AEB9CC;
   white-space: nowrap;
   overflow: hidden;
 }

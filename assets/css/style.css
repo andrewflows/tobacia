@@ -1,32 +1,98 @@
+/* ============================================================
+   Hull & Signal — tobacia.space personal-site palette
+   Single source of truth. Reviewed 26 Aug 2026.
+   Loaded after Tailwind in _layouts/default.html so these
+   overrides win. Grounds carry the page, Signal is the only
+   colour that means "clickable", the grey ramp carries words.
+   ============================================================ */
+
+:root {
+  /* grounds */
+  --abyss:  #05070E;  /* deepest black, image mattes, footer, code */
+  --hull:   #0A0F1C;  /* page background — unchanged from before */
+  --deck:   #101A30;  /* header, cards, raised surfaces */
+  --riser:  #18243F;  /* hover states, nested surfaces */
+  --seam:   #27354F;  /* borders and hairline rules — never text */
+
+  /* blues */
+  --navy:   #1E3A6E;  /* solid brand blocks, badges, card headers */
+  --signal: #4C8DFF;  /* links, the one filled button */
+  --ice:    #9EC6FF;  /* hover, labels on navy */
+
+  /* type */
+  --white:  #FFFFFF;  /* peak emphasis only */
+  --paper:  #F2F5FA;  /* body and heading text */
+  --steel:  #AEB9CC;  /* secondary text, captions */
+  --slate:  #7A879E;  /* metadata, small labels */
+
+  --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+
+/* ---------- base ---------- */
 body {
-  font-family: Arial, sans-serif;
-  background: #0a0f1f;
-  color: #fff;
-  margin: 0;
-  padding: 0;
+  background: var(--hull);
+  color: var(--paper);
+  font-family: var(--f-display);
+  -webkit-font-smoothing: antialiased;
 }
-header {
-  background: #0d1b2a;
-  padding: 1em;
-  text-align: center;
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--f-display);
+  font-weight: 800;
+  letter-spacing: -0.022em;
+  color: var(--paper);
 }
-header nav a {
-  color: #fff;
-  margin: 0 10px;
-  text-decoration: none;
-}
-footer {
-  background: #0d1b2a;
-  padding: 1em;
-  text-align: center;
-  font-size: 0.9em;
-}
-.btn {
-  display: inline-block;
-  margin: 10px;
-  padding: 10px 20px;
-  background: #1b263b;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-}
+
+a { color: var(--signal); }
+a:hover { color: var(--ice); }
+
+code, pre, kbd, samp { font-family: var(--f-mono); }
+
+/* ============================================================
+   Tailwind utility overrides — remap the drifted palette to
+   tokens. Only affects pages that load this sheet (the Jekyll
+   personal site); the standalone tool apps are untouched.
+   ============================================================ */
+
+/* --- text: grey ramp --- */
+.text-gray-100, .text-gray-200, .text-gray-300 { color: var(--paper) !important; }
+.text-gray-400 { color: var(--steel) !important; }
+.text-gray-500, .text-gray-600 { color: var(--slate) !important; }
+.text-gray-900 { color: var(--hull) !important; }   /* dark text on light chips */
+
+/* --- text: blues collapse to one link blue --- */
+.text-blue-200, .text-blue-300, .text-blue-400, .text-blue-500 { color: var(--signal) !important; }
+.hover\:text-blue-300:hover, .hover\:text-blue-400:hover, .hover\:text-blue-500:hover { color: var(--ice) !important; }
+
+/* --- text: off-brand accents stop shouting inside paragraphs --- */
+.text-cyan-300, .text-cyan-400,
+.text-indigo-300,
+.text-pink-300,
+.text-purple-200, .text-purple-300 { color: var(--paper) !important; }
+
+/* --- surfaces --- */
+.bg-gray-950 { background-color: var(--abyss) !important; }
+.bg-gray-900, .bg-gray-800 { background-color: var(--deck) !important; }
+.bg-gray-700 { background-color: var(--riser) !important; }
+.bg-gray-400 { background-color: var(--steel) !important; }
+
+/* --- the one filled button: Signal fill, Hull text (5.98:1) --- */
+.bg-blue-500, .bg-blue-600, .bg-blue-700 { background-color: var(--signal) !important; color: var(--hull) !important; }
+.hover\:bg-blue-600:hover, .hover\:bg-blue-700:hover { background-color: var(--ice) !important; color: var(--hull) !important; }
+
+/* --- unify the indigo / magenta / purple card headers to navy --- */
+.bg-indigo-500, .bg-indigo-700,
+.bg-pink-500, .bg-pink-700,
+.bg-purple-500, .bg-purple-700,
+.bg-cyan-700 { background-color: var(--navy) !important; color: var(--ice) !important; }
+
+/* --- borders --- */
+.border-gray-600, .border-gray-700, .border-gray-800, .border-gray-900 { border-color: var(--seam) !important; }
+.border-blue-400, .border-blue-500, .border-blue-800 { border-color: var(--signal) !important; }
+.border-purple-400, .border-cyan-400, .border-cyan-500 { border-color: var(--seam) !important; }
+
+/* --- gradients: pull stray blues / indigos / cyans onto the grounds --- */
+.from-blue-500, .from-blue-600, .from-blue-950, .from-purple-900 { --tw-gradient-from: var(--navy) !important; }
+.via-gray-800 { --tw-gradient-via: var(--deck) !important; }
+.to-indigo-900, .to-gray-900, .to-cyan-400, .to-cyan-500 { --tw-gradient-to: var(--deck) !important; }
