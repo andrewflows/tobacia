@@ -11,9 +11,9 @@ title: "About"
     <img src="/Andres%20Tobacia%20Blue%20Origin.jpg" alt="Andrés Tobacia" class="w-40 sm:w-56 md:w-64 rounded-lg shadow-lg mx-auto md:mx-0">
 
     <div class="text-center md:text-left text-gray-100">
-      <p class="leading-relaxed mb-3">Andrés Tobacia is an <strong class="text-blue-300">Industrial &amp; Systems Engineer</strong> from Texas A&amp;M (2008) with <strong class="text-blue-300">17+ years</strong> optimizing manufacturing, logistics, and automation across aerospace, energy, and industrial sectors.</p>
+      <p class="leading-relaxed mb-3">Andrés Tobacia is an <strong class="text-gray-100">Industrial &amp; Systems Engineer</strong> from Texas A&amp;M (2008) with <strong class="text-gray-100">17+ years</strong> optimizing manufacturing, logistics, and automation across aerospace, energy, and industrial sectors.</p>
 
-      <p class="leading-relaxed mb-3">Currently serving as <strong class="text-blue-300">Global Supply Chain Project Manager III</strong> at Blue Origin in Kent, WA, Andrés leads procurement and supply chain strategies for all programs. From <strong class="text-blue-300">NS-22 through NS-38</strong>, I was part of the supply chain team supporting <strong class="text-blue-300">69 of those individuals</strong> across <strong class="text-blue-300">12+ crewed missions</strong> during my chapter.</p>
+      <p class="leading-relaxed mb-3">Currently serving as <strong class="text-gray-100">Sr. Supply Chain Program Manager, Global Strategic Projects</strong> at Blue Origin in Kent, WA, Andrés leads procurement and supply chain strategy across the company's global strategic initiatives. From <strong class="text-gray-100">NS-22 through NS-38</strong>, I was part of the supply chain team supporting <strong class="text-gray-100">69 of those individuals</strong> across <strong class="text-gray-100">12+ crewed missions</strong> during my chapter.</p>
 
       <ul class="list-disc list-inside space-y-1 text-sm text-gray-200 mt-3">
         <li>Directed large-scale supply chain and process optimization for advanced space programs.</li>
@@ -32,7 +32,7 @@ title: "About"
   <!-- Background -->
   <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg flex flex-col">
     <div class="bg-cyan-700 px-4 py-3">
-      <h4 class="text-lg font-bold tracking-wide" style="color:#ffffff;">🌎 Background</h4>
+      <h4 class="text-lg font-bold tracking-wide" style="color:#ffffff;">Background</h4>
     </div>
     <div class="p-4 space-y-2 flex-grow text-sm text-gray-200">
       <p>📍 Born in <strong class="text-cyan-300">Bogotá, Colombia</strong></p>
@@ -45,7 +45,7 @@ title: "About"
   <!-- Beliefs & Vision -->
   <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg flex flex-col">
     <div class="bg-indigo-700 px-4 py-3">
-      <h4 class="text-lg font-bold tracking-wide" style="color:#ffffff;">💡 Beliefs &amp; Vision</h4>
+      <h4 class="text-lg font-bold tracking-wide" style="color:#ffffff;">Beliefs &amp; Vision</h4>
     </div>
     <div class="p-4 space-y-2 flex-grow text-sm text-gray-200">
       <p>🚀 Building the road to space — <strong class="text-indigo-300">changing humanity one astronaut at a time</strong></p>
@@ -57,7 +57,7 @@ title: "About"
   <!-- Beyond Work -->
   <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg flex flex-col">
     <div class="bg-pink-700 px-4 py-3">
-      <h4 class="text-lg font-bold tracking-wide" style="color:#ffffff;">🌟 Beyond Work</h4>
+      <h4 class="text-lg font-bold tracking-wide" style="color:#ffffff;">Beyond Work</h4>
     </div>
     <div class="p-4 space-y-2 flex-grow text-sm text-gray-200">
       <p>⚽ Advisor for <strong class="text-pink-300">Space United</strong> — bringing soccer to space as a tool for inspiration</p>

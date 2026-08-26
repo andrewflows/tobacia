@@ -8,10 +8,10 @@ title: "Home"
     <img src="/Andres%20Tobacia%20Professional%20Headshot.jpg" alt="Andrés Tobacia" class="w-40 sm:w-56 md:w-64 rounded-full shadow-lg cursor-pointer mx-auto">
   </div>
 
-  <h1 class="text-2xl sm:text-3xl font-bold text-gray-100">Andrés Tobacia</h1>
-  <h2 class="text-base sm:text-lg md:text-xl font-medium text-gray-200 typewriter px-2">
-    Industrial Engineering & Supply Chain Executive | AI-Powered Manufacturing & Space Exploration
-  </h2>
+  <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-100 max-w-2xl">Supply chain for things that leave the ground.</h1>
+  <p class="text-base sm:text-lg text-gray-300 max-w-2xl px-2">
+    Seventeen years moving parts through manufacturing, logistics, and automation, most recently for crewed spaceflight programs at Blue Origin.
+  </p>
 
   <!-- Language Switch -->
   <div class="mt-2">
@@ -19,29 +19,14 @@ title: "Home"
   </div>
 
   <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 mt-4 w-full max-w-2xl px-2">
-    <a href="/appstore.html" class="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold py-2 px-4 rounded text-center shadow-lg shadow-blue-500/20">📱 Open App Store</a>
-    <a href="https://www.linkedin.com/in/jatobacia/" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center">LinkedIn</a>
     <a href="/Andres_Tobacia_AI_Resume_EN.pdf" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center">Resume</a>
-    <a href="/contact.html" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center">Contact</a>
+    <a href="/projects.html" class="border border-gray-600 hover:border-blue-500 text-gray-300 hover:text-white font-bold py-2 px-4 rounded text-center">See the work</a>
+    <a href="/contact.html" class="border border-gray-600 hover:border-blue-500 text-gray-300 hover:text-white font-bold py-2 px-4 rounded text-center">Get in touch</a>
+    <a href="/appstore.html" class="border border-gray-600 hover:border-blue-500 text-gray-300 hover:text-white font-bold py-2 px-4 rounded text-center">App Store</a>
   </div>
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const el = document.querySelector('.typewriter');
-  const text = el.textContent;
-  el.textContent = '';
-  let i = 0;
-  const type = () => {
-    if (i < text.length) {
-      el.textContent += text.charAt(i);
-      i++;
-      setTimeout(type, 50);
-    }
-  };
-  type();
-});
-
 document.querySelectorAll('.home-headshot img').forEach(img => {
   img.addEventListener('click', function() {
     const overlay = document.createElement('div');
@@ -69,13 +54,5 @@ document.querySelectorAll('.home-headshot img').forEach(img => {
   });
 });
 </script>
-
-<style>
-.typewriter {
-  border-right: 2px solid #AEB9CC;
-  white-space: nowrap;
-  overflow: hidden;
-}
-</style>
 
 
