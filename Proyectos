@@ -8,11 +8,15 @@ permalink: /proyectos.html
 
 ### Blue Origin — Un Capítulo en Vuelos Espaciales Tripulados 🚀
 
-**Supply Chain Program Manager III — New Shepard** · Jul 2022 – Jul 2025
-**Supply Chain Project Manager III — Global Strategic Projects** · Ago 2025 – Presente
+<div class="mb-4">
+  <p class="font-bold text-gray-100">Supply Chain Program Manager III, New Shepard</p>
+  <p class="font-mono text-sm text-gray-400">Jul 2022 – Jul 2025</p>
+  <p class="font-bold text-gray-100 mt-3">Sr. Supply Chain Program Manager, Global Strategic Projects</p>
+  <p class="font-mono text-sm text-gray-400">Ago 2025 – Presente</p>
+</div>
 
 <div class="my-6">
-  <img src="/bo-ng3-booster-return.jpg" alt="Retorno del propulsor New Glenn NG-3" class="rounded-lg shadow-lg w-full cursor-pointer">
+  <img src="/bo-ng3-booster-return.jpg" alt="Retorno del propulsor New Glenn NG-3" class="rounded-lg shadow-lg w-full max-h-96 object-cover cursor-pointer">
   <p class="text-sm text-gray-400 italic mt-2 text-center">New Glenn NG-3 — retorno del propulsor.</p>
 </div>
 
@@ -23,7 +27,7 @@ permalink: /proyectos.html
 **En Global Strategic Projects (Ago 2025 – Presente).** Construyendo la capa de automatización de compras e inteligencia operativa basada en IA para la cadena de suministro de BO. Diseñé y desplegué la primera tubería de automatización de compras impulsada por IA de la compañía, y construí y desplegué personalmente más de 20 agentes de IA para inteligencia operativa y de procura — monitoreo de proveedores, automatización de flujos de trabajo y soporte a decisiones. También lideré una migración de plataforma empresarial en toda la organización de compras de BO sin interrumpir la producción.
 
 <div class="my-6">
-  <img src="/bo-new-glenn-manufacturing.jpg" alt="Planta de manufactura de New Glenn" class="rounded-lg shadow-lg w-full cursor-pointer">
+  <img src="/bo-new-glenn-manufacturing.jpg" alt="Planta de manufactura de New Glenn" class="rounded-lg shadow-lg w-full max-h-96 object-cover cursor-pointer">
   <p class="text-sm text-gray-400 italic mt-2 text-center">Planta de manufactura de New Glenn — donde vive el trabajo.</p>
 </div>
 
@@ -33,11 +37,11 @@ Para NS-38, New Shepard había llevado a 92 individuos — 98 asientos — más 
 
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 my-6">
   <div>
-    <img src="/bo-ns31-crew-recovery.jpg" alt="Recuperación de cápsula NS-31" class="rounded-lg shadow-lg w-full cursor-pointer">
+    <img src="/bo-ns31-crew-recovery.jpg" alt="Recuperación de cápsula NS-31" class="rounded-lg shadow-lg w-full max-h-96 object-cover cursor-pointer">
     <p class="text-sm text-gray-400 italic mt-2 text-center">NS-31 — primer vuelo espacial totalmente femenino desde 1963. Recuperación de la cápsula.</p>
   </div>
   <div>
-    <img src="/bo-ns26-thrusters-landing.jpg" alt="Propulsores de la cápsula NS-26 encendidos durante el descenso" class="rounded-lg shadow-lg w-full cursor-pointer">
+    <img src="/bo-ns26-thrusters-landing.jpg" alt="Propulsores de la cápsula NS-26 encendidos durante el descenso" class="rounded-lg shadow-lg w-full max-h-96 object-cover cursor-pointer">
     <p class="text-sm text-gray-400 italic mt-2 text-center">NS-26 — propulsores de la cápsula encendidos durante el descenso.</p>
   </div>
 </div>
@@ -61,7 +65,7 @@ Entre los hitos que más me enorgullece haber apoyado:
 </details>
 
 <div class="my-6">
-  <img src="/bo-ns38-astronauts.jpg" alt="Astronautas NS-38" class="rounded-lg shadow-lg w-full cursor-pointer">
+  <img src="/bo-ns38-astronauts.jpg" alt="Astronautas NS-38" class="rounded-lg shadow-lg w-full max-h-96 object-cover cursor-pointer">
   <p class="text-sm text-gray-400 italic mt-2 text-center">Astronautas NS-38.</p>
 </div>
 

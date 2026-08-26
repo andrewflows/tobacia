@@ -7,11 +7,15 @@ title: "Projects & Initiatives"
 
 ### Blue Origin — A Chapter in Human Spaceflight 🚀
 
-**Supply Chain Program Manager III — New Shepard** · Jul 2022 – Jul 2025
-**Supply Chain Project Manager III — Global Strategic Projects** · Aug 2025 – Present
+<div class="mb-4">
+  <p class="font-bold text-gray-100">Supply Chain Program Manager III, New Shepard</p>
+  <p class="font-mono text-sm text-gray-400">Jul 2022 – Jul 2025</p>
+  <p class="font-bold text-gray-100 mt-3">Sr. Supply Chain Program Manager, Global Strategic Projects</p>
+  <p class="font-mono text-sm text-gray-400">Aug 2025 – Present</p>
+</div>
 
 <div class="my-6">
-  <img src="/bo-ng3-booster-return.jpg" alt="New Glenn NG-3 booster return" class="rounded-lg shadow-lg w-full cursor-pointer">
+  <img src="/bo-ng3-booster-return.jpg" alt="New Glenn NG-3 booster return" class="rounded-lg shadow-lg w-full max-h-96 object-cover cursor-pointer">
   <p class="text-sm text-gray-400 italic mt-2 text-center">New Glenn NG-3 — booster return.</p>
 </div>
 
@@ -22,7 +26,7 @@ title: "Projects & Initiatives"
 **On Global Strategic Projects (Aug 2025 – Present).** Building the AI procurement and operational-intelligence layer for BO's supply chain. I designed and deployed the company's first AI-driven procurement automation pipeline, and personally built and deployed 20+ AI agents for procurement and operational intelligence — supplier monitoring, workflow automation, and decision support. I also led an enterprise platform migration across BO's procurement organization without interrupting production.
 
 <div class="my-6">
-  <img src="/bo-new-glenn-manufacturing.jpg" alt="New Glenn hardware manufacturing facility" class="rounded-lg shadow-lg w-full cursor-pointer">
+  <img src="/bo-new-glenn-manufacturing.jpg" alt="New Glenn hardware manufacturing facility" class="rounded-lg shadow-lg w-full max-h-96 object-cover cursor-pointer">
   <p class="text-sm text-gray-400 italic mt-2 text-center">New Glenn hardware manufacturing facility — where the work lives.</p>
 </div>
 
@@ -32,11 +36,11 @@ By NS-38, New Shepard had flown **92 individuals — 98 seats** above the Kárm�
 
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 my-6">
   <div>
-    <img src="/bo-ns31-crew-recovery.jpg" alt="NS-31 capsule recovery" class="rounded-lg shadow-lg w-full cursor-pointer">
+    <img src="/bo-ns31-crew-recovery.jpg" alt="NS-31 capsule recovery" class="rounded-lg shadow-lg w-full max-h-96 object-cover cursor-pointer">
     <p class="text-sm text-gray-400 italic mt-2 text-center">NS-31 — first all-female spaceflight since 1963. Crew capsule recovery.</p>
   </div>
   <div>
-    <img src="/bo-ns26-thrusters-landing.jpg" alt="NS-26 capsule thrusters firing during landing" class="rounded-lg shadow-lg w-full cursor-pointer">
+    <img src="/bo-ns26-thrusters-landing.jpg" alt="NS-26 capsule thrusters firing during landing" class="rounded-lg shadow-lg w-full max-h-96 object-cover cursor-pointer">
     <p class="text-sm text-gray-400 italic mt-2 text-center">NS-26 — capsule thrusters firing during descent.</p>
   </div>
 </div>
@@ -60,7 +64,7 @@ Among the milestones I'm proudest to have supported:
 </details>
 
 <div class="my-6">
-  <img src="/bo-ns38-astronauts.jpg" alt="NS-38 astronauts" class="rounded-lg shadow-lg w-full cursor-pointer">
+  <img src="/bo-ns38-astronauts.jpg" alt="NS-38 astronauts" class="rounded-lg shadow-lg w-full max-h-96 object-cover cursor-pointer">
   <p class="text-sm text-gray-400 italic mt-2 text-center">NS-38 astronauts.</p>
 </div>
 

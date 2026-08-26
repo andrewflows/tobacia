@@ -96,3 +96,6 @@ code, pre, kbd, samp { font-family: var(--f-mono); }
 .from-blue-500, .from-blue-600, .from-blue-950, .from-purple-900 { --tw-gradient-from: var(--navy) !important; }
 .via-gray-800 { --tw-gradient-via: var(--deck) !important; }
 .to-indigo-900, .to-gray-900, .to-cyan-400, .to-cyan-500 { --tw-gradient-to: var(--deck) !important; }
+
+/* dates & figures in Plex Mono */
+.font-mono { font-family: var(--f-mono) !important; }
