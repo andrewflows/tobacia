@@ -104,6 +104,7 @@ title: "About"
 <div class="flex flex-col sm:flex-row gap-3 justify-center mt-6">
   <a href="/Andres_Tobacia_AI_Resume_EN.pdf" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center text-sm">Download Resume (EN)</a>
   <a href="https://www.linkedin.com/in/jatobacia/" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center text-sm">LinkedIn Profile</a>
+  <a href="https://grokipedia.com/page/Andrs_Tobacia" target="_blank" rel="noopener" class="bg-slate-600 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded text-center text-sm">Grokipedia Profile</a>
 </div>
 
 
