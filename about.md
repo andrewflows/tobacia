@@ -13,7 +13,7 @@ title: "About"
     <div class="text-center md:text-left text-gray-100">
       <p class="leading-relaxed mb-3">Andrés Tobacia is an <strong class="text-gray-100">Industrial &amp; Systems Engineer</strong> from Texas A&amp;M (2008) with <strong class="text-gray-100">17+ years</strong> optimizing manufacturing, logistics, and automation across aerospace, energy, and industrial sectors.</p>
 
-      <p class="leading-relaxed mb-3">Currently serving as <strong class="text-gray-100">Sr. Supply Chain Program Manager, Global Strategic Projects</strong> at Blue Origin in Kent, WA, Andrés leads procurement and supply chain strategy across the company's global strategic initiatives. From <strong class="text-gray-100">NS-22 through NS-38</strong>, I was part of the supply chain team supporting <strong class="text-gray-100">69 of those individuals</strong> across <strong class="text-gray-100">12+ crewed missions</strong> during my chapter.</p>
+      <p class="leading-relaxed mb-3">Since September 2026, Andrés has served as <strong class="text-gray-100">Senior Technical Program Manager, TeraWave Operations</strong> at Blue Origin, owning program execution (schedule, integration, and trade-offs) for the TeraWave satellite constellation. From <strong class="text-gray-100">NS-22 through NS-38</strong>, I was part of the supply chain team supporting <strong class="text-gray-100">69 of those individuals</strong> across <strong class="text-gray-100">12+ crewed missions</strong> during my chapter.</p>
 
       <ul class="list-disc list-inside space-y-1 text-sm text-gray-200 mt-3">
         <li>Directed large-scale supply chain and process optimization for advanced space programs.</li>

@@ -11,7 +11,9 @@ title: "Projects & Initiatives"
   <p class="font-bold text-gray-100">Supply Chain Program Manager III, New Shepard</p>
   <p class="font-mono text-sm text-gray-400">Jul 2022 – Jul 2025</p>
   <p class="font-bold text-gray-100 mt-3">Sr. Supply Chain Program Manager, Global Strategic Projects</p>
-  <p class="font-mono text-sm text-gray-400">Aug 2025 – Present</p>
+  <p class="font-mono text-sm text-gray-400">Aug 2025 – Aug 2026</p>
+  <p class="font-bold text-gray-100 mt-3">Senior Technical Program Manager, TeraWave Operations</p>
+  <p class="font-mono text-sm text-gray-400">Sep 2026 – Present</p>
 </div>
 
 <div class="my-6">
@@ -23,7 +25,9 @@ title: "Projects & Initiatives"
 
 **On New Shepard (Jul 2022 – Jul 2025).** Single-threaded owner for supply chain execution across crew capsule subsystems including structures, avionics, and composites. Owned MRP-driven material planning across multiple subsystems, sustained flight cadence for 12+ crewed missions, and negotiated supplier contracts at scale. When shortages or late-breaking engineering changes hit, I made the tradeoff calls that kept launch schedules intact.
 
-**On Global Strategic Projects (Aug 2025 – Present).** Building the AI procurement and operational-intelligence layer for BO's supply chain. I designed and deployed the company's first AI-driven procurement automation pipeline, and personally built and deployed 20+ AI agents for procurement and operational intelligence — supplier monitoring, workflow automation, and decision support. I also led an enterprise platform migration across BO's procurement organization without interrupting production.
+**On Global Strategic Projects (Aug 2025 – Aug 2026).** Built the AI procurement and operational-intelligence layer for BO's supply chain. I designed and deployed the company's first AI-driven procurement automation pipeline, and personally built and deployed 20+ AI agents for procurement and operational intelligence: supplier monitoring, workflow automation, and decision support. I also led an enterprise platform migration across BO's procurement organization without interrupting production.
+
+**On TeraWave Operations (Sep 2026 – Present).** Senior Technical Program Manager in Operations, owning program execution for TeraWave, Blue Origin's satellite constellation: schedule, integration, and trade-offs.
 
 <div class="my-6">
   <img src="/bo-new-glenn-manufacturing.jpg" alt="New Glenn hardware manufacturing facility" class="rounded-lg shadow-lg w-full max-h-96 object-cover cursor-pointer">
