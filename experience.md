@@ -134,7 +134,7 @@ title: "Experience"
   <!-- Blue Origin -->
   <div class="mb-10 ml-6">
     <div class="absolute -left-3 w-6 h-6 bg-blue-500 rounded-full border border-gray-900"></div>
-    <h3 class="text-xl font-semibold text-blue-300">Blue Origin – Kent, WA</h3>
+    <h3 class="text-xl font-semibold text-blue-300">Blue Origin – Kent, WA &amp; Austin, TX</h3>
     <p class="text-sm text-gray-400">September 2026 – Present</p>
     <p class="font-bold">Senior Technical Program Manager | TeraWave Operations</p>
     <ul class="list-disc ml-6 mt-2 text-gray-200">
