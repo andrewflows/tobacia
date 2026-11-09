@@ -57,7 +57,7 @@ For recruitment opportunities or inquiries, please use the form below or reach o
 <p class="mb-2">Available for recruiters and event organizers.</p>
 
 <div class="flex flex-col sm:flex-row gap-3 justify-center mt-2">
-  <a href="/Andres_Tobacia_AI_Resume_EN.pdf" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center">AI Resume Teaser</a>
+  <a href="/Andres_Tobacia_Resume_Teaser.pdf" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center">AI Resume Teaser</a>
 </div>
 
 <p class="text-sm mt-2 text-center"><a href="https://www.linkedin.com/in/jatobacia/" target="_blank" class="text-blue-400 hover:underline">Connect on LinkedIn</a></p>

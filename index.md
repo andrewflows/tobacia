@@ -19,7 +19,7 @@ title: "Home"
   </div>
 
   <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 mt-4 w-full max-w-2xl px-2">
-    <a href="/Andres_Tobacia_AI_Resume_EN.pdf" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center">Resume</a>
+    <a href="/Andres_Tobacia_Resume_Teaser.pdf" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center">Resume</a>
     <a href="/projects.html" class="border border-gray-600 hover:border-blue-500 text-gray-300 hover:text-white font-bold py-2 px-4 rounded text-center">See the work</a>
     <a href="/contact.html" class="border border-gray-600 hover:border-blue-500 text-gray-300 hover:text-white font-bold py-2 px-4 rounded text-center">Get in touch</a>
     <a href="/appstore.html" class="border border-gray-600 hover:border-blue-500 text-gray-300 hover:text-white font-bold py-2 px-4 rounded text-center">App Store</a>
