@@ -7,7 +7,7 @@ title: "Speaking"
 
 Available for conferences, panels, and leadership talks on:
 
-- AI-powered manufacturing and supply chain automation 🤖  
+- AI-powered manufacturing, supply chain &amp; operations automation 🤖  
 - Space exploration operations and industrial innovation 🚀  
 - Soccer in space and sports as a tool for inspiration ⚽🌌  
 - Renewable energy and sustainable transitions ⚡🌱  

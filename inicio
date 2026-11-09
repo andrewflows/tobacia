@@ -9,7 +9,7 @@ permalink: /inicio.html
     <img src="/Andres%20Tobacia%20Professional%20Headshot.jpg" alt="Andrés Tobacia" class="w-40 sm:w-56 md:w-64 rounded-full shadow-lg cursor-pointer mx-auto">
   </div>
 
-  <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-100 max-w-2xl">Cadena de suministro para lo que despega de la Tierra.</h1>
+  <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-100 max-w-2xl">Cadena de suministro y operaciones para lo que despega de la Tierra.</h1>
   <p class="text-base sm:text-lg text-gray-300 max-w-2xl px-2">
     Diecisiete años moviendo piezas a través de manufactura, logística y automatización, más recientemente para programas de vuelo espacial tripulado en Blue Origin.
   </p>
@@ -30,7 +30,7 @@ permalink: /inicio.html
 <!-- Blog Banner -->
 <div class="bg-gray-800 text-center p-4 mt-8 rounded-lg shadow-lg max-w-2xl mx-auto">
   <p class="text-blue-300 font-semibold">
-    🧠 Nuevo Blog en Substack – IA, Espacio y Cadena de Suministro
+    🧠 Nuevo Blog en Substack – IA, Espacio, Cadena de Suministro y Operaciones
   </p>
   <a href="/blog-es.html" class="inline-block mt-2 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
     Visitar Blog

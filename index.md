@@ -8,7 +8,7 @@ title: "Home"
     <img src="/Andres%20Tobacia%20Professional%20Headshot.jpg" alt="Andrés Tobacia" class="w-40 sm:w-56 md:w-64 rounded-full shadow-lg cursor-pointer mx-auto">
   </div>
 
-  <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-100 max-w-2xl">Supply chain for things that leave the ground.</h1>
+  <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-100 max-w-2xl">Supply chain &amp; operations for things that leave the ground.</h1>
   <p class="text-base sm:text-lg text-gray-300 max-w-2xl px-2">
     Seventeen years moving parts through manufacturing, logistics, and automation, most recently for crewed spaceflight programs at Blue Origin.
   </p>

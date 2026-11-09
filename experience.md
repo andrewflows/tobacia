@@ -7,7 +7,7 @@ title: "Experience"
 
 <div class="bg-gray-900 border-l-4 border-blue-400 p-5 mt-4 mb-8 rounded-r">
   <p class="text-gray-100 leading-relaxed">
-    <strong class="text-blue-300">Bottom line:</strong> I am a builder-operator with <strong>17 years</strong> across aerospace and industrial supply chain who automates the manual processes everyone else still runs by hand. I have shipped — not theorized — AI systems that move real production: <strong>20+ deployed agents</strong> at Blue Origin, <strong>3 live AI tools</strong> at tobacia.space, <strong>$13M+ annualized cost savings</strong>, <strong>$30M+ in contracts negotiated</strong>, and one industrial distribution company built from zero to <strong>$1.2M</strong>.
+    <strong class="text-blue-300">Bottom line:</strong> I am a builder-operator with <strong>17 years</strong> across aerospace and industrial supply chain &amp; operations who automates the manual processes everyone else still runs by hand. I have shipped — not theorized — AI systems that move real production: <strong>20+ deployed agents</strong> at Blue Origin, <strong>3 live AI tools</strong> at tobacia.space, <strong>$13M+ annualized cost savings</strong>, <strong>$30M+ in contracts negotiated</strong>, and one industrial distribution company built from zero to <strong>$1.2M</strong>.
   </p>
 </div>
 
@@ -52,7 +52,7 @@ title: "Experience"
       <h4 class="text-lg font-bold mt-1" style="color:#ffffff;">🛰 Aerospace + AI</h4>
     </div>
     <div class="p-4 space-y-3 flex-grow">
-      <p class="text-sm text-gray-200 leading-relaxed"><strong>Blue Origin</strong>. Supply chain owner across <strong>12+ crewed New Shepard missions</strong> (NS-22 → NS-38).</p>
+      <p class="text-sm text-gray-200 leading-relaxed"><strong>Blue Origin</strong>. Supply chain &amp; operations owner across <strong>12+ crewed New Shepard missions</strong> (NS-22 → NS-38).</p>
       <p class="text-sm text-gray-300">🛰 <strong class="text-blue-300">Senior Technical Program Manager, TeraWave Operations (Sep 2026+)</strong></p>
       <p class="text-sm text-gray-300">🎖 <strong class="text-blue-300">Promoted to Level IV, Senior Supply Chain Program Manager (2026)</strong></p>
       <p class="text-sm text-gray-300">💰 Cost savings <strong class="text-blue-300">$8.2M (2024) · $5M (2023)</strong></p>

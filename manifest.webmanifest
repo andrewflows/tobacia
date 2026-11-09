@@ -1,7 +1,7 @@
 {
   "name": "Tobacia App Store",
   "short_name": "Tobacia",
-  "description": "Personal AI tools for industrial supply chain — built by one operator, shared with the world.",
+  "description": "Personal AI tools for industrial supply chain & operations — built by one operator, shared with the world.",
   "start_url": "/appstore.html",
   "scope": "/",
   "display": "standalone",

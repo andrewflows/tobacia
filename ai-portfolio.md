@@ -5,7 +5,7 @@ title: "AI Portfolio"
 
 ## AI Portfolio
 
-Applied AI systems for industrial operations — built with domain expertise from 17+ years in manufacturing, supply chain, and space exploration.
+Applied AI systems for industrial operations — built with domain expertise from 17+ years in manufacturing, supply chain &amp; operations, and space exploration.
 
 Most AI doesn't know a ball valve from a butterfly valve. These tools do.
 
@@ -81,7 +81,7 @@ Industrial supply chain is one of the least digitized sectors in the economy. Co
 
 These tools apply AI where it creates the most value — not in consumer apps, but in the complex, document-heavy workflows that run $600B+ in industrial distribution every year.
 
-**Built by Andres Tobacia** — Industrial Engineer, 17+ years in manufacturing, supply chain, energy, and space exploration.
+**Built by Andres Tobacia** — Industrial Engineer, 17+ years in manufacturing, supply chain &amp; operations, energy, and space exploration.
 
 <div class="flex flex-wrap gap-3 mt-4">
   <a href="/contact.html" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-sm">Get in Touch</a>

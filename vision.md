@@ -13,6 +13,6 @@ To drive innovation in AI-powered manufacturing and deep tech while shaping the 
 - Ensuring AI is developed ethically, always focused on benefiting humanity.  
 - Personally built this site with AI tools as a proof of concept for accessible, efficient technology use.
 
-Focused on operational excellence and creating long-term value in advanced manufacturing and supply chain systems.
+Focused on operational excellence and creating long-term value in advanced manufacturing, supply chain &amp; operations systems.
 
 _Resume available upon request._

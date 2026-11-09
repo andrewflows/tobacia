@@ -6,7 +6,7 @@ permalink: /blog.html
 
 ## Blog & Insights 🧠
 
-I share articles on AI, supply chain innovation, space exploration, and sustainability on my Substack.
+I share articles on AI, supply chain &amp; operations innovation, space exploration, and sustainability on my Substack.
 
 ---
 

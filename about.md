@@ -16,8 +16,8 @@ title: "About"
       <p class="leading-relaxed mb-3">Since September 2026, Andrés has served as <strong class="text-gray-100">Senior Technical Program Manager, TeraWave Operations</strong> at Blue Origin, owning program execution (schedule, integration, and trade-offs) for the TeraWave satellite constellation. From <strong class="text-gray-100">NS-22 through NS-38</strong>, I was part of the supply chain team supporting <strong class="text-gray-100">69 of those individuals</strong> across <strong class="text-gray-100">12+ crewed missions</strong> during my chapter.</p>
 
       <ul class="list-disc list-inside space-y-1 text-sm text-gray-200 mt-3">
-        <li>Directed large-scale supply chain and process optimization for advanced space programs.</li>
-        <li>Founded and scaled a supply chain solutions startup with significant operational growth.</li>
+        <li>Directed large-scale supply chain, operations, and process optimization for advanced space programs.</li>
+        <li>Founded and scaled a supply chain &amp; operations solutions startup with significant operational growth.</li>
         <li>Managed multimillion-dollar contracts and multi-site operations across North and Latin America.</li>
         <li>Certified in Harvard Negotiation and Entrepreneurial Operations.</li>
         <li>Branding &amp; strategic naming (8+ registered trademarks).</li>
